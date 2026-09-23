@@ -1,51 +1,61 @@
 <!doctype html>
-<!-- mbmealprep.online BETA 4.0. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
+<!-- mbmealprep.online BETA 4.1. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SEY/bTSHscgxhxlrmqcGxw0uebOLEj7kwSiMloeYQyE='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-C4X/BmrfHTTl5G8rG14EKGtfxFTpIeA2KP976fOzJ34='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>mbmealprep.online | Meal prep, macros and grocery lists</title>
 <meta name="description" content="Plan your week of meals, hit your protein, carb and fat targets, and shop from a list sorted by store section. No account needed.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#3f6b2a">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Crect%20width=%2232%22%20height=%2232%22%20rx=%228%22%20fill=%22%23f1f5e4%22/%3E%3Cg%20transform=%22translate(16%2016.5)%20scale(1.12)%20translate(-16%20-17)%22%3E%3Cg%20transform=%22rotate(28%2016%2017)%22%3E%3Cpath%20d=%22M16%2010.5c-.2-3%20.3-5.4%202-7.2%201%202.2.6%204.6-.6%207.3z%22%20fill=%22%232f9e58%22/%3E%3Cpath%20d=%22M16%2010.5c-.3-2.8-1.9-4.7-4.6-5.6.1%202.7%201.7%204.9%204.2%206z%22%20fill=%22%233db66b%22/%3E%3Cpath%20d=%22M16%2010.8c1.4-2.2%203.4-3.2%206-3.3-.6%202.6-2.5%204.3-5.4%204.4z%22%20fill=%22%232f9e58%22/%3E%3Cpath%20d=%22M10.8%2013.2c0-2%202.3-2.9%205.2-2.9s5.2.9%205.2%202.9c0%202.4-2.6%2011.2-4.4%2015.3-.4.9-1.6.9-2%200-1.8-4.1-4-12.9-4-15.3z%22%20fill=%22%23f08a2c%22/%3E%3Cpath%20d=%22M13.4%2015.4h2.4M16.6%2019.4h2.2M14.2%2022.6h2%22%20stroke=%22%23c96a12%22%20stroke-width=%221.1%22%20stroke-linecap=%22round%22%20fill=%22none%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<meta name="theme-color" content="#0d6493">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Crect%20width=%2232%22%20height=%2232%22%20rx=%228%22%20fill=%22%23e3eff7%22/%3E%3Cg%20transform=%22translate(16%2016.5)%20scale(1.12)%20translate(-16%20-17)%22%3E%3Cg%20transform=%22rotate(28%2016%2017)%22%3E%3Cpath%20d=%22M16%2010.5c-.2-3%20.3-5.4%202-7.2%201%202.2.6%204.6-.6%207.3z%22%20fill=%22%232f9e58%22/%3E%3Cpath%20d=%22M16%2010.5c-.3-2.8-1.9-4.7-4.6-5.6.1%202.7%201.7%204.9%204.2%206z%22%20fill=%22%233db66b%22/%3E%3Cpath%20d=%22M16%2010.8c1.4-2.2%203.4-3.2%206-3.3-.6%202.6-2.5%204.3-5.4%204.4z%22%20fill=%22%232f9e58%22/%3E%3Cpath%20d=%22M10.8%2013.2c0-2%202.3-2.9%205.2-2.9s5.2.9%205.2%202.9c0%202.4-2.6%2011.2-4.4%2015.3-.4.9-1.6.9-2%200-1.8-4.1-4-12.9-4-15.3z%22%20fill=%22%23f08a2c%22/%3E%3Cpath%20d=%22M13.4%2015.4h2.4M16.6%2019.4h2.2M14.2%2022.6h2%22%20stroke=%22%23c96a12%22%20stroke-width=%221.1%22%20stroke-linecap=%22round%22%20fill=%22none%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
 <style>
+/* ---- theme: "Utility" — neutral desktop-software palette, one ocean-blue accent, light + dark ----
+   Shared with the rest of the app family (same geometry, neutrals, motion); only the accent differs. */
 :root {
   color-scheme: light;
-  --bg: #fdfdfd; --bg2: #f1f2f1; --bg3: #e7e7e6; --surface: #ffffff;
-  --ink: #1d221f; --ink2: #465049; --ink3: #66706a; --line: #dfe1de; --line2: #cdd1cc;
-  --accent: #3f6b2a; --accent-ink: #ffffff; --accent-soft: #d9e4ba; --accent-soft-ink: #2c4a1d;
-  --sky: #bde6ee; --apricot: #f7e0d0; --butter: #f9edcd; --sage: #a6aca3;
+  --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+  /* geometry: one radius for panels, one for controls */
+  --r: 6px; --r-sm: 4px; --ctl: 38px; --ctl-sm: 34px; --ease: 120ms ease;
+  --bg: #f3f4f6; --bg2: #f6f7f9; --bg3: #eceef2; --surface: #ffffff;
+  --ink: #1b1f24; --ink2: #48505c; --ink3: #5f6773; --line: #dfe2e7; --line2: #c6cbd3;
+  --accent: #0d6493; --accent-hover: #0a5379; --accent-ink: #ffffff; --accent-soft: #e6f0f7; --accent-soft-ink: #0a3f5e; --accent-line: rgba(13, 100, 147, .38);
+  --sky: #dcecf3; --apricot: #f7e0d0; --butter: #f9edcd; --sage: #9aa2ac;
   --c: #eb6834; --f: #1baf7a; --p: #2a78d6;
   --good: #2e6f34; --good-bg: #e3f0e1; --warn: #83560a; --warn-bg: #fbf0d3; --bad: #a8261e; --bad-bg: #fbe4e1;
-  --focus: #2a78d6;
-  --shadow: 0 1px 2px rgba(20, 30, 20, .05), 0 8px 24px rgba(20, 30, 20, .05);
-  --r: 16px;
-  --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --focus: var(--accent);
+  --shadow: 0 1px 2px rgba(20, 24, 31, .06);
+  --shadow-pop: 0 8px 24px -6px rgba(20, 24, 31, .22), 0 1px 3px rgba(20, 24, 31, .08);
+  --hover-band: rgba(20, 24, 31, .045);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #121512; --bg2: #181c19; --bg3: #232824; --surface: #1a1e1b;
-    --ink: #eef1ee; --ink2: #c4cbc5; --ink3: #9aa39c; --line: #2c332e; --line2: #3a423c;
-    --accent: #9ccb78; --accent-ink: #13200b; --accent-soft: #2a3a20; --accent-soft-ink: #d3e8bd;
-    --sky: #1f3b42; --apricot: #3d2c22; --butter: #3a3320; --sage: #6b746d;
+    --bg: #16181c; --bg2: #25292f; --bg3: #2d3238; --surface: #1e2126;
+    --ink: #e9ecf0; --ink2: #b4bbc5; --ink3: #8e97a3; --line: #30353c; --line2: #434a53;
+    --accent: #6fbde6; --accent-hover: #8fcdee; --accent-ink: #06202e; --accent-soft: #1b3140; --accent-soft-ink: #cde6f5; --accent-line: rgba(111, 189, 230, .45);
+    --sky: #1f3842; --apricot: #3d2c22; --butter: #3a3320; --sage: #6a737c;
     --c: #d95926; --f: #199e70; --p: #3987e5;
     --good: #86d391; --good-bg: #1f3322; --warn: #e8c36a; --warn-bg: #3a3117; --bad: #f2918a; --bad-bg: #3d201d;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3);
+    --shadow-pop: 0 10px 28px -6px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .03);
+    --hover-band: rgba(255, 255, 255, .05);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #121512; --bg2: #181c19; --bg3: #232824; --surface: #1a1e1b;
-  --ink: #eef1ee; --ink2: #c4cbc5; --ink3: #9aa39c; --line: #2c332e; --line2: #3a423c;
-  --accent: #9ccb78; --accent-ink: #13200b; --accent-soft: #2a3a20; --accent-soft-ink: #d3e8bd;
-  --sky: #1f3b42; --apricot: #3d2c22; --butter: #3a3320; --sage: #6b746d;
+  --bg: #16181c; --bg2: #25292f; --bg3: #2d3238; --surface: #1e2126;
+  --ink: #e9ecf0; --ink2: #b4bbc5; --ink3: #8e97a3; --line: #30353c; --line2: #434a53;
+  --accent: #6fbde6; --accent-hover: #8fcdee; --accent-ink: #06202e; --accent-soft: #1b3140; --accent-soft-ink: #cde6f5; --accent-line: rgba(111, 189, 230, .45);
+  --sky: #1f3842; --apricot: #3d2c22; --butter: #3a3320; --sage: #6a737c;
   --c: #d95926; --f: #199e70; --p: #3987e5;
   --good: #86d391; --good-bg: #1f3322; --warn: #e8c36a; --warn-bg: #3a3117; --bad: #f2918a; --bad-bg: #3d201d;
-  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3);
+  --shadow-pop: 0 10px 28px -6px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .03);
+  --hover-band: rgba(255, 255, 255, .05);
 }
 
 * { box-sizing: border-box; }
@@ -244,7 +254,6 @@ details.fine { margin: 10px 0; } details summary { cursor: pointer; font-weight:
 /* ---------- planner ---------- */
 .target-strip { display: flex; gap: 28px; flex-wrap: wrap; padding: 14px 20px; align-items: center; background: var(--butter); border-color: transparent; box-shadow: none; color: #3d3210; }
 .target-strip small { display: block; font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 700; opacity: .8; } .target-strip b { font-size: 1.05rem; }
-:root[data-theme="dark"] .target-strip { color: #f0dfa5; } @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .target-strip { color: #f0dfa5; } }
 .mode-row { margin: 12px 0; }
 .pgrid { display: grid; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); margin-bottom: 18px; }
 .prow { display: grid; grid-template-columns: 118px repeat(var(--cols), minmax(150px, 1fr)) minmax(196px, 1.1fr); border-bottom: 1px solid var(--line); } .prow:last-child { border-bottom: 0; }
@@ -440,9 +449,9 @@ kbd { font: 600 .72rem var(--font); border: 1px solid var(--line2); border-botto
 .ps .d { display: none; width: .62em; height: .62em; border-radius: 50%; margin-right: .3em; vertical-align: .04em; }
 .ps.color, .ps.color * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 .ps.color .d { display: inline-block; } .ps.color .d-c { background: #d95926; } .ps.color .d-f { background: #199e70; } .ps.color .d-p { background: #2a78d6; }
-.ps.color h1, .ps.color h2 { color: #2c4a1d; } .ps.color h2 { border-bottom-color: #3f6b2a; }
-.ps.color .ps-nutri { background: #eef3e2; border-top-color: #3f6b2a; border-bottom-color: #a9c48a; padding-inline: .6em; }
-.ps.color .ps-ing li { border-bottom-color: #c9d6b0; } .ps.color .box { border-color: #3f6b2a; }
+.ps.color h1, .ps.color h2 { color: #0a3f5e; } .ps.color h2 { border-bottom-color: #0d6493; }
+.ps.color .ps-nutri { background: #e8f2f9; border-top-color: #0d6493; border-bottom-color: #9cc3dd; padding-inline: .6em; }
+.ps.color .ps-ing li { border-bottom-color: #c3dbeb; } .ps.color .box { border-color: #0d6493; }
 .ps.bw, .ps.bw * { color: #000 !important; background: none !important; }
 .ps.bw h2, .ps.bw .ps-nutri { border-color: #000; } .ps.bw .ps-ing li { border-bottom-color: #666; } .ps.bw .ps-foot { border-top-color: #000; } .ps.bw .box { border-color: #000; }
 
@@ -522,6 +531,232 @@ footer a { padding: 0 2px; }
 .about-h { flex-wrap: wrap; overflow-wrap: anywhere; } .about-h svg { flex: none; }
 @media (max-width: 400px) { .about-h { font-size: 1.5rem; } }
 
+
+/* =====================================================================
+   UTILITY THEME — desktop-software look shared across the app family.
+   Loaded last; overrides the earlier decorative layer (pills, blur,
+   lifts, long animations). Geometry: --r panels, --r-sm controls.
+   Motion: <=120ms, no transforms.
+   ===================================================================== */
+body { font-size: 14px; line-height: 1.45; background: var(--bg); }
+h1, h2, h3, h4 { font-weight: 650; letter-spacing: -.005em; }
+h1 { font-size: clamp(21px, 2.4vw, 24px); letter-spacing: -.015em; }
+h2 { font-size: 16.5px; } h3 { font-size: 15px; font-weight: 600; } h4 { font-size: 14px; font-weight: 600; }
+.lead { font-size: 15px; }
+::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: var(--r-sm); }
+code, kbd { border-radius: 3px; }
+.skip { border-radius: var(--r-sm); }
+.tile b, .kpi b, .tk b, .pctsum b, .done-kpis b, .table .num, .table td, .mtable td, .gamt, .stepper output, .target-strip b { font-variant-numeric: tabular-nums; }
+
+/* --- motion: no lifts, no bounce, no entrance choreography --- */
+.btn, .tab, .chipbtn, .seg button, .btype, .gcard, .feat, .ritem, .tile, .sitem, .totop, .radio, input, select, textarea {
+  transition: background-color var(--ease), border-color var(--ease), color var(--ease), box-shadow var(--ease);
+}
+.btn:active, .tab:active, .totop:hover, .totop:active, .brand:hover .logo { transform: none; }
+.tab.on:hover, .ritem.on:hover, .btype.on:hover, .chipbtn.on:hover, .gcard.on:hover, .feat.on:hover, .btn.on:hover, .seg button.on:hover,
+.wchart g:hover .bar, .wchart g:focus .bar, .btn.primary:hover, .linkbtn:hover { filter: none; }
+:root[data-theme="dark"] :is(.tab, .ritem, .btype, .chipbtn, .gcard, .feat, .btn, .seg button).on:hover { filter: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) :is(.tab, .ritem, .btype, .chipbtn, .gcard, .feat, .btn, .seg button).on:hover { filter: none; } }
+.wchart g:hover .bar, .wchart g:focus .bar { fill: var(--accent-hover); }
+.linkbtn:hover { color: var(--accent-hover); }
+#view.view-in { animation: fadein .12s ease backwards; }
+.tiles > * { animation: none; }
+.toast { animation: fadein .12s ease; } .toast.out { transition: opacity .15s; }
+.notice { animation: fadein .15s ease; }
+.done-badge { animation: fadein .15s ease backwards; }
+body.menu-open #nav { animation: fadein .12s ease; }
+.moremenu .menu { animation: none; }
+.clbar span { transition: width .15s ease; }
+
+/* --- header: solid app bar + underline tabs --- */
+#appbar { background: var(--surface); backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 1px solid var(--line); box-shadow: var(--shadow); transition: box-shadow var(--ease); }
+#appbar.stuck { box-shadow: 0 2px 10px rgba(20, 24, 31, .08); }
+.brand { gap: 9px; font-weight: 650; font-size: 14.5px; }
+.beta { white-space: nowrap; border-radius: 3px; font-size: 10.5px; font-weight: 650; padding: 1px 6px; }
+#progress { height: 2px; }
+#progress i { background: var(--accent); border-radius: 0; }
+@media (min-width: 721px) {
+  #appbar { padding-top: 0; padding-bottom: 0; align-items: stretch; min-height: 52px; }
+  .brand, .bar-actions { align-self: center; }
+  .brand { min-height: 48px; }
+  #nav { padding: 0; gap: 0; align-items: stretch; }
+  .tab { position: relative; border-radius: 0; padding: 0 11px; min-height: 48px; font-size: 13.5px; font-weight: 500; color: var(--ink2); background: none; }
+  .tab:hover { background: var(--bg2); color: var(--ink); }
+  .tab.on, .tab.on:hover { background: none; color: var(--accent); font-weight: 600; box-shadow: inset 0 -2px 0 var(--accent); }
+  .tab:focus-visible { outline-offset: -2px; border-radius: 0; }
+}
+@media (max-width: 1140px) and (min-width: 721px) { #nav { border-top: 1px solid var(--line); } }
+@media (max-width: 720px) {
+  #nav { box-shadow: var(--shadow-pop); border-bottom-color: var(--line2); padding: 6px 8px 10px; }
+  #nav .tab { border-radius: var(--r-sm); font-size: 15px; font-weight: 500; }
+  #nav .tab.on, #nav .tab.on:hover { background: var(--accent-soft); color: var(--accent-soft-ink); font-weight: 600; box-shadow: inset 3px 0 0 var(--accent); }
+  body.menu-open::before { background: rgba(10, 12, 16, .4); }
+}
+
+/* --- page structure --- */
+main#view { padding-top: 20px; padding-bottom: 48px; }
+.page-head { margin-bottom: 14px; }
+.page-head p { font-size: 13.5px; }
+footer { font-size: 12px; background: var(--surface); }
+
+/* --- buttons --- */
+.btn { border-radius: var(--r-sm); min-height: var(--ctl); padding: 0 14px; font: 550 13.5px var(--font); border-color: var(--line2); background: var(--surface); color: var(--ink); box-shadow: none; }
+.btn:hover { background: var(--bg2); border-color: color-mix(in srgb, var(--ink) 30%, var(--line2)); }
+.btn:active { background: var(--bg3); }
+.btn.sm { min-height: var(--ctl-sm); padding: 0 10px; font-size: 13px; border-radius: var(--r-sm); }
+.btn.icon { width: var(--ctl); padding: 0; } .btn.icon.sm { width: var(--ctl-sm); }
+.btn.big { min-height: 44px; padding: 0 20px; font-size: 14.5px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn.primary:active { filter: brightness(.94); }
+.btn.danger { background: var(--bad); border-color: var(--bad); color: #fff; }
+.btn.danger:hover { background: color-mix(in srgb, var(--bad) 88%, #000); }
+.btn.danger-o { background: var(--surface); color: var(--bad); border-color: color-mix(in srgb, var(--bad) 45%, var(--line2)); }
+.btn.danger-o:hover { background: var(--bad-bg); border-color: var(--bad); }
+.btn.ghost, .btn.ghost.dg { background: transparent; border-color: transparent; }
+.btn.ghost:hover { background: var(--bg2); border-color: transparent; }
+.btn.ghost.dg:hover { background: var(--bad-bg); }
+.btn.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-soft-ink); }
+.btn[disabled], .btn[disabled]:hover { opacity: 1; background: var(--bg2); border-color: var(--line); color: var(--ink3); cursor: not-allowed; }
+.btn.primary[disabled], .btn.primary[disabled]:hover { background: color-mix(in srgb, var(--accent) 35%, var(--bg2)); border-color: transparent; color: color-mix(in srgb, var(--accent-ink) 85%, transparent); }
+.btn.left { border-radius: var(--r-sm); }
+.toast .tundo { border-radius: var(--r-sm); min-height: 32px; }
+
+/* toggle chips & segmented controls */
+.chip { border-radius: 3px; font-size: 11.5px; font-weight: 600; padding: 2px 7px; }
+.chip.src { border-color: var(--line2); }
+.chipbtn { border-radius: var(--r-sm); min-height: var(--ctl-sm); padding: 0 11px; font: 500 13px var(--font); border-color: var(--line2); }
+.chipbtn:hover { border-color: var(--accent); color: var(--ink); background: var(--bg2); }
+.chipbtn.on, .chipbtn.on:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-soft-ink); font-weight: 600; }
+.seg:not(circle) { border-radius: var(--r-sm); padding: 2px; gap: 2px; background: var(--bg2); border-color: var(--line2); }
+.seg button { border-radius: 3px; min-height: calc(var(--ctl) - 6px); padding: 0 12px; font: 500 13px var(--font); }
+.seg button.on, .seg button.on:hover { background: var(--accent); color: var(--accent-ink); box-shadow: none; font-weight: 600; }
+
+/* --- forms --- */
+.fld > span, .fld > legend { font-size: 12.5px; font-weight: 550; }
+input, select, textarea { border-radius: var(--r-sm); border-color: var(--line2); padding: 6px 10px; min-height: var(--ctl); font-size: 14px; }
+input:hover:not(:focus):not(:disabled), select:hover:not(:focus):not(:disabled), textarea:hover:not(:focus) { border-color: color-mix(in srgb, var(--ink) 35%, var(--line2)); }
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+input::placeholder, textarea::placeholder { color: var(--ink3); opacity: .85; }
+.table select, .multi input, .sv .serv { border-radius: var(--r-sm); }
+.hint { border-radius: 3px; }
+.radio { border-radius: var(--r-sm); border-color: var(--line2); }
+.radio:hover { border-color: color-mix(in srgb, var(--ink) 35%, var(--line2)); }
+.radio:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.drop { border-radius: var(--r); border-width: 1px; }
+.search .ic { top: 50%; transform: translateY(-50%); }
+
+/* --- cards / panels --- */
+.card { border-radius: var(--r); padding: 16px; margin-bottom: 14px; }
+.card.soft { background: var(--bg2); }
+.card-head h2, details.card summary { font-size: 15px; font-weight: 600; }
+.grid-2 { gap: 14px; } .two-col { gap: 16px; } .tiles { gap: 12px; margin-bottom: 16px; }
+.tile { border-radius: var(--r); padding: 14px 16px; }
+.tile:hover { border-color: var(--accent-line); background: var(--bg2); }
+.tile small { font-size: 11.5px; font-weight: 600; }
+.tile b { font-size: 26px; font-weight: 650; letter-spacing: -.02em; }
+.tile span { font-size: 12.5px; }
+.kpi { border-radius: var(--r); background: var(--bg2); }
+.kpi small { font-size: 11px; font-weight: 600; }
+.kpi.hero { background: var(--accent-soft); color: var(--ink); box-shadow: inset 3px 0 0 var(--accent); }
+.kpi.hero small, .kpi.hero span { color: var(--accent-soft-ink); opacity: 1; }
+.note { border-radius: var(--r-sm); font-size: 13.5px; box-shadow: inset 3px 0 0 var(--line2); }
+.note.warn { box-shadow: inset 3px 0 0 color-mix(in srgb, var(--warn) 70%, transparent); }
+.note.err { box-shadow: inset 3px 0 0 var(--bad); }
+.note.ok { box-shadow: inset 3px 0 0 var(--good); }
+.note.demo { box-shadow: inset 3px 0 0 var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
+.chip.demo { border-radius: 3px; }
+.empty { border-radius: var(--r); background: var(--bg2); padding: 36px 20px; }
+.empty-ic { border-radius: var(--r); width: 48px; height: 48px; }
+.legal-short { border-radius: var(--r); }
+.results { border-color: var(--line); }
+
+/* --- tables & lists --- */
+.table { font-size: 13.5px; }
+.table thead th, .mtable thead th { font-size: 11px; font-weight: 600; background: var(--bg2); color: var(--ink2); border-bottom: 1px solid var(--line2); }
+.table th, .table td { padding: 7px 10px; }
+.table tbody tr:hover td { background: var(--hover-band); }
+.mtable th, .mtable td { padding: 6px 8px; }
+.cbox { border-radius: var(--r-sm); width: 20px; height: 20px; }
+.gcheck .box { border-radius: var(--r-sm); }
+.gitem:hover { background: var(--hover-band); }
+.slot, .phead, .sgroup { font-size: 11px; font-weight: 600; }
+
+/* --- macro bars & progress: flat, squared --- */
+.dot { border-radius: 2px; }
+.mbar { border-radius: 2px; } .mbar span { border-radius: 1px; }
+.wiz-progress i, .gprog .bar, .clbar { border-radius: 2px; }
+.gprog .bar span, .clbar span { border-radius: 0; }
+.chartkey .swatch { border-radius: 2px; }
+
+/* --- goals / setup wizard --- */
+.stepno { border-radius: var(--r-sm); font-weight: 650; }
+.btype, .gcard, .feat { border-width: 1px; border-color: var(--line2); border-radius: var(--r); }
+.btype:hover, .gcard:hover, .feat:hover { border-color: color-mix(in srgb, var(--ink) 35%, var(--line2)); background: var(--bg2); }
+.btype.on, .gcard.on, .feat.on, .feat.locked,
+.btype.on:hover, .gcard.on:hover, .feat.on:hover { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+.feat .tick { border-radius: var(--r-sm); }
+.wiz-card { border-radius: 8px; }
+.done-badge { border-radius: 8px; width: 64px; height: 64px; }
+.done-kpis > div { border-radius: var(--r); }
+.done-kpis > div:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+
+/* --- recipes --- */
+.rlist-wrap, .rdetail { border-radius: var(--r); }
+.rfilters { padding: 10px; }
+.ritem { padding: 10px 12px; border-left-width: 3px; }
+.ritem:hover { background: var(--bg2); }
+.ritem.on, .ritem.on:hover { background: var(--accent-soft); }
+.rt b { font-size: 14px; font-weight: 600; }
+.rd-head h2 { font-size: 22px; font-weight: 650; letter-spacing: -.015em; }
+.steps li::marker { font-weight: 650; }
+
+/* --- planner --- */
+.target-strip { background: var(--accent-soft); border: 1px solid var(--accent-line); border-left: 3px solid var(--accent); color: var(--ink); padding: 12px 16px; gap: 24px; }
+.target-strip small { color: var(--accent-soft-ink); font-size: 11px; font-weight: 600; opacity: 1; }
+.pgrid { border-radius: var(--r); }
+.prow.today { background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+.prow.today .pday { box-shadow: inset 3px 0 0 var(--accent); }
+.pslot .pick { border-radius: var(--r-sm); }
+@media (max-width: 960px) { .prow { border-radius: var(--r); } }
+
+/* --- grocery --- */
+.gsec { border-radius: var(--r); }
+.gsec h3 { background: var(--bg2); color: var(--ink2); border-bottom: 1px solid var(--line); font-size: 11.5px; font-weight: 600; letter-spacing: .06em; padding: 9px 14px; }
+
+/* --- overlays: dialog, search, menus, toasts --- */
+dialog { border-radius: 8px; box-shadow: var(--shadow-pop); border: 1px solid var(--line); }
+dialog::backdrop { background: rgba(10, 12, 16, .45); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.dlg-body { padding: 20px; }
+.dlg-head h3 { font-size: 17px; }
+.dlg-actions { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 16px; }
+.sbar { padding: 8px 14px; }
+.sitem { border-radius: var(--r-sm); padding: 8px 10px; }
+.sitem:hover, .sitem.on { box-shadow: inset 2px 0 0 var(--accent); }
+.moremenu .menu { border-radius: var(--r); box-shadow: var(--shadow-pop); padding: 4px; }
+.toast { border-radius: var(--r); box-shadow: var(--shadow-pop); font-size: 13.5px; }
+#tip { border-radius: var(--r-sm); }
+.totop { border-radius: var(--r); width: 40px; height: 40px; box-shadow: var(--shadow-pop); }
+.totop:hover { background: var(--bg2); color: var(--ink); border-color: var(--line2); box-shadow: var(--shadow-pop); }
+.notice { box-shadow: 0 -4px 16px rgba(20, 24, 31, .1); }
+.sk { border-radius: var(--r-sm); }
+mark { border-radius: 2px; }
+
+/* keep the original layouts that the .card padding reset above would flatten */
+.card.step { padding-left: 64px; } .stepno { left: 16px; top: 16px; }
+@media (max-width: 960px) { .card.step { padding-left: 16px; padding-top: 58px; } }
+:where(svg).ic { color: inherit; } /* small icons were picking up the search panel's .sm text colour */
+.btn.searchbtn, .btn.sm.searchbtn { font-size: 0; gap: 0; padding-inline: 10px; }
+
+/* --- touch & small screens: keep 44px targets, avoid iOS input zoom --- */
+@media (pointer: coarse), (max-width: 700px) {
+  :root { --ctl: 44px; --ctl-sm: 44px; }
+  .seg button { min-height: 44px; }
+}
+@media (pointer: coarse) { input, select, textarea { font-size: 16px; } }
+@media (max-width: 560px) { .card { padding: 14px; } .tile b { font-size: 22px; } }
+@media print { .kpi.hero, .note, .target-strip, .prow.today .pday { box-shadow: none; } }
 </style>
 </head>
 <body>
@@ -530,7 +765,7 @@ footer a { padding: 0 2px; }
   <button id="menuBtn" class="btn icon ghost" data-act="menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav"></button>
   <a class="brand" href="#/home" aria-label="mbmealprep.online home">
     <svg class="logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><g transform="translate(16 16.5) scale(1.12) translate(-16 -17)"><g transform="rotate(28 16 17)"><path d="M16 10.5c-.2-3 .3-5.4 2-7.2 1 2.2.6 4.6-.6 7.3z" fill="#2f9e58"/><path d="M16 10.5c-.3-2.8-1.9-4.7-4.6-5.6.1 2.7 1.7 4.9 4.2 6z" fill="#3db66b"/><path d="M16 10.8c1.4-2.2 3.4-3.2 6-3.3-.6 2.6-2.5 4.3-5.4 4.4z" fill="#2f9e58"/><path d="M10.8 13.2c0-2 2.3-2.9 5.2-2.9s5.2.9 5.2 2.9c0 2.4-2.6 11.2-4.4 15.3-.4.9-1.6.9-2 0-1.8-4.1-4-12.9-4-15.3z" fill="#f08a2c"/><path d="M13.4 15.4h2.4M16.6 19.4h2.2M14.2 22.6h2" stroke="#c96a12" stroke-width="1.1" stroke-linecap="round" fill="none"/></g></g></svg>
-    <span class="nm">mbmealprep.online</span><span class="beta">BETA 4.0</span>
+    <span class="nm">mbmealprep.online</span><span class="beta">BETA 4.1</span>
   </a>
   <nav id="nav" aria-label="Main"></nav>
   <div class="bar-actions">
@@ -542,7 +777,7 @@ footer a { padding: 0 2px; }
   <div id="progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
 </header>
 <main id="view" tabindex="-1"><div class="skel" aria-hidden="true"><i class="sk sk-h"></i><i class="sk sk-p"></i><div class="sk-grid"><i class="sk sk-c"></i><i class="sk sk-c"></i><i class="sk sk-c"></i></div></div><noscript><p style="padding:24px">This app needs JavaScript to run.</p></noscript></main>
-<footer>© 2026 Matthew Broyer · mbmealprep.online BETA 4.0 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
+<footer>© 2026 Matthew Broyer · mbmealprep.online BETA 4.1 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
 <div id="printSheet" aria-hidden="true"></div>
 <button id="toTop" class="totop" data-act="toTop" aria-label="Back to top" hidden></button>
 <aside id="notice" class="notice" role="region" aria-label="Privacy notice" hidden></aside>
@@ -554,7 +789,7 @@ footer a { padding: 0 2px; }
 <script>
 'use strict';
 /* ==========================================================================
-   mbmealprep.online  BETA 4.0  -  helpers
+   mbmealprep.online  BETA 4.1  -  helpers
    ========================================================================== */
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -1433,7 +1668,7 @@ zip-top bags|box`;
    Reference data: units, sections, days, ingredient library helpers
    ========================================================================== */
 const DEMO_UPDATED = '2026-09-20T12:00:00.000Z';
-const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'BETA 4.0', year: 2026, released: '2026-09-20' };
+const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'BETA 4.1', year: 2026, released: '2026-09-23' };
 
 /* Optional support links (leave blank to hide the buttons) */
 const CONFIG = { issueUrl: '', supportUrl: '', siteUrl: '' };
@@ -3262,6 +3497,10 @@ document.addEventListener('submit', e => {
    Release notes + license text
    ========================================================================== */
 const RELEASES = [
+  { v: 'BETA 4.1', date: 'September 23, 2026', tag: 'Theme update', notes: [
+    'New ocean-blue accent color in light and dark mode, with cooler neutral grays to match.',
+    'Color recipe printouts, the browser bar color and the app icon background follow the new blue.',
+  ] },
   { v: 'BETA 4.0', date: 'September 20, 2026', tag: 'Web app release', notes: [
     'Renamed from The Pantry Partner to mbmealprep.online. Your recipes, plan and settings carry over, and old CSV backups still import.',
     'Rebuilt as a web app: no accounts, no formulas to break. Your data saves in your browser and moves anywhere as one CSV, with preview, merge or replace, and paste from Excel or Sheets.',
@@ -3289,7 +3528,7 @@ const LICENSE = {
   title: `Custom License Agreement for ${APP.name} © ${APP.year} (Web Application)`,
   updated: 'September 20, 2026',
   sections: [
-    ['1. Definitions', ['"Work" means the ' + APP.name + ' web application (formerly The Pantry Partner), including its code, design, text, layout, and built-in ingredient library, in every version (including BETA 4.0). "Licensor" means Matthew Charles Broyer. "Licensee" or "you" means the person using the Work. "Your Content" means the recipes, meal plans, health inputs, notes, grocery items and other data you type in or import.']],
+    ['1. Definitions', ['"Work" means the ' + APP.name + ' web application (formerly The Pantry Partner), including its code, design, text, layout, and built-in ingredient library, in every version (including BETA 4.1). "Licensor" means Matthew Charles Broyer. "Licensee" or "you" means the person using the Work. "Your Content" means the recipes, meal plans, health inputs, notes, grocery items and other data you type in or import.']],
     ['2. Grant of License', ['Licensor grants you a non-exclusive, revocable, non-transferable license to access and use the Work in a web browser for personal or internal business purposes only. The Work is intended for adults aged 18 and over.']],
     ['3. Your Content and Privacy', ['You own Your Content. The Work has no accounts. It stores Your Content locally, in your browser’s storage on your own device and in any CSV files you export. The Work itself does not send Your Content to Licensor.', 'Clearing your browser data, switching browsers or devices, or private browsing can erase what the Work has stored. Export a CSV backup regularly. Licensor cannot recover data that only exists on your device.', 'Any analytics, logging or cookies operated by the website that hosts the Work are outside this Agreement.']],
     ['4. Permitted Uses', ['You may use the Work, and export, print, copy and back up Your Content, as often as you like. You may share a CSV of your own recipes and plans with anyone you choose.']],
