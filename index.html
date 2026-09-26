@@ -1,16 +1,20 @@
 <!doctype html>
-<!-- mbmealprep.online BETA 4.1. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
+<!-- mbmealprep.online BETA 4.2. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-C4X/BmrfHTTl5G8rG14EKGtfxFTpIeA2KP976fOzJ34='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-mc+knTOq6gjY6/B4hpNDBwGn/ngeSjUDQwHu9Eh6im4='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>mbmealprep.online | Meal prep, macros and grocery lists</title>
 <meta name="description" content="Plan your week of meals, hit your protein, carb and fat targets, and shop from a list sorted by store section. No account needed.">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light">
 <meta name="theme-color" content="#0d6493">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Crect%20width=%2232%22%20height=%2232%22%20rx=%228%22%20fill=%22%23e3eff7%22/%3E%3Cg%20transform=%22translate(16%2016.5)%20scale(1.12)%20translate(-16%20-17)%22%3E%3Cg%20transform=%22rotate(28%2016%2017)%22%3E%3Cpath%20d=%22M16%2010.5c-.2-3%20.3-5.4%202-7.2%201%202.2.6%204.6-.6%207.3z%22%20fill=%22%232f9e58%22/%3E%3Cpath%20d=%22M16%2010.5c-.3-2.8-1.9-4.7-4.6-5.6.1%202.7%201.7%204.9%204.2%206z%22%20fill=%22%233db66b%22/%3E%3Cpath%20d=%22M16%2010.8c1.4-2.2%203.4-3.2%206-3.3-.6%202.6-2.5%204.3-5.4%204.4z%22%20fill=%22%232f9e58%22/%3E%3Cpath%20d=%22M10.8%2013.2c0-2%202.3-2.9%205.2-2.9s5.2.9%205.2%202.9c0%202.4-2.6%2011.2-4.4%2015.3-.4.9-1.6.9-2%200-1.8-4.1-4-12.9-4-15.3z%22%20fill=%22%23f08a2c%22/%3E%3Cpath%20d=%22M13.4%2015.4h2.4M16.6%2019.4h2.2M14.2%2022.6h2%22%20stroke=%22%23c96a12%22%20stroke-width=%221.1%22%20stroke-linecap=%22round%22%20fill=%22none%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Crect%20width=%2232%22%20height=%2232%22%20rx=%227%22%20fill=%22%230d6493%22/%3E%3Cg%20transform=%22translate%286%206%29%20scale%28.8333%29%22%20fill=%22none%22%20stroke=%22%23fff%22%20stroke-width=%222.2%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%3E%3Cpath%20d=%22M4%2020L10.4%209.4A3%203%200%200%201%2014.6%2013.6Z%22/%3E%3Cpath%20d=%22M8.5%2012.5l1.8%201.8M6.4%2016l1.4%201.4%22/%3E%3Cpath%20d=%22M15%209l4.5-4.5M15%209c-.6-2-.2-3.8%201-5.2M15%209c2%20.6%203.8.2%205.2-1%22/%3E%3C/g%3E%3C/svg%3E">
+<script>
+/* Load light unless dark was chosen last time (ecosystem rule). Runs before first paint. */
+(function(){var t='light';try{var s=JSON.parse(localStorage.getItem('pantryPartner.beta4')||'null');if(s&&s.settings&&s.settings.theme==='dark')t='dark';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
+</script>
 <style>
 /* ---- theme: "Utility" — neutral desktop-software palette, one ocean-blue accent, light + dark ----
    Shared with the rest of the app family (same geometry, neutrals, motion); only the accent differs. */
@@ -24,7 +28,9 @@
   --ink: #1b1f24; --ink2: #48505c; --ink3: #5f6773; --line: #dfe2e7; --line2: #c6cbd3;
   --accent: #0d6493; --accent-hover: #0a5379; --accent-ink: #ffffff; --accent-soft: #e6f0f7; --accent-soft-ink: #0a3f5e; --accent-line: rgba(13, 100, 147, .38);
   --sky: #dcecf3; --apricot: #f7e0d0; --butter: #f9edcd; --sage: #9aa2ac;
-  --c: #eb6834; --f: #1baf7a; --p: #2a78d6;
+  /* macro series follow the accent: protein = accent, carbs = warm ochre, fats = slate (green is reserved for 'on target') */
+  --c: #b07a1f; --f: #6b7684; --p: #0d6493;
+  --warn-dot: #d99a00;
   --good: #2e6f34; --good-bg: #e3f0e1; --warn: #83560a; --warn-bg: #fbf0d3; --bad: #a8261e; --bad-bg: #fbe4e1;
   --focus: var(--accent);
   --shadow: 0 1px 2px rgba(20, 24, 31, .06);
@@ -38,7 +44,7 @@
     --ink: #e9ecf0; --ink2: #b4bbc5; --ink3: #8e97a3; --line: #30353c; --line2: #434a53;
     --accent: #6fbde6; --accent-hover: #8fcdee; --accent-ink: #06202e; --accent-soft: #1b3140; --accent-soft-ink: #cde6f5; --accent-line: rgba(111, 189, 230, .45);
     --sky: #1f3842; --apricot: #3d2c22; --butter: #3a3320; --sage: #6a737c;
-    --c: #d95926; --f: #199e70; --p: #3987e5;
+    --c: #d9a24a; --f: #8a94a1; --p: #6fbde6; --warn-dot: #e8c36a;
     --good: #86d391; --good-bg: #1f3322; --warn: #e8c36a; --warn-bg: #3a3117; --bad: #f2918a; --bad-bg: #3d201d;
     --shadow: 0 1px 2px rgba(0, 0, 0, .3);
     --shadow-pop: 0 10px 28px -6px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .03);
@@ -51,7 +57,7 @@
   --ink: #e9ecf0; --ink2: #b4bbc5; --ink3: #8e97a3; --line: #30353c; --line2: #434a53;
   --accent: #6fbde6; --accent-hover: #8fcdee; --accent-ink: #06202e; --accent-soft: #1b3140; --accent-soft-ink: #cde6f5; --accent-line: rgba(111, 189, 230, .45);
   --sky: #1f3842; --apricot: #3d2c22; --butter: #3a3320; --sage: #6a737c;
-  --c: #d95926; --f: #199e70; --p: #3987e5;
+  --c: #d9a24a; --f: #8a94a1; --p: #6fbde6; --warn-dot: #e8c36a;
   --good: #86d391; --good-bg: #1f3322; --warn: #e8c36a; --warn-bg: #3a3117; --bad: #f2918a; --bad-bg: #3d201d;
   --shadow: 0 1px 2px rgba(0, 0, 0, .3);
   --shadow-pop: 0 10px 28px -6px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .03);
@@ -448,7 +454,7 @@ kbd { font: 600 .72rem var(--font); border: 1px solid var(--line2); border-botto
 .printmode { border: 0; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; } .printmode legend { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink3); padding: 0; margin-bottom: 6px; }
 .ps .d { display: none; width: .62em; height: .62em; border-radius: 50%; margin-right: .3em; vertical-align: .04em; }
 .ps.color, .ps.color * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-.ps.color .d { display: inline-block; } .ps.color .d-c { background: #d95926; } .ps.color .d-f { background: #199e70; } .ps.color .d-p { background: #2a78d6; }
+.ps.color .d { display: inline-block; } .ps.color .d-c { background: #b07a1f; } .ps.color .d-f { background: #6b7684; } .ps.color .d-p { background: #0d6493; }
 .ps.color h1, .ps.color h2 { color: #0a3f5e; } .ps.color h2 { border-bottom-color: #0d6493; }
 .ps.color .ps-nutri { background: #e8f2f9; border-top-color: #0d6493; border-bottom-color: #9cc3dd; padding-inline: .6em; }
 .ps.color .ps-ing li { border-bottom-color: #c3dbeb; } .ps.color .box { border-color: #0d6493; }
@@ -757,30 +763,185 @@ mark { border-radius: 2px; }
 @media (pointer: coarse) { input, select, textarea { font-size: 16px; } }
 @media (max-width: 560px) { .card { padding: 14px; } .tile b { font-size: 22px; } }
 @media print { .kpi.hero, .note, .target-strip, .prow.today .pday { box-shadow: none; } }
+
+/* =====================================================================
+   APP-FAMILY COMPONENTS (BETA 4.2) — shared logo badge, light/dark switch,
+   Data menu + "backed up" chip, phone bottom nav. Same markup and sizes as
+   the other apps; only --accent differs.
+   ===================================================================== */
+/* logo badge: --r square, accent fill, one-colour glyph (accent-ink = white in light) */
+.logo { display: inline-grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: var(--r); background: var(--accent); color: var(--accent-ink); vertical-align: middle; }
+.logo > svg, :is(.brand, .brandmini, .about-h, .hero-logo, .wiz-top) .logo > svg { width: 64%; height: 64%; display: block; color: inherit; }
+.brand .logo, .brand:hover .logo { transform: none; transition: none; }
+.hero-logo .logo { border-radius: 8px; }
+
+/* light/dark switch */
+.themesw { display: inline-flex; align-items: center; flex: none; padding: 0; border: 0; background: none; cursor: pointer; border-radius: var(--r-sm); color: var(--ink2); }
+.themesw .tk { position: relative; display: block; width: 52px; height: 26px; border-radius: var(--r-sm); background: var(--bg3); border: 1px solid var(--line2); transition: background-color var(--ease), border-color var(--ease); }
+.themesw .th { position: absolute; left: 2px; top: 2px; width: 22px; height: 20px; border-radius: 3px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; transition: transform var(--ease); }
+.themesw .th .ic { width: 12px; height: 12px; }
+.themesw[aria-checked="true"] .th { transform: translateX(24px); }
+.themesw:hover .tk { border-color: color-mix(in srgb, var(--ink) 35%, var(--line2)); }
+.themesw:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* header actions share one compact height */
+.bar-actions > .btn, .bar-actions > .bk-chip, .datamenu > summary { min-height: var(--ctl-sm); }
+#storageBadge { align-self: center; }
+
+/* "backed up" chip */
+.bk-chip { display: inline-flex; align-items: center; gap: 6px; min-height: var(--ctl-sm); padding: 0 10px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg2); color: var(--ink2); font: 500 12.5px var(--font); white-space: nowrap; cursor: pointer; transition: background-color var(--ease), border-color var(--ease), color var(--ease); }
+.bk-chip:hover { background: var(--bg3); color: var(--ink); border-color: var(--line2); }
+.bk-chip.warn { background: var(--warn-bg); color: var(--warn); border-color: color-mix(in srgb, var(--warn-dot) 55%, transparent); }
+.bk-chip.warn:hover { border-color: var(--warn-dot); }
+.bk-chip[hidden] { display: none; }
+
+/* Data menu (details dropdown) */
+.datamenu > summary { gap: 6px; position: relative; }
+.datamenu > summary::after { content: ''; width: 7px; height: 7px; margin: -3px 0 0 1px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); opacity: .6; }
+.datamenu[open] > summary, .datamenu.on > summary { background: var(--accent-soft); border-color: var(--accent-line); color: var(--accent-soft-ink); }
+.bk-dot { display: none; position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; border-radius: 2px; background: var(--warn-dot); box-shadow: 0 0 0 2px var(--surface); }
+.moremenu .dm-menu { min-width: 290px; padding: 6px; gap: 2px; }
+.dm-menu .btn { justify-content: flex-start; width: 100%; min-height: var(--ctl); }
+.dm-menu .btn.primary { margin-bottom: 4px; }
+.dm-menu .btn kbd { margin: 0 0 0 auto; background: color-mix(in srgb, var(--accent-ink) 18%, transparent); border-color: color-mix(in srgb, var(--accent-ink) 35%, transparent); color: inherit; }
+.dm-foot { margin-top: 4px; padding: 10px 8px 4px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink3); display: grid; gap: 6px; }
+.dm-foot p { margin: 0; display: flex; gap: 6px; align-items: flex-start; } .dm-foot p .ic { margin-top: 2px; }
+.dm-foot p:first-child { color: var(--ink2); font-weight: 600; } .dm-foot .bk-warn { color: var(--warn) !important; }
+.dm-foot b { color: var(--ink); font-weight: 600; overflow-wrap: anywhere; }
+.dm-foot .linkbtn { font-size: inherit; padding: 0; }
+.dm-more { font-size: 12.5px; }
+
+/* Data page: backup card */
+.bk-card { border-left: 3px solid var(--accent); }
+.bk-card h2 { display: flex; gap: 8px; align-items: center; }
+.bk-status { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--ink2); padding: 3px 8px; border-radius: var(--r-sm); background: var(--bg2); border: 1px solid var(--line); }
+.bk-status.warn { color: var(--warn); background: var(--warn-bg); border-color: color-mix(in srgb, var(--warn-dot) 55%, transparent); }
+.bk-status .muted { font-weight: 500; }
+.bk-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 10px; }
+.bk-actions kbd { margin: 0 0 0 4px; background: color-mix(in srgb, var(--accent-ink) 18%, transparent); border-color: color-mix(in srgb, var(--accent-ink) 35%, transparent); color: inherit; }
+.bk-where { display: flex; gap: 8px; align-items: flex-start; font-size: 13.5px; color: var(--ink2); margin: 0 0 6px; } .bk-where .ic { margin-top: 3px; color: var(--ink3); }
+.bk-where b { overflow-wrap: anywhere; }
+.bk-extra { margin: 4px 0 0; }
+.bk-note { align-items: center; flex-wrap: wrap; } .bk-note > span { flex: 1; min-width: 200px; }
+.stack { display: grid; gap: 14px; align-content: start; } .stack > .card, .data-grid > .card { margin: 0; }
+.data-grid { margin-bottom: 14px; }
+.wiz-look { margin-top: 14px; } .wiz-look .seg button { display: inline-flex; align-items: center; gap: 6px; min-width: 96px; justify-content: center; }
+
+/* quieter tags: neutral outlines instead of extra tints */
+.chip.type { background: var(--bg2); color: var(--ink2); border: 1px solid var(--line); }
+.chip.prep { background: var(--accent-soft); color: var(--accent-soft-ink); }
+.chip.demo { background: transparent; color: var(--ink2); border: 1px dashed var(--line2); font-weight: 600; }
+:root[data-theme="dark"] .chip.type, :root[data-theme="dark"] .chip.prep { color: inherit; }
+:root[data-theme="dark"] .chip.type { color: var(--ink2); } :root[data-theme="dark"] .chip.prep { color: var(--accent-soft-ink); }
+
+/* phone bottom nav + "More" sheet */
+.bnav, .bn-sheet { display: none; }
+@media (max-width: 720px) {
+  :root { --bnav-h: calc(55px + env(safe-area-inset-bottom)); }
+  body[data-view="setup"] { --bnav-h: 0px; }
+  body, body.has-notice { padding-bottom: calc(var(--bnav-h, 0px) + var(--notice-h, 0px)); }
+  #nav, body.menu-open #nav { display: none !important; }
+  .bnav { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 35; background: var(--surface); border-top: 1px solid var(--line2); padding: 0 max(4px, env(safe-area-inset-right)) env(safe-area-inset-bottom) max(4px, env(safe-area-inset-left)); gap: 2px; }
+  body[data-view="setup"] .bnav, body[data-view="setup"] .bn-sheet { display: none; }
+  .bnav > a, .bnav > button { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 54px; padding: 6px 2px 4px; border: 0; border-radius: 0; background: none; color: var(--ink2); font: 500 11px var(--font); letter-spacing: -.01em; text-decoration: none; cursor: pointer; transition: background-color var(--ease), color var(--ease); }
+  .bnav > a:hover, .bnav > button:hover { background: var(--bg2); color: var(--ink); }
+  .bnav > .on, .bnav > .on:hover { color: var(--accent); font-weight: 600; background: none; box-shadow: inset 0 2px 0 var(--accent); }
+  .bnav > a:focus-visible, .bnav > button:focus-visible { outline-offset: -3px; border-radius: 0; }
+  .bn-sheet { display: grid; gap: 2px; position: fixed; left: 8px; right: 8px; bottom: calc(var(--bnav-h) + 8px); z-index: 36; padding: 4px; background: var(--surface); border: 1px solid var(--line2); border-radius: var(--r); box-shadow: var(--shadow-pop); max-height: calc(100dvh - var(--bnav-h) - 80px); overflow-y: auto; }
+  .bn-sheet[hidden] { display: none; }
+  .bn-item { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 48px; padding: 0 12px; border: 0; border-radius: var(--r-sm); background: none; color: var(--ink); font: 500 15px var(--font); text-align: left; text-decoration: none; cursor: pointer; }
+  .bn-item:hover { background: var(--bg2); }
+  .bn-item .ic { color: var(--ink3); }
+  .bn-item.on, .bn-item.on:hover { background: var(--accent-soft); color: var(--accent-soft-ink); font-weight: 600; box-shadow: inset 3px 0 0 var(--accent); }
+  .bn-item.on .ic { color: var(--accent); }
+  body.menu-open::before { z-index: 34; }
+  .notice { bottom: var(--bnav-h); }
+  #toasts, body.has-notice #toasts { bottom: calc(14px + var(--bnav-h) + var(--notice-h, 0px)); }
+  .totop { bottom: calc(14px + var(--bnav-h) + var(--notice-h, 0px)); }
+  /* compact app bar: logo + name, then actions */
+  #appbar { flex-wrap: nowrap; gap: 8px; padding-block: 6px; }
+  .brand { flex: 1; min-width: 0; }
+  .datamenu .dm-t { display: inline; }
+  .moremenu .dm-menu { position: fixed; left: 8px; right: 8px; top: 58px; min-width: 0; max-height: calc(100dvh - 58px - var(--bnav-h) - 12px); overflow-y: auto; }
+}
+@media (pointer: coarse) { .dm-menu kbd, .bk-actions kbd { display: none; } }
+@media (max-width: 520px) {
+  .bk-chip { display: none !important; }
+  .datamenu.warn .bk-dot { display: block; }
+  .datamenu .dm-t { display: none; }
+  .datamenu > summary { width: var(--ctl-sm); padding: 0; justify-content: center; }
+  .datamenu > summary::after { display: none; }
+  .bk-actions .btn { flex: 1 1 100%; }
+}
+/* desktop: keep the tab row on one line with the app bar until it no longer fits */
+@media (max-width: 1180px) and (min-width: 721px) { #appbar { flex-wrap: wrap; row-gap: 0; } #nav { order: 3; flex-basis: 100%; border-top: 1px solid var(--line); } }
+@media (max-width: 1180px) { .bar-actions { margin-left: auto; } }
+@media (max-width: 960px) and (min-width: 561px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media print { .bnav, .bn-sheet, #bkChip, #dataMenu { display: none !important; } }
+
+/* recipe list rows: one fixed layout so every label has a home */
+.ritem { display: grid; gap: 5px; padding: 10px 12px 10px 13px; }
+.ritem .rt { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.ritem .rt > b { display: flex; align-items: flex-start; gap: 5px; min-width: 0; font-size: 14px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.ritem .rt .fav { display: inline-flex; margin-top: 1px; color: #d99a00; flex: none; }
+.ritem .rt .chip.fit { flex: none; min-width: 74px; justify-content: center; margin-top: -1px; }
+.ritem .rn { display: grid; grid-template-columns: 76px repeat(3, minmax(0, 58px)); column-gap: 4px; font-size: 12.5px; color: var(--ink3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ritem .rn b { font-weight: 600; color: var(--ink2); font-size: inherit; letter-spacing: 0; }
+.ritem .rn .rk b { color: var(--ink); }
+.ritem .rn .dot { width: 7px; height: 7px; margin: 0 4px 0 0; vertical-align: 0; }
+.ritem .rmeta { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--ink3); }
+.ritem .rtags { display: flex; align-items: center; flex-wrap: wrap; gap: 0 6px; min-width: 0; }
+.ritem .rtags .sep { opacity: .6; }
+.ritem .rprep { display: inline-flex; align-items: center; gap: 3px; } .ritem .rprep .ic { width: 12px; height: 12px; }
+.ritem .rdemo { padding: 0 5px; border: 1px dashed var(--line2); border-radius: 3px; font-size: 11px; line-height: 16px; }
+.ritem .rmeta .upd { flex: none; }
+.ritem.on .rn, .ritem.on .rmeta, .ritem.on .rn b { color: var(--accent-soft-ink); }
+@media (max-width: 520px) { .ritem .rmeta .yr { display: none; } .ritem .rtags { flex-wrap: nowrap; white-space: nowrap; overflow: hidden; } }
+@media (max-width: 380px) { .ritem .rn { grid-template-columns: 68px repeat(3, minmax(0, 1fr)); } }
+/* ingredient library on phones: one compact block per ingredient instead of a squeezed 5-column table */
+@media (max-width: 560px) {
+  .ingtable thead { display: none; }
+  .ingtable, .ingtable tbody { display: block; }
+  .ingtable tr { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 6px 8px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .ingtable td { padding: 0; border: 0; }
+  .ingtable td:first-child { grid-column: 1 / 3; }
+  .ingtable td.num { grid-column: 3; grid-row: 1; text-align: right; font-size: 12.5px; color: var(--ink3); }
+  .ingtable td:nth-child(2) { grid-column: 1; } .ingtable td:nth-child(3) { grid-column: 2; }
+  .ingtable td.acts { grid-column: 3; grid-row: 2; width: auto; }
+  .ingtable td[colspan] { grid-column: 1 / -1; }
+  .ingtable tbody tr:hover td { background: none; }
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#view">Skip to content</a>
 <header id="appbar">
-  <button id="menuBtn" class="btn icon ghost" data-act="menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav"></button>
   <a class="brand" href="#/home" aria-label="mbmealprep.online home">
-    <svg class="logo" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><g transform="translate(16 16.5) scale(1.12) translate(-16 -17)"><g transform="rotate(28 16 17)"><path d="M16 10.5c-.2-3 .3-5.4 2-7.2 1 2.2.6 4.6-.6 7.3z" fill="#2f9e58"/><path d="M16 10.5c-.3-2.8-1.9-4.7-4.6-5.6.1 2.7 1.7 4.9 4.2 6z" fill="#3db66b"/><path d="M16 10.8c1.4-2.2 3.4-3.2 6-3.3-.6 2.6-2.5 4.3-5.4 4.4z" fill="#2f9e58"/><path d="M10.8 13.2c0-2 2.3-2.9 5.2-2.9s5.2.9 5.2 2.9c0 2.4-2.6 11.2-4.4 15.3-.4.9-1.6.9-2 0-1.8-4.1-4-12.9-4-15.3z" fill="#f08a2c"/><path d="M13.4 15.4h2.4M16.6 19.4h2.2M14.2 22.6h2" stroke="#c96a12" stroke-width="1.1" stroke-linecap="round" fill="none"/></g></g></svg>
-    <span class="nm">mbmealprep.online</span><span class="beta">BETA 4.1</span>
+    <span class="logo" aria-hidden="true"></span>
+    <span class="nm">mbmealprep.online</span><span class="beta">BETA 4.2</span>
   </a>
   <nav id="nav" aria-label="Main"></nav>
   <div class="bar-actions">
     <button id="searchBtn" class="btn ghost sm searchbtn" data-act="openSearch" aria-label="Search the site" aria-keyshortcuts="Control+K Meta+K /"></button>
-    <span id="storageBadge" class="chip warn" hidden title="Your browser is blocking storage. Export a CSV to keep your work.">Storage off</span>
+    <span id="storageBadge" class="chip warn" hidden title="Your browser is blocking storage. Save a backup to keep your work.">Storage off</span>
+    <button id="bkChip" type="button" class="bk-chip" data-act="backupNow" hidden></button>
+    <details class="moremenu datamenu" id="dataMenu">
+      <summary class="btn sm" aria-label="Data: back up, export or import"><span class="dm-ic"></span><span class="dm-t">Data</span><i class="bk-dot" aria-hidden="true"></i></summary>
+      <div class="menu dm-menu" id="dataMenuBody"></div>
+    </details>
     <button id="setupBtn" class="btn ghost sm" data-act="openSetup" aria-label="Run setup">Setup</button>
-    <button id="themeBtn" class="btn icon ghost" data-act="theme" aria-label="Toggle theme"></button>
+    <button id="themeBtn" type="button" class="themesw" data-act="theme" role="switch" aria-checked="false" aria-label="Dark mode"></button>
   </div>
   <div id="progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
 </header>
 <main id="view" tabindex="-1"><div class="skel" aria-hidden="true"><i class="sk sk-h"></i><i class="sk sk-p"></i><div class="sk-grid"><i class="sk sk-c"></i><i class="sk sk-c"></i><i class="sk sk-c"></i></div></div><noscript><p style="padding:24px">This app needs JavaScript to run.</p></noscript></main>
-<footer>© 2026 Matthew Broyer · mbmealprep.online BETA 4.1 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
+<footer>© 2026 Matthew Broyer · mbmealprep.online BETA 4.2 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
 <div id="printSheet" aria-hidden="true"></div>
 <button id="toTop" class="totop" data-act="toTop" aria-label="Back to top" hidden></button>
 <aside id="notice" class="notice" role="region" aria-label="Privacy notice" hidden></aside>
+<nav id="bnav" class="bnav" aria-label="Main"></nav>
+<div id="bnSheet" class="bn-sheet" role="region" aria-label="More pages" hidden></div>
+<input type="file" id="impAny" accept=".json,.csv,.tsv,.txt,application/json,text/csv" hidden data-change="impAny">
 <datalist id="ingList"></datalist><datalist id="unitList"></datalist>
 <dialog id="dlg"></dialog>
 <dialog id="searchDlg" class="searchdlg" aria-label="Search"></dialog>
@@ -789,7 +950,7 @@ mark { border-radius: 2px; }
 <script>
 'use strict';
 /* ==========================================================================
-   mbmealprep.online  BETA 4.1  -  helpers
+   mbmealprep.online  BETA 4.2  -  helpers
    ========================================================================== */
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -801,7 +962,9 @@ const num = v => { const n = parseFloat(v); return Number.isFinite(n) ? n : 0; }
 const numOrNull = v => { if (v === '' || v === null || v === undefined) return null; const n = parseFloat(v); return Number.isFinite(n) ? n : null; };
 const fmtInt = n => Math.round(n).toLocaleString('en-US');
 const fmtSigned = (n, d = 0) => { const r = round(n, d); return (r > 0 ? '+' : r < 0 ? '\u2212' : '') + Math.abs(r).toLocaleString('en-US'); };
-const logo = (size = 28) => `<svg class="logo" viewBox="0 0 32 32" width="${size}" height="${size}" aria-hidden="true"><g transform="translate(16 16.5) scale(1.12) translate(-16 -17)"><g transform="rotate(28 16 17)"><path d="M16 10.5c-.2-3 .3-5.4 2-7.2 1 2.2.6 4.6-.6 7.3z" fill="#2f9e58"/><path d="M16 10.5c-.3-2.8-1.9-4.7-4.6-5.6.1 2.7 1.7 4.9 4.2 6z" fill="#3db66b"/><path d="M16 10.8c1.4-2.2 3.4-3.2 6-3.3-.6 2.6-2.5 4.3-5.4 4.4z" fill="#2f9e58"/><path d="M10.8 13.2c0-2 2.3-2.9 5.2-2.9s5.2.9 5.2 2.9c0 2.4-2.6 11.2-4.4 15.3-.4.9-1.6.9-2 0-1.8-4.1-4-12.9-4-15.3z" fill="#f08a2c"/><path d="M13.4 15.4h2.4M16.6 19.4h2.2M14.2 22.6h2" stroke="#c96a12" stroke-width="1.1" stroke-linecap="round" fill="none"/></g></g></svg>`;
+/* logo: the shared app-family badge (accent square, one-colour glyph) with this app's carrot */
+const LOGO_GLYPH = '<path d="M4 20L10.4 9.4A3 3 0 0 1 14.6 13.6Z"/><path d="M8.5 12.5l1.8 1.8M6.4 16l1.4 1.4"/><path d="M15 9l4.5-4.5M15 9c-.6-2-.2-3.8 1-5.2M15 9c2 .6 3.8.2 5.2-1"/>';
+const logo = (size = 28) => `<span class="logo" style="width:${size}px;height:${size}px" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${LOGO_GLYPH}</svg></span>`;
 const cap = s => s ? (s.charAt(0).toUpperCase() + s.slice(1)).replace(/^bbq\b/i, 'BBQ') : s;
 const today = () => new Date().toISOString().slice(0, 10);
 const validDate = s => { if (!s) return ''; const d = new Date(s); return isFinite(d) && d.getFullYear() >= 2000 && d.getTime() < Date.now() + 864e5 ? d.toISOString() : ''; };
@@ -917,7 +1080,10 @@ const ICONS = {
   clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
   users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
   wand: '<path d="M15 4V2M15 16v-2M8 9h2M20 9h2M17.8 11.8L19 13M17.8 6.2L19 5M3 21l9-9M12.2 6.2L11 5"/>',
-  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'
+  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  chev: '<path d="M6 9l6 6 6-6"/>',
+  save: '<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/>',
+  folder: '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>'
 };
 const icon = (n, cls = '') => `<svg class="ic ${cls}" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n] || ''}</svg>`;
 
@@ -1668,7 +1834,7 @@ zip-top bags|box`;
    Reference data: units, sections, days, ingredient library helpers
    ========================================================================== */
 const DEMO_UPDATED = '2026-09-20T12:00:00.000Z';
-const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'BETA 4.1', year: 2026, released: '2026-09-23' };
+const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'BETA 4.2', year: 2026, released: '2026-09-26' };
 
 /* Optional support links (leave blank to hide the buttons) */
 const CONFIG = { issueUrl: '', supportUrl: '', siteUrl: '' };
@@ -2037,7 +2203,7 @@ function defaultState() {
     v: 4,
     setup: { done: false, name: '', features: { health: true, planner: true, grocery: true }, cookStyle: 'batch', household: 1, meals: { Breakfast: true, Lunch: true, Dinner: true, Snacks: true }, weekStart: 'Monday', useCase: 'both' },
     profile: { unit: guessUnit(), sex: 'male', age: null, heightCm: null, weightKg: null, bodyFat: null, activity: 1.375, formula: 'mifflin', goal: 'maintain', rateKgWk: 0, bodyType: 'mesomorph', pct: { c: 40, f: 30, p: 30 }, calorieOverride: null },
-    settings: { theme: 'auto', nutritionMode: 'eaten', groceryMode: 'batch', sectionOrder: SECTIONS.slice(), mealSplit: Object.assign({}, DEFAULT_SPLIT), lastExport: null, printMode: 'bw' },
+    settings: { theme: 'light', nutritionMode: 'eaten', groceryMode: 'batch', sectionOrder: SECTIONS.slice(), mealSplit: Object.assign({}, DEFAULT_SPLIT), lastExport: null, printMode: 'bw' },
     recipes: [], pantry: [], plan: {}, manual: [], checked: {}, have: {}
   };
 }
@@ -2110,7 +2276,7 @@ function sanitizeState(st) {
   const U = st.setup; U.name = toStr(U.name, 40); U.done = !!U.done; U.cookStyle = oneOf(U.cookStyle, ['batch', 'fresh'], 'batch'); U.household = Math.round(toNum(U.household, 1, 20, 1)); U.weekStart = oneOf(U.weekStart, DAYS, 'Monday');
   for (const k of ['health', 'planner', 'grocery']) U.features[k] = !!U.features[k];
   for (const sl of SLOTS) U.meals[sl] = !!U.meals[sl]; if (!SLOTS.some(sl => U.meals[sl])) U.meals.Dinner = true;
-  const T = st.settings; T.theme = oneOf(T.theme, ['auto', 'light', 'dark'], 'auto'); T.nutritionMode = oneOf(T.nutritionMode, ['eaten', 'cooked'], 'eaten'); T.groceryMode = oneOf(T.groceryMode, ['batch', 'exact'], 'batch');
+  const T = st.settings; T.theme = oneOf(T.theme, ['light', 'dark'], 'light');   // the old 'auto' now loads light (ecosystem rule) T.nutritionMode = oneOf(T.nutritionMode, ['eaten', 'cooked'], 'eaten'); T.groceryMode = oneOf(T.groceryMode, ['batch', 'exact'], 'batch');
   T.printMode = oneOf(T.printMode, ['bw', 'color'], 'bw'); T.lastExport = validDate(T.lastExport) || null;
   for (const sl of SLOTS) T.mealSplit[sl] = toNum(T.mealSplit[sl], 0, 100, DEFAULT_SPLIT[sl]);
   const order = (Array.isArray(T.sectionOrder) ? T.sectionOrder : []).filter(x => SECTIONS.includes(x)).filter((x, i, a) => a.indexOf(x) === i);
@@ -2229,7 +2395,7 @@ function buildImport(records, mode) {
   const rep = { recipes: 0, ingredients: 0, steps: 0, plan: 0, pantry: 0, grocery: 0, profile: 0, warnings: [] };
   const warn = m => { if (rep.warnings.length < 25) rep.warnings.push(m); };
   const next = mode === 'replace' ? defaultState() : JSON.parse(JSON.stringify(state));
-  if (mode === 'replace') { next.setup = JSON.parse(JSON.stringify(state.setup)); next.settings.theme = state.settings.theme; }
+  if (mode === 'replace') { next.setup = JSON.parse(JSON.stringify(state.setup)); next.settings.theme = state.settings.theme; next.settings.lastExport = state.settings.lastExport; next.settings.printMode = state.settings.printMode; }
   if (records.length > LIM.records) { warn('Very large file: only the first ' + LIM.records + ' rows were read.'); records = records.slice(0, LIM.records); }
 
   const byName = new Map(next.recipes.map(r => [r.name.trim().toLowerCase(), r]));
@@ -2337,7 +2503,7 @@ function applyKV(next, rec, k, v) {
       case 'household': if (n !== null) { S.household = clamp(Math.round(n), 1, 20); return true; } break;
       case 'meals': { const on = v.split(',').map(x => x.trim().toLowerCase()); SLOTS.forEach(s => S.meals[s] = on.includes(s.toLowerCase())); return true; }
       case 'weekStart': if (DAYS.includes(v)) { S.weekStart = v; return true; } break;
-      case 'theme': if (['auto', 'light', 'dark'].includes(v)) { T.theme = v; return true; } break;
+      case 'theme': if (['auto', 'light', 'dark'].includes(v)) { T.theme = v === 'dark' ? 'dark' : 'light'; return true; } break;
       case 'nutritionMode': if (v === 'eaten' || v === 'cooked') { T.nutritionMode = v; return true; } break;
       case 'groceryMode': if (v === 'batch' || v === 'exact') { T.groceryMode = v; return true; } break;
       case 'sectionOrder': { const o = v.split('|').filter(s => SECTIONS.includes(s)); if (o.length) { T.sectionOrder = o; return true; } break; }
@@ -2349,8 +2515,7 @@ function applyKV(next, rec, k, v) {
 
 /* Summarize what an import would do (for the preview panel) */
 function previewImport(text, mode) {
-  const grid = parseDelimited(text);
-  const { records, error } = gridToRecords(grid);
+  const { records, error } = /^\s*[\[{]/.test(text) ? jsonToRecords(text) : gridToRecords(parseDelimited(text));
   if (error) return { error };
   if (!records.length) return { error: 'No data rows found under the header.' };
   const { next, rep } = buildImport(records, mode);
@@ -2624,7 +2789,7 @@ const NAV = [
   { id: 'planner', label: 'Planner', icon: 'calendar', feat: 'planner' },
   { id: 'grocery', label: 'Grocery', icon: 'cart', feat: 'grocery' },
   { id: 'ingredients', label: 'Ingredients', icon: 'list' },
-  { id: 'data', label: 'Data', icon: 'db' },
+  { id: 'data', label: 'Data', icon: 'db', menu: true },        // reached from the Data menu in the header, not a tab
   { id: 'about', label: 'About', icon: 'info' }
 ];
 
@@ -2639,21 +2804,34 @@ function parseRoute() {
 const go = path => { if (location.hash === path) renderApp(); else location.hash = path; };
 window.addEventListener('hashchange', () => { parseRoute(); renderApp(true); });
 
+/* Always light unless dark was picked (the <head> script applies the same rule before first paint). */
 function applyTheme() {
-  const t = state.settings.theme, r = document.documentElement;
-  if (t === 'auto') r.removeAttribute('data-theme'); else r.setAttribute('data-theme', t);
-  const dark = t === 'dark' || (t === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
-  const b = $('#themeBtn'); if (b) { b.innerHTML = icon(dark ? 'sun' : 'moon'); b.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme'); }
+  const dark = state.settings.theme === 'dark';
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  const b = $('#themeBtn');
+  if (b) { b.setAttribute('aria-checked', String(dark)); b.title = dark ? 'Dark mode is on' : 'Dark mode is off'; b.innerHTML = `<span class="tk"><span class="th">${icon(dark ? 'moon' : 'sun', 'sm')}</span></span>`; }
 }
-ACTIONS.theme = () => {
-  const dark = state.settings.theme === 'dark' || (state.settings.theme === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
-  state.settings.theme = dark ? 'light' : 'dark'; saveSoon(); applyTheme();
-};
+ACTIONS.theme = () => { state.settings.theme = state.settings.theme === 'dark' ? 'light' : 'dark'; saveNow(); applyTheme(); };
+ACTIONS.setTheme = el => { state.settings.theme = el.dataset.k === 'dark' ? 'dark' : 'light'; saveNow(); applyTheme(); rerender(); };
 
+/* Desktop: underline tabs in the app bar. Phones: bottom bar with the 4 main pages + More (a sheet with the rest). */
+const BNAV_ORDER = ['home', 'recipes', 'planner', 'grocery', 'goals', 'ingredients', 'about'];
 function renderHeader() {
-  const nav = NAV.filter(n => !n.feat || featureOn(n.feat));
-  $('#nav').innerHTML = nav.map(n => `<a href="#/${n.id}" class="tab${route.name === n.id ? ' on' : ''}" ${route.name === n.id ? 'aria-current="page"' : ''}>${icon(n.icon)}<span>${n.label}</span></a>`).join('') + `<button type="button" class="tab only-mobile" data-act="openSetup">${icon('sliders')}<span>Setup</span></button>`;
+  const nav = NAV.filter(n => (!n.feat || featureOn(n.feat)) && !n.menu);
+  const cur = id => route.name === id ? ' aria-current="page"' : '';
+  $('#nav').innerHTML = nav.map(n => `<a href="#/${n.id}" class="tab${route.name === n.id ? ' on' : ''}"${cur(n.id)}>${icon(n.icon)}<span>${n.label}</span></a>`).join('');
   const setupBtn = $('#setupBtn'); if (setupBtn) setupBtn.classList.toggle('on', route.name === 'setup');
+  const prim = BNAV_ORDER.map(id => nav.find(n => n.id === id)).filter(Boolean).slice(0, 4), rest = nav.filter(n => !prim.includes(n));
+  const moreOn = !prim.some(n => n.id === route.name);
+  const open = document.body.classList.contains('menu-open');
+  const bn = $('#bnav');
+  if (bn) bn.innerHTML = prim.map(n => `<a href="#/${n.id}" class="${route.name === n.id ? 'on' : ''}"${cur(n.id)}>${icon(n.icon)}<span>${n.label}</span></a>`).join('') +
+    `<button type="button" id="bnMore" class="${moreOn ? 'on' : ''}" data-act="menu" aria-expanded="${open}" aria-controls="bnSheet">${icon('more')}<span>More</span></button>`;
+  const sh = $('#bnSheet');
+  if (sh) sh.innerHTML = rest.map(n => `<a href="#/${n.id}" class="bn-item${route.name === n.id ? ' on' : ''}"${cur(n.id)}>${icon(n.icon)}<span>${n.label}</span></a>`).join('') +
+    `<a href="#/data" class="bn-item${route.name === 'data' ? ' on' : ''}"${cur('data')}>${icon('db')}<span>Data tools</span></a>` +
+    `<button type="button" class="bn-item" data-act="openSetup">${icon('sliders')}<span>Setup</span></button>`;
+  renderBackupUI();
 }
 
 /* keep focus + scroll when a view re-renders in place */
@@ -2932,6 +3110,7 @@ VIEWS.setup = {
         <h3>What do you want to do?</h3>
         <div class="feat-grid">${FEATURES.map(f => `<button type="button" class="feat${S.features[f.k] ? ' on' : ''}" data-act="toggleFeat" data-k="${f.k}" aria-pressed="${S.features[f.k]}">${icon(f.ic, 'lg')}<b>${f.t}</b><small>${f.d}</small><span class="tick">${icon('check', 'sm')}</span></button>`).join('')}
           <div class="feat locked">${icon('book', 'lg')}<b>Keep my recipes</b><small>Always on. Search, scale and print every recipe.</small><span class="tick">${icon('check', 'sm')}</span></div></div>
+        <div class="fld wiz-look"><span>Appearance</span><div class="seg" role="group" aria-label="Appearance">${[['light', 'Light', 'sun'], ['dark', 'Dark', 'moon']].map(([k, l, ic]) => `<button type="button" class="${(state.settings.theme === 'dark' ? 'dark' : 'light') === k ? 'on' : ''}" data-act="setTheme" data-k="${k}" aria-pressed="${(state.settings.theme === 'dark' ? 'dark' : 'light') === k}">${icon(ic, 'sm')} ${l}</button>`).join('')}</div></div>
         <p class="muted small">Change any of this later from Setup. Turning something off hides it and never deletes data.</p>`;
     } else if (id === 'about') {
       body = `<h1>Your stats</h1><p class="lead">Age, height, weight and activity set your calorie target. They never leave this device. Adults 18 and over only.</p>
@@ -2952,13 +3131,13 @@ VIEWS.setup = {
         <label class="fld"><span>Your week starts on</span><select data-change="weekStart" data-fid="f-ws">${optionsHTML(DAYS.map(d => [d, d]), S.weekStart)}</select></label>`;
     } else {
       body = `<h1>Review your setup</h1><p class="lead">Check the details, then save.</p><div id="setupSummary">${setupSummaryHTML()}</div>
-        ${state.recipes.length ? '' : `<h3>Starter recipes</h3><div class="two-cards"><button type="button" class="gcard${ui.starter !== 'demo' ? ' on' : ''}" data-act="starter" data-k="empty" aria-pressed="${ui.starter !== 'demo'}"><b>Start with a blank library</b><small>Add your own recipes, or import a CSV.</small></button>
+        ${state.recipes.length ? '' : `<h3>Starter recipes</h3><div class="two-cards"><button type="button" class="gcard${ui.starter !== 'demo' ? ' on' : ''}" data-act="starter" data-k="empty" aria-pressed="${ui.starter !== 'demo'}"><b>Start with a blank library</b><small>Add your own recipes, or import a backup.</small></button>
           <button type="button" class="gcard${ui.starter === 'demo' ? ' on' : ''}" data-act="starter" data-k="demo" aria-pressed="${ui.starter === 'demo'}"><b>Add ${DEMO_RECIPES.length} demo recipes</b><small>Try the whole app with demo recipes. Remove them in one click.</small></button></div>`}`;
     }
     return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">${APP.version}</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
       <section class="wiz-card">${body}</section>
       <div class="wiz-nav">${ui.setupStep > 0 ? `<button class="btn" data-act="setupBack">${icon('left')} Back</button>` : '<span></span>'}
-      ${id === 'welcome' ? `<span class="muted small">Have a backup? <button class="linkbtn" data-act="setupImport">Import your CSV</button></span>` : ''}
+      ${id === 'welcome' ? `<span class="muted small">Have a backup? <button class="linkbtn" data-act="setupImport">Import it (JSON or CSV)</button></span>` : ''}
       <button class="btn primary big" data-act="${last ? 'setupFinish' : 'setupNext'}">${last ? 'Save my setup' : id === 'welcome' ? 'Start my setup' : 'Continue'} ${last ? icon('check') : icon('right')}</button></div></div>`;
   }
 };
@@ -2972,7 +3151,7 @@ ACTIONS.cookStyle = el => { state.setup.cookStyle = el.dataset.k; state.settings
 CHANGES.weekStart = el => { state.setup.weekStart = el.value; saveSoon(); };
 ACTIONS.starter = el => { ui.starter = el.dataset.k; rerender(); };
 ACTIONS.skipSetup = () => { state.setup.done = true; saveSoon(); toast('Setup skipped. Run it any time from the top bar.'); go('#/home'); };
-ACTIONS.setupImport = () => { state.setup.done = true; saveSoon(); go('#/data'); };
+ACTIONS.setupImport = () => { state.setup.done = true; saveSoon(); go('#/data'); pickImportFile(); };
 ACTIONS.setupFinish = () => {
   const S = state.setup; S.done = true; state.settings.groceryMode = S.cookStyle === 'batch' ? 'batch' : 'exact';
   const p = state.profile; if (p.goal !== 'maintain' && !p.rateKgWk) p.rateKgWk = PACES[p.unit].defaults[p.goal];
@@ -2992,7 +3171,7 @@ document.addEventListener('keydown', e => {                         // Enter mov
    Home + Goals
    ========================================================================== */
 const todayName = () => DAYS[(new Date().getDay() + 6) % 7];
-const backupDue = () => state.recipes.some(r => !isDemo(r)) && (!state.settings.lastExport || (Date.now() - new Date(state.settings.lastExport).getTime()) > 14 * 864e5);
+const backupDue = () => { const b = backupInfo(); return b.hasData && b.warn; };
 const plannedCount = () => { let n = 0; for (const d of DAYS) for (const s of activeSlots()) if (getSlot(d, s)) n++; return n; };
 
 VIEWS.home = {
@@ -3022,7 +3201,7 @@ VIEWS.home = {
     steps.push({ t: 'Add your recipes', done: state.recipes.length > 0, a: `<button class="btn sm" data-act="newRecipe">${icon('plus')} Add recipe</button> <button class="btn sm" data-act="loadDemo">Load demo recipes</button>` });
     if (featureOn('planner')) steps.push({ t: 'Plan your week', done: plannedCount() > 0, a: '<a class="btn sm" href="#/planner">Plan my week</a>' });
     if (featureOn('grocery')) steps.push({ t: 'Shop from your grocery list', done: plannedCount() > 0 && (auto.length > 0) && Object.keys(state.checked).length > 0, a: '<a class="btn sm" href="#/grocery">See my list</a>' });
-    steps.push({ t: 'Download a CSV backup', done: !!state.settings.lastExport, a: '<a class="btn sm" href="#/data">Back up my data</a>' });
+    steps.push({ t: 'Save a backup file', done: !!state.settings.lastExport, a: '<button class="btn sm" data-act="backupNow">Save backup now</button>' });
     const doneN = steps.filter(s => s.done).length, nextI = steps.findIndex(s => !s.done), stepsLeft = steps.length - doneN;
     const list = doneN < steps.length ? `<section class="card"><div class="card-head"><h2>Getting started</h2><span class="muted small">${stepsLeft} step${stepsLeft === 1 ? '' : 's'} left</span></div><div class="clbar" role="progressbar" aria-valuemin="0" aria-valuemax="${steps.length}" aria-valuenow="${doneN}" aria-label="Getting started progress"><span style="width:${Math.max(6, Math.round(100 * doneN / steps.length))}%"></span></div><ol class="checklist">${steps.map((s, i) => `<li class="${s.done ? 'done' : i === nextI ? 'next' : ''}"><span class="cbox">${s.done ? icon('check', 'sm') : ''}</span><span class="ct">${s.t}</span><span class="ca">${s.done ? '' : i === nextI ? s.a.replace('class="btn sm"', 'class="btn sm primary"') : s.a}</span></li>`).join('')}</ol></section>` : '';
 
@@ -3033,7 +3212,7 @@ VIEWS.home = {
       picks = `<section class="card"><div class="card-head"><h2>Best fits for your macros</h2></div><ul class="picks">${best.map(({ r, fit }) => `<li><a href="#/recipes/${r.id}">${esc(r.name)}</a><span class="muted small">${r.type}</span>${fitChip(fit)}</li>`).join('')}</ul></section>`;
     }
     return `<div class="page-head"><h1>${greet}${S.name ? ', ' + esc(S.name) : ''}</h1><p>${featureOn('planner') ? `${plannedCount()} of ${activeSlots().length * 7} meals planned this week.` : `${state.recipes.length} recipe${state.recipes.length === 1 ? '' : 's'} saved.`}</p></div>
-      ${backupDue() ? `<div class="note warn">${icon('shield')}<span>Your data lives in this browser. ${state.settings.lastExport ? 'It has been over two weeks since your last backup.' : 'You have not made a backup yet.'} <a href="#/data">Download a CSV backup</a>.</span></div>` : ''}
+      ${backupDue() ? `<div class="note warn bk-note">${icon('shield')}<span>Your data lives in this browser. ${state.settings.lastExport ? 'It has been over a week since your last backup.' : 'You have not made a backup yet.'}</span><button class="btn sm" data-act="backupNow">${icon('save')} Save backup now</button></div>` : ''}
       <div class="tiles">${tiles.join('')}</div>
       <div class="grid-2">${plannedCount() === 0 && list ? list + todayCard : todayCard + list}${picks}</div>`;
   }
@@ -3097,11 +3276,17 @@ function filteredRecipes() {
   l.sort(S[f.sort === 'fit' && !health ? 'name' : f.sort] || S.name);
   return l;
 }
+/* Recipe list row, always in the same three lines:
+   1) name (+ favorite star) ............ fit score
+   2) kcal | protein | carbs | fat        (fixed columns, so numbers line up down the list)
+   3) meal type · Meal prep · Demo ...... last updated */
 function recipeItemHTML(r, sel) {
-  const n = recipeNutri(r), health = featureOn('health');
-  return `<a href="#/recipes/${r.id}" class="ritem${sel === r.id ? ' on' : ''}">
-    <div class="rt"><b>${esc(r.name)}</b>${isDemo(r) ? '<span class="chip demo">Demo</span>' : ''}${r.fav ? `<span class="fav" aria-label="Favorite">${icon('star', 'sm fill')}</span>` : ''}</div>
-    <div class="rm"><span class="chip type">${esc(r.type)}</span><span>${fmtInt(r.cal)} kcal</span><span class="mm"><i class="dot m-p"></i>${round(r.p)}P <i class="dot m-c"></i>${round(r.c)}C <i class="dot m-f"></i>${round(r.f)}F</span>${r.prep ? `<span class="chip prep" data-tip="Meal-prep friendly">${icon('layers', 'sm')}Prep</span>` : ''}${health ? fitChip(n.fit) : ''}</div><div class="ru">${updatedHTML(r.updated)}</div></a>`;
+  const n = recipeNutri(r), health = featureOn('health'), d = fmtDate(r.updated);
+  const meta = [`<span>${esc(r.type)}</span>`, r.prep ? `<span class="rprep">${icon('layers', 'sm')}Meal prep</span>` : '', isDemo(r) ? '<span class="rdemo">Demo</span>' : ''].filter(Boolean).join('<span class="sep" aria-hidden="true">·</span>');
+  return `<a href="#/recipes/${r.id}" class="ritem${sel === r.id ? ' on' : ''}"${sel === r.id ? ' aria-current="true"' : ''}>
+    <div class="rt"><b>${r.fav ? `<span class="fav" role="img" aria-label="Favorite">${icon('star', 'sm fill')}</span>` : ''}${esc(r.name)}</b>${health ? fitChip(n.fit) : ''}</div>
+    <div class="rn"><span class="rk"><b>${fmtInt(r.cal)}</b> kcal</span><span><i class="dot m-p"></i><b>${round(r.p)}</b>g P</span><span><i class="dot m-c"></i><b>${round(r.c)}</b>g C</span><span><i class="dot m-f"></i><b>${round(r.f)}</b>g F</span></div>
+    <div class="rmeta"><span class="rtags">${meta}</span>${d ? `<time class="upd" datetime="${esc(r.updated)}" title="Last updated ${esc(new Date(r.updated).toLocaleString())}">${d === 'today' || d === 'yesterday' ? 'Updated ' + d : esc(d).replace(/(, \d{4})$/, '<span class="yr">$1</span>')}</time>` : ''}</div></a>`;
 }
 function recipeListHTML() {
   const l = filteredRecipes(), sel = currentRecipeId();
@@ -3117,7 +3302,7 @@ function currentRecipeId() {
 VIEWS.recipes = {
   render() {
     const f = ui.recipes, health = featureOn('health');
-    if (!state.recipes.length) return `<div class="page-head"><h1>Recipes</h1></div>${emptyState('No recipes yet', 'Add one, load the demo set, or import your CSV.', `<button class="btn primary" data-act="newRecipe">${icon('plus')} Add a recipe</button><button class="btn" data-act="loadDemo">Load demo recipes</button><a class="btn" href="#/data">Import CSV</a>`)}`;
+    if (!state.recipes.length) return `<div class="page-head"><h1>Recipes</h1></div>${emptyState('No recipes yet', 'Add one, load the demo set, or import your CSV.', `<button class="btn primary" data-act="newRecipe">${icon('plus')} Add a recipe</button><button class="btn" data-act="loadDemo">Load demo recipes</button><button class="btn" data-act="importBackup">Import a backup</button>`)}`;
     const sel = currentRecipeId(), r = getRecipe(sel);
     const types = [['all', 'All'], ...MEAL_TYPES.map(t => [t, t])];
     return `<div class="page-head row between"><div><h1>Recipes</h1><p><span id="rcount">${filteredRecipes().length}</span> of ${state.recipes.length} shown</p></div><button class="btn primary" data-act="newRecipe">${icon('plus')} New recipe</button></div>
@@ -3497,6 +3682,17 @@ document.addEventListener('submit', e => {
    Release notes + license text
    ========================================================================== */
 const RELEASES = [
+  { v: 'BETA 4.2', date: 'September 26, 2026', tag: 'Backups & design update', notes: [
+    'New Data menu in the top bar: Save backup now, Export All (JSON), Import Backup (JSON or CSV) and Export All (CSV), in the same order as the rest of the app family.',
+    'Choose where backups go. In Chrome and Edge on a computer you pick the folder and file name once, and Save backup now (Ctrl/Cmd+S) updates that same file in one click. Other browsers and phones save to Downloads as before.',
+    'JSON is now the recommended backup format: it restores everything exactly. CSV is still available for spreadsheets and still imports.',
+    'Import opens in your backup folder, accepts JSON or CSV, and still previews before you merge or replace. Merging never doubles recipes or grocery items.',
+    'A "Backed up" status sits next to the Data menu and turns amber after 7 days, or if you have data and have never backed up. Click it to back up.',
+    'Always opens in light mode unless you switched to dark last time. Setup now asks light or dark up front, and the header has the family’s standard light/dark switch.',
+    'New app-family logo badge, and a bottom navigation bar on phones with a More sheet for the other pages.',
+    'Macro colors now follow the app’s blue (protein), with amber for carbs and slate for fats, so green only ever means "on target".',
+    'Quieter tags and badges, and a Replace import keeps your backup status and print setting.',
+    'Privacy Policy updated to cover backup file locations.'] },
   { v: 'BETA 4.1', date: 'September 23, 2026', tag: 'Theme update', notes: [
     'New ocean-blue accent color in light and dark mode, with cooler neutral grays to match.',
     'Color recipe printouts, the browser bar color and the app icon background follow the new blue.',
@@ -3551,32 +3747,33 @@ const LICENSE = {
    Content-Security-Policy that blocks all network connections). If the app's
    behavior changes, change this text in the same commit.
    ========================================================================== */
-const LEGAL_UPDATED = 'September 20, 2026';
+const LEGAL_UPDATED = 'September 26, 2026';
 const PRIVACY = {
   short: [
     'No accounts, no sign-in, no ads and no analytics.',
     'What you type stays in this browser on this device. The app does not send it anywhere.',
-    'The CSV files you export are yours. Once downloaded, they are outside the app.'],
+    'The backup files you save (JSON or CSV) are yours. Once saved, they are outside the app.'],
   sections: [
     ['What the app stores', [
       'Everything you enter: recipes, meal plan, grocery items, ingredient edits, and your setup answers and settings. If you use the health tools, that includes the age, sex, height, weight, activity level and goal you type in.',
-      'It is saved in your browser’s local storage under the names pantryPartner.beta4 (your data) and pantryPartner.notice (whether you closed the privacy notice). It is stored only on your device and has no expiry. It stays until you erase it or clear your browser’s site data.']],
+      'It is saved in your browser’s local storage under the names pantryPartner.beta4 (your data) and pantryPartner.notice (whether you closed the privacy notice). It is stored only on your device and has no expiry. It stays until you erase it or clear your browser’s site data.',
+      'If you choose where backups are saved, your browser keeps a reference to that one file (its name and your permission to update it, not its contents or folder path) in this site’s IndexedDB storage, so Save backup now can update it in one click. Choosing Change location replaces it, and clearing this site’s data removes it.']],
     ['What the app does not do', [
       'It does not create accounts, set cookies, use analytics or advertising, load fonts, scripts or images from other sites, or contact any server. The page carries a browser security rule that blocks it from making network connections, so in a modern browser it cannot send your data anywhere.',
       'It does not collect your location, contacts or identity.']],
     ['When information leaves the page', [
-      'Only when you choose it: Download CSV saves a file to your device. Copy to clipboard puts the CSV in your clipboard. Print or Save as PDF hands the page to your browser’s print system.',
+      'Only when you choose it: Save backup now, Export All (JSON) and Export All (CSV) write a file to your device, in the folder you pick (or your Downloads folder in browsers that cannot pick one). Copy to clipboard puts the CSV in your clipboard. Print or Save as PDF hands the page to your browser’s print system.',
       'If you open a recipe source link you added, that other website opens in a new tab and has its own privacy practices. The app asks your browser not to tell that site where you came from.']],
     ['The website host', [
       'This app is delivered by a website. Whoever hosts a website can usually see standard server records such as your IP address, the time, and which files were requested. That is outside the app’s code and is not something the app can see or turn off. Nothing you type into the app is part of those requests.']],
     ['Sensitive details and shared devices', [
       'Do not type passwords, Social Security numbers, bank or card numbers, or other people’s private information into recipe notes or anywhere else. The app does not need them.',
       'Anyone who can use your browser profile on this device can open the app and see what is saved. On a shared or public computer, erase your data when you finish or use a private window. Private windows normally discard saved data when they close.',
-      'Your CSV backup contains everything above, including any health details you entered. Store it where you would store any personal file.']],
+      'Your backup files (JSON or CSV) contain everything above, including any health details you entered. Store them where you would store any personal file.']],
     ['Your choices: export, erase, back up', [
-      'Data page, Download CSV: get a copy of everything. Data page, Erase everything: removes your recipes, plan, profile, settings and custom ingredients from this browser and returns the app to its starting state. A confirmation comes first. Undo is available only until you close or reload the page.',
+      'Data menu, Save backup now or Export All: get a copy of everything. Data page, Erase everything: removes your recipes, plan, profile, settings and custom ingredients from this browser and returns the app to its starting state. A confirmation comes first. Undo is available only until you close or reload the page.',
       'To remove every trace, including the notice setting, clear this site’s data in your browser settings.',
-      'Because the app keeps no copy anywhere else, nobody else can restore, view or delete your data for you. Export a CSV backup now and then.']],
+      'Because the app keeps no copy anywhere else, nobody else can restore, view or delete your data for you. Save a backup now and then.']],
     ['Children', [
       'The app is for adults 18 and over and is not directed to children. The health tools do not calculate targets for anyone under 18.']],
     ['Changes to this policy', [
@@ -3605,7 +3802,7 @@ function legalPage(kind, title, blurb, data) {
     <section class="card prose legal"><p class="muted small">Last updated ${LEGAL_UPDATED}</p>
       <div class="legal-short"><ul>${data.short.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>
       ${data.sections.map(([h, ps]) => `<h2>${esc(h)}</h2>${ps.map(p => `<p>${esc(p)}</p>`).join('')}`).join('')}
-      <p class="row noprint"><a class="btn" href="#/data">Go to Data (export or erase)</a><a class="btn ghost" href="#/${kind === 'privacy' ? 'terms' : 'privacy'}">${kind === 'privacy' ? 'Terms of Use' : 'Privacy Policy'}</a><a class="btn ghost" href="#/about">Release notes &amp; license</a></p></section>`;
+      <p class="row noprint"><a class="btn" href="#/data">Go to Data (back up or erase)</a><a class="btn ghost" href="#/${kind === 'privacy' ? 'terms' : 'privacy'}">${kind === 'privacy' ? 'Terms of Use' : 'Privacy Policy'}</a><a class="btn ghost" href="#/about">Release notes &amp; license</a></p></section>`;
 }
 VIEWS.privacy = { render: () => legalPage('privacy', 'Privacy Policy', 'What this app stores, and what it never sends.', PRIVACY) };
 VIEWS.terms = { render: () => legalPage('terms', 'Terms of Use', 'The short version, in plain language.', TERMS) };
@@ -3634,29 +3831,194 @@ ACTIONS.removeDemo = async () => {
   undoable('Demo recipes removed', () => { state.recipes = state.recipes.filter(r => !isDemo(r)); cleanPlan(); saveSoon(); rerender(); });
 };
 
+/* ==========================================================================
+   Backups: JSON (full, preferred) and CSV, saved where you choose.
+   - Chromium desktop browsers: File System Access API. The file handle is kept in
+     IndexedDB (handles cannot go in localStorage) so "Save backup now" overwrites
+     the same file in one click. Browsers only ever expose the file NAME, never its folder.
+   - Everywhere else (Firefox, Safari, phones): a normal dated download to Downloads.
+   ========================================================================== */
+const BACKUP_FORMAT = 'mbmealprep-backup';
+const FS_OK = typeof window.showSaveFilePicker === 'function' && typeof window.showOpenFilePicker === 'function';
+const IS_MAC = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent || '');
+const SAVE_KEYS = IS_MAC ? '⌘S' : 'Ctrl+S';
+const backupFile = { json: null, csv: null };
+
+function idbHandles(mode, fn) {
+  return new Promise((res, rej) => {
+    if (!window.indexedDB) { rej(new Error('IndexedDB unavailable')); return; }
+    const rq = indexedDB.open('mbmealprep', 1);
+    rq.onupgradeneeded = () => rq.result.createObjectStore('handles');
+    rq.onerror = () => rej(rq.error);
+    rq.onsuccess = () => {
+      const db = rq.result; let r;
+      try { const tx = db.transaction('handles', mode); r = fn(tx.objectStore('handles'));
+        tx.oncomplete = () => { db.close(); res(r && r.result); }; tx.onerror = tx.onabort = () => { db.close(); rej(tx.error); };
+      } catch (e) { db.close(); rej(e); }
+    };
+  });
+}
+const handleGet = k => idbHandles('readonly', st => st.get(k)).catch(() => null);
+const handleSet = (k, h) => idbHandles('readwrite', st => st.put(h, k)).catch(() => { });
+async function loadBackupHandles() {
+  if (!FS_OK) return;
+  backupFile.json = (await handleGet('json')) || null; backupFile.csv = (await handleGet('csv')) || null;
+  renderBackupUI(); if (route.name === 'data') rerender();
+}
+
+function backupJSON() {
+  return JSON.stringify({ app: APP.name, format: BACKUP_FORMAT, version: 1, appVersion: APP.version, exported: new Date().toISOString(), data: state }, null, 2);
+}
+/* A JSON backup becomes the same records a CSV would, so merge / replace / preview work identically. */
+function jsonToRecords(text) {
+  let o; try { o = JSON.parse(text); } catch (e) { return { records: [], error: 'That file is not valid JSON. Choose a .json backup made by this app, or a CSV.' }; }
+  const data = o && typeof o === 'object' && !Array.isArray(o) ? (o.format === BACKUP_FORMAT && o.data && typeof o.data === 'object' ? o.data : o) : null;
+  if (!data || !['recipes', 'settings', 'profile', 'setup', 'plan'].some(k => Object.prototype.hasOwnProperty.call(data, k))) return { records: [], error: 'That JSON file is not an mbmealprep.online backup.' };
+  const st = defaultState(); mergeInto(st, data);
+  for (const k of ['plan', 'checked', 'have']) if (data[k] && typeof data[k] === 'object' && !Array.isArray(data[k])) st[k] = data[k];
+  sanitizeState(st);
+  const records = stateToRows(st).map(r => { const x = {}; for (const c of CSV_COLS) x[c] = r[c] === null || r[c] === undefined ? '' : String(r[c]); return x; });
+  return { records, error: null };
+}
+
+/* ---- "backed up last" status (shared pattern across the app family) ---- */
+function agoText(t) {
+  const sec = (Date.now() - t) / 1000;
+  if (sec < 60) return 'just now'; if (sec < 3600) return Math.floor(sec / 60) + ' min ago'; if (sec < 86400) return Math.floor(sec / 3600) + ' h ago';
+  const d = Math.round((new Date().setHours(0, 0, 0, 0) - new Date(t).setHours(0, 0, 0, 0)) / 864e5);
+  return d <= 1 ? 'yesterday' : d + ' days ago';
+}
+function backupInfo() {
+  const le = state.settings.lastExport, t = le ? new Date(le).getTime() : 0;
+  const hasData = state.recipes.some(r => !isDemo(r)) || state.manual.length > 0 || Object.keys(state.plan).length > 0;
+  const warn = t ? Date.now() - t > 7 * 864e5 : hasData;
+  return { t, hasData, warn, label: t ? 'Backed up ' + agoText(t) : 'Never backed up', exact: t ? new Date(t).toLocaleString() : '' };
+}
+function backupWhereHTML() {
+  if (!FS_OK) return 'This browser saves backups to your Downloads folder.';
+  const h = backupFile.json;
+  return h ? `Saves to <b>${esc(h.name)}</b> in the folder you chose. <button type="button" class="linkbtn" data-act="exportJson">Change location…</button>`
+    : 'The first save asks where to put the file. After that, one click updates it.';
+}
+function renderBackupUI() {
+  if (!state) return;
+  const b = backupInfo(), chip = $('#bkChip'), dm = $('#dataMenu');
+  if (chip) {
+    chip.hidden = !state.setup.done;
+    chip.classList.toggle('warn', b.warn);
+    chip.innerHTML = `${icon(b.warn ? 'alert' : 'shield', 'sm')}<span>${esc(b.label)}</span>`;
+    chip.title = (b.t ? `Last backup ${b.exact}. ` : '') + `Click to save a backup now (${SAVE_KEYS}).`;
+    chip.setAttribute('aria-label', `${b.label}. Save backup now`);
+  }
+  if (dm) {
+    dm.classList.toggle('warn', b.warn); dm.classList.toggle('on', route.name === 'data');
+    const sum = dm.querySelector('summary'); if (sum) sum.setAttribute('aria-label', `Data: back up, export or import. ${b.label}`);
+    const body = $('#dataMenuBody');
+    if (body) body.innerHTML = `<button class="btn primary" data-act="backupNow">${icon('save')}<span>Save backup now</span><kbd>${SAVE_KEYS}</kbd></button>
+      <button class="btn ghost" data-act="exportJson">${icon('download')}<span>Export All (JSON)…</span></button>
+      <button class="btn ghost" data-act="importBackup">${icon('upload')}<span>Import Backup (JSON or CSV)…</span></button>
+      <button class="btn ghost" data-act="exportCsv">${icon('download')}<span>Export All (CSV)…</span></button>
+      <div class="dm-foot"><p class="${b.warn ? 'bk-warn' : ''}">${icon(b.warn ? 'alert' : 'shield', 'sm')}<span>${esc(b.label)}${b.t ? ` · ${esc(new Date(b.t).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }))}` : ''}</span></p><p>${backupWhereHTML()}</p><a href="#/data" class="dm-more">More data tools: merge or replace, demo recipes, erase</a></div>`;
+  }
+}
+const closeMenus = () => $$('details.moremenu[open]').forEach(d => { d.open = false; });
+function markBackedUp() { state.settings.lastExport = new Date().toISOString(); saveNow(); rerender(); }
+
+async function writeHandle(h, text) { const w = await h.createWritable(); await w.write(text); await w.close(); }
+async function canWrite(h) {
+  try { const o = { mode: 'readwrite' }; if ((await h.queryPermission(o)) === 'granted') return true; return (await h.requestPermission(o)) === 'granted'; }
+  catch (e) { return false; }
+}
+async function pickSaveFile(kind) {
+  const json = kind === 'json';
+  const opts = { suggestedName: (backupFile[kind] && backupFile[kind].name) || (json ? 'mbmealprep-backup.json' : 'mbmealprep-backup.csv'),
+    types: [json ? { description: 'JSON backup', accept: { 'application/json': ['.json'] } } : { description: 'CSV spreadsheet', accept: { 'text/csv': ['.csv'] } }],
+    startIn: backupFile[kind] || backupFile.json || backupFile.csv || 'documents' };
+  try { return await window.showSaveFilePicker(opts); }
+  catch (e) { if (e && e.name === 'AbortError') return null; delete opts.startIn; return await window.showSaveFilePicker(opts); }   // saved folder may be gone
+}
+async function exportTo(kind) {
+  closeMenus();
+  const json = kind === 'json', text = json ? backupJSON() : exportCSV(), what = json ? 'Backup' : 'CSV';
+  if (!FS_OK) { downloadText(json ? `mbmealprep-backup-${today()}.json` : `mbmealprep-${today()}.csv`, text, json ? 'application/json' : 'text/csv;charset=utf-8'); markBackedUp(); toast(`${what} downloaded to your Downloads folder`, 'ok'); return; }
+  try {
+    const h = await pickSaveFile(kind); if (!h) return;
+    await writeHandle(h, text); backupFile[kind] = h; handleSet(kind, h); markBackedUp(); toast(`${what} saved to ${h.name}`, 'ok');
+  } catch (e) { toast(`Could not save the ${what.toLowerCase()}. Try again or pick another folder.`, 'err'); }
+}
+ACTIONS.exportJson = () => exportTo('json');
+ACTIONS.exportCsv = () => exportTo('csv');
+ACTIONS.backupNow = async () => {
+  closeMenus();
+  const h = backupFile.json;
+  if (!FS_OK || !h) return exportTo('json');                       // first time: ask where (or download)
+  try {
+    if (!(await canWrite(h))) { toast('Save needs permission to update your backup file.', '', { label: 'Choose file', fn: () => exportTo('json') }); return; }
+    await writeHandle(h, backupJSON()); markBackedUp(); toast(`Backup saved to ${h.name}`, 'ok');
+  } catch (e) { toast(`Could not update ${h.name}. It may have been moved or deleted.`, 'err', { label: 'Choose location', fn: () => exportTo('json') }); }
+};
+document.addEventListener('keydown', e => {                          // Ctrl/Cmd+S = Save backup now
+  if (!(e.ctrlKey || e.metaKey) || e.shiftKey || e.altKey || (e.key !== 's' && e.key !== 'S')) return;
+  e.preventDefault();
+  if (state && state.setup.done) ACTIONS.backupNow();
+});
+
+/* ---- import: pick a file (opens in the backup folder), then preview on the Data page ---- */
+async function pickImportFile() {
+  closeMenus();
+  if (!FS_OK) { const inp = $('#impAny'); if (inp) { inp.value = ''; inp.click(); } return; }
+  const opts = { multiple: false, types: [{ description: 'Backup (JSON or CSV)', accept: { 'application/json': ['.json'], 'text/csv': ['.csv', '.tsv', '.txt'] } }],
+    startIn: backupFile.json || backupFile.csv || 'documents' };
+  let hs;
+  try { hs = await window.showOpenFilePicker(opts); }
+  catch (e) {
+    if (e && e.name === 'AbortError') return;
+    delete opts.startIn;
+    try { hs = await window.showOpenFilePicker(opts); } catch (e2) { if (!e2 || e2.name !== 'AbortError') toast('Could not open the file picker.', 'err'); return; }
+  }
+  try { readImportFile(await hs[0].getFile()); } catch (e) { toast('Could not read that file.', 'err'); }
+}
+ACTIONS.importBackup = () => pickImportFile();
+CHANGES.impAny = el => { if (el.files[0]) readImportFile(el.files[0]); el.value = ''; };
+function openImportText(text, name) {
+  ui.pendingImport = { text, name };
+  if (route.name === 'data') applyPendingImport(); else go('#/data');
+}
+function applyPendingImport() {
+  const p = ui.pendingImport, area = $('#impText'); if (!p || !area) return;
+  ui.pendingImport = null; area.value = p.text;
+  const nm = $('#impName'); if (nm) { nm.textContent = p.name ? 'File: ' + p.name : ''; nm.hidden = !p.name; }
+  updateImportPreview();
+  const card = $('#impCard'); if (card) card.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+}
+
 VIEWS.data = {
   render() {
-    const nDemo = state.recipes.filter(isDemo).length, le = state.settings.lastExport;
+    const nDemo = state.recipes.filter(isDemo).length, b = backupInfo();
     const rows = [['recipe', 'One row per recipe', 'name, meal_type, servings, calories, protein_g, carbs_g, fats_g, prep_friendly, favorite, text (notes / source URL), updated (optional date)'],
       ['ingredient', 'One row per recipe ingredient', 'name (recipe name), item, qty, unit'], ['step', 'One row per instruction step, in order', 'name (recipe name), text'],
       ['plan', 'One row per planned meal', 'name (day), meal_type (Breakfast / Lunch / Dinner / Snacks), item (recipe name), qty (servings)'],
       ['grocery', 'Extra grocery items you added', 'item, qty, unit, section, text ("done" if checked)'], ['pantry', 'Your custom or edited ingredients', 'item, unit, section'],
       ['profile / setting', 'Your body details, goals, and app choices', 'name (field), text (value)'], ['checked / have', 'Grocery list check marks and pantry items', 'item (list key)']];
-    return `<div class="page-head"><h1>Data</h1><p>One CSV holds everything. Back it up, edit it in a spreadsheet, or move it to another device.</p></div>
+    return `<div class="page-head"><h1>Data</h1><p>Your data lives in this browser. Save a backup file to keep it safe or move it to another device.</p></div>
+      <section class="card bk-card"><div class="card-head"><h2>${icon('save')} Back up &amp; restore</h2><span class="bk-status${b.warn ? ' warn' : ''}">${icon(b.warn ? 'alert' : 'shield', 'sm')}${esc(b.label)}${b.t ? `<span class="muted"> · ${esc(b.exact)}</span>` : ''}</span></div>
+        <div class="bk-actions"><button class="btn primary" data-act="backupNow">${icon('save')} Save backup now <kbd>${SAVE_KEYS}</kbd></button><button class="btn" data-act="exportJson">Export All (JSON)…</button><button class="btn" data-act="importBackup">${icon('upload')} Import Backup (JSON or CSV)…</button><button class="btn" data-act="exportCsv">Export All (CSV)…</button></div>
+        <p class="bk-where">${icon('folder', 'sm')}<span>${backupWhereHTML()}</span></p>
+        <p class="muted small">JSON is the recommended backup: it restores everything exactly. The CSV holds the same data in a spreadsheet-friendly form and can be imported too. Both include any health details you entered, so keep them somewhere private. <a href="#/privacy">Privacy Policy</a></p>
+        <div class="row bk-extra"><button class="btn ghost sm" data-act="copyCsv">${icon('copy')} Copy CSV to clipboard</button><button class="btn ghost sm" data-act="templateCsv">Blank CSV template</button></div></section>
       <div class="grid-2 data-grid">
-        <section class="card"><h2>${icon('download')} Export</h2><p class="muted">Download all your recipes, plan, grocery list, profile and settings as a single CSV.</p>
-          <div class="row"><button class="btn primary" data-act="exportCsv">${icon('download')} Download CSV</button><button class="btn" data-act="copyCsv">${icon('copy')} Copy to clipboard</button><button class="btn ghost" data-act="templateCsv">Blank template</button></div>
-          <p class="muted small">The file includes any health details you entered. Keep it somewhere private. <a href="#/privacy">Privacy Policy</a></p>
-          <p class="muted small">${le ? 'Last export: ' + new Date(le).toLocaleString() : 'You have not exported yet.'}</p></section>
-        <section class="card"><h2>${icon('upload')} Import</h2>
-          <label class="drop" id="drop" for="impFile">${icon('upload', 'lg')}<b>Drop a CSV here</b><span>or click to choose a file</span></label><input type="file" id="impFile" accept=".csv,.tsv,.txt,text/csv" hidden data-change="impFile">
-          <label class="fld"><span>…or paste CSV / spreadsheet cells</span><textarea id="impText" rows="5" placeholder="record,name,meal_type,servings,calories,..." data-input="impText" spellcheck="false"></textarea></label>
+        <section class="card" id="impCard"><h2>${icon('upload')} Import</h2>
+          <label class="drop" id="drop" for="impFile">${icon('upload', 'lg')}<b>Drop a backup file here</b><span>JSON or CSV · or click to choose a file</span></label><input type="file" id="impFile" accept=".json,.csv,.tsv,.txt,application/json,text/csv" hidden data-change="impFile">
+          <p id="impName" class="muted small" hidden></p>
+          <label class="fld"><span>…or paste a backup, CSV or spreadsheet cells</span><textarea id="impText" rows="5" placeholder="record,name,meal_type,servings,calories,..." data-input="impText" spellcheck="false"></textarea></label>
           <div class="row"><label class="check"><input type="radio" name="impMode" value="merge" checked data-change="impMode"> Merge with what I have</label><label class="check"><input type="radio" name="impMode" value="replace" data-change="impMode"> Replace my data</label></div>
+          <p class="muted small">Merging matches recipes by name and grocery items by name and unit, so importing the same file twice never doubles anything.</p>
           <div id="impPreview"></div></section>
+        <div class="stack">
         <section class="card"><h2>${icon('layers')} Demo data</h2><p class="muted">${DEMO_RECIPES.length} demo recipes to try the app with. ${nDemo ? `<b>${nDemo}</b> loaded now.` : ''} Removing them never touches your ingredient library.</p>
           <div class="row"><button class="btn" data-act="loadDemo">Load demo recipes</button><button class="btn" data-act="removeDemo" ${nDemo ? '' : 'disabled'}>Remove demo recipes</button></div></section>
-        <section class="card"><h2>${icon('shield')} Storage &amp; reset</h2><p class="muted">${storageOK ? 'Changes save automatically in this browser only. Nothing is sent to a server.' : 'This browser is blocking storage, so changes will be lost when you close the page. Export a CSV to keep your work.'}</p>
-          <div class="row"><button class="btn danger-o" data-act="resetRecipes">Erase recipes &amp; plans</button><button class="btn danger-o" data-act="resetAll">Erase everything</button></div></section></div>
+        <section class="card"><h2>${icon('shield')} Storage &amp; reset</h2><p class="muted">${storageOK ? 'Changes save automatically in this browser only. Nothing is sent to a server.' : 'This browser is blocking storage, so changes will be lost when you close the page. Save a backup to keep your work.'}</p>
+          <div class="row"><button class="btn danger-o" data-act="resetRecipes">Erase recipes &amp; plans</button><button class="btn danger-o" data-act="resetAll">Erase everything</button></div></section></div></div>
       <details class="card fmt"><summary>CSV format reference</summary><p class="muted">The first row is a header. The first column, <code>record</code>, says what each row is. Headers are case-insensitive and the columns can be in any order. Only the columns you need must be present.</p>
         <div class="tablewrap"><table class="table"><thead><tr><th>record</th><th>What it holds</th><th>Columns used</th></tr></thead><tbody>${rows.map(r => `<tr><td><code>${esc(r[0])}</code></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div>
         <p class="muted small">All columns: <code>${CSV_COLS.join(', ')}</code></p></details>`;
@@ -3666,14 +4028,14 @@ VIEWS.data = {
     ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
     ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
     drop.addEventListener('drop', e => { const f = e.dataTransfer.files[0]; if (f) readImportFile(f); });
+    applyPendingImport();
   }
 };
-ACTIONS.exportCsv = () => { downloadText(`mbmealprep-${today()}.csv`, exportCSV()); state.settings.lastExport = new Date().toISOString(); saveSoon(); toast('CSV downloaded', 'ok'); rerender(); };
-ACTIONS.copyCsv = async () => { const ok = await copyText(exportCSV()); if (ok) { state.settings.lastExport = new Date().toISOString(); saveSoon(); } toast(ok ? 'CSV copied to clipboard' : 'Could not copy. Use Download instead.', ok ? 'ok' : 'err'); };
+ACTIONS.copyCsv = async () => { const ok = await copyText(exportCSV()); if (ok) { state.settings.lastExport = new Date().toISOString(); saveSoon(); renderBackupUI(); } toast(ok ? 'CSV copied to clipboard' : 'Could not copy. Use Export All (CSV) instead.', ok ? 'ok' : 'err'); };
 ACTIONS.templateCsv = () => downloadText('mbmealprep-template.csv', templateCSV());
 function readImportFile(f) {
-  if (f.size > 5 * 1024 * 1024) { toast('That file is too large.', 'err'); return; }
-  const rd = new FileReader(); rd.onload = () => { $('#impText').value = String(rd.result); updateImportPreview(); }; rd.readAsText(f);
+  if (f.size > 20 * 1024 * 1024) { toast('That file is too large.', 'err'); return; }
+  const rd = new FileReader(); rd.onload = () => openImportText(String(rd.result), f.name); rd.onerror = () => toast('Could not read that file.', 'err'); rd.readAsText(f);
 }
 CHANGES.impFile = el => { if (el.files[0]) readImportFile(el.files[0]); el.value = ''; };
 const impMode = () => ($('input[name="impMode"]:checked') || {}).value || 'merge';
@@ -3689,7 +4051,7 @@ const updateImportPreview = () => {
     ${r.warnings.length ? `<ul class="warns">${r.warnings.map(w => `<li>${esc(w)}</li>`).join('')}</ul>` : ''}
     ${bits.length ? `<div class="row"><button class="btn ${impMode() === 'replace' ? 'danger' : 'primary'}" data-act="importGo">${impMode() === 'replace' ? 'Replace my data' : 'Merge into my data'}</button></div>` : ''}`;
 };
-INPUTS.impText = debounce(updateImportPreview, 200);
+INPUTS.impText = debounce(() => { const nm = $('#impName'); if (nm) nm.hidden = true; updateImportPreview(); }, 200);
 CHANGES.impMode = updateImportPreview;
 ACTIONS.importGo = async () => {
   const mode = impMode(), pv = previewImport($('#impText').value, mode); if (pv.error) return;
@@ -3701,7 +4063,7 @@ ACTIONS.resetRecipes = async () => {
   undoable('Recipes and plans erased', () => { state.recipes = []; state.plan = {}; state.manual = []; state.checked = {}; state.have = {}; saveSoon(); rerender(); });
 };
 ACTIONS.resetAll = async () => {
-  if (!await confirmDialog('Erase everything, including your profile, settings and custom ingredients? Download a CSV first if you might want it back.', { ok: 'Erase everything', danger: true })) return;
+  if (!await confirmDialog('Erase everything, including your profile, settings and custom ingredients? Save a backup first if you might want it back.', { ok: 'Erase everything', danger: true })) return;
   undoable('Everything erased', () => { state = defaultState(); invalidatePantry(); ui.setupStep = 0; saveNow(); applyTheme(); refreshIngLists(); go('#/setup'); rerender(); }, { after: () => go('#/home') });
 };
 
@@ -3713,7 +4075,7 @@ VIEWS.about = {
       <section class="card prose" id="ab-about"><h2>About</h2>
         <p>${esc(APP.name)} plans your week of meals, hits your macro targets and builds a grocery list you can shop from. It started in 2024 as a spreadsheet called The Pantry Partner and was used for years before becoming this web app.</p>
         <h3>The method</h3><ol><li><b>Pick your body type.</b> It sets your target protein, carb and fat split.</li><li><b>Get your numbers.</b> Your stats and goal become daily calories and grams of each macro.</li><li><b>Plan to hit them.</b> The planner checks every day against your targets, and the grocery list builds itself.</li></ol>
-        <h3>Privacy</h3><p>There are no accounts. Your recipes, plan and health details stay in your browser and in the CSV files you export. <a href="#/privacy">Read the Privacy Policy</a> · <a href="#/terms">Terms of Use</a></p></section>
+        <h3>Privacy</h3><p>There are no accounts. Your recipes, plan and health details stay in your browser and in the backup files you save. <a href="#/privacy">Read the Privacy Policy</a> · <a href="#/terms">Terms of Use</a></p></section>
       <section class="card prose" id="ab-notes"><h2>Release notes</h2>${RELEASES.map((r, i) => `<details class="release" id="rel-${i}" data-keep="rel-${i}"${i === 0 || ui.open['rel-' + i] ? ' open' : ''}><summary><h3>${esc(r.name || APP.name)} © ${esc(r.date.slice(-4))} · ${esc(r.v)} · ${esc(r.date)}${r.tag ? ` <span class="chip">${esc(r.tag)}</span>` : ''}</h3></summary><ul>${r.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul></details>`).join('')}</section>
       <section class="card prose" id="ab-license"><h2>License</h2><h3>${esc(LICENSE.title)}</h3><p class="muted small">Last updated ${esc(LICENSE.updated)}</p><details class="licbox" data-keep="lic"${ui.open.lic ? ' open' : ''}><summary>Read the full license (${LICENSE.sections.length} sections)</summary>${LICENSE.sections.map(([h, ps], i) => `<h4 id="lic-${i}">${esc(h)}</h4>${ps.map(p => `<p>${esc(p)}</p>`).join('')}`).join('')}</details>
         <details class="licbox" data-keep="tp"${ui.open.tp ? ' open' : ''}><summary>${esc(THIRD_PARTY.title)}</summary><p class="muted small">Some interface icons follow the Feather Icons style. The app loads no fonts, scripts or images from other sites.</p><p class="small" style="white-space:pre-line">${esc(THIRD_PARTY.text)}</p></details></section>`;
@@ -3728,22 +4090,24 @@ ACTIONS.scrollTo = el => revealAndScroll(el.dataset.t);
 const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- mobile menu ---------- */
+/* ---------- mobile bottom nav: the "More" sheet ---------- */
 const MOBILE_MQ = '(max-width: 720px)';
 function setMenu(open) {
   open = !!open && matchMedia(MOBILE_MQ).matches;
   document.body.classList.toggle('menu-open', open);
-  const b = $('#menuBtn'); if (b) { b.setAttribute('aria-expanded', String(open)); b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); b.innerHTML = icon(open ? 'x' : 'menu'); }
+  const sh = $('#bnSheet'); if (sh) sh.hidden = !open;
+  const b = $('#bnMore'); if (b) b.setAttribute('aria-expanded', String(open));
 }
 ACTIONS.menu = () => setMenu(!document.body.classList.contains('menu-open'));
 document.addEventListener('click', e => {
   if (!document.body.classList.contains('menu-open')) return;
-  if (!e.target.isConnected) return;                                                   // the click re-rendered its own target (e.g. the menu button icon)
-  if (e.target.closest('#nav a, #nav button')) { setMenu(false); return; }        // picked something
-  if (!e.target.closest('#nav, #menuBtn')) setMenu(false);                          // tapped outside
+  if (!e.target.isConnected) return;                                                   // the click re-rendered its own target
+  if (e.target.closest('#bnSheet a, #bnSheet button')) { setMenu(false); return; } // picked something
+  if (!e.target.closest('#bnSheet, #bnMore')) setMenu(false);                       // tapped outside
 });
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('menu-open')) { setMenu(false); const b = $('#menuBtn'); b && b.focus(); } });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('menu-open')) { setMenu(false); const b = $('#bnMore'); b && b.focus(); } });
 matchMedia(MOBILE_MQ).addEventListener('change', () => setMenu(false));
-window.addEventListener('hashchange', () => setMenu(false));
+window.addEventListener('hashchange', () => { setMenu(false); $$('details.moremenu[open]').forEach(d => { d.open = false; }); });
 
 /* ---------- scroll progress + back to top + header shadow ---------- */
 let scrollTick = false;
@@ -3835,8 +4199,9 @@ function searchDocs() {
   for (const n of NAV.filter(n => !n.feat || featureOn(n.feat))) docs.push({ g: 'Pages', title: n.label, sub: 'Page', hay: norm(n.label + ' ' + (PAGE_HINTS[n.id] || '')), icon: n.icon, run: () => go('#/' + n.id) });
   docs.push({ g: 'Pages', title: 'Setup', sub: 'Change your goals, meals and preferences', hay: norm('setup onboarding wizard preferences features units household'), icon: 'sliders', run: () => ACTIONS.openSetup() });
   docs.push({ g: 'Actions', title: 'Add a recipe', sub: 'Open the recipe editor', hay: norm('add new create recipe'), icon: 'plus', run: () => { go('#/recipes'); setTimeout(() => ACTIONS.newRecipe(), 0); } });
-  docs.push({ g: 'Actions', title: 'Download CSV backup', sub: 'Export everything', hay: norm('export download backup csv save'), icon: 'download', run: () => ACTIONS.exportCsv() });
-  docs.push({ g: 'Actions', title: 'Import a CSV', sub: 'Open the import tool', hay: norm('import upload paste csv restore'), icon: 'upload', run: () => go('#/data') });
+  docs.push({ g: 'Actions', title: 'Save backup now', sub: SAVE_KEYS + ' · JSON backup', hay: norm('save backup now json export download'), icon: 'download', run: () => ACTIONS.backupNow() });
+  docs.push({ g: 'Actions', title: 'Export All (CSV)', sub: 'Spreadsheet copy of everything', hay: norm('export download backup csv spreadsheet'), icon: 'download', run: () => ACTIONS.exportCsv() });
+  docs.push({ g: 'Actions', title: 'Import Backup (JSON or CSV)', sub: 'Open the import tool', hay: norm('import upload paste csv json restore backup'), icon: 'upload', run: () => go('#/data') });
   docs.push({ g: 'Actions', title: 'Switch light / dark theme', sub: 'Appearance', hay: norm('theme dark light mode appearance'), icon: 'moon', run: () => ACTIONS.theme() });
   for (const r of state.recipes) {
     const ing = r.ingredients.map(g => g.item).join(' ');
@@ -3979,7 +4344,7 @@ ACTIONS.printRecipe = el => {
   const m = ui.mult[r.id] || 1, o = printOpts; o.mode = state.settings.printMode === 'color' ? 'color' : 'bw';
   const dlg = openDialog(`<form method="dialog" class="dlg-body" id="printForm" data-id="${r.id}"><div class="dlg-head"><h3>Print recipe</h3><button type="button" class="btn icon ghost sm" data-act="closeDlg" aria-label="Close">${icon('x')}</button></div>
     <p class="muted"><b>${esc(r.name)}</b>${m !== 1 ? ` · scaled ×${fmtQty(m)} (${fmtQty(r.servings * m)} servings)` : ''}. One clean page with no menus or buttons. Long recipes shrink to fit.</p>
-    <fieldset class="printmode"><legend>Ink</legend><label class="check"><input type="radio" name="poMode" value="bw" ${o.mode === 'bw' ? 'checked' : ''}> Black &amp; white <span class="muted small">(best for laser printers and photocopies)</span></label><label class="check"><input type="radio" name="poMode" value="color" ${o.mode === 'color' ? 'checked' : ''}> Color <span class="muted small">(green headings and macro colors)</span></label></fieldset>
+    <fieldset class="printmode"><legend>Ink</legend><label class="check"><input type="radio" name="poMode" value="bw" ${o.mode === 'bw' ? 'checked' : ''}> Black &amp; white <span class="muted small">(best for laser printers and photocopies)</span></label><label class="check"><input type="radio" name="poMode" value="color" ${o.mode === 'color' ? 'checked' : ''}> Color <span class="muted small">(blue headings and macro colors)</span></label></fieldset>
     <div class="printopts">
       <label class="check"><input type="checkbox" id="po-large" ${o.large ? 'checked' : ''}> Large, easy-to-read text</label>
       <label class="check"><input type="checkbox" id="po-checks" ${o.checks ? 'checked' : ''}> Tick boxes beside ingredients</label>
@@ -4012,7 +4377,11 @@ function boot() {
   const sb = $('#setupBtn'); if (sb) sb.innerHTML = icon('sliders') + ' Setup';
   const sr = $('#searchBtn'); if (sr) sr.innerHTML = icon('search') + '<span>Search</span><kbd>/</kbd>';
   const tt = $('#toTop'); if (tt) tt.innerHTML = icon('up');
-  const fu = $('#ftUpdated'); if (fu) { fu.textContent = new Date(DEMO_UPDATED).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }); fu.dateTime = APP.released; }
+  const bl = $('.brand .logo'); if (bl) bl.outerHTML = logo(28);
+  const di = $('#dataMenu .dm-ic'); if (di) di.outerHTML = icon('db');
+  const fu = $('#ftUpdated'); if (fu) { fu.textContent = new Date(APP.released + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }); fu.dateTime = APP.released; }
+  loadBackupHandles();
+  setInterval(renderBackupUI, 60000);                                   // keep "Backed up 5 min ago" current
   setMenu(false); showNotice();
   parseRoute(); renderApp(true);
 
