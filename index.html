@@ -1,16 +1,16 @@
 <!doctype html>
-<!-- mbmealprep.online BETA 4.2. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
+<!-- mbmealprep.online BETA 4.2.1. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-mc+knTOq6gjY6/B4hpNDBwGn/ngeSjUDQwHu9Eh6im4='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-+WZcXbl+rUSZWrR2Q6AWHqind97j5Br87JgmCrT7bq0='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>mbmealprep.online | Meal prep, macros and grocery lists</title>
 <meta name="description" content="Plan your week of meals, hit your protein, carb and fat targets, and shop from a list sorted by store section. No account needed.">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#0d6493">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Crect%20width=%2232%22%20height=%2232%22%20rx=%227%22%20fill=%22%230d6493%22/%3E%3Cg%20transform=%22translate%286%206%29%20scale%28.8333%29%22%20fill=%22none%22%20stroke=%22%23fff%22%20stroke-width=%222.2%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%3E%3Cpath%20d=%22M4%2020L10.4%209.4A3%203%200%200%201%2014.6%2013.6Z%22/%3E%3Cpath%20d=%22M8.5%2012.5l1.8%201.8M6.4%2016l1.4%201.4%22/%3E%3Cpath%20d=%22M15%209l4.5-4.5M15%209c-.6-2-.2-3.8%201-5.2M15%209c2%20.6%203.8.2%205.2-1%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Crect%20width=%2264%22%20height=%2264%22%20rx=%2213%22%20fill=%22%230D6493%22/%3E%3Cpath%20d=%22M14%2036H50A18%2016%200%200%201%2014%2036Z%22%20fill=%22%23fff%22%20stroke=%22%23fff%22%20stroke-width=%223%22%20stroke-linejoin=%22round%22/%3E%3Cpath%20d=%22M23.5%2030c-3-3.5%203-5.5%200-10M32%2030c-3-3.5%203-5.5%200-10M40.5%2030c-3-3.5%203-5.5%200-10%22%20fill=%22none%22%20stroke=%22%23F2B640%22%20stroke-width=%223.8%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20/%3E%3C/svg%3E">
 <script>
 /* Load light unless dark was chosen last time (ecosystem rule). Runs before first paint. */
 (function(){var t='light';try{var s=JSON.parse(localStorage.getItem('pantryPartner.beta4')||'null');if(s&&s.settings&&s.settings.theme==='dark')t='dark';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
@@ -473,7 +473,7 @@ summary { cursor: pointer; } summary:hover { color: var(--accent); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tab.on:hover, :root:not([data-theme="light"]) .ritem.on:hover, :root:not([data-theme="light"]) .btype.on:hover, :root:not([data-theme="light"]) .chipbtn.on:hover, :root:not([data-theme="light"]) .gcard.on:hover, :root:not([data-theme="light"]) .feat.on:hover, :root:not([data-theme="light"]) .btn.on:hover, :root:not([data-theme="light"]) .seg button.on:hover { filter: brightness(1.15); } }
 :root[data-theme="dark"] .tab.on:hover, :root[data-theme="dark"] .ritem.on:hover, :root[data-theme="dark"] .btype.on:hover, :root[data-theme="dark"] .chipbtn.on:hover, :root[data-theme="dark"] .gcard.on:hover, :root[data-theme="dark"] .feat.on:hover, :root[data-theme="dark"] .btn.on:hover, :root[data-theme="dark"] .seg button.on:hover { filter: brightness(1.15); }
 
-/* logo: a carrot */
+/* logo: a steaming bowl */
 .logo { flex: none; display: inline-block; vertical-align: middle; }
 .brand .logo { transition: transform .2s ease; } .brand:hover .logo { transform: rotate(-12deg) scale(1.08); }
 .hero-logo { margin: 0 0 14px; } .about-h { display: flex; align-items: center; gap: 12px; } .brandmini { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; }
@@ -769,7 +769,10 @@ mark { border-radius: 2px; }
    Data menu + "backed up" chip, phone bottom nav. Same markup and sizes as
    the other apps; only --accent differs.
    ===================================================================== */
-/* logo badge: --r square, accent fill, one-colour glyph (accent-ink = white in light) */
+/* logo badge: --r square, accent fill, white bowl + gold steam (steam falls back to accent-ink in dark, where gold on light blue disappears) */
+:root { --logo-steam: #F2B640; }
+:root[data-theme="dark"] { --logo-steam: var(--accent-ink); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --logo-steam: var(--accent-ink); } }
 .logo { display: inline-grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: var(--r); background: var(--accent); color: var(--accent-ink); vertical-align: middle; }
 .logo > svg, :is(.brand, .brandmini, .about-h, .hero-logo, .wiz-top) .logo > svg { width: 64%; height: 64%; display: block; color: inherit; }
 .brand .logo, .brand:hover .logo { transform: none; transition: none; }
@@ -918,7 +921,7 @@ mark { border-radius: 2px; }
 <header id="appbar">
   <a class="brand" href="#/home" aria-label="mbmealprep.online home">
     <span class="logo" aria-hidden="true"></span>
-    <span class="nm">mbmealprep.online</span><span class="beta">BETA 4.2</span>
+    <span class="nm">mbmealprep.online</span><span class="beta">BETA 4.2.1</span>
   </a>
   <nav id="nav" aria-label="Main"></nav>
   <div class="bar-actions">
@@ -935,7 +938,7 @@ mark { border-radius: 2px; }
   <div id="progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
 </header>
 <main id="view" tabindex="-1"><div class="skel" aria-hidden="true"><i class="sk sk-h"></i><i class="sk sk-p"></i><div class="sk-grid"><i class="sk sk-c"></i><i class="sk sk-c"></i><i class="sk sk-c"></i></div></div><noscript><p style="padding:24px">This app needs JavaScript to run.</p></noscript></main>
-<footer>© 2026 Matthew Broyer · mbmealprep.online BETA 4.2 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
+<footer>© 2026 Matthew Broyer · mbmealprep.online BETA 4.2.1 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
 <div id="printSheet" aria-hidden="true"></div>
 <button id="toTop" class="totop" data-act="toTop" aria-label="Back to top" hidden></button>
 <aside id="notice" class="notice" role="region" aria-label="Privacy notice" hidden></aside>
@@ -962,9 +965,9 @@ const num = v => { const n = parseFloat(v); return Number.isFinite(n) ? n : 0; }
 const numOrNull = v => { if (v === '' || v === null || v === undefined) return null; const n = parseFloat(v); return Number.isFinite(n) ? n : null; };
 const fmtInt = n => Math.round(n).toLocaleString('en-US');
 const fmtSigned = (n, d = 0) => { const r = round(n, d); return (r > 0 ? '+' : r < 0 ? '\u2212' : '') + Math.abs(r).toLocaleString('en-US'); };
-/* logo: the shared app-family badge (accent square, one-colour glyph) with this app's carrot */
-const LOGO_GLYPH = '<path d="M4 20L10.4 9.4A3 3 0 0 1 14.6 13.6Z"/><path d="M8.5 12.5l1.8 1.8M6.4 16l1.4 1.4"/><path d="M15 9l4.5-4.5M15 9c-.6-2-.2-3.8 1-5.2M15 9c2 .6 3.8.2 5.2-1"/>';
-const logo = (size = 28) => `<span class="logo" style="width:${size}px;height:${size}px" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${LOGO_GLYPH}</svg></span>`;
+/* logo: the shared app-family badge (accent square) with this app's steaming bowl; steam is gold in light, accent-ink in dark */
+const LOGO_GLYPH = '<path d="M14 36H50A18 16 0 0 1 14 36Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M23.5 30c-3-3.5 3-5.5 0-10M32 30c-3-3.5 3-5.5 0-10M40.5 30c-3-3.5 3-5.5 0-10" fill="none" stroke="var(--logo-steam)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>';
+const logo = (size = 28) => `<span class="logo" style="width:${size}px;height:${size}px" aria-hidden="true"><svg viewBox="0 0 64 64" style="width:100%;height:100%">${LOGO_GLYPH}</svg></span>`;
 const cap = s => s ? (s.charAt(0).toUpperCase() + s.slice(1)).replace(/^bbq\b/i, 'BBQ') : s;
 const today = () => new Date().toISOString().slice(0, 10);
 const validDate = s => { if (!s) return ''; const d = new Date(s); return isFinite(d) && d.getFullYear() >= 2000 && d.getTime() < Date.now() + 864e5 ? d.toISOString() : ''; };
@@ -1834,7 +1837,7 @@ zip-top bags|box`;
    Reference data: units, sections, days, ingredient library helpers
    ========================================================================== */
 const DEMO_UPDATED = '2026-09-20T12:00:00.000Z';
-const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'BETA 4.2', year: 2026, released: '2026-09-26' };
+const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'BETA 4.2.1', year: 2026, released: '2026-09-28' };
 
 /* Optional support links (leave blank to hide the buttons) */
 const CONFIG = { issueUrl: '', supportUrl: '', siteUrl: '' };
@@ -3682,6 +3685,9 @@ document.addEventListener('submit', e => {
    Release notes + license text
    ========================================================================== */
 const RELEASES = [
+  { v: 'BETA 4.2.1', date: 'September 28, 2026', tag: 'New logo', notes: [
+    'New app logo: a steaming bowl in place of the carrot, in the header, setup, About page and browser tab icon.',
+    'In dark mode the steam matches the badge text color so it stays visible on the lighter blue.'] },
   { v: 'BETA 4.2', date: 'September 26, 2026', tag: 'Backups & design update', notes: [
     'New Data menu in the top bar: Save backup now, Export All (JSON), Import Backup (JSON or CSV) and Export All (CSV), in the same order as the rest of the app family.',
     'Choose where backups go. In Chrome and Edge on a computer you pick the folder and file name once, and Save backup now (Ctrl/Cmd+S) updates that same file in one click. Other browsers and phones save to Downloads as before.',
