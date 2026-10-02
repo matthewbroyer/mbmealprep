@@ -3,14 +3,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-+WZcXbl+rUSZWrR2Q6AWHqind97j5Br87JgmCrT7bq0='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-SLTNztJl+DOUGa2kZM9V8cVDwT8KWR2qiafybsRAC88='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>mbmealprep.online | Meal prep, macros and grocery lists</title>
 <meta name="description" content="Plan your week of meals, hit your protein, carb and fat targets, and shop from a list sorted by store section. No account needed.">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#0d6493">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Crect%20width=%2264%22%20height=%2264%22%20rx=%2213%22%20fill=%22%230D6493%22/%3E%3Cpath%20d=%22M14%2036H50A18%2016%200%200%201%2014%2036Z%22%20fill=%22%23fff%22%20stroke=%22%23fff%22%20stroke-width=%223%22%20stroke-linejoin=%22round%22/%3E%3Cpath%20d=%22M23.5%2030c-3-3.5%203-5.5%200-10M32%2030c-3-3.5%203-5.5%200-10M40.5%2030c-3-3.5%203-5.5%200-10%22%20fill=%22none%22%20stroke=%22%23F2B640%22%20stroke-width=%223.8%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20/%3E%3C/svg%3E">
+<meta name="theme-color" content="#e0523d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23e0523d'/%3E%3Cg transform='translate(0,-3.7999965)'%3E%3Cpath d='M 14,36 H 50 A 18,16 0 0 1 14,36 Z' fill='%23fff' stroke='%23fff' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='m 23.5,30 c -3,-3.5 3,-5.5 0,-10 M 32,30 c -3,-3.5 3,-5.5 0,-10 m 8.5,10 c -3,-3.5 3,-5.5 0,-10' fill='none' stroke='%23f2b640' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E">
 <script>
 /* Load light unless dark was chosen last time (ecosystem rule). Runs before first paint. */
 (function(){var t='light';try{var s=JSON.parse(localStorage.getItem('pantryPartner.beta4')||'null');if(s&&s.settings&&s.settings.theme==='dark')t='dark';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
@@ -26,10 +26,10 @@
   --r: 6px; --r-sm: 4px; --ctl: 38px; --ctl-sm: 34px; --ease: 120ms ease;
   --bg: #f3f4f6; --bg2: #f6f7f9; --bg3: #eceef2; --surface: #ffffff;
   --ink: #1b1f24; --ink2: #48505c; --ink3: #5f6773; --line: #dfe2e7; --line2: #c6cbd3;
-  --accent: #0d6493; --accent-hover: #0a5379; --accent-ink: #ffffff; --accent-soft: #e6f0f7; --accent-soft-ink: #0a3f5e; --accent-line: rgba(13, 100, 147, .38);
-  --sky: #dcecf3; --apricot: #f7e0d0; --butter: #f9edcd; --sage: #9aa2ac;
-  /* macro series follow the accent: protein = accent, carbs = warm ochre, fats = slate (green is reserved for 'on target') */
-  --c: #b07a1f; --f: #6b7684; --p: #0d6493;
+  --accent: #e0523d; --accent-hover: #c13f2b; --accent-ink: #ffffff; --accent-soft: #fceeea; --accent-soft-ink: #7a2418; --accent-line: rgba(224, 82, 61, .38);
+  --sky: var(--accent-soft); --apricot: var(--accent-soft); --butter: var(--accent-soft); --sage: var(--line2);
+  /* chart palette: soft pastels built from the coral accent. protein = light coral, carbs = soft blue, fats = red (green is reserved for 'on target'); --bar = weekly calories, pastel coral */
+  --c: #6f9bd1; --f: #df6372; --p: #f19a88; --bar: #ea7d69;
   --warn-dot: #d99a00;
   --good: #2e6f34; --good-bg: #e3f0e1; --warn: #83560a; --warn-bg: #fbf0d3; --bad: #a8261e; --bad-bg: #fbe4e1;
   --focus: var(--accent);
@@ -42,9 +42,9 @@
     color-scheme: dark;
     --bg: #16181c; --bg2: #25292f; --bg3: #2d3238; --surface: #1e2126;
     --ink: #e9ecf0; --ink2: #b4bbc5; --ink3: #8e97a3; --line: #30353c; --line2: #434a53;
-    --accent: #6fbde6; --accent-hover: #8fcdee; --accent-ink: #06202e; --accent-soft: #1b3140; --accent-soft-ink: #cde6f5; --accent-line: rgba(111, 189, 230, .45);
-    --sky: #1f3842; --apricot: #3d2c22; --butter: #3a3320; --sage: #6a737c;
-    --c: #d9a24a; --f: #8a94a1; --p: #6fbde6; --warn-dot: #e8c36a;
+    --accent: #f2745f; --accent-hover: #f78f7d; --accent-ink: #2a0a05; --accent-soft: #3a211d; --accent-soft-ink: #fbd5cd; --accent-line: rgba(242, 116, 95, .45);
+    --sky: var(--accent-soft); --apricot: var(--accent-soft); --butter: var(--accent-soft); --sage: var(--line2);
+    --c: #8db4e6; --f: #e8737f; --p: #f7b3a5; --bar: #f59a89; --warn-dot: #e8c36a;
     --good: #86d391; --good-bg: #1f3322; --warn: #e8c36a; --warn-bg: #3a3117; --bad: #f2918a; --bad-bg: #3d201d;
     --shadow: 0 1px 2px rgba(0, 0, 0, .3);
     --shadow-pop: 0 10px 28px -6px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .03);
@@ -55,9 +55,9 @@
   color-scheme: dark;
   --bg: #16181c; --bg2: #25292f; --bg3: #2d3238; --surface: #1e2126;
   --ink: #e9ecf0; --ink2: #b4bbc5; --ink3: #8e97a3; --line: #30353c; --line2: #434a53;
-  --accent: #6fbde6; --accent-hover: #8fcdee; --accent-ink: #06202e; --accent-soft: #1b3140; --accent-soft-ink: #cde6f5; --accent-line: rgba(111, 189, 230, .45);
-  --sky: #1f3842; --apricot: #3d2c22; --butter: #3a3320; --sage: #6a737c;
-  --c: #d9a24a; --f: #8a94a1; --p: #6fbde6; --warn-dot: #e8c36a;
+  --accent: #f2745f; --accent-hover: #f78f7d; --accent-ink: #2a0a05; --accent-soft: #3a211d; --accent-soft-ink: #fbd5cd; --accent-line: rgba(242, 116, 95, .45);
+  --sky: var(--accent-soft); --apricot: var(--accent-soft); --butter: var(--accent-soft); --sage: var(--line2);
+  --c: #8db4e6; --f: #e8737f; --p: #f7b3a5; --bar: #f59a89; --warn-dot: #e8c36a;
   --good: #86d391; --good-bg: #1f3322; --warn: #e8c36a; --warn-bg: #3a3117; --bad: #f2918a; --bad-bg: #3d201d;
   --shadow: 0 1px 2px rgba(0, 0, 0, .3);
   --shadow-pop: 0 10px 28px -6px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .03);
@@ -268,7 +268,7 @@ details.fine { margin: 10px 0; } details summary { cursor: pointer; font-weight:
 .pslot { display: flex; flex-direction: column; gap: 6px; } .pslot .pick { min-height: 38px; padding: 6px 8px; font-size: .88rem; } .sv { display: flex; align-items: center; gap: 6px; font-size: .78rem; color: var(--ink3); flex-wrap: wrap; } .sv .serv { width: 62px; min-height: 30px; padding: 3px 6px; } .skcal { margin-left: auto; font-weight: 700; color: var(--ink2); }
 .ptot { display: flex; flex-direction: column; gap: 6px; } .ptot.empty { justify-content: center; } .tk b { font-size: 1.25rem; letter-spacing: -.02em; } .tm { display: flex; gap: 8px; flex-wrap: wrap; font-size: .78rem; font-weight: 600; } .tm .dot { width: 8px; height: 8px; margin-right: 3px; } .tm em { font-weight: 700; margin-left: 2px; font-size: .72rem; } .tm em.ok { color: var(--good); } .tm em.off { color: var(--ink3); }
 .wk-grid { display: grid; grid-template-columns: minmax(260px, 1fr) minmax(320px, 1.6fr); gap: 20px; align-items: start; } .wk-kpis { display: grid; gap: 10px; }
-.wchart { width: 100%; height: auto; } .wchart .bar { fill: var(--accent); } .wchart .gl { stroke: var(--line); stroke-width: 1; } .wchart .ax { font: 500 11px var(--font); fill: var(--ink3); } .wchart .ax.val { fill: var(--ink); font-weight: 700; } .wchart .tline { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 5 4; } .wchart .tlab { fill: var(--ink); font-weight: 700; }
+.wchart { width: 100%; height: auto; } .wchart .bar { fill: var(--bar); } .wchart .gl { stroke: var(--line); stroke-width: 1; } .wchart .ax { font: 500 11px var(--font); fill: var(--ink3); } .wchart .ax.val { fill: var(--ink); font-weight: 700; } .wchart .tline { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 5 4; } .wchart .tlab { fill: var(--ink); font-weight: 700; }
 .wchart g:hover .bar, .wchart g:focus .bar { filter: brightness(1.15); } .wchart g { outline: none; }
 
 /* ---------- grocery ---------- */
@@ -327,7 +327,7 @@ dialog { border: 0; padding: 0; border-radius: 20px; width: min(520px, 94vw); ba
   .prow { grid-template-columns: 90px repeat(var(--cols), 1fr) 150px; } .pslot select { border: 0; appearance: none; padding: 0; } .sv .serv { border: 0; }
 }
 
-.chartkey { display: flex; gap: 18px; flex-wrap: wrap; font-size: .8rem; color: var(--ink2); margin: 4px 0 0 40px; } .chartkey span { display: inline-flex; align-items: center; gap: 7px; } .chartkey .swatch { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); } .chartkey .dash { width: 20px; border-top: 2px dashed var(--ink); }
+.chartkey { display: flex; gap: 18px; flex-wrap: wrap; font-size: .8rem; color: var(--ink2); margin: 4px 0 0 40px; } .chartkey span { display: inline-flex; align-items: center; gap: 7px; } .chartkey .swatch { width: 12px; height: 12px; border-radius: 3px; background: var(--bar); } .chartkey .dash { width: 20px; border-top: 2px dashed var(--ink); }
 .btype .body { width: 56px; height: 112px; }
 
 /* ==========================================================================
@@ -392,7 +392,7 @@ dialog.searchdlg[open] { display: block; }
 .sitem:hover, .sitem.on { background: var(--accent-soft); color: var(--accent-soft-ink); } .sitem.on > svg, .sitem:hover > svg { color: var(--accent); }
 .st { display: grid; gap: 1px; min-width: 0; } .st b { font-weight: 650; overflow-wrap: anywhere; } .ss { font-size: .82rem; color: var(--ink3); } .sm { font-size: .82rem; color: var(--ink2); overflow-wrap: anywhere; }
 .sitem.on .ss, .sitem:hover .ss { color: inherit; opacity: .8; }
-mark { background: color-mix(in srgb, var(--butter) 55%, #f2c94c 45%); color: #2a2200; border-radius: 3px; padding: 0 1px; }
+mark { background: color-mix(in srgb, var(--accent) 24%, var(--surface)); color: var(--ink); border-radius: 3px; padding: 0 1px; }
 .sempty { display: grid; gap: 4px; padding: 30px 18px; text-align: center; color: var(--ink2); } .sempty span { font-size: .88rem; color: var(--ink3); }
 .shint { display: flex; gap: 16px; padding: 8px 14px; border-top: 1px solid var(--line); color: var(--ink3); font-size: .76rem; }
 kbd { font: 600 .72rem var(--font); border: 1px solid var(--line2); border-bottom-width: 2px; border-radius: 5px; padding: 1px 6px; background: var(--bg2); color: var(--ink2); margin-right: 3px; }
@@ -454,10 +454,10 @@ kbd { font: 600 .72rem var(--font); border: 1px solid var(--line2); border-botto
 .printmode { border: 0; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; } .printmode legend { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink3); padding: 0; margin-bottom: 6px; }
 .ps .d { display: none; width: .62em; height: .62em; border-radius: 50%; margin-right: .3em; vertical-align: .04em; }
 .ps.color, .ps.color * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-.ps.color .d { display: inline-block; } .ps.color .d-c { background: #b07a1f; } .ps.color .d-f { background: #6b7684; } .ps.color .d-p { background: #0d6493; }
-.ps.color h1, .ps.color h2 { color: #0a3f5e; } .ps.color h2 { border-bottom-color: #0d6493; }
-.ps.color .ps-nutri { background: #e8f2f9; border-top-color: #0d6493; border-bottom-color: #9cc3dd; padding-inline: .6em; }
-.ps.color .ps-ing li { border-bottom-color: #c3dbeb; } .ps.color .box { border-color: #0d6493; }
+.ps.color .d { display: inline-block; } .ps.color .d-c { background: #6f9bd1; } .ps.color .d-f { background: #df6372; } .ps.color .d-p { background: #f19a88; }
+.ps.color h1, .ps.color h2 { color: #7a2418; } .ps.color h2 { border-bottom-color: #e0523d; }
+.ps.color .ps-nutri { background: #fceeea; border-top-color: #e0523d; border-bottom-color: #eba99f; padding-inline: .6em; }
+.ps.color .ps-ing li { border-bottom-color: #f0d3cd; } .ps.color .box { border-color: #e0523d; }
 .ps.bw, .ps.bw * { color: #000 !important; background: none !important; }
 .ps.bw h2, .ps.bw .ps-nutri { border-color: #000; } .ps.bw .ps-ing li { border-bottom-color: #666; } .ps.bw .ps-foot { border-top-color: #000; } .ps.bw .box { border-color: #000; }
 
@@ -564,7 +564,7 @@ code, kbd { border-radius: 3px; }
 .wchart g:hover .bar, .wchart g:focus .bar, .btn.primary:hover, .linkbtn:hover { filter: none; }
 :root[data-theme="dark"] :is(.tab, .ritem, .btype, .chipbtn, .gcard, .feat, .btn, .seg button).on:hover { filter: none; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) :is(.tab, .ritem, .btype, .chipbtn, .gcard, .feat, .btn, .seg button).on:hover { filter: none; } }
-.wchart g:hover .bar, .wchart g:focus .bar { fill: var(--accent-hover); }
+.wchart g:hover .bar, .wchart g:focus .bar { fill: var(--accent); }
 .linkbtn:hover { color: var(--accent-hover); }
 #view.view-in { animation: fadein .12s ease backwards; }
 .tiles > * { animation: none; }
@@ -914,6 +914,11 @@ mark { border-radius: 2px; }
   .ingtable td[colspan] { grid-column: 1 / -1; }
   .ingtable tbody tr:hover td { background: none; }
 }
+
+/* text links and text buttons: plain ink text, quiet neutral underline (coral stays on fills, borders and active states) */
+main a:not(.btn):not(.tab):not(.skip):not(.bn-item), main a.small, footer a, .linkbtn, .notice a:not(.btn), a.dm-more, a.addmeal, label a { color: var(--ink); font-weight: inherit; text-decoration: underline; text-decoration-color: var(--line2); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+main a:not(.btn):not(.tab):not(.skip):not(.bn-item):hover, main a.small:hover, footer a:hover, .linkbtn:hover, .notice a:not(.btn):hover, a.dm-more:hover, a.addmeal:hover, label a:hover { color: var(--ink); text-decoration-color: var(--ink); filter: none; }
+summary:hover { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -966,7 +971,7 @@ const numOrNull = v => { if (v === '' || v === null || v === undefined) return n
 const fmtInt = n => Math.round(n).toLocaleString('en-US');
 const fmtSigned = (n, d = 0) => { const r = round(n, d); return (r > 0 ? '+' : r < 0 ? '\u2212' : '') + Math.abs(r).toLocaleString('en-US'); };
 /* logo: the shared app-family badge (accent square) with this app's steaming bowl; steam is gold in light, accent-ink in dark */
-const LOGO_GLYPH = '<path d="M14 36H50A18 16 0 0 1 14 36Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M23.5 30c-3-3.5 3-5.5 0-10M32 30c-3-3.5 3-5.5 0-10M40.5 30c-3-3.5 3-5.5 0-10" fill="none" stroke="var(--logo-steam)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>';
+const LOGO_GLYPH = '<g transform="translate(0,-3.7999965)"><path d="M 14,36 H 50 A 18,16 0 0 1 14,36 Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="m 23.5,30 c -3,-3.5 3,-5.5 0,-10 M 32,30 c -3,-3.5 3,-5.5 0,-10 m 8.5,10 c -3,-3.5 3,-5.5 0,-10" fill="none" stroke="var(--logo-steam)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/></g>';
 const logo = (size = 28) => `<span class="logo" style="width:${size}px;height:${size}px" aria-hidden="true"><svg viewBox="0 0 64 64" style="width:100%;height:100%">${LOGO_GLYPH}</svg></span>`;
 const cap = s => s ? (s.charAt(0).toUpperCase() + s.slice(1)).replace(/^bbq\b/i, 'BBQ') : s;
 const today = () => new Date().toISOString().slice(0, 10);
