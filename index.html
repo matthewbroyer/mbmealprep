@@ -1,9 +1,9 @@
 <!doctype html>
-<!-- mbmealprep.online BETA 4.2.1. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
+<!-- mbmealprep.online BETA 4.2.2. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-SLTNztJl+DOUGa2kZM9V8cVDwT8KWR2qiafybsRAC88='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-o3EtSfMJBML+drXEkQ64Wg/twEYZNku8kv4xmGJ8KBE='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>mbmealprep.online | Meal prep, macros and grocery lists</title>
@@ -926,7 +926,7 @@ summary:hover { color: var(--ink); }
 <header id="appbar">
   <a class="brand" href="#/home" aria-label="mbmealprep.online home">
     <span class="logo" aria-hidden="true"></span>
-    <span class="nm">mbmealprep.online</span><span class="beta">BETA 4.2.1</span>
+    <span class="nm">mbmealprep.online</span><span class="beta">BETA 4.2.2</span>
   </a>
   <nav id="nav" aria-label="Main"></nav>
   <div class="bar-actions">
@@ -943,7 +943,7 @@ summary:hover { color: var(--ink); }
   <div id="progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
 </header>
 <main id="view" tabindex="-1"><div class="skel" aria-hidden="true"><i class="sk sk-h"></i><i class="sk sk-p"></i><div class="sk-grid"><i class="sk sk-c"></i><i class="sk sk-c"></i><i class="sk sk-c"></i></div></div><noscript><p style="padding:24px">This app needs JavaScript to run.</p></noscript></main>
-<footer>© 2026 Matthew Broyer · mbmealprep.online BETA 4.2.1 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
+<footer>© 2026 Matthew Broyer · mbmealprep.online BETA 4.2.2 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
 <div id="printSheet" aria-hidden="true"></div>
 <button id="toTop" class="totop" data-act="toTop" aria-label="Back to top" hidden></button>
 <aside id="notice" class="notice" role="region" aria-label="Privacy notice" hidden></aside>
@@ -1842,7 +1842,7 @@ zip-top bags|box`;
    Reference data: units, sections, days, ingredient library helpers
    ========================================================================== */
 const DEMO_UPDATED = '2026-09-20T12:00:00.000Z';
-const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'BETA 4.2.1', year: 2026, released: '2026-09-28' };
+const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'BETA 4.2.2', year: 2026, released: '2026-10-01' };
 
 /* Optional support links (leave blank to hide the buttons) */
 const CONFIG = { issueUrl: '', supportUrl: '', siteUrl: '' };
@@ -3690,6 +3690,11 @@ document.addEventListener('submit', e => {
    Release notes + license text
    ========================================================================== */
 const RELEASES = [
+  { v: 'BETA 4.2.2', date: 'October 1, 2026', tag: 'Color refresh', notes: [
+    'New pastel chart colors: protein is light coral, carbs are blue and fats are red. They apply to the macro donut, macro bars, legends and the color print sheet.',
+    'Text links and text buttons, such as recipe names in the cook list, "+ Add a meal" and the footer links, are now plain dark text with a quiet underline. Coral stays on buttons, the active tab, borders and selected cards.',
+    'Search highlights, the Demo recipe chip and a few leftover tints now follow the coral accent.',
+    'The app logo, icon and accent colors are unchanged.'] },
   { v: 'BETA 4.2.1', date: 'September 28, 2026', tag: 'New logo', notes: [
     'New app logo: a steaming bowl in place of the carrot, in the header, setup, About page and browser tab icon.',
     'In dark mode the steam matches the badge text color so it stays visible on the lighter blue.'] },
