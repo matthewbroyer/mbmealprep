@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-zV02By3jv62XrbFJbulDvFAFhRl+04TQLG5BHTI800c='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-AGqqEFHqn98off02UylgH12jvYprn95OE/THrZC6lWk='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#E0523D">
@@ -1082,54 +1082,11 @@ dialog::backdrop { background: rgba(30, 12, 6, .55); backdrop-filter: blur(5px);
 .brand { font-weight: 750; font-size: 15.5px; letter-spacing: -.015em; }
 .tab { border-radius: var(--r-sm); font-weight: 600; }
 .tab:hover { background: var(--bg2); }
-@media (min-width: 721px) and (max-width: 899px) {
-  #appbar { padding-inline: 16px; }
-  .tab { min-height: 38px; padding: 0 14px; font-size: 13.5px; border-radius: var(--r-sm); box-shadow: none; }
-  .tab.on, .tab.on:hover { background: var(--grad-btn); color: var(--btn-ink); box-shadow: 0 6px 14px -8px color-mix(in srgb, var(--accent) 80%, transparent); }
-  #nav { padding: 6px 0; gap: 4px; border-top: 1px solid var(--line); }
-}
+/* (v5 sidebar/tablet layout removed by MB Suite v1) */
 
 /* ---------- desktop: sidebar shell ---------- */
-@media (min-width: 900px) {
-  :root { --side: 256px; }
-  body[data-view="setup"] { --side: 0px; }
-  body { padding-left: var(--side); }
-  #appbar { position: fixed; top: 0; left: 0; bottom: 0; width: var(--side); z-index: 40; display: flex; flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 4px; min-height: 0; padding: 22px 14px 16px; background: var(--glass); backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 0; border-right: 1px solid var(--line); box-shadow: none; }
-  #appbar.stuck { box-shadow: none; }
-  #progress { position: fixed; left: var(--side); right: 0; top: 0; bottom: auto; height: 3px; z-index: 50; }
-  .brand { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: center; align-self: stretch; min-height: 0; padding: 2px 8px 18px; font-size: 15.5px; }
-  .brand .logo { grid-row: 1 / span 2; width: 38px !important; height: 38px !important; }
-  .brand .nm { align-self: end; line-height: 1.15; }
-  .brand .beta { display: inline-flex; grid-column: 2; justify-self: start; align-self: start; margin-top: 4px; }
-  #nav { flex: 1; flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 3px; padding: 0 0 12px; overflow-y: auto; border-top: 0; order: 0; flex-basis: auto; }
-  .tab { position: relative; min-height: 40px; padding: 0 12px; gap: 12px; border-radius: var(--r); font-size: 14px; font-weight: 600; color: var(--ink2); }
-  .tab svg { display: inline-block !important; width: 18px; height: 18px; color: var(--ink3); transition: color var(--ease); }
-  .tab:hover { background: var(--bg2); color: var(--ink); } .tab:hover svg { color: var(--accent); }
-  .tab.on, .tab.on:hover { background: var(--grad-soft); color: var(--accent-soft-ink); font-weight: 700; box-shadow: inset 0 0 0 1px var(--accent-line); }
-  .tab.on svg { color: var(--accent); }
-  .tab.on::before { content: ''; position: absolute; left: -14px; top: 8px; bottom: 8px; width: 3px; border-radius: 0 3px 3px 0; background: var(--grad); }
-  .bar-actions { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; margin: 0; padding-top: 14px; border-top: 1px solid var(--line); }
-  .bar-actions > * { min-width: 0; }
-  #searchBtn, .btn.searchbtn { grid-column: 1 / -1; width: 100%; justify-content: flex-start; gap: 10px; font-size: 13.5px; padding: 0 12px; min-height: 40px; background: var(--surface); border: 1px solid var(--line); color: var(--ink3); font-weight: 500; box-shadow: none; }
-  #searchBtn svg { font-size: 1rem; } #searchBtn kbd { display: inline-block; margin-left: auto; }
-  #searchBtn:hover { border-color: var(--accent-line); color: var(--ink); background: var(--surface); }
-  #bkChip, #storageBadge { grid-column: 1 / -1; justify-content: flex-start; }
-  .datamenu { grid-column: 1 / -1; }
-  .datamenu > summary { width: 100%; min-height: 40px; justify-content: flex-start; gap: 10px; padding: 0 12px; border-radius: var(--r-sm); }
-  .datamenu > summary::after { margin-left: auto; }
-  .datamenu .dm-menu { right: auto; left: 0; top: auto; bottom: calc(100% + 8px); min-width: 300px; }
-  .bk-dot { top: 8px; right: 36px; }
-  #setupBtn { font-size: 13.5px; gap: 10px; justify-content: flex-start; padding: 0 12px; min-height: 40px; }
-  #setupBtn svg { font-size: 1rem; }
-  .themesw { justify-self: end; }
-  main#view { max-width: 1200px; padding: 28px 36px 64px; }
-  footer { background: transparent; border-top: 0; padding: 12px 40px 36px; }
-  html { scroll-padding-top: 24px; }
-  .rlist-wrap { top: 24px; max-height: calc(100vh - 48px); } .col-side { top: 24px; }
-  .notice { left: var(--side); } #toasts { left: calc(50% + var(--side) / 2); }
-  body[data-view="setup"] .notice { left: 0; }
-}
-@media (min-width: 900px) and (max-height: 700px) { .brand { padding-bottom: 8px; } .tab { min-height: 38px; } }
+/* (v5 sidebar/tablet layout removed by MB Suite v1) */
+/* (v5 sidebar/tablet layout removed by MB Suite v1) */
 
 /* ---------- phone ---------- */
 @media (max-width: 720px) {
@@ -1175,6 +1132,8 @@ main a.tile span, main a.tile small, main a.tile b i { text-decoration: none; }
   --ctl:38px; --ctl-sm:32px;
   --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px;
   --ease:120ms ease;
+  /* page width: every app's header and content share one container (mbmoney.online's) */
+  --page-max:1280px; --gutter:16px;
   /* neutrals */
   --bg:#f3f4f6; --surface:#ffffff; --surface-2:#f6f7f9; --surface-3:#eceef2;
   --ink:#1b1f24; --ink-2:#48505c; --muted:#5f6773;
@@ -1344,24 +1303,26 @@ dialog::backdrop{background:var(--scrim);backdrop-filter:none;-webkit-backdrop-f
 #progress i{background:var(--accent);border-radius:0}
 .tab{border-radius:var(--r-sm);font-weight:500}
 .tab:hover{background:var(--surface-2)}
-@media (min-width:721px) and (max-width:899px){
-  .tab{border-radius:0}
-  .tab.on,.tab.on:hover{background:none;color:var(--accent);font-weight:600;box-shadow:inset 0 -2px 0 var(--accent)}
-}
-/* desktop: left rail, same active treatment as the family's bottom-sheet items */
-@media (min-width:900px){
-  body::before{content:"";position:fixed;left:0;right:0;top:0;height:3px;background:var(--accent);z-index:60;pointer-events:none}
-  #appbar{background:var(--surface);border-right:1px solid var(--border);border-bottom:0;box-shadow:none;padding:20px 12px 14px}
-  #appbar.stuck{box-shadow:none}
-  #progress{top:3px}
-  .brand .logo{width:28px!important;height:28px!important}
-  .brand{column-gap:10px;padding:2px 6px 16px}
-  .tab{min-height:38px;border-radius:var(--r-sm);font-size:14px;font-weight:500;color:var(--ink-2)}
-  .tab:hover{background:var(--surface-2);color:var(--ink)}
-  .tab.on,.tab.on:hover{background:var(--accent-soft);color:var(--accent);font-weight:600;box-shadow:inset 3px 0 0 var(--accent)}
-  .tab.on::before{display:none}
-  #searchBtn,.btn.searchbtn{border-color:var(--border-strong);background:var(--surface-2)}
-  .datamenu>summary{border-radius:var(--r-sm)}
+/* app bar: same title + tab style as mbmoney.online — top bar, tab row underneath (the v5 sidebar is removed) */
+#appbar{background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid var(--border);box-shadow:inset 0 3px 0 var(--accent),var(--shadow)}
+#appbar.stuck{box-shadow:inset 0 3px 0 var(--accent),var(--shadow)}
+#progress i{background:var(--accent);border-radius:0}
+.brand{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;align-content:center;row-gap:1px;min-height:44px;column-gap:9px;align-items:center;justify-content:start;font-weight:650;font-size:14.5px;letter-spacing:-.005em;padding:3px 8px 3px 3px;margin-left:-3px;border-radius:var(--r-sm)}
+.brand:hover{background:var(--surface-2)}
+.brand .logo{grid-row:1/span 2;width:28px!important;height:28px!important}
+.brand .nm{align-self:end;line-height:1.15}
+#appbar .brand .beta{display:block;grid-column:2;align-self:start;padding:0;margin:0;border:0;background:none;border-radius:0;font-size:11px;font-weight:400;color:var(--muted);letter-spacing:.01em;line-height:1.2}
+@media (min-width:721px){
+  #appbar{flex-wrap:wrap;row-gap:0;align-items:center;padding-top:10px;padding-bottom:0;min-height:0}
+  .brand,.bar-actions{align-self:center}
+  .bar-actions{margin-left:auto}
+  #nav{order:3;flex-basis:100%;border-top:0;padding:0;gap:0;margin-top:2px;align-items:stretch}
+  #appbar .tab{min-height:40px;padding:0 12px;gap:7px;border-radius:0;font-size:14px;font-weight:500;color:var(--ink-2);background:none;box-shadow:none}
+  #appbar .tab svg{display:inline-block;width:16px;height:16px;opacity:.75}
+  #appbar .tab:hover{background:var(--surface-2);color:var(--ink)}
+  #appbar .tab.on,#appbar .tab.on:hover{background:none;color:var(--accent);font-weight:600;box-shadow:inset 0 -2px 0 var(--accent)}
+  #appbar .tab.on svg{opacity:1}
+  #appbar .tab.on::before{display:none}
 }
 /* phones: docked bottom bar like the rest of the family */
 @media (max-width:720px){
@@ -1377,6 +1338,9 @@ dialog::backdrop{background:var(--scrim);backdrop-filter:none;-webkit-backdrop-f
   .bn-item{border-radius:var(--r-sm)} .bn-item.on,.bn-item.on:hover{background:var(--surface-2);box-shadow:inset 3px 0 0 var(--accent)}
 }
 @media print{body::before{display:none}}
+/* page width: same container as mbmoney.online (1280px, 16px gutters on every screen size) */
+main#view{max-width:var(--page-max);padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right))}
+#appbar{padding-left:max(var(--gutter),calc((100% - var(--page-max)) / 2 + var(--gutter)));padding-right:max(var(--gutter),calc((100% - var(--page-max)) / 2 + var(--gutter)))}
 
 </style>
 </head>
@@ -1385,7 +1349,7 @@ dialog::backdrop{background:var(--scrim);backdrop-filter:none;-webkit-backdrop-f
 <header id="appbar">
   <a class="brand" href="#/home" aria-label="mbmealprep.online home">
     <span class="logo" aria-hidden="true"></span>
-    <span class="nm">mbmealprep<i class="tld">.online</i></span><span class="beta">v5 · Web app</span>
+    <span class="nm">mbmealprep<i class="tld">.online</i></span><span class="beta">Official Web App · v1.0</span>
   </a>
   <nav id="nav" aria-label="Main"></nav>
   <div class="bar-actions">
@@ -1402,7 +1366,7 @@ dialog::backdrop{background:var(--scrim);backdrop-filter:none;-webkit-backdrop-f
   <div id="progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
 </header>
 <main id="view" tabindex="-1"><div class="skel" aria-hidden="true"><i class="sk sk-h"></i><i class="sk sk-p"></i><div class="sk-grid"><i class="sk sk-c"></i><i class="sk sk-c"></i><i class="sk sk-c"></i></div></div><noscript><p style="padding:24px">This app needs JavaScript to run.</p></noscript></main>
-<footer>© 2026 Matthew Broyer · mbmealprep.online v5 · Web app · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
+<footer>© 2026 Matthew Broyer · mbmealprep.online · Official Web App · v1.0 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
 <div id="printSheet" aria-hidden="true"></div>
 <button id="toTop" class="totop" data-act="toTop" aria-label="Back to top" hidden></button>
 <aside id="notice" class="notice" role="region" aria-label="Privacy notice" hidden></aside>
@@ -3815,7 +3779,7 @@ VIEWS.setup = {
         ${state.recipes.length ? '' : `<h3>Starter recipes</h3><div class="two-cards"><button type="button" class="gcard${ui.starter !== 'demo' ? ' on' : ''}" data-act="starter" data-k="empty" aria-pressed="${ui.starter !== 'demo'}"><b>Start with a blank library</b><small>Add your own recipes, or import a backup.</small></button>
           <button type="button" class="gcard${ui.starter === 'demo' ? ' on' : ''}" data-act="starter" data-k="demo" aria-pressed="${ui.starter === 'demo'}"><b>Add ${DEMO_RECIPES.length} demo recipes</b><small>Try the whole app with demo recipes. Remove them in one click.</small></button></div>`}`;
     }
-    return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">${APP.version}</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
+    return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">Official Web App · v1.0</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
       <section class="wiz-card">${body}</section>
       <div class="wiz-nav">${ui.setupStep > 0 ? `<button class="btn" data-act="setupBack">${icon('left')} Back</button>` : '<span></span>'}
       ${id === 'welcome' ? `<span class="muted small">Have a backup? <button class="linkbtn" data-act="setupImport">Import it (JSON or CSV)</button></span>` : ''}
@@ -5011,7 +4975,7 @@ ACTIONS.resetAll = async () => {
 /* ---- About ---- */
 VIEWS.about = {
   render() {
-    return `<div class="page-head"><h1 class="about-h">${logo(40)} ${APP.name}</h1><p><span class="beta">${APP.version}</span> · © ${APP.year} Matthew Broyer</p></div>
+    return `<div class="page-head"><h1 class="about-h">${logo(40)} ${APP.name}</h1><p><span class="beta">Official Web App · v1.0</span> · © ${APP.year} Matthew Broyer</p></div>
       <div class="chips noprint"><button class="chipbtn" data-act="scrollTo" data-t="ab-about">About</button><button class="chipbtn" data-act="scrollTo" data-t="ab-notes">Release notes</button><button class="chipbtn" data-act="scrollTo" data-t="ab-license">License</button></div>
       <section class="card prose" id="ab-about"><h2>About</h2>
         <p>${esc(APP.name)} plans your week of meals, hits your macro targets and builds a grocery list you can shop from. It started in 2024 as a spreadsheet called The Pantry Partner and was used for years before becoming this web app.</p>
