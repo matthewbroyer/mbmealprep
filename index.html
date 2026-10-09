@@ -1,66 +1,103 @@
 <!doctype html>
-<!-- mbmealprep.online BETA 4.2.2. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
+<!-- mbmealprep.online v5 · Web app. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-o3EtSfMJBML+drXEkQ64Wg/twEYZNku8kv4xmGJ8KBE='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-zV02By3jv62XrbFJbulDvFAFhRl+04TQLG5BHTI800c='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>mbmealprep.online | Meal prep, macros and grocery lists</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E0523D">
+<title>Meal Prep | Home</title>
 <meta name="description" content="Plan your week of meals, hit your protein, carb and fat targets, and shop from a list sorted by store section. No account needed.">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#e0523d">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23e0523d'/%3E%3Cg transform='translate(0,-3.7999965)'%3E%3Cpath d='M 14,36 H 50 A 18,16 0 0 1 14,36 Z' fill='%23fff' stroke='%23fff' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='m 23.5,30 c -3,-3.5 3,-5.5 0,-10 M 32,30 c -3,-3.5 3,-5.5 0,-10 m 8.5,10 c -3,-3.5 3,-5.5 0,-10' fill='none' stroke='%23f2b640' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Meal Prep">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mbmealprep.online">
+<meta property="og:title" content="Meal Prep: plan the week, prep once, shop smarter">
+<meta property="og:description" content="Auto meal planning, macro targets and a grocery list that builds itself. Free, no account.">
+<meta property="og:url" content="https://mbmealprep.online/">
+<meta property="og:image" content="https://mbmealprep.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="mbmealprep.online: a weekly meal plan and grocery list">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meal Prep: plan the week, prep once, shop smarter">
+<meta name="twitter:description" content="Auto meal planning, macro targets and a grocery list that builds itself. Free, no account.">
+<meta name="twitter:image" content="https://mbmealprep.online/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>
 /* Load light unless dark was chosen last time (ecosystem rule). Runs before first paint. */
 (function(){var t='light';try{var s=JSON.parse(localStorage.getItem('pantryPartner.beta4')||'null');if(s&&s.settings&&s.settings.theme==='dark')t='dark';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <style>
-/* ---- theme: "Utility" — neutral desktop-software palette, one ocean-blue accent, light + dark ----
-   Shared with the rest of the app family (same geometry, neutrals, motion); only the accent differs. */
+/* ---- theme: "Ember" (v5): warm ember and amber gradients, cream surfaces, rounded soft surfaces, light + dark ---- */
 :root {
   color-scheme: light;
   --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
-  /* geometry: one radius for panels, one for controls */
-  --r: 6px; --r-sm: 4px; --ctl: 38px; --ctl-sm: 34px; --ease: 120ms ease;
-  --bg: #f3f4f6; --bg2: #f6f7f9; --bg3: #eceef2; --surface: #ffffff;
-  --ink: #1b1f24; --ink2: #48505c; --ink3: #5f6773; --line: #dfe2e7; --line2: #c6cbd3;
-  --accent: #e0523d; --accent-hover: #c13f2b; --accent-ink: #ffffff; --accent-soft: #fceeea; --accent-soft-ink: #7a2418; --accent-line: rgba(224, 82, 61, .38);
+  --r: 14px; --r-sm: 10px; --ctl: 40px; --ctl-sm: 34px; --ease: 140ms ease;
+  --bg: #fef9f4; --bg2: #fbf1e8; --bg3: #f5e6d8; --surface: #ffffff;
+  --ink: #3b2a22; --ink2: #6a5246; --ink3: #7d6254; --line: #f1e4d6; --line2: #e6d3c0;
+  --accent: #c73a14; --accent-hover: #a82f0e; --accent-ink: #ffffff; --accent-soft: #ffeadb; --accent-soft-ink: #8f2a0e; --accent-line: rgba(199, 58, 20, .34);
   --sky: var(--accent-soft); --apricot: var(--accent-soft); --butter: var(--accent-soft); --sage: var(--line2);
-  /* chart palette: soft pastels built from the coral accent. protein = light coral, carbs = soft blue, fats = red (green is reserved for 'on target'); --bar = weekly calories, pastel coral */
-  --c: #6f9bd1; --f: #df6372; --p: #f19a88; --bar: #ea7d69;
-  --warn-dot: #d99a00;
-  --good: #2e6f34; --good-bg: #e3f0e1; --warn: #83560a; --warn-bg: #fbf0d3; --bad: #a8261e; --bad-bg: #fbe4e1;
+  /* gradients: --grad is decorative (large shapes, bars); --grad-btn is a soft coral that carries dark text (--btn-ink, 7:1 or better); --grad-hero is a soft peach that carries dark text */
+  --grad: linear-gradient(135deg, #ffb15c 0%, #f46a3c 55%, #d6403a 100%);
+  --grad-btn: linear-gradient(135deg, #ffc08a 0%, #ffa46e 55%, #ff946a 100%); --btn-ink: #3a1405;
+  --grad-hero: linear-gradient(135deg, #ffe6cc 0%, #ffd0aa 55%, #ffc09a 100%); --hero-ink: #3a1405; --hero-ink2: #5a3320;
+  --grad-soft: linear-gradient(135deg, #fff1e3 0%, #ffe4d8 100%);
+  --grad-warm: linear-gradient(135deg, #ffc048 0%, #ff6f61 100%);
+  --glass: rgba(255, 255, 255, .78);
+  --glow-a: rgba(255, 122, 61, .16); --glow-b: rgba(255, 196, 80, .14);
+  /* macros: protein = coral, carbs = sky blue, fats = amber. green stays reserved for 'on target'; --bar = weekly calories */
+  --c: #38b0ff; --f: #f5b02a; --p: #ff7a59; --bar: #ef6a35;
+  --warn-dot: #e0701a;
+  --good: #6b4700; --good-bg: #fde8b2; --warn: #8a3a08; --warn-bg: #ffe3d0; --bad: #a8261e; --bad-bg: #fbe4e1;
   --focus: var(--accent);
-  --shadow: 0 1px 2px rgba(20, 24, 31, .06);
-  --shadow-pop: 0 8px 24px -6px rgba(20, 24, 31, .22), 0 1px 3px rgba(20, 24, 31, .08);
-  --hover-band: rgba(20, 24, 31, .045);
+  --shadow: 0 1px 2px rgba(90, 40, 10, .05), 0 10px 28px -16px rgba(90, 40, 10, .2);
+  --shadow-pop: 0 20px 48px -14px rgba(90, 40, 10, .34), 0 2px 8px rgba(90, 40, 10, .08);
+  --hover-band: rgba(90, 40, 10, .045);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #16181c; --bg2: #25292f; --bg3: #2d3238; --surface: #1e2126;
-    --ink: #e9ecf0; --ink2: #b4bbc5; --ink3: #8e97a3; --line: #30353c; --line2: #434a53;
-    --accent: #f2745f; --accent-hover: #f78f7d; --accent-ink: #2a0a05; --accent-soft: #3a211d; --accent-soft-ink: #fbd5cd; --accent-line: rgba(242, 116, 95, .45);
+    --bg: #17100c; --bg2: #211610; --bg3: #2c1d15; --surface: #1c1410;
+    --ink: #f3e4d8; --ink2: #d9c3b3; --ink3: #b09886; --line: #3a2a20; --line2: #52392a;
+    --accent: #ff9a62; --accent-hover: #ffb286; --accent-ink: #2a0f04; --accent-soft: #3a2217; --accent-soft-ink: #ffd9bf; --accent-line: rgba(255, 154, 98, .42);
     --sky: var(--accent-soft); --apricot: var(--accent-soft); --butter: var(--accent-soft); --sage: var(--line2);
-    --c: #8db4e6; --f: #e8737f; --p: #f7b3a5; --bar: #f59a89; --warn-dot: #e8c36a;
-    --good: #86d391; --good-bg: #1f3322; --warn: #e8c36a; --warn-bg: #3a3117; --bad: #f2918a; --bad-bg: #3d201d;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .3);
-    --shadow-pop: 0 10px 28px -6px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .03);
+    --grad: linear-gradient(135deg, #ffc47a 0%, #ff8a4c 52%, #ff6b4a 100%);
+    --grad-btn: linear-gradient(135deg, #ffb27a 0%, #ff9a62 55%, #ff8a5c 100%); --btn-ink: #2a0f04;
+    --grad-hero: linear-gradient(135deg, #a8401c 0%, #7e2e12 55%, #5c200c 100%); --hero-ink: #fff; --hero-ink2: rgba(255, 255, 255, .9);
+    --grad-soft: linear-gradient(135deg, #3a2217 0%, #3a1d16 100%);
+    --glass: rgba(28, 20, 16, .78);
+    --glow-a: rgba(255, 122, 61, .2); --glow-b: rgba(255, 196, 80, .07);
+    --c: #66c4ff; --f: #fcd05c; --p: #ff9378; --bar: #ff9a62; --warn-dot: #ffab70;
+    --good: #f6d36b; --good-bg: #3a2e12; --warn: #ffab70; --warn-bg: #3d2414; --bad: #f2918a; --bad-bg: #3d201d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 10px 28px -16px rgba(0, 0, 0, .65);
+    --shadow-pop: 0 20px 48px -12px rgba(0, 0, 0, .75), 0 0 0 1px rgba(255, 255, 255, .05);
     --hover-band: rgba(255, 255, 255, .05);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #16181c; --bg2: #25292f; --bg3: #2d3238; --surface: #1e2126;
-  --ink: #e9ecf0; --ink2: #b4bbc5; --ink3: #8e97a3; --line: #30353c; --line2: #434a53;
-  --accent: #f2745f; --accent-hover: #f78f7d; --accent-ink: #2a0a05; --accent-soft: #3a211d; --accent-soft-ink: #fbd5cd; --accent-line: rgba(242, 116, 95, .45);
+  --bg: #17100c; --bg2: #211610; --bg3: #2c1d15; --surface: #1c1410;
+  --ink: #f3e4d8; --ink2: #d9c3b3; --ink3: #b09886; --line: #3a2a20; --line2: #52392a;
+  --accent: #ff9a62; --accent-hover: #ffb286; --accent-ink: #2a0f04; --accent-soft: #3a2217; --accent-soft-ink: #ffd9bf; --accent-line: rgba(255, 154, 98, .42);
   --sky: var(--accent-soft); --apricot: var(--accent-soft); --butter: var(--accent-soft); --sage: var(--line2);
-  --c: #8db4e6; --f: #e8737f; --p: #f7b3a5; --bar: #f59a89; --warn-dot: #e8c36a;
-  --good: #86d391; --good-bg: #1f3322; --warn: #e8c36a; --warn-bg: #3a3117; --bad: #f2918a; --bad-bg: #3d201d;
-  --shadow: 0 1px 2px rgba(0, 0, 0, .3);
-  --shadow-pop: 0 10px 28px -6px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .03);
+  --grad: linear-gradient(135deg, #ffc47a 0%, #ff8a4c 52%, #ff6b4a 100%);
+  --grad-btn: linear-gradient(135deg, #ffb27a 0%, #ff9a62 55%, #ff8a5c 100%); --btn-ink: #2a0f04;
+  --grad-hero: linear-gradient(135deg, #a8401c 0%, #7e2e12 55%, #5c200c 100%); --hero-ink: #fff; --hero-ink2: rgba(255, 255, 255, .9);
+  --grad-soft: linear-gradient(135deg, #3a2217 0%, #3a1d16 100%);
+  --glass: rgba(28, 20, 16, .78);
+  --glow-a: rgba(255, 122, 61, .2); --glow-b: rgba(255, 196, 80, .07);
+  --c: #66c4ff; --f: #fcd05c; --p: #ff9378; --bar: #ff9a62; --warn-dot: #ffab70;
+  --good: #f6d36b; --good-bg: #3a2e12; --warn: #ffab70; --warn-bg: #3d2414; --bad: #f2918a; --bad-bg: #3d201d;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 10px 28px -16px rgba(0, 0, 0, .65);
+  --shadow-pop: 0 20px 48px -12px rgba(0, 0, 0, .75), 0 0 0 1px rgba(255, 255, 255, .05);
   --hover-band: rgba(255, 255, 255, .05);
 }
 
@@ -108,7 +145,7 @@ body[data-view="setup"] footer { display: none; }
 .btn:hover { background: var(--bg2); border-color: var(--sage); }
 .btn:active { transform: translateY(1px); }
 .btn[disabled] { opacity: .45; cursor: not-allowed; }
-.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--btn-ink); border-color: var(--accent); }
 .btn.primary:hover { filter: brightness(1.07); background: var(--accent); }
 .btn.ghost { background: transparent; border-color: transparent; }
 .btn.ghost:hover { background: var(--bg2); }
@@ -191,7 +228,7 @@ fieldset.fld { margin-bottom: 14px; }
 .checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
 .checklist li { display: grid; grid-template-columns: 24px 1fr auto; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px dashed var(--line); } .checklist li:last-child { border: 0; }
 .cbox { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line2); display: grid; place-items: center; }
-.checklist li.done .cbox { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); } .checklist li.done .ct { color: var(--ink3); text-decoration: line-through; } .ca { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.checklist li.done .cbox { background: var(--accent); border-color: var(--accent); color: var(--btn-ink); } .checklist li.done .ct { color: var(--ink3); text-decoration: line-through; } .ca { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
 .today, .picks { list-style: none; margin: 0 0 10px; padding: 0; } .today li { display: grid; grid-template-columns: 90px 1fr auto; gap: 8px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--line); }
 .slot { font-size: .74rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--ink3); }
 .picks li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); } .picks li a { font-weight: 650; grid-column: 1; } .picks li .muted { grid-column: 1; } .picks li .chip { grid-column: 2; grid-row: 1 / span 2; }
@@ -213,7 +250,7 @@ fieldset.fld { margin-bottom: 14px; }
 .mini-results { margin-top: 18px; } .mini-results .card { box-shadow: none; }
 
 /* ---------- goals / wizard ---------- */
-.step { position: relative; padding-left: 64px; } .stepno { position: absolute; left: 18px; top: 18px; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-weight: 800; }
+.step { position: relative; padding-left: 64px; } .stepno { position: absolute; left: 18px; top: 18px; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--btn-ink); display: grid; place-items: center; font-weight: 800; }
 .btypes { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 12px; margin: 12px 0; }
 .btype { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 14px 12px; border-radius: 16px; border: 2px solid var(--line); background: var(--surface); cursor: pointer; font: inherit; color: var(--ink); }
 .btype:hover { border-color: var(--sage); } .btype.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-soft-ink); }
@@ -278,7 +315,7 @@ details.fine { margin: 10px 0; } details summary { cursor: pointer; font-weight:
 .gsec h3 { display: flex; justify-content: space-between; align-items: center; margin: 0; padding: 10px 16px; font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; background: var(--accent-soft); color: var(--accent-soft-ink); } .gsec h3 small { font-weight: 700; opacity: .8; }
 .glist { list-style: none; margin: 0; padding: 0; } .gitem { display: grid; grid-template-columns: 1fr auto auto auto; gap: 8px; align-items: center; padding: 6px 12px 6px 16px; border-bottom: 1px solid var(--line); min-height: 46px; } .gitem:last-child { border: 0; }
 .gcheck { display: flex; align-items: center; gap: 12px; cursor: pointer; position: relative; min-width: 0; } .gcheck input { position: absolute; opacity: 0; width: 24px; height: 24px; }
-.gcheck .box { width: 24px; height: 24px; border-radius: 8px; border: 2px solid var(--line2); display: grid; place-items: center; color: transparent; flex: none; background: var(--surface); } .gcheck input:checked + .box { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); } .gcheck input:focus-visible + .box { outline: 3px solid var(--focus); outline-offset: 2px; }
+.gcheck .box { width: 24px; height: 24px; border-radius: 8px; border: 2px solid var(--line2); display: grid; place-items: center; color: transparent; flex: none; background: var(--surface); } .gcheck input:checked + .box { background: var(--accent); border-color: var(--accent); color: var(--btn-ink); } .gcheck input:focus-visible + .box { outline: 3px solid var(--focus); outline-offset: 2px; }
 .gname { font-weight: 600; overflow-wrap: anywhere; } .gamt { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink2); white-space: nowrap; } .gitem.done .gname, .gitem.done .gamt { text-decoration: line-through; color: var(--ink3); font-weight: 500; }
 .chip.src { background: transparent; border: 1px solid var(--line2); color: var(--ink3); } .chip.src.manual { border-style: dashed; }
 details.have { padding: 12px 18px; } details.have .gitem { grid-template-columns: 1fr auto auto auto; }
@@ -454,10 +491,10 @@ kbd { font: 600 .72rem var(--font); border: 1px solid var(--line2); border-botto
 .printmode { border: 0; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; } .printmode legend { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink3); padding: 0; margin-bottom: 6px; }
 .ps .d { display: none; width: .62em; height: .62em; border-radius: 50%; margin-right: .3em; vertical-align: .04em; }
 .ps.color, .ps.color * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-.ps.color .d { display: inline-block; } .ps.color .d-c { background: #6f9bd1; } .ps.color .d-f { background: #df6372; } .ps.color .d-p { background: #f19a88; }
-.ps.color h1, .ps.color h2 { color: #7a2418; } .ps.color h2 { border-bottom-color: #e0523d; }
-.ps.color .ps-nutri { background: #fceeea; border-top-color: #e0523d; border-bottom-color: #eba99f; padding-inline: .6em; }
-.ps.color .ps-ing li { border-bottom-color: #f0d3cd; } .ps.color .box { border-color: #e0523d; }
+.ps.color .d { display: inline-block; } .ps.color .d-c { background: #38b0ff; } .ps.color .d-f { background: #f5b02a; } .ps.color .d-p { background: #ff7a59; }
+.ps.color h1, .ps.color h2 { color: #8f2a0e; } .ps.color h2 { border-bottom-color: #c73a14; }
+.ps.color .ps-nutri { background: #ffeadb; border-top-color: #c73a14; border-bottom-color: #ffcdb2; padding-inline: .6em; }
+.ps.color .ps-ing li { border-bottom-color: #ffd9bf; } .ps.color .box { border-color: #c73a14; }
 .ps.bw, .ps.bw * { color: #000 !important; background: none !important; }
 .ps.bw h2, .ps.bw .ps-nutri { border-color: #000; } .ps.bw .ps-ing li { border-bottom-color: #666; } .ps.bw .ps-foot { border-top-color: #000; } .ps.bw .box { border-color: #000; }
 
@@ -613,7 +650,7 @@ footer { font-size: 12px; background: var(--surface); }
 .btn.sm { min-height: var(--ctl-sm); padding: 0 10px; font-size: 13px; border-radius: var(--r-sm); }
 .btn.icon { width: var(--ctl); padding: 0; } .btn.icon.sm { width: var(--ctl-sm); }
 .btn.big { min-height: 44px; padding: 0 20px; font-size: 14.5px; }
-.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--btn-ink); font-weight: 600; }
 .btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
 .btn.primary:active { filter: brightness(.94); }
 .btn.danger { background: var(--bad); border-color: var(--bad); color: #fff; }
@@ -637,7 +674,7 @@ footer { font-size: 12px; background: var(--surface); }
 .chipbtn.on, .chipbtn.on:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-soft-ink); font-weight: 600; }
 .seg:not(circle) { border-radius: var(--r-sm); padding: 2px; gap: 2px; background: var(--bg2); border-color: var(--line2); }
 .seg button { border-radius: 3px; min-height: calc(var(--ctl) - 6px); padding: 0 12px; font: 500 13px var(--font); }
-.seg button.on, .seg button.on:hover { background: var(--accent); color: var(--accent-ink); box-shadow: none; font-weight: 600; }
+.seg button.on, .seg button.on:hover { background: var(--accent); color: var(--btn-ink); box-shadow: none; font-weight: 600; }
 
 /* --- forms --- */
 .fld > span, .fld > legend { font-size: 12.5px; font-weight: 550; }
@@ -770,9 +807,6 @@ mark { border-radius: 2px; }
    the other apps; only --accent differs.
    ===================================================================== */
 /* logo badge: --r square, accent fill, white bowl + gold steam (steam falls back to accent-ink in dark, where gold on light blue disappears) */
-:root { --logo-steam: #F2B640; }
-:root[data-theme="dark"] { --logo-steam: var(--accent-ink); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --logo-steam: var(--accent-ink); } }
 .logo { display: inline-grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: var(--r); background: var(--accent); color: var(--accent-ink); vertical-align: middle; }
 .logo > svg, :is(.brand, .brandmini, .about-h, .hero-logo, .wiz-top) .logo > svg { width: 64%; height: 64%; display: block; color: inherit; }
 .brand .logo, .brand:hover .logo { transform: none; transition: none; }
@@ -781,7 +815,7 @@ mark { border-radius: 2px; }
 /* light/dark switch */
 .themesw { display: inline-flex; align-items: center; flex: none; padding: 0; border: 0; background: none; cursor: pointer; border-radius: var(--r-sm); color: var(--ink2); }
 .themesw .tk { position: relative; display: block; width: 52px; height: 26px; border-radius: var(--r-sm); background: var(--bg3); border: 1px solid var(--line2); transition: background-color var(--ease), border-color var(--ease); }
-.themesw .th { position: absolute; left: 2px; top: 2px; width: 22px; height: 20px; border-radius: 3px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; transition: transform var(--ease); }
+.themesw .th { position: absolute; left: 2px; top: 2px; width: 22px; height: 20px; border-radius: 3px; background: var(--accent); color: var(--btn-ink); display: grid; place-items: center; transition: transform var(--ease); }
 .themesw .th .ic { width: 12px; height: 12px; }
 .themesw[aria-checked="true"] .th { transform: translateX(24px); }
 .themesw:hover .tk { border-color: color-mix(in srgb, var(--ink) 35%, var(--line2)); }
@@ -919,6 +953,431 @@ mark { border-radius: 2px; }
 main a:not(.btn):not(.tab):not(.skip):not(.bn-item), main a.small, footer a, .linkbtn, .notice a:not(.btn), a.dm-more, a.addmeal, label a { color: var(--ink); font-weight: inherit; text-decoration: underline; text-decoration-color: var(--line2); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 main a:not(.btn):not(.tab):not(.skip):not(.bn-item):hover, main a.small:hover, footer a:hover, .linkbtn:hover, .notice a:not(.btn):hover, a.dm-more:hover, a.addmeal:hover, label a:hover { color: var(--ink); text-decoration-color: var(--ink); filter: none; }
 summary:hover { color: var(--ink); }
+/* ==========================================================================
+   BETA 4.3: swap button, costs, prices dialog, prep page, leftovers, new week
+   ========================================================================== */
+.swapb { margin-left: auto; }
+.gp { display: block; font-style: normal; font-size: .74rem; color: var(--ink3); text-align: right; }
+.gcost { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; margin: 4px 0 10px; font-size: .92rem; color: var(--ink2); }
+.gcost b { color: var(--ink); font-size: 1.2rem; font-variant-numeric: tabular-nums; } .gcost .over { color: var(--bad); font-weight: 650; } .gcost .under { color: var(--good); font-weight: 650; }
+.costgrid { display: flex; gap: 8px 32px; flex-wrap: wrap; } .costgrid small { display: block; color: var(--ink3); font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 650; } .costgrid b { font-size: 1.45rem; font-variant-numeric: tabular-nums; }
+.rd-cost { margin-top: 14px; } .rskip { color: var(--warn); font-weight: 650; }
+.pcheck h4 { margin: 14px 0 4px; font-size: .76rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink3); } .pcheck label.check { display: flex; padding: 5px 0; align-items: flex-start; }
+.pr-list { display: flex; flex-direction: column; margin: 8px 0 12px; max-height: 52vh; overflow: auto; padding-right: 4px; }
+.pr-row { display: grid; grid-template-columns: minmax(0, 1fr) 118px 160px; gap: 8px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.pr-n small { display: block; } .pr-in, .pr-u { display: flex; align-items: center; gap: 6px; } .pr-in input, .pr-u select { width: 100%; min-width: 0; }
+@media (max-width: 560px) { .pr-row { grid-template-columns: 1fr 1fr; } .pr-n { grid-column: 1 / -1; } }
+.nwstats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 8px 0; } .nwstats .kpi { padding: 10px 12px; }
+.nwrow { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 5px 0; border-bottom: 1px solid var(--line); } .nwrow select { max-width: 200px; }
+.hist { list-style: none; margin: 0; padding: 0; } .hist li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; } .hist li > div:first-child { display: flex; flex-direction: column; gap: 2px; min-width: 0; } .hist .hn { overflow-wrap: anywhere; }
+.stocklist { list-style: none; margin: 8px 0; padding: 0; } .stocklist li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; } .sl-main { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.chip.frz { background: var(--sky); color: var(--accent-soft-ink); }
+.sharedprep { list-style: none; padding: 0; margin: 4px 0 8px; } .sharedprep li { padding: 7px 0; border-bottom: 1px solid var(--line); }
+details.prepr { border: 1px solid var(--line); border-radius: var(--r); margin: 10px 0; background: var(--surface); } details.prepr > summary { cursor: pointer; padding: 12px 14px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; } details.prepr .rd-cols { padding: 0 14px 14px; }
+.steps.chk { list-style: none; padding: 0; margin: 0; } .steps.chk li { padding: 4px 0; } .steps.chk li.done span { color: var(--ink3); text-decoration: line-through; } .steps.chk .check { align-items: flex-start; }
+@media print { details.prepr { break-inside: avoid; } details.prepr:not([open]) > :not(summary) { display: block; } }
+/* ==========================================================================
+   v5 · WEB APP: modern layout. Sidebar shell on desktop, floating bottom bar on phones,
+   gradient accents, soft rounded surfaces. Loaded last so it wins over earlier layers.
+   ========================================================================== */
+:root { --side: 0px; }
+html { background: var(--bg); }
+html::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(900px 520px at 100% -8%, var(--glow-a), transparent 70%), radial-gradient(760px 520px at -8% 108%, var(--glow-b), transparent 70%); }
+body { background: transparent; font-size: 14.5px; line-height: 1.5; }
+h1 { font-size: clamp(25px, 3vw, 31px); font-weight: 800; letter-spacing: -.03em; }
+h2 { font-size: 16.5px; font-weight: 650; letter-spacing: -.01em; }
+h3 { font-size: 15px; font-weight: 600; } h4 { font-size: 14px; }
+.lead { font-size: 15px; }
+::selection { background: color-mix(in srgb, var(--accent) 26%, transparent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: var(--r-sm); }
+code, kbd { border-radius: 3px; }
+
+/* ---------- logo + version badge ---------- */
+.logo { background: none; border-radius: 22%; overflow: hidden; box-shadow: 0 6px 16px -8px rgba(200, 60, 20, .5); }
+.logo > img { width: 100%; height: 100%; display: block; }
+.beta { text-transform: none; letter-spacing: 0; font-size: 11px; font-weight: 650; padding: 2px 9px; border-radius: 99px; background: var(--accent-soft); color: var(--accent-soft-ink); }
+
+/* ---------- surfaces ---------- */
+.card { border-radius: var(--r); padding: 20px 22px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.card.soft { background: var(--bg2); }
+.page-head { margin-bottom: 18px; } .page-head p { font-size: 14px; }
+.bk-card { position: relative; overflow: hidden; border-left: 1px solid var(--line); } .bk-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--grad); }
+.tiles { gap: 14px; margin-bottom: 18px; }
+.tile { position: relative; overflow: hidden; border-radius: var(--r); padding: 16px 20px; box-shadow: var(--shadow); transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease); }
+.tile::after { content: ''; position: absolute; right: -34px; top: -34px; width: 120px; height: 120px; border-radius: 50%; background: var(--grad); opacity: .1; pointer-events: none; }
+.tile:hover { border-color: var(--accent-line); box-shadow: var(--shadow-pop); transform: translateY(-2px); }
+.tile small { font-size: .7rem; letter-spacing: .08em; }
+.tile b { font-size: 1.9rem; font-weight: 750; letter-spacing: -.03em; }
+.tiles > .tile:first-child { background: var(--grad-hero); border-color: transparent; color: var(--hero-ink); }
+.tiles > .tile:first-child::after { background: var(--hero-ink); opacity: .07; }
+.tiles > .tile:first-child small, .tiles > .tile:first-child span, .tiles > .tile:first-child b i { color: var(--hero-ink2); }
+.note { border-radius: var(--r-sm); padding: 10px 14px; }
+.empty + .card, .empty + section { margin-top: 16px; }
+.empty { border-radius: var(--r); border-color: var(--line2); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.empty-ic { background: var(--grad-soft); }
+.kpi { border-radius: var(--r); } .kpi.hero { background: var(--grad-hero); color: var(--hero-ink); }
+.kpi.hero small, .kpi.hero span, .kpi.hero b { color: var(--hero-ink); opacity: 1; } .kpi.hero small, .kpi.hero span { color: var(--hero-ink2); }
+.target-strip { background: var(--grad-soft); color: var(--ink); border: 1px solid var(--accent-line); border-radius: var(--r); padding: 16px 22px; }
+.target-strip small { opacity: .75; }
+.rdetail, .rlist-wrap, .pgrid, .gsec, details.prepr, .wiz-card { border-radius: var(--r); }
+.rlist-wrap, .rdetail { box-shadow: var(--shadow); }
+.wiz-card { border-radius: 24px; box-shadow: var(--shadow-pop); }
+
+/* ---------- buttons, fields, chips ---------- */
+.btn { border-radius: var(--r-sm); min-height: var(--ctl); padding: 0 16px; font: 550 13.5px var(--font); border-color: var(--line2); box-shadow: 0 1px 2px rgba(90, 40, 10, .06); transition: background-color var(--ease), border-color var(--ease), box-shadow var(--ease), transform var(--ease), filter var(--ease); }
+.btn:hover { background: var(--bg2); border-color: color-mix(in srgb, var(--accent) 40%, var(--line2)); }
+.btn.sm { min-height: var(--ctl-sm); padding: 0 11px; font-size: 13px; }
+.btn.big { min-height: 44px; padding: 0 22px; font-size: 14.5px; border-radius: var(--r-sm); }
+.btn.primary { background: var(--grad-btn); color: var(--btn-ink); border-color: transparent; box-shadow: 0 8px 18px -8px color-mix(in srgb, var(--accent) 80%, transparent), inset 0 1px 0 rgba(255, 255, 255, .24); }
+.btn.primary:hover { background: var(--grad-btn); border-color: transparent; filter: brightness(1.07) saturate(1.05); transform: translateY(-1px); }
+.btn.primary:active { transform: none; filter: brightness(.96); }
+.btn.ghost { box-shadow: none; } .btn.ghost:hover { background: var(--bg2); }
+.btn.on { background: var(--grad-soft); border-color: var(--accent-line); color: var(--accent-soft-ink); }
+input, select, textarea { border-radius: var(--r-sm); min-height: var(--ctl); border-color: var(--line2); }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
+.chip { border-radius: 99px; padding: 2px 10px; font-size: 11.5px; }
+.chip.demo { border-radius: 99px; }
+.chipbtn { border-radius: var(--r-sm); min-height: var(--ctl-sm); padding: 0 12px; }
+.chipbtn.on { background: var(--grad-soft); }
+.seg { border-radius: var(--r); padding: 3px; background: var(--bg2); border-color: var(--line); }
+.seg button { border-radius: var(--r-sm); min-height: 32px; font-weight: 600; }
+.seg button.on { background: var(--grad-btn); color: var(--btn-ink); box-shadow: 0 4px 10px -4px color-mix(in srgb, var(--accent) 70%, transparent); }
+.radio, .gcard, .feat, .btype { border-radius: var(--r); }
+.radio:has(input:checked), .gcard.on, .feat.on, .feat.locked, .btype.on { background: var(--grad-soft); }
+.ritem { border-left-width: 4px; }
+.ritem.on { background: var(--grad-soft); border-left-color: var(--accent); }
+.table thead th, .phead { background: var(--bg2); }
+.pgrid { box-shadow: var(--shadow); }
+.prow.today { background: var(--grad-soft); }
+.gsec { box-shadow: var(--shadow); } .gsec h3 { background: var(--grad-soft); color: var(--accent-soft-ink); border-bottom: 0; }
+.gcheck .box { border-radius: 8px; }
+.checklist li.done .cbox, .gcheck input:checked + .box { background: var(--grad-btn); border-color: transparent; }
+.clbar, .gprog .bar, .wiz-progress i { border-radius: 99px; height: 8px; }
+.clbar span, .gprog .bar span { border-radius: 99px; background: var(--grad); }
+.wiz-progress i.done { background: var(--grad); }
+.mbar { border-radius: 99px; } .mbar span { border-radius: 99px; }
+.wchart .bar { fill: var(--bar); }
+.step .stepno, .stepno { background: var(--grad-btn); }
+.empty-ic { color: var(--accent-soft-ink); }
+
+/* ---------- overlays ---------- */
+dialog { border-radius: 24px; box-shadow: var(--shadow-pop); border: 1px solid var(--line); }
+dialog::backdrop { background: rgba(30, 12, 6, .55); backdrop-filter: blur(5px); }
+.toast { border-radius: var(--r); background: color-mix(in srgb, var(--ink) 94%, transparent); backdrop-filter: blur(10px); }
+.moremenu .menu { border-radius: var(--r); box-shadow: var(--shadow-pop); padding: 6px; }
+.sitem { border-radius: var(--r-sm); } .sitem:hover, .sitem.on { background: var(--grad-soft); }
+.totop { border-radius: var(--r); }
+.notice { background: var(--glass); backdrop-filter: blur(14px) saturate(1.4); border-top-color: var(--line); }
+
+/* ---------- light/dark switch ---------- */
+.themesw .tk { width: 54px; height: 28px; border-radius: 99px; background: var(--bg3); border-color: var(--line2); }
+.themesw .th { left: 3px; top: 3px; width: 22px; height: 20px; border-radius: 99px; background: var(--grad-btn); box-shadow: 0 1px 4px rgba(0, 0, 0, .25); }
+.themesw[aria-checked="true"] .th { transform: translateX(26px); }
+
+/* ---------- app bar: top bar (tablet and phone) ---------- */
+#appbar { background: var(--glass); backdrop-filter: blur(16px) saturate(1.5); -webkit-backdrop-filter: blur(16px) saturate(1.5); border-bottom: 1px solid var(--line); box-shadow: none; }
+#appbar.stuck { box-shadow: 0 8px 24px -16px rgba(90, 40, 10, .35); }
+#progress { height: 3px; } #progress i { background: var(--grad); border-radius: 0 3px 3px 0; }
+.brand { font-weight: 750; font-size: 15.5px; letter-spacing: -.015em; }
+.tab { border-radius: var(--r-sm); font-weight: 600; }
+.tab:hover { background: var(--bg2); }
+@media (min-width: 721px) and (max-width: 899px) {
+  #appbar { padding-inline: 16px; }
+  .tab { min-height: 38px; padding: 0 14px; font-size: 13.5px; border-radius: var(--r-sm); box-shadow: none; }
+  .tab.on, .tab.on:hover { background: var(--grad-btn); color: var(--btn-ink); box-shadow: 0 6px 14px -8px color-mix(in srgb, var(--accent) 80%, transparent); }
+  #nav { padding: 6px 0; gap: 4px; border-top: 1px solid var(--line); }
+}
+
+/* ---------- desktop: sidebar shell ---------- */
+@media (min-width: 900px) {
+  :root { --side: 256px; }
+  body[data-view="setup"] { --side: 0px; }
+  body { padding-left: var(--side); }
+  #appbar { position: fixed; top: 0; left: 0; bottom: 0; width: var(--side); z-index: 40; display: flex; flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 4px; min-height: 0; padding: 22px 14px 16px; background: var(--glass); backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 0; border-right: 1px solid var(--line); box-shadow: none; }
+  #appbar.stuck { box-shadow: none; }
+  #progress { position: fixed; left: var(--side); right: 0; top: 0; bottom: auto; height: 3px; z-index: 50; }
+  .brand { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: center; align-self: stretch; min-height: 0; padding: 2px 8px 18px; font-size: 15.5px; }
+  .brand .logo { grid-row: 1 / span 2; width: 38px !important; height: 38px !important; }
+  .brand .nm { align-self: end; line-height: 1.15; }
+  .brand .beta { display: inline-flex; grid-column: 2; justify-self: start; align-self: start; margin-top: 4px; }
+  #nav { flex: 1; flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 3px; padding: 0 0 12px; overflow-y: auto; border-top: 0; order: 0; flex-basis: auto; }
+  .tab { position: relative; min-height: 40px; padding: 0 12px; gap: 12px; border-radius: var(--r); font-size: 14px; font-weight: 600; color: var(--ink2); }
+  .tab svg { display: inline-block !important; width: 18px; height: 18px; color: var(--ink3); transition: color var(--ease); }
+  .tab:hover { background: var(--bg2); color: var(--ink); } .tab:hover svg { color: var(--accent); }
+  .tab.on, .tab.on:hover { background: var(--grad-soft); color: var(--accent-soft-ink); font-weight: 700; box-shadow: inset 0 0 0 1px var(--accent-line); }
+  .tab.on svg { color: var(--accent); }
+  .tab.on::before { content: ''; position: absolute; left: -14px; top: 8px; bottom: 8px; width: 3px; border-radius: 0 3px 3px 0; background: var(--grad); }
+  .bar-actions { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; margin: 0; padding-top: 14px; border-top: 1px solid var(--line); }
+  .bar-actions > * { min-width: 0; }
+  #searchBtn, .btn.searchbtn { grid-column: 1 / -1; width: 100%; justify-content: flex-start; gap: 10px; font-size: 13.5px; padding: 0 12px; min-height: 40px; background: var(--surface); border: 1px solid var(--line); color: var(--ink3); font-weight: 500; box-shadow: none; }
+  #searchBtn svg { font-size: 1rem; } #searchBtn kbd { display: inline-block; margin-left: auto; }
+  #searchBtn:hover { border-color: var(--accent-line); color: var(--ink); background: var(--surface); }
+  #bkChip, #storageBadge { grid-column: 1 / -1; justify-content: flex-start; }
+  .datamenu { grid-column: 1 / -1; }
+  .datamenu > summary { width: 100%; min-height: 40px; justify-content: flex-start; gap: 10px; padding: 0 12px; border-radius: var(--r-sm); }
+  .datamenu > summary::after { margin-left: auto; }
+  .datamenu .dm-menu { right: auto; left: 0; top: auto; bottom: calc(100% + 8px); min-width: 300px; }
+  .bk-dot { top: 8px; right: 36px; }
+  #setupBtn { font-size: 13.5px; gap: 10px; justify-content: flex-start; padding: 0 12px; min-height: 40px; }
+  #setupBtn svg { font-size: 1rem; }
+  .themesw { justify-self: end; }
+  main#view { max-width: 1200px; padding: 28px 36px 64px; }
+  footer { background: transparent; border-top: 0; padding: 12px 40px 36px; }
+  html { scroll-padding-top: 24px; }
+  .rlist-wrap { top: 24px; max-height: calc(100vh - 48px); } .col-side { top: 24px; }
+  .notice { left: var(--side); } #toasts { left: calc(50% + var(--side) / 2); }
+  body[data-view="setup"] .notice { left: 0; }
+}
+@media (min-width: 900px) and (max-height: 700px) { .brand { padding-bottom: 8px; } .tab { min-height: 38px; } }
+
+/* ---------- phone ---------- */
+@media (max-width: 720px) {
+  :root { --bnav-h: calc(86px + env(safe-area-inset-bottom)); }
+  body[data-view="setup"] { --bnav-h: 0px; }
+  main#view { padding: 20px 16px 40px; }
+  #appbar { padding-inline: 14px; }
+  .brand .logo { width: 34px !important; height: 34px !important; }
+  .tile { padding: 16px 18px; } .tile b { font-size: 1.8rem; }
+  .card { padding: 18px; }
+  .bnav { left: 12px; right: 12px; bottom: calc(10px + env(safe-area-inset-bottom)); padding: 6px; border: 1px solid var(--line); border-radius: 26px; background: var(--glass); backdrop-filter: blur(18px) saturate(1.6); -webkit-backdrop-filter: blur(18px) saturate(1.6); box-shadow: var(--shadow-pop); }
+  .bnav > a, .bnav > button { min-height: 52px; border-radius: 20px; gap: 2px; font-size: 11px; }
+  .bnav > a:hover, .bnav > button:hover { background: var(--bg2); }
+  .bnav > .on, .bnav > .on:hover { background: var(--grad-soft); color: var(--accent-soft-ink); box-shadow: inset 0 0 0 1px var(--accent-line); }
+  .bnav > .on svg { color: var(--accent); }
+  .bn-sheet { border-radius: 22px; left: 12px; right: 12px; padding: 5px; box-shadow: var(--shadow-pop); }
+  .bn-item { border-radius: 14px; } .bn-item.on, .bn-item.on:hover { background: var(--grad-soft); box-shadow: inset 0 0 0 1px var(--accent-line); }
+  
+}
+@media (prefers-reduced-motion: reduce) { .tile:hover, .btn.primary:hover { transform: none; } }
+@media print { html::before { display: none; } html { background: #fff; } body { padding-left: 0 !important; } main#view { max-width: none; padding: 0; } .logo { box-shadow: none; } }
+/* tiles are links: keep text color and drop the link underline */
+main a.tile:not(.btn):not(.tab):not(.skip):not(.bn-item) { color: var(--ink); text-decoration: none; }
+main a.tile:first-child:not(.btn):not(.tab):not(.skip):not(.bn-item) { color: var(--hero-ink); }
+main a.tile span, main a.tile small, main a.tile b i { text-decoration: none; }
+@media (min-width: 900px) { .prow { grid-template-columns: 104px repeat(var(--cols), minmax(132px, 1fr)) minmax(182px, 1.05fr); } }
+@media (max-width: 720px) { .seg { display: flex; width: 100%; } .seg button { flex: 1 1 0; padding: 7px 8px; font-size: 12.5px; } }
+
+/* MB SUITE v1 */
+/* =====================================================================
+   MB SUITE v1 — shared design tokens ("Microsoft/Google Alternative" Utility)
+   Same file in every app. Only the 10 accent lines in the APP ACCENT block change.
+   Load order: last <style> in <head> (after the app's own CSS) so it wins.
+   ===================================================================== */
+:root{
+  color-scheme:light;
+  /* type */
+  --font:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SF Mono",Menlo,monospace;
+  --fs-xs:11.5px; --fs-sm:12.5px; --fs:14px; --fs-md:15px; --fs-lg:17px; --fs-h2:22px; --fs-num:26px;
+  /* geometry: one radius for panels, one for controls, one for overlays */
+  --r:6px; --r-sm:4px; --r-lg:8px;
+  --ctl:38px; --ctl-sm:32px;
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px;
+  --ease:120ms ease;
+  /* neutrals */
+  --bg:#f3f4f6; --surface:#ffffff; --surface-2:#f6f7f9; --surface-3:#eceef2;
+  --ink:#1b1f24; --ink-2:#48505c; --muted:#5f6773;
+  --border:#dfe2e7; --border-strong:#c6cbd3;
+  --hover-band:rgba(20,24,31,.045);
+  /* semantic (keep restrained) */
+  --good:#16a34a; --good-ink:#0b7a35; --warn:#e5a100; --warn-ink:#8a5a00; --crit:#c9302c; --crit-ink:#b42824; --info:#2563eb;
+  /* depth */
+  --shadow:0 1px 2px rgba(20,24,31,.06);
+  --shadow-pop:0 8px 24px -6px rgba(20,24,31,.22),0 1px 3px rgba(20,24,31,.08);
+  --scrim:rgba(10,12,16,.45);
+}
+:root[data-theme="dark"],:root.dark{
+  color-scheme:dark;
+  --bg:#16181c; --surface:#1e2126; --surface-2:#25292f; --surface-3:#2d3238;
+  --ink:#e9ecf0; --ink-2:#b4bbc5; --muted:#8e97a3;
+  --border:#30353c; --border-strong:#434a53;
+  --hover-band:rgba(255,255,255,.05);
+  --good:#22c55e; --good-ink:#4ade80; --warn:#f0b429; --warn-ink:#f5c95c; --crit:#ff6b6b; --crit-ink:#ff8a8a; --info:#60a5fa;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+  --shadow-pop:0 10px 28px -6px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03);
+  --scrim:rgba(0,0,0,.6);
+}
+
+/* ---- APP ACCENT (the only per-app block) ---- */
+:root{
+  --brand:#E0523D;                 /* logo badge, OG image, theme-color */
+  --accent:#C4412B; --accent-hover:#A63623; --accent-ink:#ffffff;
+  --accent-soft:color-mix(in srgb,var(--accent) 9%,transparent);
+  --accent-line:color-mix(in srgb,var(--accent) 38%,transparent);
+}
+:root[data-theme="dark"],:root.dark{
+  --accent:#F2876C; --accent-hover:#F6A28D; --accent-ink:#2B0E07;
+  --accent-soft:color-mix(in srgb,var(--accent) 13%,transparent);
+  --accent-line:color-mix(in srgb,var(--accent) 45%,transparent);
+}
+
+/* ---- primitives every app shares ---- */
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);font-size:var(--fs);line-height:1.45;background:var(--bg);color:var(--ink);font-feature-settings:normal;-webkit-font-smoothing:antialiased}
+::selection{background:color-mix(in srgb,var(--accent) 28%,transparent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+input[type=checkbox],input[type=radio],input[type=range],progress{accent-color:var(--accent)}
+.tabular,.num,time{font-variant-numeric:tabular-nums}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
+@media(pointer:coarse),(max-width:700px){:root{--ctl:44px;--ctl-sm:44px}}
+.tld{font-style:normal;color:var(--accent)}
+
+/* ---- MB SUITE v1 · mbmealprep.online adapter ----
+   Keeps the v5 layout (sidebar on desktop, bottom bar on phones) and replaces the
+   "Ember" cream + gradient skin with the shared neutral palette and solid tomato accent. */
+:root{
+  --bg2:var(--surface-2); --bg3:var(--surface-3); --ink2:var(--ink-2); --ink3:var(--muted);
+  --line:var(--border); --line2:var(--border-strong);
+  --accent-soft-ink:var(--ink);
+  --sky:var(--accent-soft); --apricot:var(--accent-soft); --butter:var(--accent-soft); --sage:var(--border-strong);
+  --grad:var(--accent); --grad-btn:var(--accent); --btn-ink:var(--accent-ink);
+  --grad-hero:var(--surface); --hero-ink:var(--ink); --hero-ink2:var(--ink-2);
+  --grad-soft:var(--accent-soft); --grad-warm:var(--accent);
+  --glass:var(--surface); --glow-a:transparent; --glow-b:transparent;
+  /* macros: protein = brand tomato, carbs = slate blue, fats = amber */
+  --p:#e0523d; --c:#3d7fc1; --f:#d99a1e; --bar:var(--accent); --warn-dot:var(--warn);
+  --good:var(--good-ink); --good-bg:color-mix(in srgb,#16a34a 12%,var(--surface));
+  --warn:var(--warn-ink); --warn-bg:color-mix(in srgb,#e5a100 16%,var(--surface));
+  --bad:var(--crit-ink); --bad-bg:color-mix(in srgb,#c9302c 10%,var(--surface));
+  --focus:var(--accent);
+}
+:root[data-theme="dark"]{
+  --bg2:var(--surface-2); --bg3:var(--surface-3); --ink2:var(--ink-2); --ink3:var(--muted);
+  --line:var(--border); --line2:var(--border-strong); --surface:#1e2126; --bg:#16181c; --ink:#e9ecf0;
+  --accent:#F2876C; --accent-hover:#F6A28D; --accent-ink:#2B0E07;
+  --accent-soft:color-mix(in srgb,#F2876C 13%,transparent); --accent-soft-ink:var(--ink); --accent-line:color-mix(in srgb,#F2876C 45%,transparent);
+  --sky:var(--accent-soft); --apricot:var(--accent-soft); --butter:var(--accent-soft); --sage:var(--border-strong);
+  --grad:var(--accent); --grad-btn:var(--accent); --btn-ink:var(--accent-ink);
+  --grad-hero:var(--surface); --hero-ink:var(--ink); --hero-ink2:var(--ink-2);
+  --grad-soft:var(--accent-soft); --glass:var(--surface); --glow-a:transparent; --glow-b:transparent;
+  --p:#f2876c; --c:#6aa8e6; --f:#e8b54a; --bar:var(--accent);
+  --good:#4ade80; --good-bg:#1d3326; --warn:#f5c95c; --warn-bg:#3a3017; --bad:#ff8a8a; --bad-bg:#3d2224;
+  --shadow:0 1px 2px rgba(0,0,0,.3); --shadow-pop:0 10px 28px -6px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03);
+  --hover-band:rgba(255,255,255,.05);
+}
+:root{--r:6px;--r-sm:4px;--ease:120ms ease}
+html::before{display:none}
+html,body{background:var(--bg)}
+body{font-size:14px;line-height:1.45}
+h1{font-size:clamp(21px,2.4vw,24px);font-weight:650;letter-spacing:-.015em}
+h2{font-size:16px;font-weight:650} h3{font-size:15px;font-weight:600}
+em{color:var(--muted)}
+code,kbd{border-radius:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:1px;border-radius:var(--r-sm)}
+
+/* logo + version badge */
+.logo{background:none!important;border-radius:var(--r)!important;overflow:hidden;box-shadow:none!important;transform:none!important}
+.hero-logo .logo{border-radius:var(--r-lg)!important}
+.beta{border-radius:var(--r-sm);padding:1px 7px;font-size:11px;font-weight:600;background:var(--surface-2);color:var(--muted);border:1px solid var(--border)}
+.brand .nm .tld,.brandmini .tld{color:var(--accent)}
+.brand{font-weight:650;font-size:14.5px;letter-spacing:-.005em}
+
+/* surfaces */
+.card{border-radius:var(--r);padding:16px 18px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.card.soft{background:var(--surface-2)}
+.bk-card::before{width:3px;background:var(--accent)}
+.tiles{gap:12px}
+.tile{border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow);transform:none!important}
+.tile::after{display:none}
+.tile:hover{border-color:var(--border-strong);box-shadow:var(--shadow)}
+.tile small{font-size:var(--fs-xs);letter-spacing:.06em;font-weight:650}
+.tile b{font-size:var(--fs-num);font-weight:650;letter-spacing:-.01em}
+.tiles>.tile:first-child{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);color:var(--ink)}
+.tiles>.tile:first-child small,.tiles>.tile:first-child span,.tiles>.tile:first-child b i{color:var(--ink-2)}
+main a.tile:first-child:not(.btn):not(.tab):not(.skip):not(.bn-item){color:var(--ink)}
+.kpi{border-radius:var(--r)} .kpi.hero{background:var(--surface);color:var(--ink);border-left:3px solid var(--accent)}
+.kpi.hero small,.kpi.hero span{color:var(--ink-2)}
+.target-strip{background:var(--accent-soft);border:1px solid var(--accent-line);border-left:3px solid var(--accent);border-radius:var(--r);padding:12px 16px}
+.empty{border-radius:var(--r);background:var(--surface-2);border-color:var(--border-strong)}
+.empty-ic{background:var(--accent-soft);color:var(--accent);border-radius:var(--r-sm)}
+.rdetail,.rlist-wrap,.pgrid,.gsec,details.prepr{border-radius:var(--r)}
+.wiz-card{border-radius:var(--r-lg);box-shadow:var(--shadow-pop)}
+.note{border-radius:var(--r-sm)}
+
+/* buttons, fields, chips: solid, squared */
+.btn{border-radius:var(--r-sm);font-weight:550;border-color:var(--border-strong);box-shadow:none}
+.btn:hover{background:var(--surface-2);border-color:color-mix(in srgb,var(--ink) 30%,var(--border-strong))}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);box-shadow:none;font-weight:600}
+.btn.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);filter:none;transform:none}
+.btn.primary:active{filter:brightness(.94)}
+.btn.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 1px var(--accent)}
+input,select,textarea{border-color:var(--border-strong)}
+.chip,.chip.demo{border-radius:var(--r-sm);padding:1px 7px;font-size:11.5px}
+.chipbtn{border-radius:var(--r-sm)}
+.chipbtn.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.seg{border-radius:var(--r-sm);padding:2px;background:var(--surface-2);border-color:var(--border-strong)}
+.seg button{border-radius:3px}
+.seg button.on{background:var(--accent);color:var(--accent-ink);box-shadow:none}
+.radio,.gcard,.feat,.btype{border-radius:var(--r)}
+.radio:has(input:checked),.gcard.on,.feat.on,.feat.locked,.btype.on{background:var(--accent-soft);border-color:var(--accent)}
+.ritem.on{background:var(--accent-soft);border-left-color:var(--accent)}
+.prow.today{background:var(--accent-soft)}
+.gsec h3{background:var(--surface-2);color:var(--ink);border-bottom:1px solid var(--border)}
+.gcheck .box{border-radius:var(--r-sm)}
+.checklist li.done .cbox,.gcheck input:checked+.box{background:var(--accent);border-color:var(--accent)}
+.clbar,.gprog .bar,.wiz-progress i{border-radius:2px;height:6px}
+.clbar span,.gprog .bar span{border-radius:2px;background:var(--accent)}
+.wiz-progress i.done{background:var(--accent)}
+.mbar,.mbar span{border-radius:2px}
+.step .stepno,.stepno{background:var(--accent);color:var(--accent-ink);border-radius:var(--r-sm)}
+
+/* overlays */
+dialog{border-radius:var(--r-lg);box-shadow:var(--shadow-pop);border:1px solid var(--border)}
+dialog::backdrop{background:var(--scrim);backdrop-filter:none;-webkit-backdrop-filter:none}
+.toast{border-radius:var(--r);background:var(--ink);color:var(--surface);backdrop-filter:none}
+:root[data-theme="dark"] .toast{background:#2d3238;color:var(--ink)}
+.moremenu .menu{border-radius:var(--r);padding:4px}
+.sitem{border-radius:var(--r-sm)} .sitem:hover,.sitem.on{background:var(--surface-2);box-shadow:inset 2px 0 0 var(--accent)}
+.totop{border-radius:var(--r)}
+.notice{background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none;border-top:1px solid var(--border-strong)}
+
+/* shared light/dark switch */
+.themesw .tk{width:52px;height:26px;border-radius:var(--r-sm);background:var(--surface-2);border:1px solid var(--border-strong)}
+.themesw .th{left:2px;top:2px;width:22px;height:20px;border-radius:3px;background:var(--accent);box-shadow:none}
+.themesw[aria-checked="true"] .th{transform:translateX(24px)}
+
+/* app bar (tablet + phone) with the family accent line */
+#appbar{background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid var(--border);box-shadow:inset 0 3px 0 var(--accent),var(--shadow)}
+#appbar.stuck{box-shadow:inset 0 3px 0 var(--accent),var(--shadow)}
+#progress i{background:var(--accent);border-radius:0}
+.tab{border-radius:var(--r-sm);font-weight:500}
+.tab:hover{background:var(--surface-2)}
+@media (min-width:721px) and (max-width:899px){
+  .tab{border-radius:0}
+  .tab.on,.tab.on:hover{background:none;color:var(--accent);font-weight:600;box-shadow:inset 0 -2px 0 var(--accent)}
+}
+/* desktop: left rail, same active treatment as the family's bottom-sheet items */
+@media (min-width:900px){
+  body::before{content:"";position:fixed;left:0;right:0;top:0;height:3px;background:var(--accent);z-index:60;pointer-events:none}
+  #appbar{background:var(--surface);border-right:1px solid var(--border);border-bottom:0;box-shadow:none;padding:20px 12px 14px}
+  #appbar.stuck{box-shadow:none}
+  #progress{top:3px}
+  .brand .logo{width:28px!important;height:28px!important}
+  .brand{column-gap:10px;padding:2px 6px 16px}
+  .tab{min-height:38px;border-radius:var(--r-sm);font-size:14px;font-weight:500;color:var(--ink-2)}
+  .tab:hover{background:var(--surface-2);color:var(--ink)}
+  .tab.on,.tab.on:hover{background:var(--accent-soft);color:var(--accent);font-weight:600;box-shadow:inset 3px 0 0 var(--accent)}
+  .tab.on::before{display:none}
+  #searchBtn,.btn.searchbtn{border-color:var(--border-strong);background:var(--surface-2)}
+  .datamenu>summary{border-radius:var(--r-sm)}
+}
+/* phones: docked bottom bar like the rest of the family */
+@media (max-width:720px){
+  :root{--bnav-h:calc(62px + env(safe-area-inset-bottom))}
+  .brand .logo{width:28px!important;height:28px!important}
+  .tile b{font-size:24px}
+  .card{padding:14px}
+  .bnav{left:0;right:0;bottom:0;padding:0 0 env(safe-area-inset-bottom);border:0;border-top:1px solid var(--border-strong);border-radius:0;background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+  .bnav>a,.bnav>button{min-height:56px;border-radius:0}
+  .bnav>a:hover,.bnav>button:hover{background:var(--surface-2)}
+  .bnav>.on,.bnav>.on:hover{background:none;color:var(--accent);box-shadow:inset 0 2px 0 var(--accent)}
+  .bn-sheet{border-radius:var(--r);left:8px;right:8px}
+  .bn-item{border-radius:var(--r-sm)} .bn-item.on,.bn-item.on:hover{background:var(--surface-2);box-shadow:inset 3px 0 0 var(--accent)}
+}
+@media print{body::before{display:none}}
+
 </style>
 </head>
 <body>
@@ -926,7 +1385,7 @@ summary:hover { color: var(--ink); }
 <header id="appbar">
   <a class="brand" href="#/home" aria-label="mbmealprep.online home">
     <span class="logo" aria-hidden="true"></span>
-    <span class="nm">mbmealprep.online</span><span class="beta">BETA 4.2.2</span>
+    <span class="nm">mbmealprep<i class="tld">.online</i></span><span class="beta">v5 · Web app</span>
   </a>
   <nav id="nav" aria-label="Main"></nav>
   <div class="bar-actions">
@@ -943,7 +1402,7 @@ summary:hover { color: var(--ink); }
   <div id="progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
 </header>
 <main id="view" tabindex="-1"><div class="skel" aria-hidden="true"><i class="sk sk-h"></i><i class="sk sk-p"></i><div class="sk-grid"><i class="sk sk-c"></i><i class="sk sk-c"></i><i class="sk sk-c"></i></div></div><noscript><p style="padding:24px">This app needs JavaScript to run.</p></noscript></main>
-<footer>© 2026 Matthew Broyer · mbmealprep.online BETA 4.2.2 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
+<footer>© 2026 Matthew Broyer · mbmealprep.online v5 · Web app · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
 <div id="printSheet" aria-hidden="true"></div>
 <button id="toTop" class="totop" data-act="toTop" aria-label="Back to top" hidden></button>
 <aside id="notice" class="notice" role="region" aria-label="Privacy notice" hidden></aside>
@@ -958,7 +1417,7 @@ summary:hover { color: var(--ink); }
 <script>
 'use strict';
 /* ==========================================================================
-   mbmealprep.online  BETA 4.2  -  helpers
+   mbmealprep.online  BETA 4.3  -  helpers
    ========================================================================== */
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -971,8 +1430,9 @@ const numOrNull = v => { if (v === '' || v === null || v === undefined) return n
 const fmtInt = n => Math.round(n).toLocaleString('en-US');
 const fmtSigned = (n, d = 0) => { const r = round(n, d); return (r > 0 ? '+' : r < 0 ? '\u2212' : '') + Math.abs(r).toLocaleString('en-US'); };
 /* logo: the shared app-family badge (accent square) with this app's steaming bowl; steam is gold in light, accent-ink in dark */
-const LOGO_GLYPH = '<g transform="translate(0,-3.7999965)"><path d="M 14,36 H 50 A 18,16 0 0 1 14,36 Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="m 23.5,30 c -3,-3.5 3,-5.5 0,-10 M 32,30 c -3,-3.5 3,-5.5 0,-10 m 8.5,10 c -3,-3.5 3,-5.5 0,-10" fill="none" stroke="var(--logo-steam)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/></g>';
-const logo = (size = 28) => `<span class="logo" style="width:${size}px;height:${size}px" aria-hidden="true"><svg viewBox="0 0 64 64" style="width:100%;height:100%">${LOGO_GLYPH}</svg></span>`;
+const LOGO_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#E0523D"/><rect x="14.5" y="19.5" width="35" height="27" rx="4" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M33 20v26M33 33h16" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="17.5" y="22.5" width="13" height="21" rx="1.5" fill="#fff" fill-opacity=".55"/></svg>';
+const LOGO_URI = 'data:image/svg+xml,' + encodeURIComponent(LOGO_SVG);
+const logo = (size = 28) => `<span class="logo" style="width:${size}px;height:${size}px" aria-hidden="true"><img src="${LOGO_URI}" alt="" width="${size}" height="${size}" draggable="false"></span>`;
 const cap = s => s ? (s.charAt(0).toUpperCase() + s.slice(1)).replace(/^bbq\b/i, 'BBQ') : s;
 const today = () => new Date().toISOString().slice(0, 10);
 const validDate = s => { if (!s) return ''; const d = new Date(s); return isFinite(d) && d.getFullYear() >= 2000 && d.getTime() < Date.now() + 864e5 ? d.toISOString() : ''; };
@@ -1091,7 +1551,12 @@ const ICONS = {
   shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
   chev: '<path d="M6 9l6 6 6-6"/>',
   save: '<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/>',
-  folder: '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>'
+  folder: '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>',
+  pot: '<path d="M4 11h16v5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 11h20M9 7c0-1.5 1-1.5 1-3M14 7c0-1.5 1-1.5 1-3"/>',
+  thumbup: '<path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>',
+  thumbdown: '<path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/>',
+  dollar: '<path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
+  snow: '<path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/>'
 };
 const icon = (n, cls = '') => `<svg class="ic ${cls}" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n] || ''}</svg>`;
 
@@ -1842,7 +2307,7 @@ zip-top bags|box`;
    Reference data: units, sections, days, ingredient library helpers
    ========================================================================== */
 const DEMO_UPDATED = '2026-09-20T12:00:00.000Z';
-const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'BETA 4.2.2', year: 2026, released: '2026-10-01' };
+const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'v5 · Web app', year: 2026, released: '2026-10-09' };
 
 /* Optional support links (leave blank to hide the buttons) */
 const CONFIG = { issueUrl: '', supportUrl: '', siteUrl: '' };
@@ -2103,9 +2568,9 @@ const DEMO_RECIPES = [
 
 /* ==========================================================================
    CSV engine  -  one flat sheet holds everything
-   record,name,meal_type,servings,calories,protein_g,carbs_g,fats_g,prep_friendly,favorite,item,qty,unit,section,text
+   record,name,meal_type,servings,calories,protein_g,carbs_g,fats_g,prep_friendly,favorite,item,qty,unit,section,text,updated,rating,minutes
    ========================================================================== */
-const CSV_COLS = ['record', 'name', 'meal_type', 'servings', 'calories', 'protein_g', 'carbs_g', 'fats_g', 'prep_friendly', 'favorite', 'item', 'qty', 'unit', 'section', 'text', 'updated'];
+const CSV_COLS = ['record', 'name', 'meal_type', 'servings', 'calories', 'protein_g', 'carbs_g', 'fats_g', 'prep_friendly', 'favorite', 'item', 'qty', 'unit', 'section', 'text', 'updated', 'rating', 'minutes'];
 const CSV_ALIASES = {
   record: ['record', 'type', 'record_type', 'rec'],
   name: ['name', 'recipe', 'recipe_name', 'day', 'key'],
@@ -2122,6 +2587,8 @@ const CSV_ALIASES = {
   unit: ['unit', 'uom', 'unit of measurement'],
   updated: ['updated', 'last_updated', 'last updated', 'modified', 'date_modified', 'updated_at'],
   section: ['section', 'store_section', 'store section', 'aisle'],
+  rating: ['rating', 'rate', 'thumb', 'feedback'],
+  minutes: ['minutes', 'mins', 'time', 'time_min', 'total_minutes', 'cook_time'],
   text: ['text', 'notes', 'note', 'value', 'instruction', 'instructions', 'step']
 };
 
@@ -2209,10 +2676,11 @@ function guessUnit() {
 function defaultState() {
   return {
     v: 4,
-    setup: { done: false, name: '', features: { health: true, planner: true, grocery: true }, cookStyle: 'batch', household: 1, meals: { Breakfast: true, Lunch: true, Dinner: true, Snacks: true }, weekStart: 'Monday', useCase: 'both' },
+    setup: { done: false, name: '', features: { health: true, planner: true, grocery: true }, cookStyle: 'batch', household: 1, meals: { Breakfast: true, Lunch: true, Dinner: true, Snacks: true }, weekStart: 'Monday', useCase: 'both', prepDay: 'Sunday' },
     profile: { unit: guessUnit(), sex: 'male', age: null, heightCm: null, weightKg: null, bodyFat: null, activity: 1.375, formula: 'mifflin', goal: 'maintain', rateKgWk: 0, bodyType: 'mesomorph', pct: { c: 40, f: 30, p: 30 }, calorieOverride: null },
-    settings: { theme: 'light', nutritionMode: 'eaten', groceryMode: 'batch', sectionOrder: SECTIONS.slice(), mealSplit: Object.assign({}, DEFAULT_SPLIT), lastExport: null, printMode: 'bw' },
-    recipes: [], pantry: [], plan: {}, manual: [], checked: {}, have: {}
+    settings: { theme: 'light', nutritionMode: 'eaten', groceryMode: 'batch', sectionOrder: SECTIONS.slice(), mealSplit: Object.assign({}, DEFAULT_SPLIT), lastExport: null, printMode: 'bw', budget: null },
+    recipes: [], pantry: [], plan: {}, manual: [], checked: {}, have: {},
+    prices: {}, stock: [], history: [], prepDone: {}
   };
 }
 
@@ -2235,7 +2703,7 @@ function loadState() {
     if (raw) {
       const saved = JSON.parse(raw);
       mergeInto(st, saved);
-      for (const k of ['plan', 'checked', 'have']) if (saved[k] && typeof saved[k] === 'object') st[k] = saved[k];
+      for (const k of ['plan', 'checked', 'have', 'prices', 'prepDone']) if (saved[k] && typeof saved[k] === 'object' && !Array.isArray(saved[k])) st[k] = saved[k];
     }
   } catch (e) { storageOK = false; }
   sanitizeState(st);
@@ -2259,6 +2727,7 @@ function sanitizeState(st) {
     recipes.push({
       id, name, type: oneOf(r.type, MEAL_TYPES, 'Lunch / Dinner'), servings: toNum(r.servings, 0.25, 999, 1),
       cal: toNum(r.cal, 0, 20000), p: toNum(r.p, 0, 2000), c: toNum(r.c, 0, 2000), f: toNum(r.f, 0, 2000), prep: !!r.prep, fav: !!r.fav,
+      rate: oneOf(r.rate, ['up', 'down'], ''), mins: toNumOrNull(r.mins, 1, 1440),
       ingredients: (Array.isArray(r.ingredients) ? r.ingredients : []).slice(0, 200).filter(g => g && typeof g === 'object' && toStr(g.item, 120).trim())
         .map(g => ({ item: toStr(g.item, 120).trim(), qty: toNumOrNull(g.qty, 0, 100000), unit: toStr(g.unit, 30) })),
       steps: (Array.isArray(r.steps) ? r.steps : []).slice(0, 200).map(x => toStr(x, 1000)).filter(Boolean),
@@ -2273,6 +2742,23 @@ function sanitizeState(st) {
   const flags = m => { const o = {}; if (m && typeof m === 'object') for (const k of Object.keys(m).slice(0, 5000)) if (k !== '__proto__' && k.length <= 200 && m[k]) o[k] = true; return o; };
   st.checked = flags(st.checked); st.have = flags(st.have);
   st.manual = (Array.isArray(st.manual) ? st.manual : []).slice(0, 1000).filter(m => m && typeof m === 'object' && toStr(m.item, 120).trim()).map(m => ({ id: goodId(m.id) ? m.id : uid('m'), item: toStr(m.item, 120).trim(), qty: toNumOrNull(m.qty, 0, 100000), unit: toStr(m.unit, 30) || 'each', section: oneOf(m.section, SECTIONS, 'Other'), done: !!m.done }));
+  /* prices: { ingredientKey: { p: price, u: unit the price is for } } */
+  const prices = {}, ps = st.prices && typeof st.prices === 'object' && !Array.isArray(st.prices) ? st.prices : {};
+  for (const k of Object.keys(ps).slice(0, 5000)) { const v = ps[k]; if (k === '__proto__' || k.length > 200 || !v || typeof v !== 'object') continue; const pr = toNum(v.p, 0, 10000, 0); if (pr > 0) prices[k] = { p: round(pr, 2), u: normUnit(toStr(v.u, 30)) || 'each' }; }
+  st.prices = prices;
+  /* leftovers and freezer servings, tied to a recipe */
+  st.stock = (Array.isArray(st.stock) ? st.stock : []).slice(0, 500).filter(x => x && typeof x === 'object' && (idMap.get(x.rid) || x.rid) && seen.has(idMap.get(x.rid) || x.rid) && toNum(x.servings, 0, 999, 0) > 0)
+    .map(x => ({ id: goodId(x.id) ? x.id : uid('s'), rid: idMap.get(x.rid) || x.rid, servings: round(toNum(x.servings, 0.25, 999, 1), 2), made: validDate(x.made) || new Date().toISOString(), loc: oneOf(x.loc, ['fridge', 'freezer'], 'fridge'), counted: !!x.counted }));
+  /* past weeks: [{ date: 'YYYY-MM-DD', meals: [{ d: day, s: slot, n: recipe name, sv: servings }] }], newest first */
+  const hist = []; const hseen = new Set();
+  for (const h of (Array.isArray(st.history) ? st.history : []).slice(0, 60)) {
+    if (!h || typeof h !== 'object' || typeof h.date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(h.date) || hseen.has(h.date)) continue;
+    const meals = (Array.isArray(h.meals) ? h.meals : []).slice(0, 40).filter(m => m && typeof m === 'object' && DAYS.includes(m.d) && SLOTS.includes(m.s) && toStr(m.n, 120).trim())
+      .map(m => ({ d: m.d, s: m.s, n: toStr(m.n, 120).trim(), sv: toNum(m.sv, 0.25, 99, 1) }));
+    if (!meals.length) continue; hseen.add(h.date); hist.push({ date: h.date, meals });
+  }
+  st.history = hist.sort((a, b) => b.date.localeCompare(a.date)).slice(0, 12);
+  st.prepDone = flags(st.prepDone);
   st.pantry = (Array.isArray(st.pantry) ? st.pantry : []).slice(0, 5000).filter(x => x && typeof x === 'object' && toStr(x.name, 120).trim()).map(x => ({ name: toStr(x.name, 120).trim().toLowerCase(), unit: toStr(x.unit, 30) || 'each', section: oneOf(x.section, SECTIONS, 'Other') }));
   const P = st.profile, D = defaultState().profile;
   P.unit = oneOf(P.unit, ['imperial', 'metric'], D.unit); P.sex = oneOf(P.sex, ['male', 'female', 'avg'], 'male');
@@ -2281,11 +2767,11 @@ function sanitizeState(st) {
   P.rateKgWk = toNum(P.rateKgWk, -2, 2, 0); P.bodyType = oneOf(P.bodyType, ['ectomorph', 'mesomorph', 'endomorph', 'custom'], 'mesomorph');
   P.calorieOverride = toNumOrNull(P.calorieOverride, 0, 20000);
   P.pct = { c: toNum(P.pct && P.pct.c, 0, 100, 40), f: toNum(P.pct && P.pct.f, 0, 100, 30), p: toNum(P.pct && P.pct.p, 0, 100, 30) };
-  const U = st.setup; U.name = toStr(U.name, 40); U.done = !!U.done; U.cookStyle = oneOf(U.cookStyle, ['batch', 'fresh'], 'batch'); U.household = Math.round(toNum(U.household, 1, 20, 1)); U.weekStart = oneOf(U.weekStart, DAYS, 'Monday');
+  const U = st.setup; U.name = toStr(U.name, 40); U.done = !!U.done; U.cookStyle = oneOf(U.cookStyle, ['batch', 'fresh'], 'batch'); U.household = Math.round(toNum(U.household, 1, 20, 1)); U.weekStart = oneOf(U.weekStart, DAYS, 'Monday'); U.prepDay = oneOf(U.prepDay, DAYS, 'Sunday');
   for (const k of ['health', 'planner', 'grocery']) U.features[k] = !!U.features[k];
   for (const sl of SLOTS) U.meals[sl] = !!U.meals[sl]; if (!SLOTS.some(sl => U.meals[sl])) U.meals.Dinner = true;
   const T = st.settings; T.theme = oneOf(T.theme, ['light', 'dark'], 'light');   // the old 'auto' now loads light (ecosystem rule) T.nutritionMode = oneOf(T.nutritionMode, ['eaten', 'cooked'], 'eaten'); T.groceryMode = oneOf(T.groceryMode, ['batch', 'exact'], 'batch');
-  T.printMode = oneOf(T.printMode, ['bw', 'color'], 'bw'); T.lastExport = validDate(T.lastExport) || null;
+  T.printMode = oneOf(T.printMode, ['bw', 'color'], 'bw'); T.lastExport = validDate(T.lastExport) || null; T.budget = toNumOrNull(T.budget, 1, 100000);
   for (const sl of SLOTS) T.mealSplit[sl] = toNum(T.mealSplit[sl], 0, 100, DEFAULT_SPLIT[sl]);
   const order = (Array.isArray(T.sectionOrder) ? T.sectionOrder : []).filter(x => SECTIONS.includes(x)).filter((x, i, a) => a.indexOf(x) === i);
   for (const x of SECTIONS) if (!order.includes(x)) order.push(x);
@@ -2349,6 +2835,7 @@ const featureOn = f => !!state.setup.features[f];
 function cleanPlan() {                          // drop plan rows whose recipe was deleted
   for (const d of Object.keys(state.plan)) for (const s of Object.keys(state.plan[d])) if (!getRecipe(state.plan[d][s].rid)) delete state.plan[d][s];
   for (const d of Object.keys(state.plan)) if (!Object.keys(state.plan[d]).length) delete state.plan[d];
+  state.stock = state.stock.filter(x => getRecipe(x.rid));
 }
 
 /* ==========================================================================
@@ -2359,10 +2846,10 @@ function stateToRows(st = state) {
   const p = st.profile, su = st.setup, se = st.settings;
   const prof = { unit: p.unit, sex: p.sex, age: p.age, heightCm: p.heightCm, weightKg: p.weightKg, bodyFat: p.bodyFat, activity: p.activity, formula: p.formula, goal: p.goal, rateKgWk: p.rateKgWk, bodyType: p.bodyType, pctC: p.pct.c, pctF: p.pct.f, pctP: p.pct.p, calorieOverride: p.calorieOverride };
   for (const [k, v] of Object.entries(prof)) if (v !== null && v !== undefined && v !== '') row({ record: 'profile', name: k, text: v });
-  const sett = { userName: su.name, setupDone: yn(su.done), feat_health: yn(su.features.health), feat_planner: yn(su.features.planner), feat_grocery: yn(su.features.grocery), cookStyle: su.cookStyle, household: su.household, meals: SLOTS.filter(s => su.meals[s]).join(','), weekStart: su.weekStart, theme: se.theme, nutritionMode: se.nutritionMode, groceryMode: se.groceryMode, sectionOrder: se.sectionOrder.join('|'), mealSplit: SLOTS.map(s => s + ':' + se.mealSplit[s]).join('|') };
+  const sett = { userName: su.name, setupDone: yn(su.done), feat_health: yn(su.features.health), feat_planner: yn(su.features.planner), feat_grocery: yn(su.features.grocery), cookStyle: su.cookStyle, household: su.household, meals: SLOTS.filter(s => su.meals[s]).join(','), weekStart: su.weekStart, prepDay: su.prepDay, budget: se.budget, theme: se.theme, nutritionMode: se.nutritionMode, groceryMode: se.groceryMode, sectionOrder: se.sectionOrder.join('|'), mealSplit: SLOTS.map(s => s + ':' + se.mealSplit[s]).join('|') };
   for (const [k, v] of Object.entries(sett)) if (v !== '' && v !== null && v !== undefined) row({ record: 'setting', name: k, text: v });
   for (const r of st.recipes) {
-    row({ record: 'recipe', name: r.name, meal_type: r.type, servings: r.servings, calories: r.cal, protein_g: r.p, carbs_g: r.c, fats_g: r.f, prep_friendly: yn(r.prep), favorite: yn(r.fav), text: r.notes || '', updated: r.updated });
+    row({ record: 'recipe', name: r.name, meal_type: r.type, servings: r.servings, calories: r.cal, protein_g: r.p, carbs_g: r.c, fats_g: r.f, prep_friendly: yn(r.prep), favorite: yn(r.fav), text: r.notes || '', updated: r.updated, rating: r.rate || '', minutes: r.mins === null || r.mins === undefined ? '' : r.mins });
     for (const g of r.ingredients) row({ record: 'ingredient', name: r.name, item: g.item, qty: g.qty === null || g.qty === undefined ? '' : fmtDec(g.qty), unit: g.unit });
     for (const s of r.steps) row({ record: 'step', name: r.name, text: s });
   }
@@ -2372,6 +2859,9 @@ function stateToRows(st = state) {
     if (r) row({ record: 'plan', name: d, meal_type: s, item: r.name, qty: fmtDec(e.servings) });
   }
   for (const m of st.manual) row({ record: 'grocery', item: m.item, qty: m.qty === null || m.qty === undefined ? '' : fmtDec(m.qty), unit: m.unit, section: m.section, text: m.done ? 'done' : '' });
+  for (const k of Object.keys(st.prices)) { const pr = st.prices[k]; if (pr && pr.p > 0) row({ record: 'price', item: k, qty: fmtDec(pr.p), unit: pr.u }); }
+  for (const x of st.stock) { const r = st.recipes.find(y => y.id === x.rid); if (r) row({ record: 'stock', name: r.name, qty: fmtDec(x.servings), unit: x.loc, updated: x.made, text: x.counted ? 'counted' : '' }); }
+  for (const h of st.history) for (const m of h.meals) row({ record: 'history', name: h.date, meal_type: m.s, item: m.n, qty: fmtDec(m.sv), text: m.d });
   for (const k of Object.keys(st.checked)) if (st.checked[k]) row({ record: 'checked', item: k });
   for (const k of Object.keys(st.have)) if (st.have[k]) row({ record: 'have', item: k });
   return R;
@@ -2380,7 +2870,7 @@ const exportCSV = () => toCSV(stateToRows());
 
 function templateCSV() {
   const rows = [
-    { record: 'recipe', name: 'Example Chicken Bowl', meal_type: 'Lunch / Dinner', servings: 4, calories: 463, protein_g: 46, carbs_g: 45, fats_g: 11, prep_friendly: 'Yes', favorite: 'No', text: 'Optional notes or a source URL', updated: today() },
+    { record: 'recipe', name: 'Example Chicken Bowl', meal_type: 'Lunch / Dinner', servings: 4, calories: 463, protein_g: 46, carbs_g: 45, fats_g: 11, prep_friendly: 'Yes', favorite: 'No', text: 'Optional notes or a source URL', updated: today(), rating: '', minutes: 45 },
     { record: 'ingredient', name: 'Example Chicken Bowl', item: 'chicken breast', qty: 1.5, unit: 'pound' },
     { record: 'ingredient', name: 'Example Chicken Bowl', item: 'brown rice', qty: 1, unit: 'cup' },
     { record: 'ingredient', name: 'Example Chicken Bowl', item: 'salt & pepper', qty: '', unit: 'to taste' },
@@ -2388,6 +2878,7 @@ function templateCSV() {
     { record: 'step', name: 'Example Chicken Bowl', text: 'Second step goes here.' },
     { record: 'plan', name: 'Monday', meal_type: 'Dinner', item: 'Example Chicken Bowl', qty: 1 },
     { record: 'grocery', item: 'paper towels', qty: 1, unit: 'package', section: 'Other' },
+    { record: 'price', item: 'chicken breast', qty: 3.49, unit: 'pound' },
     { record: 'profile', name: 'weightKg', text: 80 },
     { record: 'setting', name: 'household', text: 1 }
   ];
@@ -2400,7 +2891,7 @@ function templateCSV() {
 const LIM = { records: 60000, recipes: 3000, name: 200, text: 6000 };
 const cut = (s, n) => String(s || '').slice(0, n);
 function buildImport(records, mode) {
-  const rep = { recipes: 0, ingredients: 0, steps: 0, plan: 0, pantry: 0, grocery: 0, profile: 0, warnings: [] };
+  const rep = { recipes: 0, ingredients: 0, steps: 0, plan: 0, pantry: 0, grocery: 0, profile: 0, prices: 0, stock: 0, history: 0, warnings: [] };
   const warn = m => { if (rep.warnings.length < 25) rep.warnings.push(m); };
   const next = mode === 'replace' ? defaultState() : JSON.parse(JSON.stringify(state));
   if (mode === 'replace') { next.setup = JSON.parse(JSON.stringify(state.setup)); next.settings.theme = state.settings.theme; next.settings.lastExport = state.settings.lastExport; next.settings.printMode = state.settings.printMode; }
@@ -2415,7 +2906,7 @@ function buildImport(records, mode) {
     let t = touched.get(key);
     if (!t) {
       let r = byName.get(key); const existed = !!r;
-      if (!r) { if (next.recipes.length >= LIM.recipes) { warn('Recipe limit reached.'); return null; } r = { id: uid('r'), name: cut(name.trim(), LIM.name), type: 'Lunch / Dinner', servings: 1, cal: 0, p: 0, c: 0, f: 0, prep: false, fav: false, ingredients: [], steps: [], notes: '' }; next.recipes.push(r); byName.set(key, r); }
+      if (!r) { if (next.recipes.length >= LIM.recipes) { warn('Recipe limit reached.'); return null; } r = { id: uid('r'), name: cut(name.trim(), LIM.name), type: 'Lunch / Dinner', servings: 1, cal: 0, p: 0, c: 0, f: 0, prep: false, fav: false, rate: '', mins: null, ingredients: [], steps: [], notes: '' }; next.recipes.push(r); byName.set(key, r); }
       t = { r, ing: [], steps: [], hasRow: false, fresh: !existed, sig: existed ? recipeSig(r) : '', csvDate: '' }; touched.set(key, t);
     }
     return t;
@@ -2428,6 +2919,8 @@ function buildImport(records, mode) {
     r.servings = clamp(parseQty(o.servings) || 1, 0.25, 999);
     r.cal = clamp(Math.round(num(o.calories)), 0, 20000); r.p = clamp(round(num(o.protein_g), 1), 0, 2000); r.c = clamp(round(num(o.carbs_g), 1), 0, 2000); r.f = clamp(round(num(o.fats_g), 1), 0, 2000);
     r.prep = yes(o.prep_friendly); r.fav = yes(o.favorite); r.notes = cut(o.text, LIM.text); t.csvDate = validDate(o.updated);
+    if (o.rating) r.rate = /^(up|like|liked|love|loved|\+|1|yes|y)$/i.test(o.rating) ? 'up' : /^(down|dislike|disliked|skip|no|n|-|-1)$/i.test(o.rating) ? 'down' : '';
+    if (o.minutes !== '') { const mn = parseQty(o.minutes); r.mins = mn ? clamp(Math.round(mn), 1, 1440) : null; }
     rep.recipes++;
   }
   for (const o of records) {
@@ -2447,8 +2940,25 @@ function buildImport(records, mode) {
     if (t.csvDate) t.r.updated = t.csvDate; else if (t.fresh || (t.sig && t.sig !== recipeSig(t.r))) stamp(t.r); }
 
   if (mode === 'replace') next.plan = {};
+  const hmap = new Map();
   for (const o of records) {
     switch (o.record) {
+      case 'price': {
+        if (!o.item) break; const pr = num(String(o.qty).replace(/[$,\s]/g, '')), k = ikey(o.item); if (!(pr > 0) || k === '__proto__') break;
+        next.prices[k] = { p: clamp(pr, 0, 10000), u: normUnit(o.unit) || 'each' }; rep.prices++; break;
+      }
+      case 'stock': {
+        const r = byName.get((o.name || '').trim().toLowerCase()); if (!r) { warn('Leftover row skipped (recipe not found): ' + o.name); break; }
+        const sv = clamp(parseQty(o.qty) || 0, 0, 999); if (!(sv > 0)) break;
+        const loc = /free/i.test(o.unit) ? 'freezer' : 'fridge', made = validDate(o.updated) || new Date().toISOString();
+        const dup = next.stock.find(x => x.rid === r.id && x.loc === loc && x.made === made), e = { id: dup ? dup.id : uid('s'), rid: r.id, servings: sv, made, loc, counted: /counted/i.test(o.text) };
+        if (dup) Object.assign(dup, e); else next.stock.push(e); rep.stock++; break;
+      }
+      case 'history': {
+        const date = (o.name || '').trim(), day = DAYS.find(d => d.toLowerCase() === (o.text || '').toLowerCase()), slot = SLOTS.find(sl => sl.toLowerCase() === (o.meal_type || '').toLowerCase());
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !day || !slot || !o.item) { warn('Past-week row skipped: ' + (o.name || '') + ' / ' + (o.item || '')); break; }
+        if (!hmap.has(date)) hmap.set(date, []); hmap.get(date).push({ d: day, s: slot, n: cut(o.item.trim(), LIM.name), sv: clamp(parseQty(o.qty) || 1, 0.25, 99) }); break;
+      }
       case 'pantry': {
         if (!o.item) break; const sec = SECTIONS.find(s => s.toLowerCase() === (o.section || '').toLowerCase()) || guessSection(o.item);
         const nm = cut(o.item.trim().toLowerCase(), LIM.name), k = ikey(nm), i = next.pantry.findIndex(p => ikey(p.name) === k);
@@ -2473,6 +2983,7 @@ function buildImport(records, mode) {
       case 'profile': case 'setting': { if (applyKV(next, o.record, o.name, o.text)) rep.profile++; break; }
     }
   }
+  for (const [date, meals] of hmap) { next.history = next.history.filter(h => h.date !== date); next.history.push({ date, meals }); rep.history++; }
   // sanity
   next.plan = Object.fromEntries(Object.entries(next.plan).map(([d, v]) => [d, Object.fromEntries(Object.entries(v).filter(([s, e]) => next.recipes.some(r => r.id === e.rid)))]).filter(([d, v]) => Object.keys(v).length));
   sanitizeState(next);
@@ -2511,6 +3022,8 @@ function applyKV(next, rec, k, v) {
       case 'household': if (n !== null) { S.household = clamp(Math.round(n), 1, 20); return true; } break;
       case 'meals': { const on = v.split(',').map(x => x.trim().toLowerCase()); SLOTS.forEach(s => S.meals[s] = on.includes(s.toLowerCase())); return true; }
       case 'weekStart': if (DAYS.includes(v)) { S.weekStart = v; return true; } break;
+      case 'prepDay': if (DAYS.includes(v)) { S.prepDay = v; return true; } break;
+      case 'budget': if (n !== null && n > 0) { T.budget = clamp(n, 1, 100000); return true; } break;
       case 'theme': if (['auto', 'light', 'dark'].includes(v)) { T.theme = v === 'dark' ? 'dark' : 'light'; return true; } break;
       case 'nutritionMode': if (v === 'eaten' || v === 'cooked') { T.nutritionMode = v; return true; } break;
       case 'groceryMode': if (v === 'batch' || v === 'exact') { T.groceryMode = v; return true; } break;
@@ -2653,12 +3166,22 @@ function plannedServings() {
   for (const d of DAYS) for (const s of activeSlots()) { const e = getSlot(d, s); if (e) m.set(e.rid, (m.get(e.rid) || 0) + e.servings); }
   return m;
 }
+/* Servings still to cook = servings planned for the household minus leftovers already on hand
+   (only leftovers that are not already counted in this week's cooking). */
+function needToCook(rid, planned) {
+  const total = planned * state.setup.household, carry = Math.min(total, stockServings(rid, true));
+  return { total, carry, need: total - carry };
+}
+function batchesFor(need, base) {
+  if (need <= 1e-9) return 0;
+  return state.settings.groceryMode === 'batch' ? Math.max(1, Math.ceil(need / base - 1e-9)) : need / base;
+}
 function cookList() {
-  const hh = state.setup.household, out = [];
+  const out = [];
   for (const [rid, planned] of plannedServings()) {
-    const r = getRecipe(rid), base = r.servings || 1, need = planned * hh;
-    const batches = state.settings.groceryMode === 'batch' ? Math.max(1, Math.ceil(need / base - 1e-9)) : need / base;
-    out.push({ r, planned, need, batches, made: batches * base, extra: Math.max(0, batches * base - need) });
+    const r = getRecipe(rid), base = r.servings || 1, n = needToCook(rid, planned);
+    const batches = batchesFor(n.need, base);
+    out.push({ r, planned, total: n.total, carry: n.carry, need: n.need, batches, made: batches * base, extra: Math.max(0, batches * base - n.need) });
   }
   return out.sort((a, b) => a.r.name.localeCompare(b.r.name));
 }
@@ -2675,10 +3198,10 @@ function buildGrocery() {
     else L.units.add(unit);
     if (from) L.from.add(from);
   };
-  const hh = state.setup.household;
   for (const [rid, planned] of plannedServings()) {
-    const r = getRecipe(rid), base = r.servings || 1, need = planned * hh;
-    const factor = state.settings.groceryMode === 'batch' ? Math.max(1, Math.ceil(need / base - 1e-9)) : need / base;
+    const r = getRecipe(rid), base = r.servings || 1;
+    const factor = batchesFor(needToCook(rid, planned).need, base);
+    if (factor <= 0) continue;                                   // fully covered by leftovers on hand
     for (const g of r.ingredients) if (g.item) add(g.item, g.qty, g.unit, factor, r.name);
   }
   // drop "to taste / as needed" rows when the same ingredient is already listed with a quantity
@@ -2718,19 +3241,154 @@ function groceryText() {
   const bySec = new Map(); for (const i of list) { if (!bySec.has(i.section)) bySec.set(i.section, []); bySec.get(i.section).push(i); }
   let out = `${APP.name} – Grocery list (${new Date().toLocaleDateString()})\n`;
   for (const [s, items] of bySec) { out += `\n${s.toUpperCase()}\n`; for (const i of items) out += `[ ] ${cap(i.name)}${i.qty !== null || i.unit === 'to taste' || i.unit === 'as needed' ? ' – ' + fmtAmount(i.qty, i.unit) : ''}\n`; }
+  const gc = groceryCost(fullGroceryList());
+  if (gc.priced) out += `\nEstimated total: ${money(gc.total)}${gc.unpriced ? ` (${gc.unpriced} item${gc.unpriced === 1 ? '' : 's'} unpriced)` : ''}\n`;
   return out;
 }
 
-/* ---- auto-plan: pick menus that land closest to your daily calorie + macro targets ---- */
-function autoPlan({ rebuild = false, variety = 3, only = 'all' } = {}) {
+/* ==========================================================================
+   Ratings, leftovers, prices and cost estimates (BETA 4.3)
+   Everything here is local. Prices are the ones you type in; nothing is looked up.
+   ========================================================================== */
+const MINOR_UNITS = new Set(['to taste', 'as needed', 'pinch', 'dash']);
+const money = n => '$' + (n || 0).toLocaleString('en-US', n < 100 ? { minimumFractionDigits: 2, maximumFractionDigits: 2 } : { maximumFractionDigits: 0 });
+
+/* leftovers: servings of a recipe already cooked. "counted" ones are this week's own extras, so they
+   do not reduce this week's shopping; they start counting after "New week". */
+function stockServings(rid, uncountedOnly) {
+  let n = 0; for (const x of state.stock) if (x.rid === rid && (!uncountedOnly || !x.counted)) n += x.servings; return n;
+}
+const stockTotal = () => state.stock.reduce((a, x) => a + x.servings, 0);
+function addStock(rid, servings, loc, counted) {
+  if (!getRecipe(rid) || !(servings > 0)) return;
+  state.stock.push({ id: uid('s'), rid, servings: round(clamp(servings, 0.25, 999), 2), made: new Date().toISOString(), loc: loc === 'freezer' ? 'freezer' : 'fridge', counted: !!counted });
+}
+function useStock(id, n) {
+  const x = state.stock.find(y => y.id === id); if (!x) return;
+  x.servings = round(x.servings - n, 2);
+  if (x.servings <= 0.001) state.stock = state.stock.filter(y => y.id !== id);
+}
+const stockAgeDays = x => Math.max(0, Math.floor((Date.now() - new Date(x.made).getTime()) / 864e5));
+/* refrigerated leftovers are best used within 3 to 4 days (general food-safety guidance); freezing extends that */
+const FRIDGE_DAYS = 3;
+
+/* prices: state.prices[ingredientKey] = { p: price, u: unit that price is for } */
+function getPrice(name) {
+  const k = ikey(name); if (!Object.prototype.hasOwnProperty.call(state.prices, k)) return null;
+  const v = state.prices[k]; return v && v.p > 0 ? v : null;
+}
+function setPrice(name, price, unit) {
+  const k = ikey(name); if (!k || k === '__proto__') return;
+  if (!(price > 0)) delete state.prices[k];
+  else state.prices[k] = { p: round(clamp(price, 0, 10000), 2), u: normUnit(unit) || (lookupIng(name) || {}).unit || 'each' };
+}
+function convertQty(qty, from, to) {
+  from = normUnit(from); to = normUnit(to);
+  if (from === to) return qty;
+  const f = unitFamily(from); if (f !== unitFamily(to)) return null;
+  if (f === 'vol') return qty * VOL[from] / VOL[to];
+  if (f === 'wt') return qty * WT[from] / WT[to];
+  return null;
+}
+function lineCost(name, qty, unit) {
+  const pr = getPrice(name); if (!pr || qty === null || qty === undefined) return null;
+  const q = convertQty(qty, unit, pr.u); return q === null ? null : q * pr.p;
+}
+/* cost of one recipe from the ingredients you have priced (partial when some are missing) */
+function recipeCost(r) {
+  let total = 0, priced = 0; const missing = [];
+  for (const g of r.ingredients) {
+    if (!g.item || g.qty === null || g.qty === undefined || MINOR_UNITS.has(normUnit(g.unit))) continue;
+    const c = lineCost(g.item, g.qty, g.unit);
+    if (c === null) missing.push(g.item); else { total += c; priced++; }
+  }
+  const perServ = total / (r.servings || 1);
+  return { total, perServ, priced, missing, any: priced > 0, complete: priced > 0 && !missing.length, perProtein: r.p > 0 && priced > 0 ? perServ / r.p : null };
+}
+/* cost of a grocery list: items marked "already have" are skipped; `left` is what is not yet in the cart */
+function groceryCost(list) {
+  let total = 0, left = 0, unpriced = 0, priced = 0;
+  for (const i of list) {
+    if (!i.manual && gHave(i)) continue;
+    if (i.qty === null || i.qty === undefined || MINOR_UNITS.has(i.unit)) continue;
+    const c = lineCost(i.name, i.qty, i.unit);
+    if (c === null) { unpriced++; continue; }
+    total += c; priced++; if (!gDone(i)) left += c;
+  }
+  return { total, left, unpriced, priced };
+}
+function planCost() {
+  const c = groceryCost(buildGrocery());
+  let servings = 0; for (const x of cookList()) servings += x.total;
+  return Object.assign(c, { servings, perServing: servings && c.priced ? c.total / servings : null });
+}
+
+/* ---- weeks: when the week starts, and filing a finished week in History ---- */
+const pad2 = n => String(n).padStart(2, '0');
+function weekStartDate(d = new Date()) {
+  const idx = DAYS.indexOf(state.setup.weekStart), cur = (d.getDay() + 6) % 7, back = (cur - idx + 7) % 7;
+  const x = new Date(d.getFullYear(), d.getMonth(), d.getDate() - back);
+  return x.getFullYear() + '-' + pad2(x.getMonth() + 1) + '-' + pad2(x.getDate());
+}
+function fmtWeek(date) { const d = new Date(date + 'T12:00:00'); return isFinite(d) ? 'Week of ' + d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : date; }
+function planMeals() {
+  const out = [];
+  for (const d of orderedDays()) for (const s of SLOTS) { const e = getSlot(d, s); if (e) out.push({ d, s, n: getRecipe(e.rid).name, sv: e.servings }); }
+  return out;
+}
+function archiveWeek() {
+  const meals = planMeals(); if (!meals.length) return null;
+  const date = weekStartDate();
+  state.history = state.history.filter(h => h.date !== date);
+  state.history.unshift({ date, meals });
+  state.history.sort((a, b) => b.date.localeCompare(a.date)); state.history = state.history.slice(0, 12);
+  return date;
+}
+function loadWeek(h) {
+  state.plan = {}; let missing = 0;
+  for (const m of h.meals) { const r = recipeByName(m.n); if (!r) { missing++; continue; } setSlot(m.d, m.s, r.id, m.sv); }
+  return missing;
+}
+
+/* ---- swap one meal: the best other recipe for that slot, judged against the rest of that day ---- */
+function swapMeal(day, slot) {
+  const cur = state.plan[day] && state.plan[day][slot], ty = slotType(slot);
+  let pool = state.recipes.filter(r => r.type === ty && !(cur && r.id === cur.rid) && r.rate !== 'down');
+  if (!pool.length) pool = state.recipes.filter(r => r.type === ty && !(cur && r.id === cur.rid));
+  if (!pool.length) return { error: `There is no other ${ty} recipe to swap in. Add more recipes first.` };
+  const t = getTargets(), eaten = state.settings.nutritionMode === 'eaten', sv = cur ? cur.servings : 1, m = eaten ? sv : 1;
+  const rest = { cal: 0, p: 0, c: 0, f: 0 };
+  for (const s of activeSlots()) { if (s === slot) continue; const e = getSlot(day, s); if (!e) continue; const r = getRecipe(e.rid), k = nutMult(e); rest.cal += r.cal * k; rest.p += r.p * k; rest.c += r.c * k; rest.f += r.f * k; }
+  const used = new Map(); for (const d of DAYS) for (const s of SLOTS) { const e = getSlot(d, s); if (e && !(d === day && s === slot)) used.set(e.rid, (used.get(e.rid) || 0) + 1); }
+  const scored = pool.map(r => {
+    let sc = Math.random() * 6 + (used.get(r.id) || 0) * 3 - (r.rate === 'up' ? 4 : 0) - (stockServings(r.id, true) > 0 ? 4 : 0);
+    if (t && t.kcal) {
+      const cal = rest.cal + r.cal * m, p = rest.p + r.p * m, c = rest.c + r.c * m, f = rest.f + r.f * m, pct = macroPct(p, c, f);
+      const calErr = Math.abs(cal - t.kcal) / t.kcal * 100, macErr = pct ? 0.5 * (Math.abs(pct.c - t.pct.c) + Math.abs(pct.f - t.pct.f) + Math.abs(pct.p - t.pct.p)) : 50;
+      sc += calErr + macErr;
+    }
+    return { r, sc };
+  }).sort((a, b) => a.sc - b.sc);
+  const top = scored.slice(0, Math.min(3, scored.length)), pick = top[Math.floor(Math.random() * top.length)].r;
+  setSlot(day, slot, pick.id, sv);
+  return { ok: true, recipe: pick };
+}
+
+/* ---- auto-plan: pick menus that land closest to your daily calorie + macro targets ----
+   Also weighs: recipes you gave a thumbs-down are skipped, thumbs-up and leftovers get a small boost,
+   an optional weekly budget (using the prices you entered) and an optional maximum cooking time. */
+function autoPlan({ rebuild = false, variety = 3, only = 'all', days: daySel = null, maxMins = 0, budget = null } = {}) {
   const t = getTargets();
   const T = (t && t.kcal) || 2000, pt = t ? t.pct : BODY_TYPES.mesomorph.pct;
   const eaten = state.settings.nutritionMode === 'eaten';
-  const slots = activeSlots();
-  const days = orderedDays().filter(d => rebuild || !SLOTS.some(s => getSlot(d, s)));
-  if (!days.length) return { error: 'Every day already has meals. Choose "Rebuild the whole week" to start over.' };
+  const slots = activeSlots(), hh = state.setup.household;
+  const days = orderedDays().filter(d => (!daySel || daySel.includes(d)) && (rebuild || !SLOTS.some(s => getSlot(d, s))));
+  if (!days.length) return { error: daySel && daySel.length ? 'Those days already have meals. Choose "Rebuild" to replace them.' : 'Every day already has meals. Choose "Rebuild the whole week" to start over.' };
+  const skipped = new Set(), slow = new Set();
   const pool = ty => {
     let l = state.recipes.filter(r => r.type === ty);
+    const ok = l.filter(r => r.rate !== 'down'); if (ok.length) l = ok; else if (l.length) skipped.add(ty);
+    if (maxMins > 0) { const x = l.filter(r => !r.mins || r.mins <= maxMins); if (x.length) l = x; else if (l.length) slow.add(ty); }
     if (only === 'prep') { const x = l.filter(r => r.prep); if (x.length) l = x; }
     if (only === 'fav') { const x = l.filter(r => r.fav); if (x.length) l = x; }
     return l;
@@ -2739,6 +3397,12 @@ function autoPlan({ rebuild = false, variety = 3, only = 'all' } = {}) {
   const usable = slots.filter(s => pools[slotType(s)].length);
   const missing = slots.filter(s => !pools[slotType(s)].length && s !== 'Snacks');
   if (!usable.length) return { error: 'Add some recipes first, or load the demo recipes.' };
+  /* cost per serving for recipes you have priced; unpriced ones count as the average so they are not treated as free */
+  const cost = new Map(); let csum = 0;
+  for (const r of state.recipes) { const c = recipeCost(r); if (c.any) { cost.set(r.id, c.perServ); csum += c.perServ; } }
+  const avgCost = cost.size ? csum / cost.size : 0, perServ = r => cost.has(r.id) ? cost.get(r.id) : avgCost;
+  const dayAllow = budget > 0 && cost.size ? budget / 7 : 0;
+  const hasLeft = new Set(state.stock.filter(x => !x.counted).map(x => x.rid));
   const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const sizeFor = s => { const n = pools[slotType(s)].length; return Math.min(n, slotType(s) === 'Lunch / Dinner' ? variety + 1 : variety); };
   let best = null;
@@ -2751,22 +3415,25 @@ function autoPlan({ rebuild = false, variety = 3, only = 'all' } = {}) {
     const used = new Map(); let total = 0; const assign = {};
     for (const day of days) {
       let bestCombo = null;
-      const rec = (i, picks, cal, p, c, f) => {
+      const rec = (i, picks, cal, p, c, f, cst) => {
         if (i === usable.length) {
           if (cal <= 0) return;
           const pct = macroPct(p, c, f); if (!pct) return;
           const sc = eaten ? clamp(Math.round((T / cal) / 0.25) * 0.25, 0.5, 3) : 1;
           const calErr = Math.abs(cal * sc - T) / T * 100;
           const macErr = 0.5 * (Math.abs(pct.c - pt.c) + Math.abs(pct.f - pt.f) + Math.abs(pct.p - pt.p));
+          const costErr = dayAllow ? Math.max(0, (cst * (eaten ? sc : 1) * hh) / dayAllow - 1) * 50 : 0;
+          let bonus = 0; for (const x of picks) { if (!x) continue; if (x.rate === 'up') bonus += 4; if (hasLeft.has(x.id)) bonus += 5; }
           const sig = picks.map(x => x ? x.id : '-').join('>');
-          const score = calErr + macErr + (used.get(sig) || 0) * 3;
-          if (!bestCombo || score < bestCombo.score) bestCombo = { score, picks: picks.slice(), sc, sig, base: calErr + macErr };
+          const base = calErr + macErr + costErr - bonus;
+          const score = base + (used.get(sig) || 0) * 3;
+          if (!bestCombo || score < bestCombo.score) bestCombo = { score, picks: picks.slice(), sc, sig, base };
           return;
         }
         const s = usable[i], opts = menuFor[s].slice(); if (s === 'Snacks') opts.push(null);
-        for (const r of opts) { picks[i] = r; rec(i + 1, picks, cal + (r ? r.cal : 0), p + (r ? r.p : 0), c + (r ? r.c : 0), f + (r ? r.f : 0)); }
+        for (const r of opts) { picks[i] = r; rec(i + 1, picks, cal + (r ? r.cal : 0), p + (r ? r.p : 0), c + (r ? r.c : 0), f + (r ? r.f : 0), cst + (r ? perServ(r) : 0)); }
       };
-      rec(0, [], 0, 0, 0, 0);
+      rec(0, [], 0, 0, 0, 0, 0);
       if (!bestCombo) continue;
       used.set(bestCombo.sig, (used.get(bestCombo.sig) || 0) + 1);
       total += bestCombo.base; assign[day] = bestCombo;
@@ -2780,7 +3447,7 @@ function autoPlan({ rebuild = false, variety = 3, only = 'all' } = {}) {
     usable.forEach((s, i) => { const r = a.picks[i]; if (r) setSlot(day, s, r.id, eaten ? a.sc : 1); });
   }
   const summary = weekSummary();
-  return { ok: true, days: days.length, missing, avg: summary.avg };
+  return { ok: true, days: days.length, missing, avg: summary.avg, skipped: [...skipped], slow: [...slow], budgetUsed: !!dayAllow };
 }
 
 /* ==========================================================================
@@ -2795,11 +3462,16 @@ const NAV = [
   { id: 'goals', label: 'Goals', icon: 'target', feat: 'health' },
   { id: 'recipes', label: 'Recipes', icon: 'book' },
   { id: 'planner', label: 'Planner', icon: 'calendar', feat: 'planner' },
+  { id: 'prep', label: 'Prep', icon: 'pot', feat: 'planner' },
   { id: 'grocery', label: 'Grocery', icon: 'cart', feat: 'grocery' },
   { id: 'ingredients', label: 'Ingredients', icon: 'list' },
   { id: 'data', label: 'Data', icon: 'db', menu: true },        // reached from the Data menu in the header, not a tab
   { id: 'about', label: 'About', icon: 'info' }
 ];
+
+/* Browser tab text: "Meal Prep | <page name>". Page names match the nav labels. */
+const PAGE_TITLES = { home: 'Home', goals: 'Goals', recipes: 'Recipes', planner: 'Planner', prep: 'Prep', grocery: 'Grocery', ingredients: 'Ingredients', data: 'Data', about: 'About', privacy: 'Privacy', terms: 'Terms', setup: 'Setup' };
+function setPageTitle() { document.title = 'Meal Prep | ' + (PAGE_TITLES[route.name] || 'Home'); }
 
 function parseRoute() {
   const m = (location.hash || '#/home').replace(/^#\/?/, '').split('/');
@@ -2823,7 +3495,7 @@ ACTIONS.theme = () => { state.settings.theme = state.settings.theme === 'dark' ?
 ACTIONS.setTheme = el => { state.settings.theme = el.dataset.k === 'dark' ? 'dark' : 'light'; saveNow(); applyTheme(); rerender(); };
 
 /* Desktop: underline tabs in the app bar. Phones: bottom bar with the 4 main pages + More (a sheet with the rest). */
-const BNAV_ORDER = ['home', 'recipes', 'planner', 'grocery', 'goals', 'ingredients', 'about'];
+const BNAV_ORDER = ['home', 'recipes', 'planner', 'grocery', 'prep', 'goals', 'ingredients', 'about'];
 function renderHeader() {
   const nav = NAV.filter(n => (!n.feat || featureOn(n.feat)) && !n.menu);
   const cur = id => route.name === id ? ' aria-current="page"' : '';
@@ -2848,6 +3520,7 @@ function renderApp(scrollTop) {
   if (route.name !== 'setup') ui.finished = false;
   const y = window.scrollY, ae = document.activeElement, fid = ae && ae.dataset && ae.dataset.fid, sel = ae && ae.selectionStart !== undefined ? [ae.selectionStart, ae.selectionEnd] : null;
   document.body.dataset.view = route.name;
+  setPageTitle();
   renderHeader();
   const v = VIEWS[route.name];
   $('#view').innerHTML = v.render();
@@ -3192,6 +3865,8 @@ VIEWS.home = {
     tiles.push(`<a class="tile" href="#/recipes"><small>Recipes</small><b>${state.recipes.length}</b><span>${state.recipes.filter(r => r.fav).length} favorites</span></a>`);
     if (featureOn('planner')) tiles.push(`<a class="tile" href="#/planner"><small>This week</small><b>${plannedCount()}<i> meals</i></b><span>planned of ${activeSlots().length * 7}</span></a>`);
     if (featureOn('grocery')) tiles.push(`<a class="tile" href="#/grocery"><small>Grocery list</small><b>${left}<i> to get</i></b><span>${auto.length + state.manual.length} items total</span></a>`);
+    if (featureOn('grocery') && auto.length) { const pc = planCost(); if (pc.priced) tiles.push(`<a class="tile" href="#/grocery"><small>Est. groceries</small><b>${money(pc.total)}</b><span>${pc.perServing !== null ? money(pc.perServing) + ' per serving' : 'this week'}${pc.unpriced ? ` · ${pc.unpriced} unpriced` : ''}${state.settings.budget ? ` · budget ${money(state.settings.budget)}` : ''}</span></a>`); }
+    if (featureOn('planner') && stockTotal() > 0) tiles.push(`<a class="tile" href="#/prep"><small>Leftovers on hand</small><b>${fmtQty(round(stockTotal(), 2))}<i> servings</i></b><span>${state.stock.filter(x => x.loc === 'freezer').reduce((a, x) => a + x.servings, 0)} in the freezer</span></a>`);
 
     /* today */
     let todayCard = '';
@@ -3207,7 +3882,7 @@ VIEWS.home = {
     const steps = [];
     if (featureOn('health')) steps.push({ t: 'Add your stats and pick a body type', done: profileReady(state.profile), a: '<a class="btn sm" href="#/goals">Set my targets</a>' });
     steps.push({ t: 'Add your recipes', done: state.recipes.length > 0, a: `<button class="btn sm" data-act="newRecipe">${icon('plus')} Add recipe</button> <button class="btn sm" data-act="loadDemo">Load demo recipes</button>` });
-    if (featureOn('planner')) steps.push({ t: 'Plan your week', done: plannedCount() > 0, a: '<a class="btn sm" href="#/planner">Plan my week</a>' });
+    if (featureOn('planner')) steps.push({ t: 'Plan your week', done: plannedCount() > 0, a: `<a class="btn sm" href="#/planner">Plan my week</a>${t && state.recipes.length ? ` <button class="btn sm" data-act="autoPlan">${icon('wand')} Auto-plan it</button>` : ''}` });
     if (featureOn('grocery')) steps.push({ t: 'Shop from your grocery list', done: plannedCount() > 0 && (auto.length > 0) && Object.keys(state.checked).length > 0, a: '<a class="btn sm" href="#/grocery">See my list</a>' });
     steps.push({ t: 'Save a backup file', done: !!state.settings.lastExport, a: '<button class="btn sm" data-act="backupNow">Save backup now</button>' });
     const doneN = steps.filter(s => s.done).length, nextI = steps.findIndex(s => !s.done), stepsLeft = steps.length - doneN;
@@ -3280,7 +3955,8 @@ function filteredRecipes() {
     return true;
   });
   const fit = r => recipeNutri(r).fit ?? -1;
-  const S = { name: (a, b) => a.name.localeCompare(b.name), calAsc: (a, b) => a.cal - b.cal, calDesc: (a, b) => b.cal - a.cal, protein: (a, b) => b.p - a.p, fit: (a, b) => fit(b) - fit(a) || a.name.localeCompare(b.name), updated: (a, b) => String(b.updated).localeCompare(String(a.updated)) || a.name.localeCompare(b.name) };
+  const ck = r => { const c = recipeCost(r); return c.any ? c.perServ : Infinity; }, cp = r => { const c = recipeCost(r); return c.perProtein !== null ? c.perProtein : Infinity; };
+  const S = { name: (a, b) => a.name.localeCompare(b.name), calAsc: (a, b) => a.cal - b.cal, calDesc: (a, b) => b.cal - a.cal, protein: (a, b) => b.p - a.p, fit: (a, b) => fit(b) - fit(a) || a.name.localeCompare(b.name), cost: (a, b) => ck(a) - ck(b) || a.name.localeCompare(b.name), costP: (a, b) => cp(a) - cp(b) || a.name.localeCompare(b.name), updated: (a, b) => String(b.updated).localeCompare(String(a.updated)) || a.name.localeCompare(b.name) };
   l.sort(S[f.sort === 'fit' && !health ? 'name' : f.sort] || S.name);
   return l;
 }
@@ -3289,10 +3965,10 @@ function filteredRecipes() {
    2) kcal | protein | carbs | fat        (fixed columns, so numbers line up down the list)
    3) meal type · Meal prep · Demo ...... last updated */
 function recipeItemHTML(r, sel) {
-  const n = recipeNutri(r), health = featureOn('health'), d = fmtDate(r.updated);
-  const meta = [`<span>${esc(r.type)}</span>`, r.prep ? `<span class="rprep">${icon('layers', 'sm')}Meal prep</span>` : '', isDemo(r) ? '<span class="rdemo">Demo</span>' : ''].filter(Boolean).join('<span class="sep" aria-hidden="true">·</span>');
+  const n = recipeNutri(r), health = featureOn('health'), d = fmtDate(r.updated), rc = recipeCost(r);
+  const meta = [`<span>${esc(r.type)}</span>`, r.prep ? `<span class="rprep">${icon('layers', 'sm')}Meal prep</span>` : '', r.mins ? `<span>${r.mins} min</span>` : '', rc.any ? `<span>${money(rc.perServ)} / serving</span>` : '', r.rate === 'down' ? '<span class="rskip">Skipped</span>' : '', isDemo(r) ? '<span class="rdemo">Demo</span>' : ''].filter(Boolean).join('<span class="sep" aria-hidden="true">·</span>');
   return `<a href="#/recipes/${r.id}" class="ritem${sel === r.id ? ' on' : ''}"${sel === r.id ? ' aria-current="true"' : ''}>
-    <div class="rt"><b>${r.fav ? `<span class="fav" role="img" aria-label="Favorite">${icon('star', 'sm fill')}</span>` : ''}${esc(r.name)}</b>${health ? fitChip(n.fit) : ''}</div>
+    <div class="rt"><b>${r.fav ? `<span class="fav" role="img" aria-label="Favorite">${icon('star', 'sm fill')}</span>` : ''}${r.rate === 'up' ? `<span class="fav" role="img" aria-label="Thumbs-up">${icon('thumbup', 'sm fill')}</span>` : ''}${esc(r.name)}</b>${health ? fitChip(n.fit) : ''}</div>
     <div class="rn"><span class="rk"><b>${fmtInt(r.cal)}</b> kcal</span><span><i class="dot m-p"></i><b>${round(r.p)}</b>g P</span><span><i class="dot m-c"></i><b>${round(r.c)}</b>g C</span><span><i class="dot m-f"></i><b>${round(r.f)}</b>g F</span></div>
     <div class="rmeta"><span class="rtags">${meta}</span>${d ? `<time class="upd" datetime="${esc(r.updated)}" title="Last updated ${esc(new Date(r.updated).toLocaleString())}">${d === 'today' || d === 'yesterday' ? 'Updated ' + d : esc(d).replace(/(, \d{4})$/, '<span class="yr">$1</span>')}</time>` : ''}</div></a>`;
 }
@@ -3322,7 +3998,7 @@ VIEWS.recipes = {
           <details class="fine rmore" data-keep="rmore"${ui.open.rmore || f.fav || f.prep || f.sort !== 'name' ? ' open' : ''}><summary>Sort and more filters</summary><div class="chips">
             <button class="chipbtn${f.fav ? ' on' : ''}" data-act="rfav" aria-pressed="${f.fav}">${icon('star', 'sm')}Favorites</button>
             <button class="chipbtn${f.prep ? ' on' : ''}" data-act="rprep" aria-pressed="${f.prep}">${icon('layers', 'sm')}Meal-prep</button></div>
-          <label class="fld inline"><span>Sort</span><select data-change="rsort" data-fid="f-rsort">${optionsHTML([['name', 'Name'], ['calAsc', 'Calories, low to high'], ['calDesc', 'Calories, high to low'], ['protein', 'Protein, high to low'], ['updated', 'Recently updated'], ...(health ? [['fit', 'Best macro fit']] : [])], f.sort)}</select></label></details></div>
+          <label class="fld inline"><span>Sort</span><select data-change="rsort" data-fid="f-rsort">${optionsHTML([['name', 'Name'], ['calAsc', 'Calories, low to high'], ['calDesc', 'Calories, high to low'], ['protein', 'Protein, high to low'], ['cost', 'Cost per serving, low to high'], ['costP', 'Cost per gram of protein, low to high'], ['updated', 'Recently updated'], ...(health ? [['fit', 'Best macro fit']] : [])], f.sort)}</select></label></details></div>
           <div id="rlist" class="rlist">${recipeListHTML()}</div></aside>
         <section class="rdetail-wrap" id="rdetail">${r ? recipeDetailHTML(r) : `<div class="empty"><p>Select a recipe to see the details.</p></div>`}</section></div>`;
   }
@@ -3336,7 +4012,9 @@ ACTIONS.clearFilters = () => { ui.recipes = { q: '', type: 'all', fav: false, pr
 ACTIONS.backToList = () => go('#/recipes');
 
 function recipeDetailHTML(r) {
-  const n = recipeNutri(r), t = getTargets(), m = ui.mult[r.id] || 1, health = featureOn('health');
+  const n = recipeNutri(r), t = getTargets(), m = ui.mult[r.id] || 1, health = featureOn('health'), rc = recipeCost(r);
+  const costHTML = `<section class="card soft rd-cost"><div class="sec-head"><h3>${icon('dollar')} Cost</h3><button class="btn sm noprint" data-act="recipePrices" data-id="${r.id}">${rc.any ? 'Edit prices' : 'Add prices'}</button></div>
+      ${rc.any ? `<div class="costgrid"><div><small>Per serving</small><b>${money(rc.perServ)}</b></div><div><small>Whole recipe</small><b>${money(rc.total)}</b></div>${rc.perProtein !== null ? `<div><small>Per gram of protein</small><b>${round(rc.perProtein * 100, 1)}¢</b></div>` : ''}</div>${rc.missing.length ? `<p class="muted small">Partial estimate: ${rc.missing.length} ingredient${rc.missing.length === 1 ? ' has' : 's have'} no price yet (${esc(rc.missing.slice(0, 4).join(', '))}${rc.missing.length > 4 ? ', …' : ''}).</p>` : ''}` : '<p class="muted small">Enter what you pay for the ingredients and this shows the cost per serving. Prices stay on this device.</p>'}</section>`;
   const ingr = r.ingredients.map(g => { const amt = g.qty === null ? fmtAmount(null, g.unit) : fmtAmount(g.qty * m, g.unit); return `<li><span class="q">${esc(amt)}</span><span>${esc(cap(g.item))}</span></li>`; }).join('');
   const url = safeUrl(r.notes), noteText = (r.notes || '').trim();
   const impliedOff = r.cal > 0 && n.implied > 0 && Math.abs(n.implied - r.cal) / r.cal > 0.12;
@@ -3344,8 +4022,9 @@ function recipeDetailHTML(r) {
   return `<article class="rdetail">
     <button class="btn ghost backbtn" data-act="backToList">${icon('left')} All recipes</button>
     ${isDemo(r) ? `<div class="note demo noprint">${icon('layers')}<span><b>Demo recipe.</b> Nutrition is approximate. Check ingredients for allergens yourself. Save it to keep it when you remove demo data.</span><button class="btn primary sm" data-act="saveDemo" data-id="${r.id}">${icon('check', 'sm')} Save to my recipes</button></div>` : ''}
-    <header class="rd-head"><div><h2>${esc(r.name)}</h2><div class="chips"><span class="chip type">${esc(r.type)}</span>${isDemo(r) ? '<span class="chip demo">Demo recipe</span>' : ''}<span class="chip">${icon('users', 'sm')}${fmtQty(r.servings)} ${r.servings === 1 ? 'serving' : 'servings'}</span>${r.prep ? `<span class="chip prep">${icon('layers', 'sm')}Meal-prep friendly</span>` : ''}${health ? fitChip(n.fit) : ''}</div><p class="upd-line">${updatedHTML(r.updated, 'Last updated')}</p></div>
-      <div class="rd-actions"><button class="btn icon${r.fav ? ' on' : ''}" data-act="favRecipe" data-id="${r.id}" aria-label="${r.fav ? 'Remove from favorites' : 'Add to favorites'}" aria-pressed="${!!r.fav}">${icon('star', r.fav ? 'fill' : '')}</button>
+    <header class="rd-head"><div><h2>${esc(r.name)}</h2><div class="chips"><span class="chip type">${esc(r.type)}</span>${isDemo(r) ? '<span class="chip demo">Demo recipe</span>' : ''}<span class="chip">${icon('users', 'sm')}${fmtQty(r.servings)} ${r.servings === 1 ? 'serving' : 'servings'}</span>${r.prep ? `<span class="chip prep">${icon('layers', 'sm')}Meal-prep friendly</span>` : ''}${r.mins ? `<span class="chip">${icon('clock', 'sm')}${r.mins} min</span>` : ''}${rc.any ? `<span class="chip">${icon('dollar', 'sm')}${money(rc.perServ)} / serving${rc.complete ? '' : ' (partial)'}</span>` : ''}${r.rate === 'down' ? '<span class="chip warn">Skipped by auto-plan</span>' : ''}${health ? fitChip(n.fit) : ''}</div><p class="upd-line">${updatedHTML(r.updated, 'Last updated')}</p></div>
+      <div class="rd-actions"><button class="btn icon${r.rate === 'up' ? ' on' : ''}" data-act="rateRecipe" data-k="up" data-id="${r.id}" aria-label="${r.rate === 'up' ? 'Remove thumbs-up' : 'Thumbs-up: plan this more often'}" aria-pressed="${r.rate === 'up'}" data-tip="Plan this more often">${icon('thumbup', r.rate === 'up' ? 'fill' : '')}</button><button class="btn icon${r.rate === 'down' ? ' on' : ''}" data-act="rateRecipe" data-k="down" data-id="${r.id}" aria-label="${r.rate === 'down' ? 'Remove thumbs-down' : 'Thumbs-down: leave this out of auto-plans'}" aria-pressed="${r.rate === 'down'}" data-tip="Leave out of auto-plans">${icon('thumbdown', r.rate === 'down' ? 'fill' : '')}</button>
+        <button class="btn icon${r.fav ? ' on' : ''}" data-act="favRecipe" data-id="${r.id}" aria-label="${r.fav ? 'Remove from favorites' : 'Add to favorites'}" aria-pressed="${!!r.fav}">${icon('star', r.fav ? 'fill' : '')}</button>
         <button class="btn" data-act="editRecipe" data-id="${r.id}">${icon('edit')} Edit</button>
         ${featureOn('planner') ? `<button class="btn${isDemo(r) ? '' : ' primary'}" data-act="planRecipe" data-id="${r.id}">${icon('calendar')} Add to plan</button>` : ''}
         <button class="btn icon" data-act="printRecipe" data-id="${r.id}" aria-label="Print or save as PDF" data-tip="Print / save PDF">${icon('printer')}</button>
@@ -3355,6 +4034,7 @@ function recipeDetailHTML(r) {
       <div class="rn-body"><table class="mtable"><thead><tr><th>Per serving</th><th>Grams</th><th>Split</th>${t ? '<th>Target</th>' : ''}</tr></thead><tbody>
         ${MK.map(k => `<tr><th scope="row"><i class="dot m-${k}"></i>${MACRO[k].label}</th><td><b>${round(r[k], 1)} g</b></td><td>${n.pct ? Math.round(n.pct[k]) + '%' : '–'}</td>${t ? `<td>${t.pct[k]}%${n.pct ? ` <span class="delta ${Math.abs(delta(k)) <= 5 ? 'ok' : 'off'}">${fmtSigned(delta(k))}</span>` : ''}</td>` : ''}</tr>`).join('')}</tbody></table>
         ${impliedOff ? `<div class="note warn">${icon('alert')}<span>The macros add up to about ${fmtInt(n.implied)} kcal, but the recipe says ${fmtInt(r.cal)}. Check the numbers.</span></div>` : ''}</div></section>
+    ${costHTML}
     <section class="rd-cols"><div><div class="sec-head"><h3>Ingredients</h3>
         <div class="multi"><label>Multiplier <input type="number" min="0.25" max="50" step="0.25" value="${m}" data-input="mult" data-id="${r.id}" aria-label="Recipe multiplier"></label></div></div>
         <p class="muted small">${m === 1 ? 'As written.' : `Scaled ×${fmtQty(m)}: makes ${fmtQty(r.servings * m)} servings.`}</p>
@@ -3366,6 +4046,7 @@ function recipeDetailHTML(r) {
 INPUTS.mult = el => { const v = clamp(num(el.value) || 1, 0.25, 50); ui.mult[el.dataset.id] = v; const r = getRecipe(el.dataset.id); const d = $('.rdetail'); if (!r || !d) return; const cols = $('.rd-cols'); const keep = el; const html = recipeDetailHTML(r); const tmp = document.createElement('div'); tmp.innerHTML = html; cols.innerHTML = tmp.querySelector('.rd-cols').innerHTML; const inp = $('input[data-input="mult"]'); inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length); };
 ACTIONS.printPage = () => window.print();
 ACTIONS.favRecipe = el => { let r = getRecipe(el.dataset.id); const wasDemo = isDemo(r); r.fav = !r.fav; if (wasDemo && r.fav) { adoptDemo(r); toast('Starred and saved to your recipes', 'ok'); saveSoon(); go('#/recipes/' + r.id); return; } saveSoon(); rerender(); };
+ACTIONS.rateRecipe = el => { const r = getRecipe(el.dataset.id); if (!r) return; const k = el.dataset.k; r.rate = r.rate === k ? '' : k; stamp(r); saveSoon(); toast(r.rate === 'up' ? 'Auto-plan will favor this recipe' : r.rate === 'down' ? 'Auto-plan will leave this recipe out' : 'Rating cleared', 'ok'); rerender(); };
 function adoptDemo(r) {
   if (!isDemo(r)) return r;
   const old = r.id, id = uid('r'); r.id = id;
@@ -3395,14 +4076,15 @@ function ingRowHTML(g = {}) {
   return `<div class="irow"><input class="i-item" list="ingList" placeholder="Ingredient" value="${esc(g.item || '')}" data-change="ingPick" aria-label="Ingredient"><input class="i-qty" inputmode="decimal" placeholder="Qty" value="${g.qty === null || g.qty === undefined ? '' : esc(fmtDec(g.qty))}" aria-label="Quantity"><input class="i-unit" list="unitList" placeholder="Unit" value="${esc(g.unit && g.unit !== 'as needed' && g.unit !== 'to taste' ? g.unit : (g.unit || ''))}" aria-label="Unit"><button type="button" class="btn icon ghost" data-act="delIng" aria-label="Remove ingredient">${icon('x')}</button></div>`;
 }
 function openRecipeEditor(id) {
-  const r = id ? getRecipe(id) : { name: '', type: 'Lunch / Dinner', servings: 4, cal: '', p: '', c: '', f: '', prep: false, fav: false, ingredients: [], steps: [], notes: '' };
+  const r = id ? getRecipe(id) : { name: '', type: 'Lunch / Dinner', servings: 4, cal: '', p: '', c: '', f: '', prep: false, fav: false, mins: null, ingredients: [], steps: [], notes: '' };
   const rows = (r.ingredients.length ? r.ingredients : [{}, {}, {}]).map(ingRowHTML).join('');
   const health = featureOn('health');
   openDialog(`<form id="rform" class="dlg-body" novalidate data-id="${id || ''}">
     <div class="dlg-head"><h3>${id ? 'Edit recipe' : 'New recipe'}</h3><button type="button" class="btn icon ghost" data-act="closeDlg" aria-label="Close">${icon('x')}</button></div>
     <div class="form-grid"><label class="fld span2"><span>Recipe name</span><input id="e-name" required maxlength="120" value="${esc(r.name)}" placeholder="e.g. Sunday Chili"></label>
       <label class="fld"><span>Meal type</span><select id="e-type">${optionsHTML(MEAL_TYPES.map(t => [t, t]), r.type)}</select></label>
-      <label class="fld"><span>Total servings it makes</span><input id="e-serv" type="number" min="0.25" step="0.25" value="${r.servings}"></label></div>
+      <label class="fld"><span>Total servings it makes</span><input id="e-serv" type="number" min="0.25" step="0.25" value="${r.servings}"></label>
+      <label class="fld"><span>Total time in minutes <em>optional</em></span><input id="e-mins" type="number" min="1" max="1440" step="1" inputmode="numeric" value="${r.mins ? r.mins : ''}" placeholder="e.g. 45"></label></div>
     <fieldset class="fld"><legend>Nutrition per serving</legend><div class="nutri-in">
       <label class="fld"><span>Calories</span><input id="e-cal" type="number" min="0" step="1" value="${r.cal}"></label>
       <label class="fld"><span><i class="dot m-p"></i>Protein g</span><input id="e-p" type="number" min="0" step="0.1" value="${r.p}"></label>
@@ -3474,9 +4156,9 @@ function saveRecipeForm() {
     ingredients.push({ item: item.toLowerCase(), qty, unit });
   }
   const steps = $('#e-steps').value.split(/\r?\n/).map(s => s.replace(/^\s*(?:step\s*)?\d+[.):]\s*/i, '').trim()).filter(Boolean);
-  const rec = { updated: new Date().toISOString(), name, type: $('#e-type').value, servings, cal: Math.max(0, cal), p, c, f: fat, prep: $('#e-prep').checked, fav: $('#e-fav').checked, ingredients, steps, notes: $('#e-notes').value.trim() };
+  const rec = { updated: new Date().toISOString(), name, type: $('#e-type').value, servings, cal: Math.max(0, cal), p, c, f: fat, prep: $('#e-prep').checked, fav: $('#e-fav').checked, mins: numOrNull($('#e-mins').value) > 0 ? clamp(Math.round(numOrNull($('#e-mins').value)), 1, 1440) : null, ingredients, steps, notes: $('#e-notes').value.trim() };
   let target;
-  if (id) { target = getRecipe(id); adoptDemo(target); Object.assign(target, rec); } else { target = { id: uid('r'), ...rec }; state.recipes.push(target); }
+  if (id) { target = getRecipe(id); adoptDemo(target); Object.assign(target, rec); } else { target = { id: uid('r'), rate: '', ...rec }; state.recipes.push(target); }
   for (const g of ingredients) ensureIngredient(g.item, g.unit);
   refreshIngLists(); saveSoon(); closeDialog(); toast(id ? 'Recipe updated' : 'Recipe saved', 'ok'); go('#/recipes/' + target.id); rerender();
 }
@@ -3518,7 +4200,7 @@ VIEWS.planner = {
       const T = ws.per[di].T, st = ws.per[di].st, isToday = d === todayName();
       const cells = slots.map(s => {
         const e = getSlot(d, s), r = e && getRecipe(e.rid), n = T.slots[s];
-        return `<div class="pslot" data-label="${s}">${slotSelectHTML(d, s, e)}<div class="sv"><input class="serv" type="number" min="0.25" step="0.25" value="${e ? e.servings : ''}" ${e ? '' : 'disabled'} data-change="planServ" data-day="${d}" data-slot="${s}" data-fid="s-${d}-${s}" aria-label="${d} ${s} servings" placeholder="1"><span class="sl">servings</span>${n ? `<span class="skcal">${fmtInt(n.cal)} kcal</span>` : ''}</div></div>`;
+        return `<div class="pslot" data-label="${s}">${slotSelectHTML(d, s, e)}<div class="sv"><input class="serv" type="number" min="0.25" step="0.25" value="${e ? e.servings : ''}" ${e ? '' : 'disabled'} data-change="planServ" data-day="${d}" data-slot="${s}" data-fid="s-${d}-${s}" aria-label="${d} ${s} servings" placeholder="1"><span class="sl">servings</span>${n ? `<span class="skcal">${fmtInt(n.cal)} kcal</span>` : ''}<button type="button" class="btn icon ghost sm swapb noprint" data-act="swapMeal" data-day="${d}" data-slot="${s}" aria-label="${e ? 'Swap' : 'Suggest a recipe for'} ${d} ${s}" data-tip="${e ? 'Swap for another recipe' : 'Suggest a recipe'}">${icon('shuffle', 'sm')}</button></div></div>`;
       }).join('');
       let tot;
       if (!T.n) tot = `<div class="ptot empty" data-label="Daily total"><span class="muted">Nothing planned</span></div>`;
@@ -3531,17 +4213,19 @@ VIEWS.planner = {
       return `<div class="prow${isToday ? ' today' : ''}"><div class="pday"><b>${d}</b>${isToday ? '<span class="chip">Today</span>' : ''}<div class="dayacts noprint"><button class="btn icon ghost sm" data-act="copyDay" data-day="${d}" aria-label="Copy ${d} to other days" data-tip="Copy to other days">${icon('copy')}</button><button class="btn icon ghost sm" data-act="clearDay" data-day="${d}" aria-label="Clear ${d}" data-tip="Clear day">${icon('x')}</button></div></div>${cells}${tot}</div>`;
     }).join('');
 
-    const avg = ws.avg;
+    const avg = ws.avg, pc = ws.days ? planCost() : null, bud = state.settings.budget;
+    const costKpi = pc && pc.priced ? `<div class="kpi"><small>Est. groceries</small><b>${money(pc.total)}</b><span>${pc.perServing !== null ? money(pc.perServing) + ' per serving' : 'this week'}${bud ? ` · ${pc.total <= bud ? money(bud - pc.total) + ' under' : money(pc.total - bud) + ' over'} budget` : ''}${pc.unpriced ? ` · ${pc.unpriced} unpriced` : ''}</span></div>` : '';
     const summary = `<section class="card"><div class="card-head"><h2>Week at a glance</h2>${t ? `<span class="chip">${ws.good} of ${ws.days || 0} planned days on target</span>` : ''}</div>
-      ${ws.days ? `<div class="wk-grid"><div class="wk-kpis"><div class="kpi"><small>Average day</small><b>${fmtInt(avg.cal)}</b><span>${t && t.kcal ? deltaText(avg.cal - t.kcal) + ' vs target' : 'kcal'}</span></div>
-        <div class="kpi"><small>Average split</small>${macroBar(avg.pct, 'big')}${macroLegend(avg.pct, { c: avg.c, f: avg.f, p: avg.p })}</div>${t ? `<div class="kpi"><small>Target split</small>${macroBar(t.pct, 'big')}${macroLegend(t.pct, t.grams)}</div>` : ''}</div>${weekChart(ws.per, t)}</div>` : '<p class="muted">Pick a recipe for any meal above and your totals appear here.</p>'}</section>`;
+      ${ws.days ? `<div class="wk-grid"><div class="wk-kpis"><div class="kpi"><small>Average day</small><b>${fmtInt(avg.cal)}</b><span>${t && t.kcal ? deltaText(avg.cal - t.kcal) + ' vs target' : 'kcal'}</span></div>${costKpi}
+        <div class="kpi"><small>Average split</small>${macroBar(avg.pct, 'big')}${macroLegend(avg.pct, { c: avg.c, f: avg.f, p: avg.p })}</div>${t ? `<div class="kpi"><small>Target split</small>${macroBar(t.pct, 'big')}${macroLegend(t.pct, t.grams)}</div>` : ''}</div>${weekChart(ws.per, t)}</div>${pc && !pc.priced ? '<p class="muted small noprint">To see what this week costs, <a href="#/grocery">add prices on the Grocery page</a>.</p>' : ''}` : '<p class="muted">Pick a recipe for any meal above and your totals appear here.</p>'}</section>`;
 
-    const cl = cookList();
-    const cook = cl.length ? `<section class="card"><div class="card-head"><h2>Cook list</h2><span class="muted small">${state.settings.groceryMode === 'batch' ? 'Whole batches' : 'Exact amounts'} · cooking for ${state.setup.household}</span></div>
-      <div class="tablewrap"><table class="table"><thead><tr><th>Recipe</th><th class="num">Servings planned</th><th class="num">${state.settings.groceryMode === 'batch' ? 'Batches to cook' : 'Recipe multiples'}</th><th class="num">Servings made</th></tr></thead><tbody>${cl.map(x => `<tr><td><a href="#/recipes/${x.r.id}">${esc(x.r.name)}</a></td><td class="num">${fmtQty(x.need)}</td><td class="num"><b>${fmtQty(round(x.batches, 2))}</b></td><td class="num">${fmtQty(round(x.made, 2))}${x.extra > 0.01 ? ` <span class="muted small">(+${fmtQty(round(x.extra, 2))} extra)</span>` : ''}</td></tr>`).join('')}</tbody></table></div></section>` : '';
+    const cl = cookList(), anyCarry = cl.some(x => x.carry > 0.001), batchMode = state.settings.groceryMode === 'batch';
+    const cook = cl.length ? `<section class="card"><div class="card-head"><h2>Cook list</h2><span class="muted small">${batchMode ? 'Whole batches' : 'Exact amounts'} · cooking for ${state.setup.household}</span></div>
+      <div class="tablewrap"><table class="table"><thead><tr><th>Recipe</th><th class="num">Servings planned</th>${anyCarry ? '<th class="num">From leftovers</th>' : ''}<th class="num">${batchMode ? 'Batches to cook' : 'Recipe multiples'}</th><th class="num">Servings made</th></tr></thead><tbody>${cl.map(x => `<tr><td><a href="#/recipes/${x.r.id}">${esc(x.r.name)}</a></td><td class="num">${fmtQty(round(x.total, 2))}</td>${anyCarry ? `<td class="num">${x.carry > 0.001 ? fmtQty(round(x.carry, 2)) : '–'}</td>` : ''}<td class="num"><b>${fmtQty(round(x.batches, 2))}</b></td><td class="num">${x.batches > 0 ? fmtQty(round(x.made, 2)) : '–'}${x.extra > 0.01 && x.batches > 0 ? ` <span class="muted small">(+${fmtQty(round(x.extra, 2))} extra)</span>` : ''}</td></tr>`).join('')}</tbody></table></div>
+      <p class="muted small noprint">${anyCarry ? 'Leftovers on hand already cover part of the week, so the grocery list buys less. ' : ''}<a href="#/prep">Open the Prep page</a> for containers, storage and a step-by-step cooking list.</p></section>` : '';
 
     return `<div class="page-head row between"><div><h1>Planner</h1><p>Pick a recipe for each meal. Totals update as you go${t ? ' and each day is checked against your target' : ''}.</p></div>
-      <div class="row noprint">${t ? `<button class="btn primary" data-act="autoPlan">${icon('wand')} Auto-plan</button>` : ''}<button class="btn ghost dg" data-act="clearWeek">Clear week</button><button class="btn icon" data-act="printPage" aria-label="Print planner" data-tip="Print">${icon('printer')}</button></div></div>
+      <div class="row noprint">${t ? `<button class="btn primary" data-act="autoPlan">${icon('wand')} Auto-plan</button>` : ''}<button class="btn" data-act="newWeek">${icon('refresh')} New week</button>${state.history.length ? `<button class="btn ghost" data-act="pastWeeks">${icon('clock')} Past weeks</button>` : ''}<button class="btn ghost dg" data-act="clearWeek">Clear week</button><button class="btn icon" data-act="printPage" aria-label="Print planner" data-tip="Print">${icon('printer')}</button></div></div>
       ${t ? `<section class="card target-strip"><div><small>Daily target</small><b>${t.kcal ? fmtInt(t.kcal) + ' kcal' : 'Split only'}</b>${t.kcal ? '' : '<a href="#/goals" class="small"> add your details</a>'}</div>${MK.map(k => `<div><small><i class="dot m-${k}"></i>${MACRO[k].label}</small><b>${t.pct[k]}%${t.grams ? ` · ${fmtInt(t.grams[k])} g` : ''}</b></div>`).join('')}</section>` : ''}
       <div class="row between noprint mode-row"><div class="seg" role="group" aria-label="What servings mean"><button class="${eaten ? 'on' : ''}" data-act="nutMode" data-k="eaten">Servings = portions I eat</button><button class="${!eaten ? 'on' : ''}" data-act="nutMode" data-k="cooked">Servings = portions I cook</button></div>
         <span class="muted small">${eaten ? 'Nutrition is multiplied by servings.' : 'Nutrition counts one portion per meal; servings only drive the grocery list.'}</span></div>
@@ -3565,23 +4249,178 @@ ACTIONS.copyDayOk = el => {
   for (const d of to) state.plan[d] = JSON.parse(JSON.stringify(src));
   saveSoon(); toast(`Copied ${from} to ${to.length} day${to.length === 1 ? '' : 's'}`, 'ok'); setTimeout(rerender, 0);
 };
+ACTIONS.swapMeal = el => {
+  const d = el.dataset.day, sl = el.dataset.slot, snap = JSON.stringify(state), res = swapMeal(d, sl);
+  if (res.error) { toast(res.error, 'err'); return; }
+  saveSoon(); rerender();
+  toast(`${d} ${sl}: ${res.recipe.name}`, 'ok', { label: 'Undo', fn: () => { state = JSON.parse(snap); sanitizeState(state); saveNow(); rerender(); toast('Undone', 'ok'); } });
+};
 ACTIONS.autoPlan = () => {
-  const t = getTargets();
+  const t = getTargets(), bud = state.settings.budget, priced = Object.keys(state.prices).length > 0;
   openDialog(`<form method="dialog" class="dlg-body"><h3>${icon('wand')} Auto-plan my week</h3>
-    <p class="muted">Picks the meals closest to your${t && t.kcal ? ` ${fmtInt(t.kcal)} kcal` : ''} target and protein, carb and fat split, and reuses recipes to keep prep simple.${t && t.kcal ? '' : ' Add your stats on the Goals page for calorie-accurate results.'}</p>
-    <fieldset class="fld"><legend>Which days?</legend><label class="check"><input type="radio" name="apMode" value="empty" checked> Fill only the empty days</label><label class="check"><input type="radio" name="apMode" value="all"> Rebuild the whole week</label></fieldset>
-    <label class="fld"><span>Variety: <output id="apVarOut">3</output> different recipes per meal</span><input type="range" id="apVar" min="1" max="5" value="3" data-input="apVar"></label>
-    <label class="fld"><span>Use</span><select id="apOnly"><option value="all">All my recipes</option><option value="prep">Meal-prep friendly first</option><option value="fav">Favorites first</option></select></label>
+    <p class="muted">Picks the meals closest to your${t && t.kcal ? ` ${fmtInt(t.kcal)} kcal` : ''} target and protein, carb and fat split, reuses recipes to keep prep simple, and skips recipes you gave a thumbs-down.${t && t.kcal ? '' : ' Add your stats on the Goals page for calorie-accurate results.'}</p>
+    <fieldset class="fld"><legend>Which days?</legend><div class="chips">${orderedDays().map(d => `<label class="chipbtn check"><input type="checkbox" name="apDay" value="${d}" checked> ${d.slice(0, 3)}</label>`).join('')}</div><small class="muted">Uncheck any day you will eat out or skip.</small></fieldset>
+    <fieldset class="fld"><legend>Meals already planned</legend><label class="check"><input type="radio" name="apMode" value="empty" checked> Keep them, fill only the empty days</label><label class="check"><input type="radio" name="apMode" value="all"> Replace them on the days I picked</label></fieldset>
+    <label class="fld"><span>Variety: <output id="apVarOut">3</output> different recipes per meal <em>(1 = cook once, eat all week)</em></span><input type="range" id="apVar" min="1" max="5" value="3" data-input="apVar"></label>
+    <div class="form-grid"><label class="fld"><span>Use</span><select id="apOnly"><option value="all">All my recipes</option><option value="prep">Meal-prep friendly first</option><option value="fav">Favorites first</option></select></label>
+    <label class="fld"><span>Longest cooking time</span><select id="apMins"><option value="0">Any</option><option value="20">Up to 20 min</option><option value="30">Up to 30 min</option><option value="45">Up to 45 min</option><option value="60">Up to 60 min</option></select></label></div>
+    <label class="fld"><span>Weekly grocery budget <em>optional</em></span><input id="apBudget" type="number" min="0" step="5" inputmode="decimal" placeholder="e.g. 90" value="${bud ? esc(String(bud)) : ''}"><small class="muted">${priced ? 'Uses the prices you entered and favors cheaper meals when a day would run over.' : 'To use a budget, enter some ingredient prices on the Grocery page first.'} Recipes with no time entered are always allowed.</small></label>
     <div class="dlg-actions"><button class="btn" value="cancel">Cancel</button><button class="btn primary" value="ok" data-act="autoPlanRun">Build my plan</button></div></form>`);
 };
 INPUTS.apVar = el => { $('#apVarOut').textContent = el.value; };
 ACTIONS.autoPlanRun = () => {
   const rebuild = ($('input[name="apMode"]:checked') || {}).value === 'all', variety = parseInt($('#apVar').value, 10), only = $('#apOnly').value;
+  const days = $$('input[name="apDay"]:checked').map(i => i.value), maxMins = parseInt($('#apMins').value, 10) || 0, b = numOrNull($('#apBudget').value);
+  if (!days.length) { toast('Pick at least one day to plan.', 'err'); return; }
   closeDialog(); toast('Building your plan…');                       // acknowledge instantly, then compute
-  requestAnimationFrame(() => setTimeout(() => { const snap = JSON.stringify(state); const res = autoPlan({ rebuild, variety, only });
-  if (res.error) { toast(res.error, 'err'); return; }
-  saveSoon(); rerender(); toast(`Planned ${res.days} day${res.days === 1 ? '' : 's'}${res.avg ? `, averaging ${fmtInt(res.avg.cal)} kcal` : ''}.${res.missing.length ? ' No recipes for: ' + res.missing.join(', ') + '.' : ''}`, 'ok', { label: 'Undo', fn: () => { state = JSON.parse(snap); sanitizeState(state); saveNow(); rerender(); toast('Undone', 'ok'); } }); }, 0));
+  requestAnimationFrame(() => setTimeout(() => {
+    const snap = JSON.stringify(state);
+    state.settings.budget = b && b > 0 ? clamp(b, 1, 100000) : null;
+    const res = autoPlan({ rebuild, variety, only, days, maxMins, budget: state.settings.budget });
+    if (res.error) { state = JSON.parse(snap); sanitizeState(state); toast(res.error, 'err'); return; }
+    saveSoon(); rerender();
+    const pc = planCost(), notes = [];
+    if (res.missing.length) notes.push('No recipes for: ' + res.missing.join(', ') + '.');
+    if (res.skipped.length) notes.push('Every ' + res.skipped.join(' / ') + ' recipe is marked thumbs-down, so they were used anyway.');
+    if (res.slow.length) notes.push('Nothing under ' + maxMins + ' min for ' + res.slow.join(' / ') + ', so any time was allowed.');
+    toast(`Planned ${res.days} day${res.days === 1 ? '' : 's'}${res.avg ? `, averaging ${fmtInt(res.avg.cal)} kcal` : ''}${pc.priced ? `, about ${money(pc.total)} in groceries` : ''}.${notes.length ? ' ' + notes.join(' ') : ''}`, 'ok', { label: 'Undo', fn: () => { state = JSON.parse(snap); sanitizeState(state); saveNow(); rerender(); toast('Undone', 'ok'); } });
+  }, 0));
 };
+
+/* ---- New week: file the finished week, rate it, carry leftovers, then repeat / re-plan / start empty ---- */
+ACTIONS.newWeek = () => {
+  const meals = planMeals(), ws = weekSummary(), pc = ws.days ? planCost() : null, cl = cookList(), t = getTargets();
+  const rids = [...new Set(Object.values(state.plan).flatMap(row => Object.values(row).map(e => e.rid)))].map(getRecipe).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
+  const extras = cl.filter(x => x.batches > 0 && x.extra - stockServings(x.r.id, false) > 0.01);
+  const stat = (k, v) => `<div class="kpi"><small>${k}</small><b>${v}</b></div>`;
+  const sel = r => `<label class="nwrow"><span>${esc(r.name)}</span><select data-nwrate="${r.id}" aria-label="Feedback on ${esc(r.name)}"><option value="">${r.rate === 'up' ? 'Loved it (keep)' : r.rate === 'down' ? 'Thumbs-down (keep)' : 'No change'}</option><option value="up">Loved it</option><option value="down">Don’t plan it again</option><option value="clear">Clear my rating</option></select></label>`;
+  openDialog(`<form method="dialog" class="dlg-body"><div class="dlg-head"><h3>${icon('refresh')} Start a new week</h3><button type="button" class="btn icon ghost" data-act="closeDlg" aria-label="Close">${icon('x')}</button></div>
+    ${meals.length ? `<div class="nwstats">${stat('Meals planned', meals.length)}${t && ws.days ? stat('Days on target', `${ws.good} of ${ws.days}`) : ''}${ws.avg ? stat('Avg per day', fmtInt(ws.avg.cal) + ' kcal') : ''}${pc && pc.priced ? stat('Est. groceries', money(pc.total)) : ''}</div><p class="muted small">This week is saved to Past weeks, so you can bring it back any time.</p>` : '<p class="muted">Nothing is planned right now, so there is nothing to save.</p>'}
+    ${rids.length ? `<fieldset class="fld"><legend>How did these go? <em>optional, helps future auto-plans</em></legend>${rids.map(sel).join('')}</fieldset>` : ''}
+    ${extras.length ? `<fieldset class="fld"><legend>Leftover portions from this week’s batches</legend>${extras.map(x => { const n = round(x.extra - stockServings(x.r.id, false), 2); return `<label class="check"><input type="checkbox" checked data-nwextra="${x.r.id}" data-n="${n}"> ${fmtQty(n)} × ${esc(x.r.name)} <span class="muted small">add to my leftovers</span></label>`; }).join('')}</fieldset>` : ''}
+    <fieldset class="fld"><legend>Next week</legend>
+      <label class="check"><input type="radio" name="nwNext" value="repeat" ${meals.length ? 'checked' : 'disabled'}> Repeat these same meals</label>
+      ${t && state.recipes.length ? `<label class="check"><input type="radio" name="nwNext" value="fresh" ${meals.length ? '' : 'checked'}> Build a fresh plan with Auto-plan</label>` : ''}
+      <label class="check"><input type="radio" name="nwNext" value="empty" ${!meals.length && !(t && state.recipes.length) ? 'checked' : ''}> Start with an empty week</label></fieldset>
+    <p class="muted small">Grocery check marks and prep checklists are cleared. Items marked “already have”, your own extras that are not checked off, and all recipes are kept.</p>
+    <div class="dlg-actions"><button class="btn" value="cancel">Cancel</button><button class="btn primary" value="ok" data-act="newWeekGo">Start new week</button></div></form>`);
+};
+ACTIONS.newWeekGo = () => {
+  const mode = ($('input[name="nwNext"]:checked') || {}).value || 'empty';
+  const rates = $$('select[data-nwrate]').map(s => [s.dataset.nwrate, s.value]);
+  const extras = $$('input[data-nwextra]:checked').map(i => [i.dataset.nwextra, num(i.dataset.n)]);
+  closeDialog();
+  const snap = JSON.stringify(state);
+  archiveWeek();
+  for (const [rid, v] of rates) { const r = getRecipe(rid); if (r && v) r.rate = v === 'clear' ? '' : v; }
+  for (const x of state.stock) x.counted = false;                      // last week's extras are now real leftovers
+  for (const [rid, n] of extras) addStock(rid, n, 'fridge', false);
+  state.checked = {}; state.manual = state.manual.filter(m => !m.done); state.prepDone = {};
+  if (mode !== 'repeat') state.plan = {};
+  saveNow(); rerender();
+  toast(mode === 'repeat' ? 'New week started with the same meals' : 'New week started', 'ok', { label: 'Undo', fn: () => { state = JSON.parse(snap); sanitizeState(state); invalidatePantry(); saveNow(); rerender(); toast('Undone', 'ok'); } });
+  if (mode === 'fresh') setTimeout(() => ACTIONS.autoPlan(), 60);
+};
+ACTIONS.pastWeeks = () => {
+  openDialog(`<div class="dlg-body"><div class="dlg-head"><h3>${icon('clock')} Past weeks</h3><button type="button" class="btn icon ghost" data-act="closeDlg" aria-label="Close">${icon('x')}</button></div>
+    ${state.history.length ? `<ul class="hist">${state.history.map(h => { const names = [...new Set(h.meals.map(m => m.n))]; return `<li><div><b>${esc(fmtWeek(h.date))}</b><span class="muted small">${h.meals.length} meals · ${names.length} recipe${names.length === 1 ? '' : 's'}</span><span class="muted small hn">${esc(names.slice(0, 4).join(', '))}${names.length > 4 ? ', …' : ''}</span></div><div class="row"><button class="btn sm primary" data-act="useWeek" data-date="${h.date}">Use this week</button><button class="btn icon ghost sm" data-act="delWeek" data-date="${h.date}" aria-label="Delete ${esc(fmtWeek(h.date))}" data-tip="Delete">${icon('trash')}</button></div></li>`; }).join('')}</ul>` : '<p class="muted">No past weeks yet. Use “New week” on the Planner to save one.</p>'}</div>`);
+};
+ACTIONS.useWeek = async el => {
+  const h = state.history.find(x => x.date === el.dataset.date); if (!h) return;
+  if (plannedCount() && !await confirmDialog('Replace this week’s meals with ' + fmtWeek(h.date) + '? Your recipes are not affected.', { ok: 'Use that week', title: 'Replace this week?' })) return;
+  closeDialog();
+  let miss = 0; undoable(fmtWeek(h.date) + ' loaded', () => { miss = loadWeek(h); saveSoon(); rerender(); });
+  if (miss) toast(`${miss} meal${miss === 1 ? ' was' : 's were'} skipped because that recipe no longer exists.`, 'err');
+};
+ACTIONS.delWeek = async el => {
+  const h = state.history.find(x => x.date === el.dataset.date); if (!h) return;
+  if (!await confirmDialog('Delete ' + fmtWeek(h.date) + ' from Past weeks?', { ok: 'Delete', danger: true })) return;
+  closeDialog(); undoable('Past week deleted', () => { state.history = state.history.filter(x => x.date !== h.date); saveSoon(); rerender(); });
+};
+
+/* ==========================================================================
+   Prep day: turn the week's plan into one cooking session, with containers,
+   fridge / freezer split, shared prep, a step checklist and a leftovers log.
+   ========================================================================== */
+function prepModel() {
+  const prepIdx = DAYS.indexOf(state.setup.prepDay), hh = state.setup.household, dist = d => (DAYS.indexOf(d) - prepIdx + 7) % 7;
+  const per = new Map();
+  for (const d of DAYS) for (const s of activeSlots()) {
+    const e = getSlot(d, s); if (!e) continue;
+    const row = per.get(e.rid) || { fridge: 0, freezer: 0 };
+    row[dist(d) <= FRIDGE_DAYS ? 'fridge' : 'freezer'] += e.servings * hh; per.set(e.rid, row);
+  }
+  return cookList().map(x => {
+    const row = per.get(x.r.id) || { fridge: 0, freezer: 0 };
+    let carry = x.carry, fridge = row.fridge, freezer = row.freezer;
+    const fc = Math.min(fridge, carry); fridge -= fc; carry -= fc; freezer = Math.max(0, freezer - carry);   // leftovers cover the earliest meals first
+    return Object.assign({}, x, { fridge, freezer, containers: x.batches > 0 ? Math.ceil(x.made - 1e-9) : 0 });
+  });
+}
+const agoDays = n => n === 0 ? 'today' : n === 1 ? 'yesterday' : n + ' days ago';
+function stockListHTML() {
+  const list = state.stock.slice().sort((a, b) => a.made.localeCompare(b.made));
+  return `<ul class="stocklist">${list.map(x => {
+    const r = getRecipe(x.rid), age = stockAgeDays(x), old = x.loc === 'fridge' && age > FRIDGE_DAYS, soon = x.loc === 'fridge' && !old && age >= FRIDGE_DAYS - 1;
+    return `<li><div class="sl-main"><b>${esc(r.name)}</b><span class="chip ${x.loc === 'freezer' ? 'frz' : ''}">${icon(x.loc === 'freezer' ? 'snow' : 'home', 'sm')}${x.loc}</span>${old ? '<span class="chip st-off">Use or freeze today</span>' : soon ? '<span class="chip warn">Use soon</span>' : ''}<span class="muted small">${fmtQty(x.servings)} serving${x.servings === 1 ? '' : 's'} · made ${agoDays(age)}${x.counted ? ' · already counted in this week’s shopping' : ''}</span></div>
+      <div class="row noprint"><button class="btn sm" data-act="stockUse" data-id="${x.id}" aria-label="Ate one serving of ${esc(r.name)}">Ate 1</button><button class="btn sm ghost" data-act="stockMove" data-id="${x.id}">${x.loc === 'fridge' ? 'Move to freezer' : 'Move to fridge'}</button><button class="btn icon ghost sm" data-act="stockDel" data-id="${x.id}" aria-label="Remove ${esc(r.name)} leftovers" data-tip="Remove">${icon('x')}</button></div></li>`;
+  }).join('')}</ul>`;
+}
+function leftoversCardHTML() {
+  const sug = cookList().filter(x => x.batches > 0 && x.extra - state.stock.filter(y => y.rid === x.r.id && y.counted).reduce((a, y) => a + y.servings, 0) > 0.01)
+    .map(x => ({ x, n: round(x.extra - state.stock.filter(y => y.rid === x.r.id && y.counted).reduce((a, y) => a + y.servings, 0), 2) }));
+  const recipes = state.recipes.slice().sort((a, b) => a.name.localeCompare(b.name));
+  return `<section class="card" id="leftovers"><div class="card-head"><h2>Leftovers &amp; freezer</h2><span class="muted small">${stockTotal() ? fmtQty(round(stockTotal(), 2)) + ' servings on hand' : 'nothing logged'}</span></div>
+    <p class="muted small">Log portions you have already cooked. Next week’s plan counts them, so the grocery list buys less. Oldest food is listed first.</p>
+    ${sug.map(({ x, n }) => `<div class="note noprint">${icon('layers')}<span>This week’s batches leave about <b>${fmtQty(n)}</b> extra serving${n === 1 ? '' : 's'} of ${esc(x.r.name)}.</span><button class="btn sm" data-act="stockExtra" data-id="${x.r.id}" data-n="${n}">Add to leftovers</button></div>`).join('')}
+    ${state.stock.length ? stockListHTML() : ''}
+    ${recipes.length ? `<form id="stform" class="gadd noprint" novalidate><label class="fld"><span>Add leftovers</span><select id="st-recipe" aria-label="Recipe">${recipes.map(r => `<option value="${r.id}">${esc(r.name)}</option>`).join('')}</select></label><label class="fld sm"><span>Servings</span><input id="st-serv" type="number" min="0.25" step="0.25" value="1" inputmode="decimal"></label><label class="fld sm"><span>Where</span><select id="st-loc"><option value="fridge">Fridge</option><option value="freezer">Freezer</option></select></label><button class="btn primary" type="submit">${icon('plus')} Add</button></form>` : ''}</section>`;
+}
+VIEWS.prep = {
+  render() {
+    const head = `<div class="page-head row between"><div><h1>Prep day</h1><p>Your week as one cooking session: what to cook, how many containers, and what goes in the fridge or freezer.</p></div>
+      <div class="row noprint"><label class="fld inline"><span>Prep day</span><select data-change="prepDay" data-fid="prepDay" aria-label="Prep day">${optionsHTML(DAYS.map(d => [d, d]), state.setup.prepDay)}</select></label><button class="btn icon" data-act="printPage" aria-label="Print prep page" data-tip="Print">${icon('printer')}</button></div></div>`;
+    if (!state.recipes.length) return `<div class="page-head"><h1>Prep day</h1></div>${emptyState('Add recipes to start', 'The Prep page turns your meal plan into one cooking session.', `<button class="btn primary" data-act="newRecipe">${icon('plus')} Add a recipe</button><button class="btn" data-act="loadDemo">Load demo recipes</button>`)}`;
+    if (!plannedCount()) return `${head}${emptyState('Plan your week first', 'Once meals are in the planner, this page shows what to cook, how many containers you need and where each portion goes.', '<a class="btn primary" href="#/planner">Open planner</a>')}${leftoversCardHTML()}`;
+    const rows = prepModel(), cooking = rows.filter(x => x.batches > 0);
+    const tot = k => rows.reduce((a, x) => a + x[k], 0), nCook = cooking.length;
+    const frz = round(tot('freezer'), 1), fri = round(tot('fridge'), 1), boxes = tot('containers');
+    const eatBy = DAYS[(DAYS.indexOf(state.setup.prepDay) + FRIDGE_DAYS) % 7];
+    const table = `<section class="card"><div class="card-head"><h2>What to cook and pack</h2><span class="muted small">cooking for ${state.setup.household}</span></div>
+      <div class="tablewrap"><table class="table"><thead><tr><th>Recipe</th><th class="num">Batches</th><th class="num">Containers</th><th class="num">Fridge</th><th class="num">Freezer</th><th class="num">Extra</th></tr></thead><tbody>${rows.map(x => `<tr><td><a href="#/recipes/${x.r.id}">${esc(x.r.name)}</a>${x.batches === 0 ? ' <span class="chip">From leftovers</span>' : ''}</td><td class="num">${x.batches > 0 ? '<b>' + fmtQty(round(x.batches, 2)) + '</b>' : '–'}</td><td class="num">${x.containers || '–'}</td><td class="num">${x.fridge > 0.01 ? fmtQty(round(x.fridge, 2)) : '–'}</td><td class="num">${x.freezer > 0.01 ? fmtQty(round(x.freezer, 2)) : '–'}</td><td class="num">${x.extra > 0.01 && x.batches > 0 ? fmtQty(round(x.extra, 2)) : '–'}</td></tr>`).join('')}</tbody></table></div>
+      <p class="muted small">One portion per container. <b>Fridge</b> is for meals within ${FRIDGE_DAYS} days of ${esc(state.setup.prepDay)} (through ${esc(eatBy)}); <b>Freezer</b> is for later days, so thaw those in the fridge the night before. Food-safety guidance says to eat refrigerated leftovers within 3 to 4 days. <b>Extra</b> comes from cooking whole batches.</p></section>`;
+    const shared = buildGrocery().filter(i => i.from.length >= 2 && !state.have[i.key]);
+    const sharedCard = shared.length ? `<section class="card"><div class="card-head"><h2>Prep these together</h2><span class="muted small">used by more than one recipe</span></div><ul class="sharedprep">${shared.map(i => `<li><b>${esc(cap(i.name))}</b>${i.qty !== null ? ` <span class="muted">${esc(fmtAmount(i.qty, i.unit))} in all</span>` : ''}<span class="muted small"> · ${esc(i.from.join(', '))}</span></li>`).join('')}</ul><p class="muted small">Wash, chop or measure these once, then split them between the recipes.</p></section>` : '';
+    const order = cooking.slice().sort((a, b) => (b.r.mins || 0) - (a.r.mins || 0) || a.r.name.localeCompare(b.r.name));
+    let stepsDone = 0, stepsAll = 0;
+    const recipeCards = order.map(x => {
+      const r = x.r, key = 'prep-' + r.id, open = ui.open[key] === false ? '' : ' open';
+      const ing = r.ingredients.map(g => `<li><span class="q">${esc(g.qty === null ? fmtAmount(null, g.unit) : fmtAmount(g.qty * x.batches, g.unit))}</span><span>${esc(cap(g.item))}</span></li>`).join('');
+      const steps = r.steps.map((st, i) => { const k = r.id + ':' + i, done = !!state.prepDone[k]; stepsAll++; if (done) stepsDone++; return `<li class="${done ? 'done' : ''}"><label class="check"><input type="checkbox" data-change="prepStep" data-key="${esc(k)}" ${done ? 'checked' : ''}> <span>${esc(st)}</span></label></li>`; }).join('');
+      return `<details class="prepr" data-keep="${esc(key)}"${open}><summary><b>${esc(r.name)}</b><span class="chip">${fmtQty(round(x.batches, 2))} ${x.batches === 1 ? 'batch' : 'batches'}</span>${r.mins ? `<span class="chip">${icon('clock', 'sm')}${r.mins} min</span>` : ''}<span class="muted small">makes ${fmtQty(round(x.made, 2))}</span></summary>
+        <div class="rd-cols"><div><h4>Ingredients${x.batches !== 1 ? ` <span class="muted small">× ${fmtQty(round(x.batches, 2))}</span>` : ''}</h4>${ing ? `<ul class="ingr">${ing}</ul>` : '<p class="muted small">No ingredients.</p>'}</div><div><h4>Steps</h4>${steps ? `<ol class="steps chk">${steps}</ol>` : '<p class="muted small">No steps saved for this recipe.</p>'}</div></div></details>`;
+    }).join('');
+    const stepsCard = cooking.length ? `<section class="card"><div class="card-head"><h2>Cooking steps</h2><span class="muted small">${stepsAll ? `${stepsDone} of ${stepsAll} steps done · ` : ''}${order.some(x => x.r.mins) ? 'longest recipes first' : 'add a time to recipes to order them'}</span></div>${recipeCards}</section>` : '';
+    return `${head}
+      <div class="tiles"><div class="tile"><small>Recipes to cook</small><b>${nCook}</b><span>${fmtQty(round(rows.reduce((a, x) => a + x.batches, 0), 2))} batches in all</span></div>
+        <div class="tile"><small>Containers</small><b>${boxes}</b><span>one portion each</span></div>
+        <div class="tile"><small>Fridge</small><b>${fmtQty(fri)}<i> portions</i></b><span>eat by ${esc(eatBy)}</span></div>
+        <div class="tile"><small>Freezer</small><b>${fmtQty(frz)}<i> portions</i></b><span>later in the week</span></div></div>
+      ${table}${sharedCard}${stepsCard}${leftoversCardHTML()}`;
+  }
+};
+CHANGES.prepDay = el => { state.setup.prepDay = oneOf(el.value, DAYS, 'Sunday'); saveSoon(); rerender(); };
+CHANGES.prepStep = el => { if (el.checked) state.prepDone[el.dataset.key] = true; else delete state.prepDone[el.dataset.key]; saveSoon(); rerender(); };
+document.addEventListener('submit', e => {
+  if (e.target.id !== 'stform') return; e.preventDefault();
+  const rid = $('#st-recipe').value, n = num($('#st-serv').value);
+  if (!getRecipe(rid) || !(n > 0)) { toast('Pick a recipe and a number of servings.', 'err'); return; }
+  addStock(rid, n, $('#st-loc').value, false); saveSoon(); rerender(); toast('Leftovers added', 'ok');
+});
+ACTIONS.stockUse = el => { useStock(el.dataset.id, 1); saveSoon(); rerender(); };
+ACTIONS.stockMove = el => { const x = state.stock.find(y => y.id === el.dataset.id); if (!x) return; x.loc = x.loc === 'fridge' ? 'freezer' : 'fridge'; if (x.loc === 'freezer') { /* frozen food keeps its made date, but the fridge clock no longer applies */ } saveSoon(); rerender(); };
+ACTIONS.stockDel = el => { const x = state.stock.find(y => y.id === el.dataset.id); if (!x) return; undoable('Leftovers removed', () => { state.stock = state.stock.filter(y => y.id !== x.id); saveSoon(); rerender(); }); };
+ACTIONS.stockExtra = el => { addStock(el.dataset.id, num(el.dataset.n), 'fridge', true); saveSoon(); rerender(); toast('Added to your leftovers', 'ok'); };
 
 /* ==========================================================================
    Grocery list + ingredient library
@@ -3599,7 +4438,8 @@ function groceryItemHTML(i) {
   const from = i.from.length ? `<span class="chip src" data-tip="${esc(i.from.join(', '))}">${i.from.length} recipe${i.from.length === 1 ? '' : 's'}</span>` : (i.manual ? '<span class="chip src manual">Added</span>' : '');
   const act = i.manual ? `<button class="btn icon ghost sm noprint" data-act="gDel" data-id="${i.id}" aria-label="Remove ${esc(i.name)}" data-tip="Remove">${icon('x')}</button>`
     : `<button class="btn icon ghost sm noprint" data-act="gHave" data-key="${esc(i.key)}" aria-label="${gHave(i) ? 'Put back on list' : 'I already have ' + esc(i.name)}" data-tip="${gHave(i) ? 'Put back on the list' : 'I already have this'}">${icon(gHave(i) ? 'refresh' : 'home')}</button>`;
-  return `<li class="gitem${gDone(i) ? ' done' : ''}"><label class="gcheck"><input type="checkbox" ${gDone(i) ? 'checked' : ''} data-change="gCheck" ${i.manual ? `data-id="${i.id}"` : `data-key="${esc(i.key)}"`} data-fid="g-${esc(i.key)}"><span class="box">${icon('check', 'sm')}</span><span class="gname">${esc(cap(i.name))}</span></label><span class="gamt">${esc(amt)}</span>${from}${act}</li>`;
+  const pr = i.qty === null || i.qty === undefined || MINOR_UNITS.has(i.unit) ? null : lineCost(i.name, i.qty, i.unit);
+  return `<li class="gitem${gDone(i) ? ' done' : ''}"><label class="gcheck"><input type="checkbox" ${gDone(i) ? 'checked' : ''} data-change="gCheck" ${i.manual ? `data-id="${i.id}"` : `data-key="${esc(i.key)}"`} data-fid="g-${esc(i.key)}"><span class="box">${icon('check', 'sm')}</span><span class="gname">${esc(cap(i.name))}</span></label><span class="gamt">${esc(amt)}${pr !== null ? `<em class="gp">${money(pr)}</em>` : ''}</span>${from}${act}</li>`;
 }
 VIEWS.grocery = {
   render() {
@@ -3608,12 +4448,17 @@ VIEWS.grocery = {
     const bySec = new Map(); for (const i of active) { if (!bySec.has(i.section)) bySec.set(i.section, []); bySec.get(i.section).push(i); }
     const secHTML = [...bySec].map(([s, items]) => { const d = items.filter(gDone).length; return `<section class="gsec"><h3 role="heading" aria-level="2"><span>${esc(s)}</span><small>${d}/${items.length}</small></h3><ul class="glist">${items.map(groceryItemHTML).join('')}</ul></section>`; }).join('');
     const pct = active.length ? Math.round(100 * done / active.length) : 0;
+    const gc = groceryCost(list), bud = S.budget, carry = cookList().reduce((a, x) => a + x.carry, 0);
+    const costLine = gc.priced ? `<div class="gcost"><span><b>${money(gc.total)}</b> estimated</span>${gc.left < gc.total - 0.005 ? `<span>${money(gc.left)} left to buy</span>` : ''}${bud ? `<span class="${gc.total > bud ? 'over' : 'under'}">${gc.total > bud ? money(gc.total - bud) + ' over' : money(bud - gc.total) + ' under'} your ${money(bud)} budget</span>` : ''}${gc.unpriced ? `<span class="muted">${gc.unpriced} item${gc.unpriced === 1 ? '' : 's'} unpriced</span>` : ''}</div>`
+      : (active.length ? `<div class="gcost noprint"><span class="muted">No prices yet. <button type="button" class="linkbtn" data-act="setPrices">Add prices</button> to see what this trip costs and plan to a budget.</span></div>` : '');
     return `<div class="page-head row between"><div><h1>Grocery list</h1><p>${planned ? 'Built from your meal plan, merged and sorted by store section.' : 'Plan some meals and they show up here automatically.'}</p></div>
-      <div class="row noprint"><button class="btn" data-act="gCopy">${icon('copy')} Copy</button><button class="btn" data-act="printPage">${icon('printer')} Print</button></div></div>
+      <div class="row noprint"><button class="btn" data-act="pantryCheck">${icon('home')} Pantry check</button><button class="btn" data-act="setPrices">${icon('dollar')} Prices</button><button class="btn" data-act="gCopy">${icon('copy')} Copy</button><button class="btn" data-act="printPage">${icon('printer')} Print</button></div></div>
+      ${carry > 0.001 ? `<div class="note noprint">${icon('home')}<span>Leftovers on hand cover ${fmtQty(round(carry, 2))} serving${round(carry, 2) === 1 ? '' : 's'} this week, so this list buys less. <a href="#/prep">See my leftovers</a></span></div>` : ''}
       <div class="gtools card noprint">
         <form id="gform" class="gadd" novalidate><label class="fld"><span>Add an item</span><input id="g-item" list="ingList" placeholder="Anything else you need" autocomplete="off"></label><label class="fld sm"><span>Qty</span><input id="g-qty" inputmode="decimal" placeholder="1"></label><label class="fld sm"><span>Unit</span><input id="g-unit" list="unitList" placeholder="each"></label><button class="btn primary" type="submit">${icon('plus')} Add</button></form>
         <details class="fine gopts" data-keep="gopts"${ui.open.gopts ? ' open' : ''}><summary>Quantities: ${S.groceryMode === 'batch' ? 'whole batches' : 'exact amounts'}, cooking for ${hh}</summary><div class="row between wrap"><div class="seg" role="group" aria-label="Quantity mode"><button class="${S.groceryMode === 'batch' ? 'on' : ''}" data-act="gMode" data-k="batch" data-tip="Round up to whole batches of each recipe (best for meal prep)">Whole batches</button><button class="${S.groceryMode === 'exact' ? 'on' : ''}" data-act="gMode" data-k="exact" data-tip="Buy exactly what the planned servings need">Exact amounts</button></div>
           <div class="stepper"><span class="muted small">Cooking for</span><button class="btn icon" data-act="gHH" data-d="-1" aria-label="Fewer people">−</button><output>${hh}</output><button class="btn icon" data-act="gHH" data-d="1" aria-label="More people">+</button></div></div></details></div>
+      ${costLine}
       ${active.length ? `<div class="gprog${done === active.length ? ' complete' : ''}"><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="Shopping progress"><span style="width:${pct}%"></span></div><span>${done === active.length ? `Everything is in the cart (${done} of ${active.length})` : `${done} of ${active.length} in the cart`}</span><span class="row noprint"><button class="btn sm ghost" data-act="gReset">Uncheck all</button>${state.manual.some(m => m.done) ? '<button class="btn sm ghost" data-act="gClearDone">Remove checked extras</button>' : ''}</span></div>` : ''}
       ${active.length ? `<div class="gcols">${secHTML}</div>` : emptyState(planned ? 'Nothing left to buy' : 'Your list is empty', planned ? 'Everything is checked off or marked as already in your pantry.' : 'Add meals in the planner and every ingredient lands here, merged and sorted by store section.', featureOn('planner') ? '<a class="btn primary" href="#/planner">Open planner</a>' : '')}
       ${have.length ? `<details class="card noprint have" ${ui.groceryShowHave ? 'open' : ''}><summary>Already in my pantry (${have.length})</summary><ul class="glist">${have.map(groceryItemHTML).join('')}</ul></details>` : ''}
@@ -3635,6 +4480,58 @@ ACTIONS.gReset = async () => { if (!await confirmDialog('Uncheck every item on y
 ACTIONS.gClearDone = async () => { const n = state.manual.filter(m => m.done).length; if (!n) return; if (!await confirmDialog(`Remove the ${n} checked item${n === 1 ? '' : 's'} you added yourself?`, { ok: 'Remove checked', danger: true })) return; undoable(`Removed ${n} checked item${n === 1 ? '' : 's'}`, () => { state.manual = state.manual.filter(m => !m.done); saveSoon(); rerender(); }); };
 ACTIONS.gMode = el => { state.settings.groceryMode = el.dataset.k; saveSoon(); rerender(); };
 ACTIONS.gHH = el => { state.setup.household = clamp(state.setup.household + parseInt(el.dataset.d, 10), 1, 20); saveSoon(); rerender(); };
+
+/* ---- pantry check: tick everything you already have, in one pass ---- */
+ACTIONS.pantryCheck = () => {
+  const list = fullGroceryList().filter(i => !i.manual);
+  if (!list.length) { toast('Plan some meals first and the list appears here.'); return; }
+  const bySec = new Map(); for (const i of list) { if (!bySec.has(i.section)) bySec.set(i.section, []); bySec.get(i.section).push(i); }
+  openDialog(`<form method="dialog" class="dlg-body"><div class="dlg-head"><h3>${icon('home')} Pantry check</h3><button type="button" class="btn icon ghost" data-act="closeDlg" aria-label="Close">${icon('x')}</button></div>
+    <p class="muted">Tick everything you already have at home. Ticked items come off the shopping list and stay off until you untick them.</p>
+    <div class="pcheck">${[...bySec].map(([sec, items]) => `<h4>${esc(sec)}</h4>${items.map(i => `<label class="check"><input type="checkbox" data-pkey="${esc(i.key)}" ${gHave(i) ? 'checked' : ''}> <span>${esc(cap(i.name))} <span class="muted small">${esc(fmtAmount(i.qty, i.unit))}</span></span></label>`).join('')}`).join('')}</div>
+    <div class="dlg-actions"><button class="btn" value="cancel">Cancel</button><button class="btn primary" value="ok" data-act="pantryCheckGo">Save</button></div></form>`, { wide: true });
+};
+ACTIONS.pantryCheckGo = () => {
+  let n = 0;
+  $$('#dlg input[data-pkey]').forEach(i => { const k = i.dataset.pkey; if (i.checked) { if (!state.have[k]) n++; state.have[k] = true; } else delete state.have[k]; });
+  saveSoon(); setTimeout(rerender, 0); toast(n ? `${n} item${n === 1 ? '' : 's'} moved to “Already in my pantry”` : 'Pantry updated', 'ok');
+};
+
+/* ---- prices: what you pay per unit; used for the cost of recipes, the week and this list ---- */
+function priceRows(entries) {
+  const seen = new Set(), out = [];
+  for (const e of entries) {
+    if (!e.name || e.qty === null || e.qty === undefined || MINOR_UNITS.has(normUnit(e.unit))) continue;
+    const k = ikey(e.name); if (seen.has(k)) continue; seen.add(k);
+    const pr = getPrice(e.name), u = pr ? pr.u : (normUnit(e.unit) || 'each');
+    out.push({ name: e.name, need: fmtAmount(e.qty, e.unit), price: pr ? pr.p : '', unit: u });
+  }
+  return out.sort((a, b) => a.name.localeCompare(b.name));
+}
+function openPriceDialog(entries, title, intro, withBudget) {
+  const rows = priceRows(entries);
+  if (!rows.length) { toast('There is nothing to price yet. Add meals or ingredients with quantities first.'); return; }
+  const unitOpts = u => { const l = UNIT_LIST.filter(x => !MINOR_UNITS.has(x)); if (!l.includes(u)) l.push(u); return optionsHTML(l.map(x => [x, x]), u); };
+  openDialog(`<form method="dialog" class="dlg-body"><div class="dlg-head"><h3>${icon('dollar')} ${esc(title)}</h3><button type="button" class="btn icon ghost" data-act="closeDlg" aria-label="Close">${icon('x')}</button></div>
+    <p class="muted">${intro} Prices apply when the units match (cups and tablespoons convert; pounds and ounces convert; “each” only matches “each”). They are estimates you control and never leave this device. Leave a price empty to skip it.</p>
+    <div class="pr-list">${rows.map(r => `<div class="pr-row" data-name="${esc(r.name)}"><span class="pr-n">${esc(cap(r.name))} <small class="muted">needs ${esc(r.need)}</small></span><label class="pr-in"><span aria-hidden="true">$</span><input type="number" min="0" max="10000" step="0.01" inputmode="decimal" value="${r.price === '' ? '' : esc(String(r.price))}" aria-label="Price of ${esc(r.name)}"></label><label class="pr-u"><span>per</span><select aria-label="Unit for the price of ${esc(r.name)}">${unitOpts(r.unit)}</select></label></div>`).join('')}</div>
+    ${withBudget ? `<label class="fld"><span>Weekly grocery budget <em>optional</em></span><input id="prBudget" type="number" min="0" step="5" inputmode="decimal" placeholder="e.g. 90" value="${state.settings.budget ? esc(String(state.settings.budget)) : ''}"></label>` : ''}
+    <div class="dlg-actions"><button class="btn" value="cancel">Cancel</button><button class="btn primary" value="ok" data-act="pricesGo">Save prices</button></div></form>`, { wide: true });
+}
+ACTIONS.setPrices = () => {
+  const list = fullGroceryList().filter(i => i.manual || !gHave(i));
+  openPriceDialog(list.map(i => ({ name: i.name, qty: i.qty, unit: i.unit })), 'Prices for this list', 'Enter what you pay for each item, per the unit shown.', true);
+};
+ACTIONS.recipePrices = el => {
+  const r = getRecipe(el.dataset.id); if (!r) return;
+  openPriceDialog(r.ingredients.map(g => ({ name: g.item, qty: g.qty, unit: g.unit })), 'Prices for ' + r.name, 'Enter what you pay for each ingredient, per the unit shown.', false);
+};
+ACTIONS.pricesGo = () => {
+  let n = 0;
+  $$('#dlg .pr-row').forEach(row => { const v = numOrNull($('input', row).value), u = $('select', row).value; if (v > 0) { setPrice(row.dataset.name, v, u); n++; } else setPrice(row.dataset.name, 0); });
+  const b = $('#prBudget'); if (b) { const v = numOrNull(b.value); state.settings.budget = v > 0 ? clamp(v, 1, 100000) : null; }
+  saveSoon(); setTimeout(rerender, 0); toast(n ? `Saved ${n} price${n === 1 ? '' : 's'}` : 'Prices updated', 'ok');
+};
 
 /* ---- ingredient library ---- */
 function ingUsage() { const m = new Map(); for (const r of state.recipes) for (const g of r.ingredients) { const k = ikey(g.item); m.set(k, (m.get(k) || 0) + 1); } return m; }
@@ -3690,6 +4587,26 @@ document.addEventListener('submit', e => {
    Release notes + license text
    ========================================================================== */
 const RELEASES = [
+  { v: 'v5 · Web app', date: 'October 9, 2026', tag: 'New look', notes: [
+    'New design that matches the other mb apps: a left sidebar on computers, a bottom bar on phones, clean neutral surfaces, square-cornered cards and solid tomato-red buttons, with a matching dark mode.',
+    'New flat logo (a meal-prep container with three compartments on a tomato-red square), app icons and share image. Protein, carbs and fats show as tomato, blue and amber.',
+    'The version label now reads "v5 · Web app". Everything else works as before: your saved data, backups and CSV files are unchanged.'] },
+  { v: 'BETA 4.4', date: 'October 9, 2026', tag: 'Install as an app', notes: [
+    'Install it like an app: on Chrome, Edge and Android, the Data page has an Install button. On iPhone and iPad, tap Share, then Add to Home Screen. It opens full screen with its own icon.',
+    'After your first visit, the app opens with no signal. Your data was already stored on your device and still is.',
+    'Privacy Policy and Terms updated to describe the small app files your browser now keeps. Your recipes and plans are not sent anywhere.'] },
+  { v: 'BETA 4.3', date: 'October 9, 2026', tag: 'Smarter planning', notes: [
+    'Browser tabs now read "Meal Prep | page name", for example "Meal Prep | Grocery".',
+    'Auto-plan is smarter: choose which days to fill (skip days you eat out), set a longest cooking time and a weekly grocery budget. It leaves out recipes you gave a thumbs-down, favors thumbs-up recipes, and uses up leftovers first.',
+    'Swap any single meal with one tap, without rebuilding the week. The swap checks the rest of that day so you stay near your targets.',
+    'New week: saves the week you just finished to Past weeks, clears the shopping check marks, and lets you repeat the same meals, auto-plan a fresh week or start empty. Past weeks lets you reuse any saved week in one tap.',
+    'New Prep page: your plan as one cooking session, with batches, containers, what goes in the fridge or freezer by day, ingredients to prep together, and a step-by-step checklist. Pick your prep day.',
+    'Leftovers and freezer log: portions you already cooked are subtracted from the next grocery list, with "use soon" reminders for the fridge.',
+    'Prices and costs: enter what you pay per unit once and see cost per serving and per gram of protein on each recipe, the estimated cost of the week, and the total for the grocery list. Sort recipes by cost, and plan to a weekly budget.',
+    'Pantry check on the grocery list: tick everything you already have in one pass.',
+    'Recipes get a thumbs-up or thumbs-down, and an optional total time in minutes.',
+    'Backups carry all of it. CSV gains "rating" and "minutes" columns and "price", "stock" and "history" rows. Older CSV and JSON backups still import unchanged.',
+    'Privacy Policy and Terms updated. Nothing about how data is handled changed: no accounts, no network connections.'] },
   { v: 'BETA 4.2.2', date: 'October 1, 2026', tag: 'Color refresh', notes: [
     'New pastel chart colors: protein is light coral, carbs are blue and fats are red. They apply to the macro donut, macro bars, legends and the color print sheet.',
     'Text links and text buttons, such as recipe names in the cook list, "+ Add a meal" and the footer links, are now plain dark text with a quiet underline. Coral stays on buttons, the active tab, borders and selected cards.',
@@ -3763,7 +4680,7 @@ const LICENSE = {
    Content-Security-Policy that blocks all network connections). If the app's
    behavior changes, change this text in the same commit.
    ========================================================================== */
-const LEGAL_UPDATED = 'September 26, 2026';
+const LEGAL_UPDATED = 'October 9, 2026';
 const PRIVACY = {
   short: [
     'No accounts, no sign-in, no ads and no analytics.',
@@ -3771,11 +4688,14 @@ const PRIVACY = {
     'The backup files you save (JSON or CSV) are yours. Once saved, they are outside the app.'],
   sections: [
     ['What the app stores', [
-      'Everything you enter: recipes, meal plan, grocery items, ingredient edits, and your setup answers and settings. If you use the health tools, that includes the age, sex, height, weight, activity level and goal you type in.',
+      'Everything you enter: recipes (including thumbs-up or thumbs-down and cooking time), meal plan and saved past weeks, grocery items, ingredient prices, leftovers you log, ingredient edits, and your setup answers and settings such as a budget. If you use the health tools, that includes the age, sex, height, weight, activity level and goal you type in.',
       'It is saved in your browser’s local storage under the names pantryPartner.beta4 (your data) and pantryPartner.notice (whether you closed the privacy notice). It is stored only on your device and has no expiry. It stays until you erase it or clear your browser’s site data.',
       'If you choose where backups are saved, your browser keeps a reference to that one file (its name and your permission to update it, not its contents or folder path) in this site’s IndexedDB storage, so Save backup now can update it in one click. Choosing Change location replaces it, and clearing this site’s data removes it.']],
+    ['App files kept for offline use', [
+      'To work with no signal and to be installable, the app registers a service worker and your browser keeps a copy of the app’s own files (the page, its icons and its manifest) in this site’s cache storage. These are the same files the website serves to everyone. They contain none of your data. They are refreshed from the website on each visit and removed when you clear this site’s data or uninstall the app.',
+      'If you install the app to your home screen or desktop, the installed app is this same website in its own window. On some devices, such as iPhone, an installed app keeps its own saved data, separate from the browser, so use Export and Import to move your data between them.']],
     ['What the app does not do', [
-      'It does not create accounts, set cookies, use analytics or advertising, load fonts, scripts or images from other sites, or contact any server. The page carries a browser security rule that blocks it from making network connections, so in a modern browser it cannot send your data anywhere.',
+      'It does not create accounts, set cookies, use analytics or advertising, load fonts, scripts or images from other sites, or send your data anywhere. The page carries a browser security rule that blocks it from making network connections of its own, so in a modern browser the app’s code cannot send your data anywhere. The only requests are your browser fetching the app’s own files from this website.',
       'It does not collect your location, contacts or identity.']],
     ['When information leaves the page', [
       'Only when you choose it: Save backup now, Export All (JSON) and Export All (CSV) write a file to your device, in the folder you pick (or your Downloads folder in browsers that cannot pick one). Copy to clipboard puts the CSV in your clipboard. Print or Save as PDF hands the page to your browser’s print system.',
@@ -3805,8 +4725,10 @@ const TERMS = {
       'Calories, macros and targets are estimates from general formulas and the numbers you enter. They are not medical, nutrition or professional advice and cannot diagnose or treat anything. Talk with a doctor or registered dietitian before changing how you eat or exercise, especially if you are under 18, pregnant or nursing, have a medical condition, or have a history of disordered eating. Stop and get help if a plan makes you feel unwell.',
       'Recipe nutrition is whatever was entered, and demo recipes are approximate. Always check ingredient labels yourself for allergens and dietary needs.']],
     ['Your content and backups', [
-      'Your recipes and data are yours and stay on your device (see the Privacy Policy). Because they are stored only there, they can be lost if you clear your browser, switch devices or your browser removes them. Download a CSV backup regularly.',
+      'Your recipes and data are yours and stay on your device (see the Privacy Policy). Because they are stored only there, they can be lost if you clear your browser, switch devices or your browser removes them. Download a CSV backup regularly. An installed copy of the app may keep its data separately from your browser, so export before moving between them.',
       'Only import recipes and text you have the right to use. Do not enter passwords, financial numbers or other people’s private information.']],
+    ['Cost and food-storage estimates', [
+      'Costs are estimates built only from the prices you type in, so they will differ from what a store charges. Fridge and freezer suggestions are general guidance based on how many days after your prep day a meal is eaten. They do not know how your food was cooked or stored. Follow food-safety guidance, use your own judgment, and when in doubt throw it out.']],
     ['No warranty, limited liability', [
       'The app is in beta and is provided “as is” and “as available”, without promises that it is accurate, complete or error-free. To the extent the law allows, the developer is not responsible for losses, lost data or health outcomes that result from using it. Some places do not allow certain limits, so parts of this may not apply to you. Nothing here limits rights you have under your local law that cannot be waived.']],
     ['Changes and governing law', [
@@ -3891,7 +4813,7 @@ function jsonToRecords(text) {
   const data = o && typeof o === 'object' && !Array.isArray(o) ? (o.format === BACKUP_FORMAT && o.data && typeof o.data === 'object' ? o.data : o) : null;
   if (!data || !['recipes', 'settings', 'profile', 'setup', 'plan'].some(k => Object.prototype.hasOwnProperty.call(data, k))) return { records: [], error: 'That JSON file is not an mbmealprep.online backup.' };
   const st = defaultState(); mergeInto(st, data);
-  for (const k of ['plan', 'checked', 'have']) if (data[k] && typeof data[k] === 'object' && !Array.isArray(data[k])) st[k] = data[k];
+  for (const k of ['plan', 'checked', 'have', 'prices', 'prepDone']) if (data[k] && typeof data[k] === 'object' && !Array.isArray(data[k])) st[k] = data[k];
   sanitizeState(st);
   const records = stateToRows(st).map(r => { const x = {}; for (const c of CSV_COLS) x[c] = r[c] === null || r[c] === undefined ? '' : String(r[c]); return x; });
   return { records, error: null };
@@ -4011,10 +4933,12 @@ function applyPendingImport() {
 VIEWS.data = {
   render() {
     const nDemo = state.recipes.filter(isDemo).length, b = backupInfo();
-    const rows = [['recipe', 'One row per recipe', 'name, meal_type, servings, calories, protein_g, carbs_g, fats_g, prep_friendly, favorite, text (notes / source URL), updated (optional date)'],
+    const rows = [['recipe', 'One row per recipe', 'name, meal_type, servings, calories, protein_g, carbs_g, fats_g, prep_friendly, favorite, text (notes / source URL), updated (optional date), rating (up or down, optional), minutes (optional)'],
       ['ingredient', 'One row per recipe ingredient', 'name (recipe name), item, qty, unit'], ['step', 'One row per instruction step, in order', 'name (recipe name), text'],
       ['plan', 'One row per planned meal', 'name (day), meal_type (Breakfast / Lunch / Dinner / Snacks), item (recipe name), qty (servings)'],
       ['grocery', 'Extra grocery items you added', 'item, qty, unit, section, text ("done" if checked)'], ['pantry', 'Your custom or edited ingredients', 'item, unit, section'],
+      ['price', 'What you pay for an ingredient', 'item, qty (the price), unit (what the price is per, such as pound)'], ['stock', 'Leftovers and freezer servings', 'name (recipe name), qty (servings), unit (fridge or freezer), updated (date cooked), text ("counted" if already used in this week’s shopping)'],
+      ['history', 'Past weeks, one row per meal', 'name (week start date, YYYY-MM-DD), meal_type, item (recipe name), qty (servings), text (day)'],
       ['profile / setting', 'Your body details, goals, and app choices', 'name (field), text (value)'], ['checked / have', 'Grocery list check marks and pantry items', 'item (list key)']];
     return `<div class="page-head"><h1>Data</h1><p>Your data lives in this browser. Save a backup file to keep it safe or move it to another device.</p></div>
       <section class="card bk-card"><div class="card-head"><h2>${icon('save')} Back up &amp; restore</h2><span class="bk-status${b.warn ? ' warn' : ''}">${icon(b.warn ? 'alert' : 'shield', 'sm')}${esc(b.label)}${b.t ? `<span class="muted"> · ${esc(b.exact)}</span>` : ''}</span></div>
@@ -4022,6 +4946,7 @@ VIEWS.data = {
         <p class="bk-where">${icon('folder', 'sm')}<span>${backupWhereHTML()}</span></p>
         <p class="muted small">JSON is the recommended backup: it restores everything exactly. The CSV holds the same data in a spreadsheet-friendly form and can be imported too. Both include any health details you entered, so keep them somewhere private. <a href="#/privacy">Privacy Policy</a></p>
         <div class="row bk-extra"><button class="btn ghost sm" data-act="copyCsv">${icon('copy')} Copy CSV to clipboard</button><button class="btn ghost sm" data-act="templateCsv">Blank CSV template</button></div></section>
+      ${installCardHTML()}
       <div class="grid-2 data-grid">
         <section class="card" id="impCard"><h2>${icon('upload')} Import</h2>
           <label class="drop" id="drop" for="impFile">${icon('upload', 'lg')}<b>Drop a backup file here</b><span>JSON or CSV · or click to choose a file</span></label><input type="file" id="impFile" accept=".json,.csv,.tsv,.txt,application/json,text/csv" hidden data-change="impFile">
@@ -4061,7 +4986,7 @@ const updateImportPreview = () => {
   if (!text.trim()) { box.innerHTML = ''; return; }
   const pv = previewImport(text, impMode());
   if (pv.error) { box.innerHTML = `<div class="note err">${icon('alert')}<span>${esc(pv.error)}</span></div>`; return; }
-  const r = pv.rep, bits = [[r.recipes, 'recipes'], [r.ingredients, 'ingredient lines'], [r.steps, 'steps'], [r.plan, 'planned meals'], [r.grocery, 'grocery items'], [r.pantry, 'custom ingredients'], [r.profile, 'profile / settings']].filter(b => b[0]);
+  const r = pv.rep, bits = [[r.recipes, 'recipes'], [r.ingredients, 'ingredient lines'], [r.steps, 'steps'], [r.plan, 'planned meals'], [r.grocery, 'grocery items'], [r.pantry, 'custom ingredients'], [r.prices, 'ingredient prices'], [r.stock, 'leftover entries'], [r.history, 'past weeks'], [r.profile, 'profile / settings']].filter(b => b[0]);
   box.innerHTML = `${bits.length ? `<div class="note ok">${icon('check')}<span>Ready to import: ${bits.map(b => `<b>${b[0]}</b> ${b[1]}`).join(', ')}.</span></div>` : `<div class="note warn">${icon('alert')}<span>Nothing to import. No recipes, plan or settings were found in that text.</span></div>`}
     ${impMode() === 'replace' ? `<div class="note warn">${icon('alert')}<span>Replace mode discards your current recipes, plan and grocery list.</span></div>` : ''}
     ${r.warnings.length ? `<ul class="warns">${r.warnings.map(w => `<li>${esc(w)}</li>`).join('')}</ul>` : ''}
@@ -4075,8 +5000,8 @@ ACTIONS.importGo = async () => {
   undoable('Import complete', () => { state = pv.next; invalidatePantry(); applyTheme(); refreshIngLists(); saveNow(); rerender(); });
 };
 ACTIONS.resetRecipes = async () => {
-  if (!await confirmDialog('Erase all recipes, meal plans and grocery items? Your profile, settings and ingredient library are kept.', { ok: 'Erase', danger: true })) return;
-  undoable('Recipes and plans erased', () => { state.recipes = []; state.plan = {}; state.manual = []; state.checked = {}; state.have = {}; saveSoon(); rerender(); });
+  if (!await confirmDialog('Erase all recipes, meal plans, past weeks, leftovers and grocery items? Your profile, settings, prices and ingredient library are kept.', { ok: 'Erase', danger: true })) return;
+  undoable('Recipes and plans erased', () => { state.recipes = []; state.plan = {}; state.manual = []; state.checked = {}; state.have = {}; state.stock = []; state.history = []; state.prepDone = {}; saveSoon(); rerender(); });
 };
 ACTIONS.resetAll = async () => {
   if (!await confirmDialog('Erase everything, including your profile, settings and custom ingredients? Save a backup first if you might want it back.', { ok: 'Erase everything', danger: true })) return;
@@ -4090,7 +5015,8 @@ VIEWS.about = {
       <div class="chips noprint"><button class="chipbtn" data-act="scrollTo" data-t="ab-about">About</button><button class="chipbtn" data-act="scrollTo" data-t="ab-notes">Release notes</button><button class="chipbtn" data-act="scrollTo" data-t="ab-license">License</button></div>
       <section class="card prose" id="ab-about"><h2>About</h2>
         <p>${esc(APP.name)} plans your week of meals, hits your macro targets and builds a grocery list you can shop from. It started in 2024 as a spreadsheet called The Pantry Partner and was used for years before becoming this web app.</p>
-        <h3>The method</h3><ol><li><b>Pick your body type.</b> It sets your target protein, carb and fat split.</li><li><b>Get your numbers.</b> Your stats and goal become daily calories and grams of each macro.</li><li><b>Plan to hit them.</b> The planner checks every day against your targets, and the grocery list builds itself.</li></ol>
+        <h3>The method</h3><ol><li><b>Pick your body type.</b> It sets your target protein, carb and fat split.</li><li><b>Get your numbers.</b> Your stats and goal become daily calories and grams of each macro.</li><li><b>Plan to hit them.</b> The planner checks every day against your targets, and the grocery list builds itself.</li><li><b>Prep it once.</b> The Prep page turns the week into one cooking session, and your leftovers, prices and past weeks make next week faster.</li></ol>
+        <h3>Install it like an app</h3><p>On Chrome, Edge and Android, use the Install button on the <a href="#/data">Data page</a> (or the install icon in the address bar). On iPhone and iPad, tap Share, then Add to Home Screen. It opens full screen and works with no signal once it has loaded. On iPhone, the installed app keeps its own saved data, separate from Safari, so export a backup in one and import it in the other to move your data.</p>
         <h3>Privacy</h3><p>There are no accounts. Your recipes, plan and health details stay in your browser and in the backup files you save. <a href="#/privacy">Read the Privacy Policy</a> · <a href="#/terms">Terms of Use</a></p></section>
       <section class="card prose" id="ab-notes"><h2>Release notes</h2>${RELEASES.map((r, i) => `<details class="release" id="rel-${i}" data-keep="rel-${i}"${i === 0 || ui.open['rel-' + i] ? ' open' : ''}><summary><h3>${esc(r.name || APP.name)} © ${esc(r.date.slice(-4))} · ${esc(r.v)} · ${esc(r.date)}${r.tag ? ` <span class="chip">${esc(r.tag)}</span>` : ''}</h3></summary><ul>${r.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul></details>`).join('')}</section>
       <section class="card prose" id="ab-license"><h2>License</h2><h3>${esc(LICENSE.title)}</h3><p class="muted small">Last updated ${esc(LICENSE.updated)}</p><details class="licbox" data-keep="lic"${ui.open.lic ? ' open' : ''}><summary>Read the full license (${LICENSE.sections.length} sections)</summary>${LICENSE.sections.map(([h, ps], i) => `<h4 id="lic-${i}">${esc(h)}</h4>${ps.map(p => `<p>${esc(p)}</p>`).join('')}`).join('')}</details>
@@ -4196,7 +5122,7 @@ window.addEventListener('resize', sizeNotice, { passive: true });
 const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 const PAGE_HINTS = {
   home: 'dashboard today overview', goals: 'body type macros calories bmr tdee target ectomorph mesomorph endomorph weight goal health', recipes: 'recipe library meals cookbook',
-  planner: 'meal plan week calendar auto-plan', grocery: 'shopping list store groceries', ingredients: 'ingredient library store sections aisles units', data: 'csv import export backup demo reset', about: 'release notes license version'
+  planner: 'meal plan week calendar auto-plan swap new week repeat last week budget', prep: 'prep day batch cooking containers freezer fridge leftovers storage steps cook', grocery: 'shopping list store groceries', ingredients: 'ingredient library store sections aisles units', data: 'install app home screen offline csv import export backup demo reset', about: 'release notes license version'
 };
 function hl(text, terms) {
   const t = String(text); if (!terms.length) return esc(t);
@@ -4215,6 +5141,11 @@ function searchDocs() {
   for (const n of NAV.filter(n => !n.feat || featureOn(n.feat))) docs.push({ g: 'Pages', title: n.label, sub: 'Page', hay: norm(n.label + ' ' + (PAGE_HINTS[n.id] || '')), icon: n.icon, run: () => go('#/' + n.id) });
   docs.push({ g: 'Pages', title: 'Setup', sub: 'Change your goals, meals and preferences', hay: norm('setup onboarding wizard preferences features units household'), icon: 'sliders', run: () => ACTIONS.openSetup() });
   docs.push({ g: 'Actions', title: 'Add a recipe', sub: 'Open the recipe editor', hay: norm('add new create recipe'), icon: 'plus', run: () => { go('#/recipes'); setTimeout(() => ACTIONS.newRecipe(), 0); } });
+  if (featureOn('planner')) {
+    if (getTargets()) docs.push({ g: 'Actions', title: 'Auto-plan my week', sub: 'Build meals around your targets', hay: norm('auto plan automatic meal planning generate week budget'), icon: 'wand', run: () => { go('#/planner'); setTimeout(() => ACTIONS.autoPlan(), 60); } });
+    docs.push({ g: 'Actions', title: 'Start a new week', sub: 'Save this week, repeat it or re-plan', hay: norm('new week repeat last week reuse past weeks reset'), icon: 'refresh', run: () => { go('#/planner'); setTimeout(() => ACTIONS.newWeek(), 60); } });
+  }
+  if (featureOn('grocery')) docs.push({ g: 'Actions', title: 'Set ingredient prices', sub: 'Cost per serving and grocery total', hay: norm('prices cost budget money dollars spend estimate'), icon: 'dollar', run: () => { go('#/grocery'); setTimeout(() => ACTIONS.setPrices(), 60); } });
   docs.push({ g: 'Actions', title: 'Save backup now', sub: SAVE_KEYS + ' · JSON backup', hay: norm('save backup now json export download'), icon: 'download', run: () => ACTIONS.backupNow() });
   docs.push({ g: 'Actions', title: 'Export All (CSV)', sub: 'Spreadsheet copy of everything', hay: norm('export download backup csv spreadsheet'), icon: 'download', run: () => ACTIONS.exportCsv() });
   docs.push({ g: 'Actions', title: 'Import Backup (JSON or CSV)', sub: 'Open the import tool', hay: norm('import upload paste csv json restore backup'), icon: 'upload', run: () => go('#/data') });
@@ -4410,6 +5341,30 @@ function showFatal() {
   v.innerHTML = '<div class="empty"><h2>Something went wrong</h2><p>The app could not load your saved data. Your data is still in this browser. You can download a raw copy first, then reset the app to start fresh.</p>' +
     '<div class="row center"><button class="btn" data-act="fatalDownload">Download my saved data</button><button class="btn danger" data-act="fatalReset">Reset the app</button></div></div>';
 }
+/* ---- Install as app (PWA) ---- */
+let deferredInstall = null;
+const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const isStandalone = () => { try { return matchMedia('(display-mode: standalone)').matches || navigator.standalone === true; } catch (e) { return false; } };
+const rerenderDataIfOpen = () => { if (route.name === 'data') rerender(); };
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstall = e; rerenderDataIfOpen(); });
+window.addEventListener('appinstalled', () => { deferredInstall = null; rerenderDataIfOpen(); });
+function installCardHTML() {
+  if (deferredInstall) return `<section class="card" id="installCard"><div class="card-head"><h2>${icon('download')} Install as an app</h2></div>
+    <div class="row"><button class="btn primary" data-act="installApp">Install ${esc(APP.name)}</button></div>
+    <p class="muted small">Opens full screen, like an app. Works with no signal once it has loaded.</p></section>`;
+  if (isIOS && !isStandalone()) return `<section class="card" id="installCard"><div class="card-head"><h2>${icon('download')} Install as an app</h2></div>
+    <p>On iPhone or iPad: tap <b>Share</b>, then <b>Add to Home Screen</b>.</p>
+    <p class="muted small">The installed app keeps its own saved data, separate from Safari. Export a backup first, then import it in the installed app.</p></section>`;
+  return '';
+}
+ACTIONS.installApp = async () => {
+  if (!deferredInstall) return;
+  const d = deferredInstall; deferredInstall = null;
+  try { d.prompt(); await d.userChoice; } catch (e) { }
+  rerenderDataIfOpen();
+};
+if ('serviceWorker' in navigator && /^https?:/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(() => { });
+
 ACTIONS.fatalDownload = () => { let raw = ''; try { raw = localStorage.getItem(LS_KEY) || ''; } catch (e) { } downloadText('mbmealprep-saved-data.json', raw, 'application/json'); };
 ACTIONS.fatalReset = () => { try { state = defaultState(); saveNow(); } catch (e) { } location.reload(); };
 let errToastAt = 0;

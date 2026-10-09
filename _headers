@@ -1,0 +1,18 @@
+# Cloudflare Pages / Netlify. Upload only if your host reads _headers.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: frame-ancestors 'self' https://matthewbroyer.com https://www.matthewbroyer.com
+
+# Always revalidate the app shell so a new build (and a new service worker) is picked up
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/sw.js
+  Cache-Control: no-cache
+/manifest.json
+  Cache-Control: no-cache
+  Content-Type: application/manifest+json

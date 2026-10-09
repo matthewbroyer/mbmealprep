@@ -1,17 +1,17 @@
-# Attributions and third-party notices: mbmealprep.online BETA 4.0
+# Attributions and third-party notices: mbmealprep.online v5 · Web app
 
-Last updated September 20, 2026.
+Last updated October 9, 2026.
 
 ## Summary
 
 | Item | Source | License | Where it appears |
 |---|---|---|---|
-| Interface icons (24-pixel stroke icons: plus, check, trash, copy, download, printer, sun, moon, search and similar) | Drawn in the style of, and in some cases matching the geometry of, Feather Icons by Cole Bemis (https://feathericons.com) | MIT | Inline SVG in the app. Notice is included in the app (About, License) and in an HTML comment. |
-| Logo (carrot) and favicon | Original artwork created for this project | Part of the Work, covered by the app's own license | Header, About, favicon |
+| Interface icons (24-pixel stroke icons: plus, check, trash, copy, download, printer, sun, moon, search, thumbs-up, thumbs-down, dollar and similar) | Drawn in the style of, and in some cases matching the geometry of, Feather Icons by Cole Bemis (https://feathericons.com) | MIT | Inline SVG in the app. Notice is included in the app (About, License) and in an HTML comment. |
+| Logo (divided meal-prep container), favicon.svg, favicon.ico, install icons (icon-192.png, icon-512.png, icon-maskable-512.png, apple-touch-icon.png) and the share image (og-image.png) | Original artwork created for this project (v5). The PNG icons and favicon.ico are the same logo rendered at other sizes. The share image is rendered with the Inter typeface (SIL Open Font License 1.1) baked into the picture; no font file is shipped. | Part of the Work, covered by the app's own license | Header, About, favicon, home-screen icon |
 | Body-type silhouettes (ectomorph, mesomorph, endomorph) | Original artwork created for this project | Part of the Work | Goals and setup |
 | Ingredient library (711 items) and demo recipes | Written for this project. Ingredient names are common food terms. Demo nutrition values are approximate estimates, not lab data. | Part of the Work | Ingredients, Recipes |
 | Fonts | None loaded. The app uses the fonts already on the visitor's device (system font stack). | n/a | n/a |
-| Scripts, libraries, frameworks, CDNs, analytics, ads | None. The app is one HTML file with its own code. | n/a | n/a |
+| Scripts, libraries, frameworks, CDNs, analytics, ads | None. The app is one HTML file with its own code, plus its own manifest.json and sw.js (service worker) for installing and offline use. | n/a | n/a |
 | Formulas | Mifflin-St Jeor (1990) and Katch-McArdle equations, Atwater energy factors (4/4/9 kcal per gram). These are published scientific formulas, not copyrightable software. | n/a | Goals |
 
 ## Feather Icons notice (MIT)
