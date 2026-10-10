@@ -2,6 +2,11 @@
 
 Newest first. The same notes appear in the app under About > Release notes.
 
+## v5.1 · Web app · October 9, 2026 · Paper Cutouts look
+- Lighter, fresher look (Paper Cutouts): a soft tomato tint across the top of each page, a gradient accent line and tab underline, gradient buttons and progress bars, and a leaf-art banner on Home. Layout, features and numbers are unchanged.
+- New logo and app icons: the same meal-prep container on a softer gradient badge, with a matching share image.
+- The version label now reads "v5.1 · Web app". Your saved data, backups and CSV files are unchanged.
+
 ## v5 · Web app · October 9, 2026 · New look
 - New design that matches the other mb apps: a left sidebar on computers, a bottom bar on phones, clean neutral surfaces, square-cornered cards and solid tomato-red buttons, with a matching dark mode.
 - New flat logo (a meal-prep container with three compartments on a tomato-red square), app icons and share image. Protein, carbs and fats show as tomato, blue and amber.

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-AGqqEFHqn98off02UylgH12jvYprn95OE/THrZC6lWk='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-2hDQxTD6GToniMm/kVOuWytI9yzqRrkjKav/2rUEbNo='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#E0523D">
@@ -18,18 +18,18 @@
 <meta property="og:title" content="Meal Prep: plan the week, prep once, shop smarter">
 <meta property="og:description" content="Auto meal planning, macro targets and a grocery list that builds itself. Free, no account.">
 <meta property="og:url" content="https://mbmealprep.online/">
-<meta property="og:image" content="https://mbmealprep.online/og-image.png">
+<meta property="og:image" content="https://mbmealprep.online/og-image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="mbmealprep.online: a weekly meal plan and grocery list">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Meal Prep: plan the week, prep once, shop smarter">
 <meta name="twitter:description" content="Auto meal planning, macro targets and a grocery list that builds itself. Free, no account.">
-<meta name="twitter:image" content="https://mbmealprep.online/og-image.png">
+<meta name="twitter:image" content="https://mbmealprep.online/og-image.png?v=2">
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="favicon.ico" sizes="48x48">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.ico?v=2" sizes="48x48">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <script>
 /* Load light unless dark was chosen last time (ecosystem rule). Runs before first paint. */
 (function(){var t='light';try{var s=JSON.parse(localStorage.getItem('pantryPartner.beta4')||'null');if(s&&s.settings&&s.settings.theme==='dark')t='dark';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
@@ -1343,13 +1343,143 @@ main#view{max-width:var(--page-max);padding-left:max(var(--gutter),env(safe-area
 #appbar{padding-left:max(var(--gutter),calc((100% - var(--page-max)) / 2 + var(--gutter)));padding-right:max(var(--gutter),calc((100% - var(--page-max)) / 2 + var(--gutter)))}
 
 </style>
+<style id="mb-suite-cutouts">
+/* =====================================================================
+   MB SUITE v2 · PAPER CUTOUTS surface layer
+   Additive and accent-driven. Load LAST in <head>: after mb-suite-core.css,
+   mb-suite-appbar.css and the app's adapter. Never edit core to get this look.
+   Changes SURFACE only: gradients, page wash, cutout art. Geometry (6/4/8px),
+   layout, density, type, components, motion and behavior stay MB Suite v1.
+   Per-app tweaks go in adapters/<app>-cutouts.css, not here.
+   ===================================================================== */
+
+/* ---- art + gradient tokens (all derived from --accent; no per-app hex) ---- */
+:root{
+  --cut-deep:var(--accent);
+  --cut-mid:color-mix(in srgb,var(--accent) 52%,#fff);
+  --cut-soft:color-mix(in srgb,var(--accent) 24%,#fff);
+  --cut-near:color-mix(in srgb,var(--accent) 62%,#0aa6b8);      /* neighbor hue; upgraded below where supported */
+  --cut-butter:#FFD98A;
+  --cut-blush:#F7B8A8;
+  --wash-top:color-mix(in srgb,var(--accent) 7%,#fff);
+  --wash-mid:color-mix(in srgb,var(--accent) 4%,var(--bg));
+  --g-line:linear-gradient(90deg,var(--accent),var(--cut-mid) 55%,var(--cut-butter));
+  --g-underline:linear-gradient(90deg,var(--accent),var(--cut-mid));
+  --g-pri:linear-gradient(135deg,var(--accent),var(--accent-hover));
+  --g-bar:linear-gradient(90deg,var(--accent),var(--cut-mid));
+  --g-tile:linear-gradient(135deg,color-mix(in srgb,var(--accent) 11%,var(--surface)),var(--surface) 65%);
+}
+@supports (color:oklch(from red l c h)){
+  :root{--cut-near:oklch(from var(--accent) calc(l + .04) c calc(h + 34))}
+}
+:root[data-theme="dark"],:root.dark{
+  --cut-mid:color-mix(in srgb,var(--accent) 60%,var(--surface));
+  --cut-soft:color-mix(in srgb,var(--accent) 30%,var(--surface));
+  --cut-near:color-mix(in srgb,var(--accent) 62%,#0aa6b8);
+  --cut-butter:#D9B363;
+  --cut-blush:#C98C80;
+  --wash-top:color-mix(in srgb,var(--accent) 16%,var(--bg));
+  --wash-mid:color-mix(in srgb,var(--accent) 7%,var(--bg));
+}
+@supports (color:oklch(from red l c h)){
+  :root[data-theme="dark"],:root.dark{--cut-near:oklch(from var(--accent) calc(l - .06) c calc(h + 34))}
+}
+
+/* ---- page wash: accent-derived, fades into the neutral page by ~680px ---- */
+html{background:linear-gradient(180deg,var(--wash-top) 0,var(--wash-mid) 420px,var(--bg) 680px) no-repeat,var(--bg)}
+body{background:none}
+
+/* ---- app bar: gradient accent line + gradient underline on the current tab ---- */
+.top,.app-bar{box-shadow:var(--shadow)!important}
+.top::before,.app-bar::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--g-line);pointer-events:none;z-index:1}
+.tabs button[aria-current="page"],nav.tabs button[aria-current="page"],
+:root[data-theme="dark"] nav.tabs button[aria-current="page"]{box-shadow:none!important;background:var(--g-underline) bottom/100% 2px no-repeat!important}
+.bnav button[aria-current="page"]{box-shadow:none!important;background:var(--g-underline) top/100% 2px no-repeat!important}
+
+/* ---- gradient is allowed ONLY here (everything else stays flat v1) ----
+   primary buttons, progress/bar fills, the hero stat tile, the banner, the page wash, the accent line.
+   Map the app's own selectors in adapters/<app>-cutouts.css; these are the common ones. */
+:is(.btn.primary,.btn.pri,.btn-primary,button.primary,.primary-btn){background:var(--g-pri)!important;border-color:transparent!important;color:var(--accent-ink)!important}
+.cu-hero{background:var(--g-tile)}
+.cu-bar{background:var(--g-bar)!important}                 /* use on the fill element of a progress/bar */
+
+/* ---- banner ---- */
+.cu-banner{position:relative;overflow:hidden;min-height:128px;margin:0 0 var(--sp-4);padding:22px 24px;border-radius:var(--r-lg);
+  border:1px solid color-mix(in srgb,var(--accent) 16%,transparent);box-shadow:var(--shadow);
+  background:linear-gradient(105deg,color-mix(in srgb,var(--accent) 3%,var(--surface)) 0%,color-mix(in srgb,var(--accent) 9%,var(--surface)) 60%,
+    color-mix(in srgb,var(--cut-butter) 22%,color-mix(in srgb,var(--accent) 5%,var(--surface))) 100%)}
+.cu-banner.slim{min-height:72px;padding:16px 24px}
+.cu-banner .cu-txt{position:relative;z-index:1}
+.cu-banner.slim .cu-art:not(.at-bottom):not(.at-top){max-width:58%}
+.cu-banner .cu-t{margin:0;font-size:var(--fs-h2);font-weight:650;letter-spacing:-.015em;color:var(--ink)}
+.cu-banner .cu-s{margin:4px 0 0;font-size:13.5px;color:var(--ink-2)}
+
+/* ---- art: roles (never hardcode hexes; recolor by role class or palette class) ---- */
+.cu-art{position:absolute;right:0;top:0;height:100%;width:auto;max-width:75%;pointer-events:none}
+.cu-art .d{fill:var(--cu-d,var(--cut-deep))}
+.cu-art .m{fill:var(--cu-m,var(--cut-mid))}
+.cu-art .s{fill:var(--cu-s,var(--cut-soft))}
+.cu-art .n{fill:var(--cu-n,var(--cut-near))}
+.cu-art .b{fill:var(--cu-b,var(--cut-butter))}
+.cu-art .r{fill:var(--cu-r,var(--cut-blush))}
+.cu-art .sd{fill:none;stroke:var(--cu-d,var(--cut-deep));stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.cu-art .sm{fill:none;stroke:var(--cu-m,var(--cut-mid));stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---- palettes: put on the svg or any ancestor ---- */
+.cu-p-mono{--cu-n:color-mix(in srgb,var(--accent) 78%,#000);--cu-b:color-mix(in srgb,var(--accent) 14%,var(--surface));--cu-r:color-mix(in srgb,var(--accent) 38%,var(--surface))}
+.cu-p-soft{--cu-d:var(--cut-mid);--cu-m:var(--cut-soft);--cu-s:color-mix(in srgb,var(--accent) 12%,var(--surface));
+  --cu-n:color-mix(in srgb,var(--cut-near) 45%,var(--surface));--cu-b:color-mix(in srgb,var(--cut-butter) 70%,var(--surface));--cu-r:color-mix(in srgb,var(--cut-blush) 70%,var(--surface))}
+.cu-p-bold{--cu-d:var(--accent-hover);--cu-m:var(--accent);--cu-s:var(--cut-mid)}
+
+/* ---- placement / size / modifiers (all optional; size with --cu-w or height) ---- */
+.cu-art.at-right{right:0;left:auto;top:0}
+.cu-art.at-left{left:0;right:auto;top:0}
+.cu-art.at-top{left:0;right:0;top:0;width:100%;height:auto;max-width:none}
+.cu-art.at-bottom{left:0;right:0;top:auto;bottom:0;width:100%;height:auto;max-width:none}
+.cu-art.at-corner{top:0;right:0;height:auto;width:var(--cu-w,220px);max-width:none}
+.cu-art.at-corner-bl{top:auto;right:auto;bottom:0;left:0;height:auto;width:var(--cu-w,220px);max-width:none}
+.cu-art.inline{position:relative;display:block;right:auto;top:auto;margin:0 auto;width:var(--cu-w,100%);max-width:100%;height:auto}
+.cu-art.mirror{transform:scaleX(-1)}
+.cu-art.flip{transform:scaleY(-1)}
+.cu-art.fade{opacity:.35}
+.cu-art.xs{--cu-w:64px}.cu-art.sm{--cu-w:120px}.cu-art.md{--cu-w:220px}.cu-art.lg{--cu-w:340px}
+:root[data-theme="dark"] .cu-art,:root.dark .cu-art{opacity:.85}
+:root[data-theme="dark"] .cu-art.fade,:root.dark .cu-art.fade{opacity:.3}
+
+/* ---- phones + print ---- */
+@media(max-width:600px){
+  .cu-banner{padding:18px 16px;min-height:104px}
+  .cu-banner .cu-art:not(.at-bottom):not(.at-top){max-width:46%}
+}
+@media print{html{background:#fff}.cu-banner,.cu-art{display:none}}
+
+/* =====================================================================
+   MB SUITE v2 · mbmealprep.online adapter (loads after mb-suite-cutouts.css)
+   Mealprep's header is #appbar, its tabs are a.tab and its phone bar is .bnav.
+   ===================================================================== */
+/* accent line on the sticky app bar (the v1 inset shadow is dropped) */
+#appbar,#appbar.stuck{box-shadow:var(--shadow)!important}
+#appbar::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--g-line);pointer-events:none;z-index:1}
+/* current tab: gradient underline (desktop) and gradient top marker (phone bottom bar) */
+#appbar .tab.on,#appbar .tab.on:hover,#appbar .tab[aria-current="page"]{box-shadow:none!important;background:var(--g-underline) bottom/100% 2px no-repeat!important}
+.bnav>.on,.bnav>.on:hover{box-shadow:none!important;background:var(--g-underline) top/100% 2px no-repeat!important}
+/* primary buttons: gradient (generic rule), hover feedback, flat disabled state */
+.btn.primary:hover:not(:disabled){filter:brightness(.94)}
+.btn.primary:disabled{background:color-mix(in srgb,var(--accent) 35%,var(--surface-2))!important;border-color:transparent!important;color:color-mix(in srgb,var(--accent-ink) 80%,transparent)!important;filter:none}
+/* progress fills */
+.clbar span,.gprog .bar span,#progress i{background:var(--g-bar)}
+/* hero tiles: faint accent tint */
+.kpi.hero,main .tiles>a.tile:first-child{background:var(--g-tile)}
+/* phones: keep banner text in its own column so it never meets the art */
+@media(max-width:600px){.cu-banner .cu-txt{max-width:54%}}
+</style>
 </head>
 <body>
 <a class="skip" href="#view">Skip to content</a>
 <header id="appbar">
   <a class="brand" href="#/home" aria-label="mbmealprep.online home">
     <span class="logo" aria-hidden="true"></span>
-    <span class="nm">mbmealprep<i class="tld">.online</i></span><span class="beta">Official Web App · v1.0</span>
+    <span class="nm">mbmealprep<i class="tld">.online</i></span><span class="beta">Official Web App · v1.1</span>
   </a>
   <nav id="nav" aria-label="Main"></nav>
   <div class="bar-actions">
@@ -1366,7 +1496,7 @@ main#view{max-width:var(--page-max);padding-left:max(var(--gutter),env(safe-area
   <div id="progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
 </header>
 <main id="view" tabindex="-1"><div class="skel" aria-hidden="true"><i class="sk sk-h"></i><i class="sk sk-p"></i><div class="sk-grid"><i class="sk sk-c"></i><i class="sk sk-c"></i><i class="sk sk-c"></i></div></div><noscript><p style="padding:24px">This app needs JavaScript to run.</p></noscript></main>
-<footer>© 2026 Matthew Broyer · mbmealprep.online · Official Web App · v1.0 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
+<footer>© 2026 Matthew Broyer · mbmealprep.online · Official Web App · v1.1 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
 <div id="printSheet" aria-hidden="true"></div>
 <button id="toTop" class="totop" data-act="toTop" aria-label="Back to top" hidden></button>
 <aside id="notice" class="notice" role="region" aria-label="Privacy notice" hidden></aside>
@@ -1394,9 +1524,11 @@ const numOrNull = v => { if (v === '' || v === null || v === undefined) return n
 const fmtInt = n => Math.round(n).toLocaleString('en-US');
 const fmtSigned = (n, d = 0) => { const r = round(n, d); return (r > 0 ? '+' : r < 0 ? '\u2212' : '') + Math.abs(r).toLocaleString('en-US'); };
 /* logo: the shared app-family badge (accent square) with this app's steaming bowl; steam is gold in light, accent-ink in dark */
-const LOGO_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#E0523D"/><rect x="14.5" y="19.5" width="35" height="27" rx="4" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M33 20v26M33 33h16" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="17.5" y="22.5" width="13" height="21" rx="1.5" fill="#fff" fill-opacity=".55"/></svg>';
+const LOGO_SVG = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\"><defs><linearGradient id=\"g1\" gradientUnits=\"userSpaceOnUse\" x1=\"10\" y1=\"0\" x2=\"54\" y2=\"64\"><stop offset=\"0\" stop-color=\"#e46a58\"/><stop offset=\".55\" stop-color=\"#E0523D\"/><stop offset=\"1\" stop-color=\"#b34231\"/></linearGradient><clipPath id=\"c1\"><rect width=\"64\" height=\"64\" rx=\"18\"/></clipPath></defs><g clip-path=\"url(#c1)\"><rect width=\"64\" height=\"64\" fill=\"url(#g1)\"/><ellipse cx=\"14\" cy=\"6\" rx=\"40\" ry=\"26\" fill=\"#fff\" opacity=\"0.14\"/><rect x=\"14.5\" y=\"19.5\" width=\"35\" height=\"27\" rx=\"4\" stroke=\"#fff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M33 20v26M33 33h16\" stroke=\"#fff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><rect x=\"17.5\" y=\"22.5\" width=\"13\" height=\"21\" rx=\"1.5\" fill=\"#fff\" fill-opacity=\".55\"/></g><rect x=\".5\" y=\".5\" width=\"63\" height=\"63\" rx=\"17.5\" fill=\"none\" stroke=\"#fff\" stroke-opacity=\"0.24\"/></svg>";
+const LOGO_SVG_S = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\"><defs><linearGradient id=\"g2\" gradientUnits=\"userSpaceOnUse\" x1=\"10\" y1=\"0\" x2=\"54\" y2=\"64\"><stop offset=\"0\" stop-color=\"#e46a58\"/><stop offset=\".55\" stop-color=\"#E0523D\"/><stop offset=\"1\" stop-color=\"#b34231\"/></linearGradient><clipPath id=\"c2\"><rect width=\"64\" height=\"64\" rx=\"18\"/></clipPath></defs><g clip-path=\"url(#c2)\"><rect width=\"64\" height=\"64\" fill=\"url(#g2)\"/><rect x=\"14.5\" y=\"19.5\" width=\"35\" height=\"27\" rx=\"4\" stroke=\"#fff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M33 20v26M33 33h16\" stroke=\"#fff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><rect x=\"17.5\" y=\"22.5\" width=\"13\" height=\"21\" rx=\"1.5\" fill=\"#fff\" fill-opacity=\".55\"/></g></svg>";
 const LOGO_URI = 'data:image/svg+xml,' + encodeURIComponent(LOGO_SVG);
-const logo = (size = 28) => `<span class="logo" style="width:${size}px;height:${size}px" aria-hidden="true"><img src="${LOGO_URI}" alt="" width="${size}" height="${size}" draggable="false"></span>`;
+const LOGO_URI_S = 'data:image/svg+xml,' + encodeURIComponent(LOGO_SVG_S);
+const logo = (size = 28) => `<span class="logo" style="width:${size}px;height:${size}px" aria-hidden="true"><img src="${size <= 32 ? LOGO_URI_S : LOGO_URI}" alt="" width="${size}" height="${size}" draggable="false"></span>`;
 const cap = s => s ? (s.charAt(0).toUpperCase() + s.slice(1)).replace(/^bbq\b/i, 'BBQ') : s;
 const today = () => new Date().toISOString().slice(0, 10);
 const validDate = s => { if (!s) return ''; const d = new Date(s); return isFinite(d) && d.getFullYear() >= 2000 && d.getTime() < Date.now() + 864e5 ? d.toISOString() : ''; };
@@ -2271,7 +2403,7 @@ zip-top bags|box`;
    Reference data: units, sections, days, ingredient library helpers
    ========================================================================== */
 const DEMO_UPDATED = '2026-09-20T12:00:00.000Z';
-const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'v5 · Web app', year: 2026, released: '2026-10-09' };
+const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'v5.1 · Web app', year: 2026, released: '2026-10-09' };
 
 /* Optional support links (leave blank to hide the buttons) */
 const CONFIG = { issueUrl: '', supportUrl: '', siteUrl: '' };
@@ -3779,7 +3911,7 @@ VIEWS.setup = {
         ${state.recipes.length ? '' : `<h3>Starter recipes</h3><div class="two-cards"><button type="button" class="gcard${ui.starter !== 'demo' ? ' on' : ''}" data-act="starter" data-k="empty" aria-pressed="${ui.starter !== 'demo'}"><b>Start with a blank library</b><small>Add your own recipes, or import a backup.</small></button>
           <button type="button" class="gcard${ui.starter === 'demo' ? ' on' : ''}" data-act="starter" data-k="demo" aria-pressed="${ui.starter === 'demo'}"><b>Add ${DEMO_RECIPES.length} demo recipes</b><small>Try the whole app with demo recipes. Remove them in one click.</small></button></div>`}`;
     }
-    return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">Official Web App · v1.0</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
+    return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">Official Web App · v1.1</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
       <section class="wiz-card">${body}</section>
       <div class="wiz-nav">${ui.setupStep > 0 ? `<button class="btn" data-act="setupBack">${icon('left')} Back</button>` : '<span></span>'}
       ${id === 'welcome' ? `<span class="muted small">Have a backup? <button class="linkbtn" data-act="setupImport">Import it (JSON or CSV)</button></span>` : ''}
@@ -3819,6 +3951,7 @@ const todayName = () => DAYS[(new Date().getDay() + 6) % 7];
 const backupDue = () => { const b = backupInfo(); return b.hasData && b.warn; };
 const plannedCount = () => { let n = 0; for (const d of DAYS) for (const s of activeSlots()) if (getSlot(d, s)) n++; return n; };
 
+const CU_BANNER_SVG = `<svg class="cu-art" viewBox="0 0 300 160" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false"><path class="s" transform="translate(270 150) rotate(-108) scale(0.7)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="r" transform="translate(270 150) rotate(-134) scale(0.75)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="s" transform="translate(270 150) rotate(-160) scale(0.7)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="d" transform="translate(270 150) rotate(-96) scale(1.05)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="m" transform="translate(270 150) rotate(-122) scale(1.15)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="n" transform="translate(270 150) rotate(-148) scale(1.05)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="d" transform="translate(270 150) rotate(-172) scale(0.95)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="b" cx="40" cy="44" r="10"/><circle class="r" cx="84" cy="118" r="5"/><circle class="m" cx="150" cy="22" r="6"/></svg>`;
 VIEWS.home = {
   render() {
     const S = state.setup, t = getTargets(), h = t && t.health;
@@ -3858,7 +3991,7 @@ VIEWS.home = {
       const best = state.recipes.map(r => ({ r, fit: recipeNutri(r).fit })).filter(x => x.fit !== null).sort((a, b) => b.fit - a.fit).slice(0, 4);
       picks = `<section class="card"><div class="card-head"><h2>Best fits for your macros</h2></div><ul class="picks">${best.map(({ r, fit }) => `<li><a href="#/recipes/${r.id}">${esc(r.name)}</a><span class="muted small">${r.type}</span>${fitChip(fit)}</li>`).join('')}</ul></section>`;
     }
-    return `<div class="page-head"><h1>${greet}${S.name ? ', ' + esc(S.name) : ''}</h1><p>${featureOn('planner') ? `${plannedCount()} of ${activeSlots().length * 7} meals planned this week.` : `${state.recipes.length} recipe${state.recipes.length === 1 ? '' : 's'} saved.`}</p></div>
+    return `<section class="cu-banner">${CU_BANNER_SVG}<div class="cu-txt"><h1 class="cu-t">${greet}${S.name ? ', ' + esc(S.name) : ''}</h1><p class="cu-s">${featureOn('planner') ? `${plannedCount()} of ${activeSlots().length * 7} meals planned this week.` : `${state.recipes.length} recipe${state.recipes.length === 1 ? '' : 's'} saved.`}</p></div></section>
       ${backupDue() ? `<div class="note warn bk-note">${icon('shield')}<span>Your data lives in this browser. ${state.settings.lastExport ? 'It has been over a week since your last backup.' : 'You have not made a backup yet.'}</span><button class="btn sm" data-act="backupNow">${icon('save')} Save backup now</button></div>` : ''}
       <div class="tiles">${tiles.join('')}</div>
       <div class="grid-2">${plannedCount() === 0 && list ? list + todayCard : todayCard + list}${picks}</div>`;
@@ -4551,6 +4684,7 @@ document.addEventListener('submit', e => {
    Release notes + license text
    ========================================================================== */
 const RELEASES = [
+  { v: 'v5.1 · Web app', date: 'October 9, 2026', tag: 'Paper Cutouts look', notes: ["Lighter, fresher look (Paper Cutouts): a soft tomato tint across the top of each page, a gradient accent line and tab underline, gradient buttons and progress bars, and a leaf-art banner on Home. Layout, features and numbers are unchanged.", "New logo and app icons: the same meal-prep container on a softer gradient badge, with a matching share image.", "The version label now reads \"v5.1 · Web app\". Your saved data, backups and CSV files are unchanged."] },
   { v: 'v5 · Web app', date: 'October 9, 2026', tag: 'New look', notes: [
     'New design that matches the other mb apps: a left sidebar on computers, a bottom bar on phones, clean neutral surfaces, square-cornered cards and solid tomato-red buttons, with a matching dark mode.',
     'New flat logo (a meal-prep container with three compartments on a tomato-red square), app icons and share image. Protein, carbs and fats show as tomato, blue and amber.',
@@ -4975,7 +5109,7 @@ ACTIONS.resetAll = async () => {
 /* ---- About ---- */
 VIEWS.about = {
   render() {
-    return `<div class="page-head"><h1 class="about-h">${logo(40)} ${APP.name}</h1><p><span class="beta">Official Web App · v1.0</span> · © ${APP.year} Matthew Broyer</p></div>
+    return `<div class="page-head"><h1 class="about-h">${logo(40)} ${APP.name}</h1><p><span class="beta">Official Web App · v1.1</span> · © ${APP.year} Matthew Broyer</p></div>
       <div class="chips noprint"><button class="chipbtn" data-act="scrollTo" data-t="ab-about">About</button><button class="chipbtn" data-act="scrollTo" data-t="ab-notes">Release notes</button><button class="chipbtn" data-act="scrollTo" data-t="ab-license">License</button></div>
       <section class="card prose" id="ab-about"><h2>About</h2>
         <p>${esc(APP.name)} plans your week of meals, hits your macro targets and builds a grocery list you can shop from. It started in 2024 as a spreadsheet called The Pantry Partner and was used for years before becoming this web app.</p>

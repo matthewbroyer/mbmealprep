@@ -3,7 +3,7 @@
    It never touches user data (that lives in localStorage/IndexedDB, which a service worker cannot see
    through this code) and ignores every non-GET and cross-origin request.
    BUMP VERSION ON EVERY RELEASE so old cached files are dropped. */
-const VERSION = 'mbmealprep-5.0.6';
+const VERSION = 'mbmealprep-5.1.0';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png',
   'icon-maskable-512.png', 'apple-touch-icon.png', 'favicon.svg', 'favicon.ico'];
 
