@@ -1,24 +1,20 @@
-/* mbmealprep.online service worker.
+/* mbmealprep.online service worker (MB Suite v3 template).
    Network-first for the app's own files, cache as the offline fallback.
-   It never touches user data (that lives in localStorage/IndexedDB, which a service worker cannot see
-   through this code) and ignores every non-GET and cross-origin request.
+   It never touches user data (that lives in localStorage/IndexedDB, which this code never reads)
+   and ignores every non-GET and cross-origin request. Only deletes its own "mbmealprep-" caches.
    BUMP VERSION ON EVERY RELEASE so old cached files are dropped. */
-const VERSION = 'mbmealprep-5.1.0';
-const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png',
-  'icon-maskable-512.png', 'apple-touch-icon.png', 'favicon.svg', 'favicon.ico'];
+const VERSION = 'mbmealprep-5.2.1';
+const SHELL = ['./', 'index.html', 'manifest.json', 'favicon.svg', 'favicon.ico', 'icon-192.png', 'icon-512.png',
+  'icon-maskable-512.png', 'apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
 });
-
 self.addEventListener('activate', e => {
-  e.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== VERSION).map(k => caches.delete(k))))
-      .then(() => self.clients.claim())
-  );
+  e.waitUntil(caches.keys()
+    .then(keys => Promise.all(keys.filter(k => k.startsWith('mbmealprep-') && k !== VERSION).map(k => caches.delete(k))))
+    .then(() => self.clients.claim()));
 });
-
 self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
@@ -26,10 +22,7 @@ self.addEventListener('fetch', e => {
   if (url.origin !== location.origin) return;
   e.respondWith(
     fetch(req)
-      .then(res => {
-        if (res.ok && res.status === 200) { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); }
-        return res;
-      })
-      .catch(() => caches.match(req).then(r => r || caches.match('index.html')))
+      .then(res => { if (res.ok && res.type === 'basic') { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); } return res; })
+      .catch(() => caches.match(req).then(r => r || (req.mode === 'navigate' ? caches.match('index.html') : undefined)))
   );
 });

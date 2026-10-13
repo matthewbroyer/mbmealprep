@@ -1,9 +1,9 @@
 <!doctype html>
-<!-- mbmealprep.online v5 · Web app. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
-<html lang="en">
+<!-- mbmealprep.online v5.2 · Web app. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
+<html lang="en" data-app-short="Meal Prep" data-app-domain="mbmealprep.online">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-2hDQxTD6GToniMm/kVOuWytI9yzqRrkjKav/2rUEbNo='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-AuaI0AmD+ddJHs0+L/0peJCmiEwEIRtxsqweiI6OxCY='; style-src 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#E0523D">
@@ -18,18 +18,21 @@
 <meta property="og:title" content="Meal Prep: plan the week, prep once, shop smarter">
 <meta property="og:description" content="Auto meal planning, macro targets and a grocery list that builds itself. Free, no account.">
 <meta property="og:url" content="https://mbmealprep.online/">
-<meta property="og:image" content="https://mbmealprep.online/og-image.png?v=2">
+<meta property="og:image" content="https://mbmealprep.online/og-image.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="mbmealprep.online: a weekly meal plan and grocery list">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Meal Prep: plan the week, prep once, shop smarter">
 <meta name="twitter:description" content="Auto meal planning, macro targets and a grocery list that builds itself. Free, no account.">
-<meta name="twitter:image" content="https://mbmealprep.online/og-image.png?v=2">
+<meta name="twitter:image" content="https://mbmealprep.online/og-image.png?v=3">
+<meta name="twitter:image:alt" content="mbmealprep.online: a weekly meal plan and grocery list">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"mbmealprep.online","alternateName":"Meal Prep","url":"https://mbmealprep.online/","description":"Plan your week of meals, hit your protein, carb and fat targets, and shop from a list sorted by store section. Free, no account, and your data stays in your browser.","applicationCategory":"LifestyleApplication","operatingSystem":"Any (runs in a web browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Matthew Broyer","url":"https://matthewbroyer.com/"},"image":"https://mbmealprep.online/og-image.png"}</script>
+<link rel="canonical" href="https://mbmealprep.online/">
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="favicon.ico?v=2" sizes="48x48">
-<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="icon" href="favicon.ico?v=3" sizes="48x48">
+<link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <script>
 /* Load light unless dark was chosen last time (ecosystem rule). Runs before first paint. */
 (function(){var t='light';try{var s=JSON.parse(localStorage.getItem('pantryPartner.beta4')||'null');if(s&&s.settings&&s.settings.theme==='dark')t='dark';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
@@ -871,9 +874,9 @@ mark { border-radius: 2px; }
 :root[data-theme="dark"] .chip.type, :root[data-theme="dark"] .chip.prep { color: inherit; }
 :root[data-theme="dark"] .chip.type { color: var(--ink2); } :root[data-theme="dark"] .chip.prep { color: var(--accent-soft-ink); }
 
-/* phone bottom nav + "More" sheet */
+/* phone bottom nav + "More" sheet (v3: same <768px breakpoint as the sidebar) */
 .bnav, .bn-sheet { display: none; }
-@media (max-width: 720px) {
+@media (max-width: 767px) {
   :root { --bnav-h: calc(55px + env(safe-area-inset-bottom)); }
   body[data-view="setup"] { --bnav-h: 0px; }
   body, body.has-notice { padding-bottom: calc(var(--bnav-h, 0px) + var(--notice-h, 0px)); }
@@ -1089,7 +1092,7 @@ dialog::backdrop { background: rgba(30, 12, 6, .55); backdrop-filter: blur(5px);
 /* (v5 sidebar/tablet layout removed by MB Suite v1) */
 
 /* ---------- phone ---------- */
-@media (max-width: 720px) {
+@media (max-width: 767px) {
   :root { --bnav-h: calc(86px + env(safe-area-inset-bottom)); }
   body[data-view="setup"] { --bnav-h: 0px; }
   main#view { padding: 20px 16px 40px; }
@@ -1325,7 +1328,7 @@ dialog::backdrop{background:var(--scrim);backdrop-filter:none;-webkit-backdrop-f
   #appbar .tab.on::before{display:none}
 }
 /* phones: docked bottom bar like the rest of the family */
-@media (max-width:720px){
+@media (max-width:767px){
   :root{--bnav-h:calc(62px + env(safe-area-inset-bottom))}
   .brand .logo{width:28px!important;height:28px!important}
   .tile b{font-size:24px}
@@ -1386,7 +1389,7 @@ main#view{max-width:var(--page-max);padding-left:max(var(--gutter),env(safe-area
 }
 
 /* ---- page wash: accent-derived, fades into the neutral page by ~680px ---- */
-html{background:linear-gradient(180deg,var(--wash-top) 0,var(--wash-mid) 420px,var(--bg) 680px) no-repeat,var(--bg)}
+html{min-height:100%;background:linear-gradient(180deg,var(--wash-top) 0,var(--wash-mid) 420px,var(--bg) 680px) 0 0/100% 680px no-repeat,var(--bg)}  /* v3 fix: fixed 680px size + min-height so short pages don't show a seam */
 body{background:none}
 
 /* ---- app bar: gradient accent line + gradient underline on the current tab ---- */
@@ -1455,14 +1458,9 @@ body{background:none}
 
 /* =====================================================================
    MB SUITE v2 · mbmealprep.online adapter (loads after mb-suite-cutouts.css)
-   Mealprep's header is #appbar, its tabs are a.tab and its phone bar is .bnav.
+   v3: the header and tab rules moved to the sidebar layer (mb-suite-sidebar.css); the family
+   accent line is now .mb-shell::before.
    ===================================================================== */
-/* accent line on the sticky app bar (the v1 inset shadow is dropped) */
-#appbar,#appbar.stuck{box-shadow:var(--shadow)!important}
-#appbar::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--g-line);pointer-events:none;z-index:1}
-/* current tab: gradient underline (desktop) and gradient top marker (phone bottom bar) */
-#appbar .tab.on,#appbar .tab.on:hover,#appbar .tab[aria-current="page"]{box-shadow:none!important;background:var(--g-underline) bottom/100% 2px no-repeat!important}
-.bnav>.on,.bnav>.on:hover{box-shadow:none!important;background:var(--g-underline) top/100% 2px no-repeat!important}
 /* primary buttons: gradient (generic rule), hover feedback, flat disabled state */
 .btn.primary:hover:not(:disabled){filter:brightness(.94)}
 .btn.primary:disabled{background:color-mix(in srgb,var(--accent) 35%,var(--surface-2))!important;border-color:transparent!important;color:color-mix(in srgb,var(--accent-ink) 80%,transparent)!important;filter:none}
@@ -1473,16 +1471,219 @@ body{background:none}
 /* phones: keep banner text in its own column so it never meets the art */
 @media(max-width:600px){.cu-banner .cu-txt{max-width:54%}}
 </style>
+<style id="mb-suite-sidebar">
+/* =====================================================================
+   MB SUITE v3 · LEFT SIDEBAR NAVIGATION  (replaces mb-suite-appbar.css)
+   Load order: mb-suite-core.css → app adapter → mb-suite-cutouts.css (v2) → this file → <app>-v3.css
+   Needs v1 tokens (--surface, --border, --accent, --r-sm, --page-max, --gutter …) and, if present,
+   v2's --g-line / --cut-mid for the gradient accents (falls back to flat accent without v2).
+
+   Markup (see v3-updates/demo/index.html for a working page):
+   <body class="mb-shell">
+     <aside class="mb-side" aria-label="App">
+       <a class="brand" href="./" aria-label="mbname.online: go to Home"> .logo + .bt(b + span) </a>
+       <nav class="side-nav" aria-label="Sections"> <button aria-current="page"><svg class="uic"/><span>Home</span></button> … </nav>
+       <nav class="side-nav side-end" aria-label="More"> Settings / Help items (optional) </nav>
+     </aside>
+     <div class="mb-main">
+       <header class="page-bar">
+         <a class="brand phone-brand" href="./" …>  (same brand block; shown on phones only)
+         <h1 class="page-title">Home</h1>
+         <div class="actions"> search · status chip · Data · theme switch · primary action </div>
+       </header>
+       <main class="wrap"> … </main>
+     </div>
+     <nav class="bnav" aria-label="Sections"> phone bottom bar (max 5 items, rest in a More sheet) </nav>
+   </body>
+
+   Breakpoints (identical in every app):
+     ≥1024px  sidebar 240px with labels
+     768–1023 rail 76px: icon over a short label, logo only
+     <768     no sidebar; page-bar becomes the top bar with the brand; docked bottom bar
+   ===================================================================== */
+:root{
+  --side-w:240px; --rail-w:76px; --bar-h:56px;
+  --g-rail:linear-gradient(180deg,var(--accent),var(--cut-mid,var(--accent)));
+}
+
+/* family accent line across the whole window (sidebar included) */
+.mb-shell::before{content:"";position:fixed;left:0;right:0;top:0;height:3px;background:var(--g-line,var(--accent));z-index:60;pointer-events:none}
+
+/* ---- sidebar ---- */
+.mb-side{position:fixed;top:0;bottom:0;left:0;width:var(--side-w);z-index:40;display:flex;flex-direction:column;gap:2px;
+  padding:15px 0 12px;background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.mb-side .brand{margin:0 8px 12px;padding:6px 8px}
+.side-nav{display:flex;flex-direction:column;gap:2px;padding:0 8px}
+.side-nav.side-end{margin-top:auto;padding-top:8px;border-top:1px solid var(--border)}
+.side-label{margin:14px 20px 4px;font-size:var(--fs-xs,11.5px);font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.side-nav button,.side-nav a{position:relative;display:flex;align-items:center;gap:10px;width:100%;min-height:40px;padding:0 12px;border:0;border-radius:var(--r-sm);
+  background:none;font:500 14px var(--font);color:var(--ink-2);text-align:left;text-decoration:none;cursor:pointer;
+  transition:background-color var(--ease),color var(--ease)}
+.side-nav .uic,.side-nav svg{flex:none;width:18px;height:18px;opacity:.75}
+.side-nav button:hover,.side-nav a:hover{background:var(--surface-2);color:var(--ink)}
+.side-nav [aria-current="page"],.side-nav [aria-current="page"]:hover{color:var(--accent);font-weight:600;
+  background:var(--g-rail) left center/3px 60% no-repeat,var(--accent-soft)}
+.side-nav [aria-current="page"] svg{opacity:1}
+.side-nav button:focus-visible,.side-nav a:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.side-nav .count{margin-left:auto;font-size:12px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.side-nav .dot{position:absolute;left:24px;top:8px;width:8px;height:8px;border-radius:2px;background:var(--warn)}
+
+/* ---- the brand block: ALWAYS a link to the home / start view ---- */
+a.brand{display:flex;align-items:center;gap:9px;min-width:0;border-radius:var(--r-sm);color:inherit;text-decoration:none;transition:background-color var(--ease)}
+a.brand:hover{background:var(--surface-2)}
+a.brand:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.brand .logo,.brand .logo svg{display:block;flex:none;width:28px;height:28px;border-radius:var(--r)}
+.brand .bt{display:flex;flex-direction:column;min-width:0;line-height:1.15}
+.brand b{font-size:14.5px;font-weight:650;letter-spacing:-.005em;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .bt span{font-size:11px;color:var(--muted);letter-spacing:.01em;white-space:nowrap}
+
+/* ---- main column + page bar ---- */
+.mb-main{margin-left:var(--side-w);min-width:0}
+.page-bar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;min-height:var(--bar-h);
+  padding:3px max(var(--gutter),calc((100% - var(--page-max)) / 2 + var(--gutter))) 0;
+  background:color-mix(in srgb,var(--surface) 96%,transparent);border-bottom:1px solid var(--border);box-shadow:var(--shadow)}
+.page-bar .phone-brand{display:none}
+.page-title{margin:0;font-size:18px;font-weight:650;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.page-bar .actions{margin-left:auto;display:flex;align-items:center;gap:6px}
+.page-bar .actions>*{min-height:var(--ctl-sm)}
+.mb-main>.wrap{max-width:var(--page-max);margin:0 auto;padding:20px max(var(--gutter),env(safe-area-inset-right)) 48px max(var(--gutter),env(safe-area-inset-left))}
+
+/* ---- phone bottom bar (hidden until <768px) ---- */
+.bnav{display:none}
+
+/* ---- tablet: compact rail ---- */
+@media (max-width:1023px){
+  .mb-side{width:var(--rail-w);padding-top:12px}
+  .mb-side .brand{justify-content:center;margin:0 10px 10px;padding:8px 0}
+  .mb-side .brand .bt,.side-label,.side-nav .count{display:none}
+  .side-nav{padding:0 6px}
+  .side-nav button,.side-nav a{flex-direction:column;justify-content:center;gap:3px;min-height:56px;padding:6px 2px;font-size:10.5px;text-align:center;line-height:1.15}
+  .side-nav [aria-current="page"],.side-nav [aria-current="page"]:hover{background:var(--g-rail) left center/3px 50% no-repeat,var(--accent-soft)}
+  .side-nav .dot{left:auto;right:12px}
+  .mb-main{margin-left:var(--rail-w)}
+}
+/* ---- phones: top bar with the brand + docked bottom bar ---- */
+@media (max-width:767px){
+  .mb-side{display:none}
+  .mb-main{margin-left:0}
+  .page-bar{padding:3px max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));gap:8px}
+  .page-bar .phone-brand{display:flex;margin-left:-3px;padding:3px 6px 3px 3px}
+  .page-bar .page-title{display:none}               /* the view's own h2 / banner names the page on phones */
+  .page-bar .actions .hide-phone{display:none}
+  .bnav{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;position:fixed;left:0;right:0;bottom:0;z-index:40;
+    padding:0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);background:var(--surface);border-top:1px solid var(--border-strong)}
+  .bnav button,.bnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:56px;border:0;border-radius:0;background:none;
+    font:500 11px var(--font);color:var(--ink-2);text-decoration:none}
+  .bnav svg{width:20px;height:20px}
+  .bnav [aria-current="page"]{color:var(--accent);font-weight:600;background:var(--g-underline,linear-gradient(var(--accent),var(--accent))) top/100% 2px no-repeat}
+  body.mb-shell{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+}
+@media (max-width:420px){.page-bar .phone-brand .bt span{display:none}}
+@media print{.mb-side,.bnav,.page-bar .actions,.mb-shell::before{display:none!important}.mb-main{margin-left:0}}
+</style>
+<style id="mb-suite-v3">
+/* =====================================================================
+   MB SUITE v3 · components: install card (Settings/More) and the share dialog.
+   Load after mb-suite-sidebar.css. Uses v1 tokens only; v2 gradients are picked up where present.
+   ===================================================================== */
+/* ---- install card ---- */
+.mb-install{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--border);border-left:3px solid var(--accent);
+  border-radius:var(--r);background:var(--surface)}
+.mb-install>.uic{flex:none;width:22px;height:22px;color:var(--accent)}
+.mb-install>div{flex:1;min-width:0}
+.mb-install b{display:block;font-size:14px;font-weight:600;color:var(--ink)}
+.mb-install p{margin:2px 0 0;font-size:12.5px;color:var(--ink-2)}
+.mb-install p b{display:inline;font-size:inherit}
+.mb-install .btn{flex:none}
+.mb-install.is-done{border-left-color:var(--good)}
+.mb-install.is-done>.uic{color:var(--good-ink)}
+@media (max-width:520px){.mb-install{flex-wrap:wrap}.mb-install .btn{width:100%}}
+
+/* ---- share button (put it where the milestone is shown) ---- */
+.mb-share-btn .uic{width:16px;height:16px}
+
+/* ---- share dialog ---- */
+dialog.mb-share{width:min(460px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0;border:1px solid var(--border);border-radius:var(--r-lg);
+  background:var(--surface);color:var(--ink);box-shadow:var(--shadow-pop);overflow:auto}
+dialog.mb-share::backdrop{background:var(--scrim)}
+.mb-share .ms-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border)}
+.mb-share h3{margin:0;font-size:16px;font-weight:650}
+.mb-share .ms-prev{position:relative;margin:16px 16px 0;aspect-ratio:1;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--surface-2)}
+.mb-share .ms-prev img{display:block;width:100%;height:100%}
+.mb-share .ms-wait{position:absolute;inset:0;display:grid;place-items:center;margin:0;color:var(--muted);font-size:13px}
+.mb-share .ms-opts{display:flex;flex-wrap:wrap;gap:4px 16px;padding:12px 16px 0}
+.mb-share .ms-opts:empty{display:none}
+.mb-share .ms-opt{display:inline-flex;align-items:center;gap:8px;min-height:36px;font-size:13.5px}
+.mb-share .ms-note{margin:10px 16px 0;font-size:12px;color:var(--muted)}
+.mb-share .ms-btns{display:flex;justify-content:flex-end;gap:8px;padding:14px 16px 16px;margin-top:12px;border-top:1px solid var(--border)}
+@media (max-width:520px){.mb-share .ms-btns .btn{flex:1}}
+.mb-share [hidden],[data-mb-install][hidden]{display:none!important}
+/* v2 banner on phones: keep the text column clear of the art */
+@media (max-width:600px){:where(.cu-banner) .cu-txt{max-width:54%}}   /* same as the v2 adapters; low specificity so an adapter can override */
+</style>
+<style id="mbmealprep-v3">
+/* =====================================================================
+   MB SUITE v3 · mbmealprep.online adapter (loads after mb-suite-sidebar.css and mb-suite-v3.css)
+   Maps the app's own pieces onto the shared shell: #pagebar is the page bar, #sideNav/#sideEnd the
+   sidebar, #bnav + #bnSheet the phone bottom bar and its More sheet. Breakpoints are the kit's.
+   ===================================================================== */
+/* the page bar replaces the old #appbar; keep its scroll-progress line and drop the old brand grid */
+.page-bar.stuck{box-shadow:0 2px 10px rgba(20,24,31,.08)}
+.page-bar[hidden]{display:none}
+.page-bar #progress{bottom:-1px}
+.page-bar .actions{flex:none}
+a.brand{min-height:0;column-gap:9px}
+a.brand .tld{font-style:normal;color:var(--accent)}
+.brand .bt span{font-weight:400}
+.mb-side a.brand{padding:6px 8px}
+.page-title{color:var(--ink)}
+/* the view's own heading names the page; hide only exact repeats of the page-bar title on wider screens (still read by screen readers) */
+@media screen and (min-width:768px){.page-head h1.ph-dup{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .page-head:has(> h1.ph-dup:only-child){display:none}}
+/* setup is a full-screen flow: no sidebar, no page bar, no bottom bar */
+body[data-view="setup"] .mb-side{display:none}
+body[data-view="setup"] .mb-main{margin-left:0}
+/* fixed bottom pieces sit beside the sidebar, not under it */
+@media (min-width:768px){.notice{left:var(--rail-w)}}
+@media (min-width:1024px){.notice{left:var(--side-w)}}
+body[data-view="setup"] .notice{left:0}
+/* phones: bottom bar height, More button state and room for the privacy notice */
+@media (max-width:767px){
+  :root{--bnav-h:calc(57px + env(safe-area-inset-bottom))}
+  body[data-view="setup"]{--bnav-h:0px}
+  body.mb-shell,body.mb-shell.has-notice{padding-bottom:calc(var(--bnav-h,0px) + var(--notice-h,0px))}
+  .bnav{gap:0}
+  .bnav>a,.bnav>button{min-height:56px}
+  .bnav>.on,.bnav>.on:hover{color:var(--accent);font-weight:600;box-shadow:none;background:var(--g-underline,linear-gradient(var(--accent),var(--accent))) top/100% 2px no-repeat}
+  .bnav>a[aria-current="page"]{box-shadow:none}
+  .page-bar .phone-brand{flex:1 1 auto;min-width:0}
+}
+/* Week at a glance: chip + Share button */
+.wk-head-r{gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+/* nature art: setup welcome (NA-10 wreath around the badge) and empty states (NA-16) */
+.hero-wreath{position:relative;width:150px;margin:0 0 10px}
+.hero-wreath .cu-art{width:100%}
+.hero-wreath .logo{position:absolute;inset:0;margin:auto;width:52px!important;height:52px!important}
+.empty-art{width:120px;margin:0 auto 4px}
+/* setup header on small phones: keep Skip setup on screen (it overflowed at 390px) */
+.wiz-top{gap:8px}
+@media (max-width:440px){.wiz-top .brandmini .beta{display:none}}
+.empty-art .cu-art{width:100%}
+@media print{.page-bar,.mb-shell::before{display:none!important}body.mb-shell{padding:0!important}}
+</style>
 </head>
-<body>
+<body class="mb-shell">
 <a class="skip" href="#view">Skip to content</a>
-<header id="appbar">
-  <a class="brand" href="#/home" aria-label="mbmealprep.online home">
-    <span class="logo" aria-hidden="true"></span>
-    <span class="nm">mbmealprep<i class="tld">.online</i></span><span class="beta">Official Web App · v1.1</span>
-  </a>
-  <nav id="nav" aria-label="Main"></nav>
-  <div class="bar-actions">
+<aside class="mb-side" id="side" aria-label="App">
+  <a class="brand" href="#/home" aria-label="mbmealprep.online: go to Home"><span class="logo"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="sb-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#e46a58"/><stop offset=".55" stop-color="#E0523D"/><stop offset="1" stop-color="#b34231"/></linearGradient><clipPath id="sb-c"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#sb-c)"><rect width="64" height="64" fill="url(#sb-g)"/><rect x="14.5" y="18.5" width="35" height="27" rx="4" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M 33,19 V 45 M 33,32 H 49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="16.151796" y="19.755266" width="15.855019" height="24.410162" rx="1.8294252" fill="#ffffff" fill-opacity="0.55" style="stroke-width:1.19065"/></g></svg></span><span class="bt"><b>mbmealprep<i class="tld">.online</i></b><span>Official Web App · v1.2</span></span></a>
+  <nav class="side-nav" id="sideNav" aria-label="Sections"></nav>
+  <nav class="side-nav side-end" id="sideEnd" aria-label="More"></nav>
+</aside>
+<div class="mb-main">
+<header class="page-bar" id="pagebar">
+  <a class="brand phone-brand" href="#/home" aria-label="mbmealprep.online: go to Home"><span class="logo"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="pb-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#e46a58"/><stop offset=".55" stop-color="#E0523D"/><stop offset="1" stop-color="#b34231"/></linearGradient><clipPath id="pb-c"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#pb-c)"><rect width="64" height="64" fill="url(#pb-g)"/><rect x="14.5" y="18.5" width="35" height="27" rx="4" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M 33,19 V 45 M 33,32 H 49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="16.151796" y="19.755266" width="15.855019" height="24.410162" rx="1.8294252" fill="#ffffff" fill-opacity="0.55" style="stroke-width:1.19065"/></g></svg></span><span class="bt"><b>mbmealprep<i class="tld">.online</i></b><span>Official Web App · v1.2</span></span></a>
+  <p class="page-title" id="pageTitle" aria-hidden="true">Home</p>
+  <div class="actions bar-actions">
     <button id="searchBtn" class="btn ghost sm searchbtn" data-act="openSearch" aria-label="Search the site" aria-keyshortcuts="Control+K Meta+K /"></button>
     <span id="storageBadge" class="chip warn" hidden title="Your browser is blocking storage. Save a backup to keep your work.">Storage off</span>
     <button id="bkChip" type="button" class="bk-chip" data-act="backupNow" hidden></button>
@@ -1490,17 +1691,17 @@ body{background:none}
       <summary class="btn sm" aria-label="Data: back up, export or import"><span class="dm-ic"></span><span class="dm-t">Data</span><i class="bk-dot" aria-hidden="true"></i></summary>
       <div class="menu dm-menu" id="dataMenuBody"></div>
     </details>
-    <button id="setupBtn" class="btn ghost sm" data-act="openSetup" aria-label="Run setup">Setup</button>
     <button id="themeBtn" type="button" class="themesw" data-act="theme" role="switch" aria-checked="false" aria-label="Dark mode"></button>
   </div>
   <div id="progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
 </header>
 <main id="view" tabindex="-1"><div class="skel" aria-hidden="true"><i class="sk sk-h"></i><i class="sk sk-p"></i><div class="sk-grid"><i class="sk sk-c"></i><i class="sk sk-c"></i><i class="sk sk-c"></i></div></div><noscript><p style="padding:24px">This app needs JavaScript to run.</p></noscript></main>
-<footer>© 2026 Matthew Broyer · mbmealprep.online · Official Web App · v1.1 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
+<footer>© 2026 Matthew Broyer · mbmealprep.online · Official Web App · v1.2 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
+</div>
 <div id="printSheet" aria-hidden="true"></div>
 <button id="toTop" class="totop" data-act="toTop" aria-label="Back to top" hidden></button>
 <aside id="notice" class="notice" role="region" aria-label="Privacy notice" hidden></aside>
-<nav id="bnav" class="bnav" aria-label="Main"></nav>
+<nav id="bnav" class="bnav" aria-label="Sections"></nav>
 <div id="bnSheet" class="bn-sheet" role="region" aria-label="More pages" hidden></div>
 <input type="file" id="impAny" accept=".json,.csv,.tsv,.txt,application/json,text/csv" hidden data-change="impAny">
 <datalist id="ingList"></datalist><datalist id="unitList"></datalist>
@@ -1510,6 +1711,257 @@ body{background:none}
 <div id="tip" role="tooltip" hidden></div>
 <script>
 'use strict';
+
+/* ==========================================================================
+   MB Suite v3 kit scripts (mb-title.js, mb-install.js, mb-share.js), inlined because the CSP pins script hashes
+   ========================================================================== */
+/* MB Suite v3 · browser tab titles: "<Short name> | <Page>"  e.g. "Money | Budget"
+   Put the short name on <html data-app-short="Money"> and call MBTitle.set('Budget') whenever the view changes.
+   The static <title> in index.html should already read "Money | Dashboard" (the start view) so the tab is right before JS runs.
+   Dialogs and legal pages may use their own name: MBTitle.set('Privacy'). No dependencies; safe to inline (recompute CSP hashes if you do). */
+(function () {
+  var app = document.documentElement.getAttribute('data-app-short') || (document.title.split('|')[0] || '').trim() || 'App';
+  window.MBTitle = {
+    app: app,
+    set: function (page) { document.title = page ? app + ' | ' + page : app; }
+  };
+})();
+/* =====================================================================
+   MB Suite v3 · "Install app" card (mbmealprep addition: optional data-ios-note line on iPhone/iPad) for the Settings / More page. No dependencies.
+   1) Put this where the card should appear (Settings or More), once:
+        <div data-mb-install data-app-name="Money"
+             data-note="Opens in its own window with its own icon. Works offline after the first visit."></div>
+   2) Load this file (or inline it) once. If the Settings view is re-rendered by your app, call MBInstall.render() after it renders.
+   3) Register the service worker once, at the end of the app's main script:  MBInstall.registerSW('sw.js');
+   What the card shows:
+     - Chrome / Edge / Android when the browser offers install: an "Install <name>" button (opens the browser's own dialog).
+     - iPhone / iPad (no install API): "Tap Share, then Add to Home Screen."
+     - Already installed (running as the app): a one-line "Installed on this device" status.
+     - Anything else (Firefox, a browser that hasn't offered install yet, file://): nothing; the box stays hidden.
+   Never shows a button that does nothing. Needs HTTPS (or localhost) for the install prompt and the service worker.
+   ===================================================================== */
+(function () {
+  var deferred = null;
+  function standalone() { return (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true; }
+  function ios() { return /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); }
+  function esc(s) { return String(s || '').replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  var ICON = '<svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 7v7M9 11l3 3 3-3M10 18.5h4"/></svg>';
+  function render() {
+    var boxes = document.querySelectorAll('[data-mb-install]');
+    for (var i = 0; i < boxes.length; i++) {
+      var box = boxes[i], name = box.getAttribute('data-app-name') || document.documentElement.getAttribute('data-app-short') || 'this app';
+      var note = box.getAttribute('data-note') || 'Opens in its own window with its own icon.';
+      var html = '';
+      if (standalone()) {
+        html = '<div class="mb-install is-done" role="status">' + ICON + '<div><b>Installed on this device</b><p>You are using the app version of ' + esc(name) + '.</p></div></div>';
+      } else if (deferred) {
+        html = '<div class="mb-install">' + ICON + '<div><b>Install ' + esc(name) + '</b><p>' + esc(note) + '</p></div>' +
+               '<button type="button" class="btn primary" data-mb-install-btn>Install</button></div>';
+      } else if (ios()) {
+        html = '<div class="mb-install">' + ICON + '<div><b>Add ' + esc(name) + ' to your Home Screen</b><p>On iPhone or iPad: tap <b>Share</b>, then <b>Add to Home Screen</b>. It opens full screen with its own icon.</p>' +
+          (box.getAttribute('data-ios-note') ? '<p>' + esc(box.getAttribute('data-ios-note')) + '</p>' : '') + '</div></div>';
+      }
+      box.innerHTML = html;
+      box.hidden = !html;
+    }
+  }
+  function install() {
+    if (!deferred) return Promise.resolve(false);
+    var d = deferred; deferred = null;                // the event can only be used once
+    try { d.prompt(); } catch (e) { render(); return Promise.resolve(false); }
+    return (d.userChoice || Promise.resolve({})).then(function (c) { render(); return c && c.outcome === 'accepted'; }, function () { render(); return false; });
+  }
+  function registerSW(url) {
+    if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+      return navigator.serviceWorker.register(url || 'sw.js').catch(function () {});
+    }
+    return Promise.resolve();
+  }
+  window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; render(); });
+  window.addEventListener('appinstalled', function () { deferred = null; render(); });
+  document.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('[data-mb-install-btn]'); if (b) install(); });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
+  window.MBInstall = { render: render, install: install, registerSW: registerSW, canInstall: function () { return !!deferred; }, isInstalled: standalone };
+})();
+/* =====================================================================
+   MB Suite v3 · share cards for progress, updates and milestones. No dependencies.
+   Draws a 1080×1080 PNG on the device (canvas) in the app's own colors, shows a preview, then
+   opens the phone/computer share sheet (Web Share API with files) or saves the image.
+   Nothing is uploaded anywhere; the card holds only what the preview shows.
+
+   Usage:
+     MBShare.open({
+       kicker: 'Milestone',                         // small accent label (optional)
+       headline: 'Net worth up 12% this year',      // the one thing worth sharing
+       sub: 'January to October 2026',              // one supporting line (optional)
+       stats: [{ label: 'Months tracked', value: '10' }, { label: 'Savings rate', value: '22%' }],   // 0-3 (optional)
+       art: document.querySelector('#share-art svg'),   // an NA-/CU- template <svg> already in the page (optional)
+       fileName: 'mbmoney-milestone.png',
+       options: [ { id: 'amounts', label: 'Show dollar amounts', value: false } ],   // optional privacy toggles
+       build: function (opts) { return { headline: …, stats: … } }                  // re-builds the text when a toggle changes
+     });
+   Requires on <html>: data-app-short="Money" and data-app-domain="mbmoney.online".
+   The badge is read from the first ".brand .logo svg" in the page.
+   CSP: needs img-src data: blob: (the art is drawn from a data: URL, the preview is a blob: URL). Inline it and recompute hashes if the app uses script hashes.
+   ===================================================================== */
+(function () {
+  var W = 1080, FONT = '"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif';
+
+  function resolve(v, fallback) {          // turn a CSS custom property into a concrete color the canvas understands
+    var el = document.createElement('i'); el.style.color = 'var(' + v + ',' + (fallback || '#888') + ')';
+    el.style.display = 'none'; document.body.appendChild(el);
+    var c = getComputedStyle(el).color; el.remove(); return c;
+  }
+  function svgImage(svgEl, roleColors) {
+    return new Promise(function (ok) {
+      if (!svgEl) return ok(null);
+      var clone = svgEl.cloneNode(true);
+      clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      clone.removeAttribute('style'); clone.removeAttribute('class');
+      var vb = (clone.getAttribute('viewBox') || '0 0 300 150').split(/[\s,]+/);
+      clone.setAttribute('width', vb[2]); clone.setAttribute('height', vb[3]);
+      var css = Object.keys(roleColors).map(function (k) { return '.' + k + '{fill:' + roleColors[k] + '}'; }).join('') +
+        '.sd{fill:none;stroke:' + roleColors.d + ';stroke-width:3;stroke-linecap:round}.sm{fill:none;stroke:' + roleColors.m + ';stroke-width:3;stroke-linecap:round}';
+      var st = document.createElementNS('http://www.w3.org/2000/svg', 'style'); st.textContent = css; clone.insertBefore(st, clone.firstChild);
+      var img = new Image();
+      img.onload = function () { ok(img); }; img.onerror = function () { ok(null); };
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(clone));
+    });
+  }
+  function wrap(g, text, maxW, maxLines) {
+    var words = String(text || '').split(/\s+/), lines = [], line = '';
+    words.forEach(function (w) {
+      var t = line ? line + ' ' + w : w;
+      if (g.measureText(t).width > maxW && line) { lines.push(line); line = w; } else line = t;
+    });
+    if (line) lines.push(line);
+    if (lines.length > maxLines) { lines = lines.slice(0, maxLines); lines[maxLines - 1] = lines[maxLines - 1].replace(/\s*\S*$/, '') + '…'; }
+    return lines;
+  }
+  function rr(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+
+  // Share cards are always drawn in the LIGHT palette (they leave the app, so they shouldn't depend on dark mode).
+  // Every color derives from the app's brand color (--brand), the same way mb-suite-cutouts.css derives the art roles.
+  function rgb(str) { var m = String(str).match(/[\d.]+/g) || [0, 0, 0]; return [+m[0], +m[1], +m[2]]; }
+  function hex(c) { return '#' + c.map(function (v) { return ('0' + Math.round(Math.max(0, Math.min(255, v))).toString(16)).slice(-2); }).join(''); }
+  function mix(a, b, t) { return a.map(function (v, i) { return v + (b[i] - v) * t; }); }   // t = share of b
+  function hueShift(c, deg) {                       // approximate the v2 "neighbor hue" (+34°) in HSL
+    var r = c[0] / 255, g = c[1] / 255, b = c[2] / 255, mx = Math.max(r, g, b), mn = Math.min(r, g, b), h = 0, l = (mx + mn) / 2, s = 0, dd = mx - mn;
+    if (dd) { s = l > .5 ? dd / (2 - mx - mn) : dd / (mx + mn); h = mx === r ? (g - b) / dd + (g < b ? 6 : 0) : mx === g ? (b - r) / dd + 2 : (r - g) / dd + 4; h *= 60; }
+    h = (h + deg + 360) % 360; var C = (1 - Math.abs(2 * l - 1)) * s, X = C * (1 - Math.abs((h / 60) % 2 - 1)), m = l - C / 2, q;
+    q = h < 60 ? [C, X, 0] : h < 120 ? [X, C, 0] : h < 180 ? [0, C, X] : h < 240 ? [0, X, C] : h < 300 ? [X, 0, C] : [C, 0, X];
+    return q.map(function (v) { return (v + m) * 255; });
+  }
+  function palette() {
+    var brand = rgb(resolve('--brand', resolve('--accent', '#087F5B'))), W8 = [255, 255, 255];
+    var P = { accent: hex(brand), ink: '#1b1f24', ink2: '#48505c', muted: '#5f6773', border: '#dfe2e7',
+      wash: hex(mix(brand, W8, .92)), mid: hex(mix(brand, W8, .48)), butter: '#ffd98a' };
+    var roles = { d: hex(brand), m: P.mid, s: hex(mix(brand, W8, .76)), n: hex(hueShift(brand, 34)), b: '#ffd98a', r: '#f7b8a8' };
+    return { C: P, roles: roles };
+  }
+
+  function draw(d) {
+    var root = document.documentElement, pal = palette(), C = pal.C, roles = pal.roles;
+    var app = root.getAttribute('data-app-short') || 'App', domain = root.getAttribute('data-app-domain') || location.hostname;
+    var badge = document.querySelector('.brand .logo svg');
+    return Promise.all([svgImage(badge, roles), svgImage(d.art, roles)]).then(function (imgs) {
+      var c = document.createElement('canvas'); c.width = W; c.height = W; var g = c.getContext('2d');
+      // text and tiles are drawn first; the art and the paper go *behind* them (destination-over) once we know where the text ends
+      // brand row
+      var x = 72, y = 92;
+      if (imgs[0]) g.drawImage(imgs[0], x, y - 4, 72, 72);
+      g.fillStyle = C.ink; g.font = '650 34px ' + FONT; g.textBaseline = 'middle';
+      var nm = domain.replace(/\.online$/, ''); g.fillText(nm, x + 92, y + 32);
+      if (/\.online$/.test(domain)) { var nw = g.measureText(nm).width; g.fillStyle = C.accent; g.fillText('.online', x + 92 + nw, y + 32); }
+      // kicker + headline + sub
+      g.textBaseline = 'alphabetic'; y = 300;
+      if (d.kicker) { g.fillStyle = C.accent; g.font = '700 30px ' + FONT; g.fillText(String(d.kicker).toUpperCase(), x, y); y += 26; }
+      g.fillStyle = C.ink; g.font = '750 76px ' + FONT;
+      wrap(g, d.headline, W - 2 * x, 3).forEach(function (l) { y += 86; g.fillText(l, x, y); });
+      if (d.sub) { g.fillStyle = C.ink2; g.font = '400 36px ' + FONT; y += 18; wrap(g, d.sub, W - 2 * x, 2).forEach(function (l) { y += 48; g.fillText(l, x, y); }); }
+      // stat tiles (white paper cards)
+      var st = (d.stats || []).slice(0, 3);
+      if (st.length) {
+        y += 56; var gap = 20, tw = (W - 2 * x - gap * (st.length - 1)) / st.length;
+        st.forEach(function (s, i) {
+          var tx = x + i * (tw + gap);
+          g.fillStyle = 'rgba(20,24,31,.06)'; rr(g, tx, y + 3, tw, 150, 12); g.fill();
+          g.fillStyle = '#ffffff'; rr(g, tx, y, tw, 150, 12); g.fill(); g.strokeStyle = C.border; g.lineWidth = 2; g.stroke();
+          g.fillStyle = C.accent; g.fillRect(tx, y + 18, 5, 114);
+          g.fillStyle = C.muted; g.font = '650 24px ' + FONT; g.fillText(String(s.label).toUpperCase(), tx + 28, y + 52);
+          g.fillStyle = C.ink; g.font = '700 54px ' + FONT; g.fillText(wrap(g, s.value, tw - 48, 1)[0], tx + 28, y + 118);
+        });
+      }
+      // art bleeding off the bottom-right corner, sized to fit between the content and the footer
+      var contentBottom = st.length ? y + 150 : y + 12;
+      if (imgs[1]) {
+        var ar = imgs[1].naturalWidth && imgs[1].naturalHeight ? imgs[1].naturalWidth / imgs[1].naturalHeight : 2;
+        var aw = ar >= 1.6 ? W * .92 : W * .56, ah = aw / ar, artBottom = W - 118, avail = artBottom - contentBottom - 20;
+        if (ah > avail && avail >= 140) { ah = avail; aw = ah * ar; }
+        g.globalCompositeOperation = 'destination-over';
+        g.drawImage(imgs[1], W - aw + 30, artBottom - ah, aw, ah);
+        g.globalCompositeOperation = 'source-over';
+      }
+      // paper background (behind everything): white sheet with an accent wash from the top-left, then the family accent line on top
+      g.globalCompositeOperation = 'destination-over';
+      var bg = g.createLinearGradient(0, 0, W * .7, W); bg.addColorStop(0, C.wash); bg.addColorStop(.6, '#ffffff'); g.fillStyle = bg; g.fillRect(0, 0, W, W);
+      g.fillStyle = '#ffffff'; g.fillRect(0, 0, W, W);
+      g.globalCompositeOperation = 'source-over';
+      var ln = g.createLinearGradient(0, 0, W, 0); ln.addColorStop(0, C.accent); ln.addColorStop(.55, C.mid); ln.addColorStop(1, C.butter); g.fillStyle = ln; g.fillRect(0, 0, W, 14);
+      // footer: where it came from (this is what helps the app grow)
+      g.fillStyle = C.ink2; g.font = '600 28px ' + FONT;
+      g.fillText((d.date ? d.date + '  ·  ' : '') + 'Made with ' + domain, x, W - 64);
+      g.fillStyle = C.muted; g.font = '400 24px ' + FONT; g.fillText('Free · No account · Your data stays on your device', x, W - 30);
+      return c;
+    });
+  }
+
+  function toBlob(c) { return new Promise(function (ok, bad) { try { c.toBlob(function (b) { b ? ok(b) : bad(new Error('blob')); }, 'image/png'); } catch (e) { bad(e); } }); }
+  function save(blob, name) { var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500); }
+
+  var dlg;
+  function open(cfg) {
+    var opts = {}; (cfg.options || []).forEach(function (o) { opts[o.id] = !!o.value; });
+    function data() { var extra = cfg.build ? cfg.build(opts) || {} : {}; var d = {}; Object.keys(cfg).forEach(function (k) { d[k] = cfg[k]; }); Object.keys(extra).forEach(function (k) { d[k] = extra[k]; }); return d; }
+    if (!dlg) {
+      dlg = document.createElement('dialog'); dlg.className = 'mb-share'; dlg.setAttribute('aria-labelledby', 'mbShareTitle');
+      dlg.innerHTML = '<div class="ms-head"><h3 id="mbShareTitle">Share</h3><button type="button" class="btn ghost sm" data-ms="close" aria-label="Close">Close</button></div>' +
+        '<div class="ms-prev"><img alt="" data-ms="img"><p class="ms-wait" data-ms="wait">Making your card…</p></div>' +
+        '<div class="ms-opts" data-ms="opts"></div>' +
+        '<p class="ms-note">The image is made on this device. It shows only what you see above: no location, notes or account details.</p>' +
+        '<div class="ms-btns"><button type="button" class="btn" data-ms="save">Save image</button><button type="button" class="btn primary" data-ms="share">Share…</button></div>';
+      document.body.appendChild(dlg);
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    }
+    var img = dlg.querySelector('[data-ms=img]'), wait = dlg.querySelector('[data-ms=wait]'), box = dlg.querySelector('[data-ms=opts]');
+    dlg.querySelector('#mbShareTitle').textContent = cfg.title || 'Share your progress';
+    box.innerHTML = (cfg.options || []).map(function (o) { return '<label class="ms-opt"><input type="checkbox" data-opt="' + o.id + '"' + (opts[o.id] ? ' checked' : '') + '> ' + o.label + '</label>'; }).join('');
+    var current = null, url = null;
+    function refresh() {
+      wait.hidden = false; img.hidden = true;
+      return draw(data()).then(toBlob).then(function (b) {
+        current = b; if (url) URL.revokeObjectURL(url); url = URL.createObjectURL(b); img.src = url; img.hidden = false; wait.hidden = true;
+        img.alt = 'Preview of the image you are about to share: ' + (data().headline || '');
+      }).catch(function () { wait.textContent = 'This browser could not make the image.'; });
+    }
+    box.onchange = function (e) { var id = e.target.getAttribute('data-opt'); if (id) { opts[id] = e.target.checked; refresh(); } };
+    var file = function () { return new File([current], cfg.fileName || 'share.png', { type: 'image/png' }); };
+    var shareBtn = dlg.querySelector('[data-ms=share]');
+    var canShareFiles = !!(navigator.canShare && navigator.share);
+    shareBtn.hidden = !canShareFiles;                                      // no share sheet here: Save image is the only action
+    dlg.querySelector('[data-ms=save]').classList.toggle('primary', !canShareFiles);
+    shareBtn.onclick = function () {
+      if (!current) return; var f = file();
+      if (navigator.canShare({ files: [f] })) navigator.share({ files: [f], title: cfg.headline || '' }).then(function () { dlg.close(); }, function () {});
+      else save(current, f.name);
+    };
+    dlg.querySelector('[data-ms=save]').onclick = function () { if (current) save(current, cfg.fileName || 'share.png'); };
+    dlg.querySelector('[data-ms=close]').onclick = function () { dlg.close(); };
+    if (!dlg.open) dlg.showModal();
+    return refresh();
+  }
+  window.MBShare = { open: open, draw: draw };
+})();
 /* ==========================================================================
    mbmealprep.online  BETA 4.3  -  helpers
    ========================================================================== */
@@ -1524,8 +1976,8 @@ const numOrNull = v => { if (v === '' || v === null || v === undefined) return n
 const fmtInt = n => Math.round(n).toLocaleString('en-US');
 const fmtSigned = (n, d = 0) => { const r = round(n, d); return (r > 0 ? '+' : r < 0 ? '\u2212' : '') + Math.abs(r).toLocaleString('en-US'); };
 /* logo: the shared app-family badge (accent square) with this app's steaming bowl; steam is gold in light, accent-ink in dark */
-const LOGO_SVG = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\"><defs><linearGradient id=\"g1\" gradientUnits=\"userSpaceOnUse\" x1=\"10\" y1=\"0\" x2=\"54\" y2=\"64\"><stop offset=\"0\" stop-color=\"#e46a58\"/><stop offset=\".55\" stop-color=\"#E0523D\"/><stop offset=\"1\" stop-color=\"#b34231\"/></linearGradient><clipPath id=\"c1\"><rect width=\"64\" height=\"64\" rx=\"18\"/></clipPath></defs><g clip-path=\"url(#c1)\"><rect width=\"64\" height=\"64\" fill=\"url(#g1)\"/><ellipse cx=\"14\" cy=\"6\" rx=\"40\" ry=\"26\" fill=\"#fff\" opacity=\"0.14\"/><rect x=\"14.5\" y=\"19.5\" width=\"35\" height=\"27\" rx=\"4\" stroke=\"#fff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M33 20v26M33 33h16\" stroke=\"#fff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><rect x=\"17.5\" y=\"22.5\" width=\"13\" height=\"21\" rx=\"1.5\" fill=\"#fff\" fill-opacity=\".55\"/></g><rect x=\".5\" y=\".5\" width=\"63\" height=\"63\" rx=\"17.5\" fill=\"none\" stroke=\"#fff\" stroke-opacity=\"0.24\"/></svg>";
-const LOGO_SVG_S = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\"><defs><linearGradient id=\"g2\" gradientUnits=\"userSpaceOnUse\" x1=\"10\" y1=\"0\" x2=\"54\" y2=\"64\"><stop offset=\"0\" stop-color=\"#e46a58\"/><stop offset=\".55\" stop-color=\"#E0523D\"/><stop offset=\"1\" stop-color=\"#b34231\"/></linearGradient><clipPath id=\"c2\"><rect width=\"64\" height=\"64\" rx=\"18\"/></clipPath></defs><g clip-path=\"url(#c2)\"><rect width=\"64\" height=\"64\" fill=\"url(#g2)\"/><rect x=\"14.5\" y=\"19.5\" width=\"35\" height=\"27\" rx=\"4\" stroke=\"#fff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M33 20v26M33 33h16\" stroke=\"#fff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><rect x=\"17.5\" y=\"22.5\" width=\"13\" height=\"21\" rx=\"1.5\" fill=\"#fff\" fill-opacity=\".55\"/></g></svg>";
+const LOGO_SVG = "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"lg-g\" gradientUnits=\"userSpaceOnUse\" x1=\"10\" y1=\"0\" x2=\"54\" y2=\"64\"><stop offset=\"0\" stop-color=\"#e46a58\"/><stop offset=\".55\" stop-color=\"#E0523D\"/><stop offset=\"1\" stop-color=\"#b34231\"/></linearGradient><clipPath id=\"lg-c\"><rect width=\"64\" height=\"64\" rx=\"18\"/></clipPath></defs><g clip-path=\"url(#lg-c)\"><rect width=\"64\" height=\"64\" fill=\"url(#lg-g)\"/><rect x=\"14.5\" y=\"18.5\" width=\"35\" height=\"27\" rx=\"4\" stroke=\"#ffffff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M 33,19 V 45 M 33,32 H 49\" stroke=\"#ffffff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><rect x=\"16.151796\" y=\"19.755266\" width=\"15.855019\" height=\"24.410162\" rx=\"1.8294252\" fill=\"#ffffff\" fill-opacity=\"0.55\" style=\"stroke-width:1.19065\"/></g></svg>";
+const LOGO_SVG_S = "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"ls-g\" gradientUnits=\"userSpaceOnUse\" x1=\"10\" y1=\"0\" x2=\"54\" y2=\"64\"><stop offset=\"0\" stop-color=\"#e46a58\"/><stop offset=\".55\" stop-color=\"#E0523D\"/><stop offset=\"1\" stop-color=\"#b34231\"/></linearGradient><clipPath id=\"ls-c\"><rect width=\"64\" height=\"64\" rx=\"18\"/></clipPath></defs><g clip-path=\"url(#ls-c)\"><rect width=\"64\" height=\"64\" fill=\"url(#ls-g)\"/><rect x=\"14.5\" y=\"18.5\" width=\"35\" height=\"27\" rx=\"4\" stroke=\"#ffffff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M 33,19 V 45 M 33,32 H 49\" stroke=\"#ffffff\" stroke-width=\"4.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><rect x=\"16.151796\" y=\"19.755266\" width=\"15.855019\" height=\"24.410162\" rx=\"1.8294252\" fill=\"#ffffff\" fill-opacity=\"0.55\" style=\"stroke-width:1.19065\"/></g></svg>";
 const LOGO_URI = 'data:image/svg+xml,' + encodeURIComponent(LOGO_SVG);
 const LOGO_URI_S = 'data:image/svg+xml,' + encodeURIComponent(LOGO_SVG_S);
 const logo = (size = 28) => `<span class="logo" style="width:${size}px;height:${size}px" aria-hidden="true"><img src="${size <= 32 ? LOGO_URI_S : LOGO_URI}" alt="" width="${size}" height="${size}" draggable="false"></span>`;
@@ -1613,6 +2065,7 @@ async function copyText(text) {
 
 /* ---- icons (stroke, 24 grid) ---- */
 const ICONS = {
+  share: '<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/>',
   plus: '<path d="M12 5v14M5 12h14"/>', more: '<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>', menu: '<path d="M4 6h16M4 12h16M4 18h16"/>', x: '<path d="M18 6L6 18M6 6l12 12"/>', check: '<path d="M20 6L9 17l-5-5"/>',
   star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
   edit: '<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>',
@@ -2403,7 +2856,7 @@ zip-top bags|box`;
    Reference data: units, sections, days, ingredient library helpers
    ========================================================================== */
 const DEMO_UPDATED = '2026-09-20T12:00:00.000Z';
-const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'v5.1 · Web app', year: 2026, released: '2026-10-09' };
+const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'v5.2 · Web app', year: 2026, released: '2026-10-13' };
 
 /* Optional support links (leave blank to hide the buttons) */
 const CONFIG = { issueUrl: '', supportUrl: '', siteUrl: '' };
@@ -3567,7 +4020,7 @@ const NAV = [
 
 /* Browser tab text: "Meal Prep | <page name>". Page names match the nav labels. */
 const PAGE_TITLES = { home: 'Home', goals: 'Goals', recipes: 'Recipes', planner: 'Planner', prep: 'Prep', grocery: 'Grocery', ingredients: 'Ingredients', data: 'Data', about: 'About', privacy: 'Privacy', terms: 'Terms', setup: 'Setup' };
-function setPageTitle() { document.title = 'Meal Prep | ' + (PAGE_TITLES[route.name] || 'Home'); }
+function setPageTitle() { MBTitle.set(PAGE_TITLES[route.name] || 'Home'); }
 
 function parseRoute() {
   const m = (location.hash || '#/home').replace(/^#\/?/, '').split('/');
@@ -3590,18 +4043,24 @@ function applyTheme() {
 ACTIONS.theme = () => { state.settings.theme = state.settings.theme === 'dark' ? 'light' : 'dark'; saveNow(); applyTheme(); };
 ACTIONS.setTheme = el => { state.settings.theme = el.dataset.k === 'dark' ? 'dark' : 'light'; saveNow(); applyTheme(); rerender(); };
 
-/* Desktop: underline tabs in the app bar. Phones: bottom bar with the 4 main pages + More (a sheet with the rest). */
+/* MB Suite v3 navigation. Computers: left sidebar (240px, a 76px icon rail on tablets) with the main
+   sections on top and Data / About / Setup pinned to the bottom. Phones: bottom bar with the 4 main pages
+   + More (a sheet with the rest). The current page is marked with aria-current="page" everywhere. */
 const BNAV_ORDER = ['home', 'recipes', 'planner', 'grocery', 'prep', 'goals', 'ingredients', 'about'];
+const SIDE_END = ['data', 'about'];
 function renderHeader() {
   const nav = NAV.filter(n => (!n.feat || featureOn(n.feat)) && !n.menu);
   const cur = id => route.name === id ? ' aria-current="page"' : '';
-  $('#nav').innerHTML = nav.map(n => `<a href="#/${n.id}" class="tab${route.name === n.id ? ' on' : ''}"${cur(n.id)}>${icon(n.icon)}<span>${n.label}</span></a>`).join('');
-  const setupBtn = $('#setupBtn'); if (setupBtn) setupBtn.classList.toggle('on', route.name === 'setup');
+  const sideMain = nav.filter(n => !SIDE_END.includes(n.id)), sideEnd = SIDE_END.map(id => NAV.find(n => n.id === id));
+  const sideLink = n => `<a href="#/${n.id}"${cur(n.id)}>${icon(n.icon)}<span>${n.label}</span></a>`;
+  $('#sideNav').innerHTML = sideMain.map(sideLink).join('');
+  $('#sideEnd').innerHTML = sideEnd.map(sideLink).join('') + `<button type="button" data-act="openSetup">${icon('sliders')}<span>Setup</span></button>`;
+  const pt = $('#pageTitle'); if (pt) pt.textContent = PAGE_TITLES[route.name] || 'Home';
   const prim = BNAV_ORDER.map(id => nav.find(n => n.id === id)).filter(Boolean).slice(0, 4), rest = nav.filter(n => !prim.includes(n));
   const moreOn = !prim.some(n => n.id === route.name);
   const open = document.body.classList.contains('menu-open');
   const bn = $('#bnav');
-  if (bn) bn.innerHTML = prim.map(n => `<a href="#/${n.id}" class="${route.name === n.id ? 'on' : ''}"${cur(n.id)}>${icon(n.icon)}<span>${n.label}</span></a>`).join('') +
+  if (bn) bn.innerHTML = prim.map(n => `<a href="#/${n.id}"${cur(n.id)}>${icon(n.icon)}<span>${n.label}</span></a>`).join('') +
     `<button type="button" id="bnMore" class="${moreOn ? 'on' : ''}" data-act="menu" aria-expanded="${open}" aria-controls="bnSheet">${icon('more')}<span>More</span></button>`;
   const sh = $('#bnSheet');
   if (sh) sh.innerHTML = rest.map(n => `<a href="#/${n.id}" class="bn-item${route.name === n.id ? ' on' : ''}"${cur(n.id)}>${icon(n.icon)}<span>${n.label}</span></a>`).join('') +
@@ -3621,7 +4080,8 @@ function renderApp(scrollTop) {
   const v = VIEWS[route.name];
   $('#view').innerHTML = v.render();
   if (v.after) v.after();
-  const bar = $('#appbar'); if (bar) bar.hidden = route.name === 'setup';
+  const bar = $('#pagebar'); if (bar) bar.hidden = route.name === 'setup';
+  MBInstall.render();
   if (scrollTop) window.scrollTo(0, 0); else window.scrollTo(0, y);
   if (fid) { const el = $(`[data-fid="${CSS.escape(fid)}"]`); if (el) { el.focus(); try { if (sel) el.setSelectionRange(sel[0], sel[1]); } catch (e) { } } }
   updateStorageBanner();
@@ -3638,6 +4098,12 @@ document.addEventListener('click', e => {
   const fn = ACTIONS[el.dataset.act]; if (!fn) return;
   if (el.tagName === 'A' && el.getAttribute('href') === '#') e.preventDefault();
   fn(el, e);
+});
+/* Brand block (sidebar and phone top bar) always goes to Home; on Home it scrolls back to the top. */
+document.addEventListener('click', e => {
+  const a = e.target.closest('a.brand'); if (!a || e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
+  e.preventDefault();
+  if (route.name === 'home' && (location.hash === '#/home' || !location.hash)) window.scrollTo({ top: 0, behavior: reducedMotion() ? 'auto' : 'smooth' }); else location.hash = '#/home';
 });
 document.addEventListener('change', e => { const el = e.target.closest('[data-change]'); if (el && CHANGES[el.dataset.change]) CHANGES[el.dataset.change](el, e); });
 document.addEventListener('input', e => { const el = e.target.closest('[data-input]'); if (el && INPUTS[el.dataset.input]) INPUTS[el.dataset.input](el, e); });
@@ -3689,7 +4155,7 @@ function fitChip(score) {
   const s = Math.round(score), k = s >= 90 ? 'good' : s >= 80 ? 'ok' : 'low';
   return `<span class="chip fit ${k}" data-tip="How closely this recipe's protein/carb/fat split matches your target split">${icon(k === 'good' ? 'check' : k === 'ok' ? 'target' : 'alert', 'sm')}${s}% fit</span>`;
 }
-function emptyState(title, body, actions = '') { return `<div class="empty"><div class="empty-ic">${icon('book', 'lg')}</div><h3>${esc(title)}</h3><p>${body}</p><div class="row center">${actions}</div></div>`; }
+function emptyState(title, body, actions = '') { return `<div class="empty"><div class="empty-art">${NA_SEED_SVG}</div><h3>${esc(title)}</h3><p>${body}</p><div class="row center">${actions}</div></div>`; }
 
 /* Original body-type silhouettes (simple geometric figures) */
 function bodySVG(kind) {
@@ -3881,7 +4347,7 @@ VIEWS.setup = {
     const prog = `<div class="wiz-meta"><b>Step ${ui.setupStep + 1} of ${steps.length}</b><span>${STEP_NAMES[id]}</span></div><div class="wiz-progress" role="progressbar" aria-valuemin="1" aria-valuemax="${steps.length}" aria-valuenow="${ui.setupStep + 1}" aria-label="Setup progress">${steps.map((_, i) => `<i class="${i < ui.setupStep ? 'done' : i === ui.setupStep ? 'now' : ''}"></i>`).join('')}</div>`;
     let body = '';
     if (id === 'welcome') {
-      body = `<div class="hero-logo">${logo(64)}</div><h1>Plan your week of meals around your macros</h1>
+      body = `<div class="hero-logo hero-wreath">${NA_WREATH_SVG}${logo(52)}</div><h1>Plan your week of meals around your macros</h1>
         <p class="lead">Answer a few questions and your planner, targets and grocery list set themselves up. About a minute. No account, and everything stays on this device.</p>
         <label class="fld"><span>What should we call you? <em>optional</em></span><input type="text" maxlength="40" placeholder="First name" value="${esc(S.name)}" data-input="sname" data-fid="f-name" autocomplete="given-name"></label>
         <h3>What do you want to do?</h3>
@@ -3911,7 +4377,7 @@ VIEWS.setup = {
         ${state.recipes.length ? '' : `<h3>Starter recipes</h3><div class="two-cards"><button type="button" class="gcard${ui.starter !== 'demo' ? ' on' : ''}" data-act="starter" data-k="empty" aria-pressed="${ui.starter !== 'demo'}"><b>Start with a blank library</b><small>Add your own recipes, or import a backup.</small></button>
           <button type="button" class="gcard${ui.starter === 'demo' ? ' on' : ''}" data-act="starter" data-k="demo" aria-pressed="${ui.starter === 'demo'}"><b>Add ${DEMO_RECIPES.length} demo recipes</b><small>Try the whole app with demo recipes. Remove them in one click.</small></button></div>`}`;
     }
-    return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">Official Web App · v1.1</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
+    return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">Official Web App · v1.2</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
       <section class="wiz-card">${body}</section>
       <div class="wiz-nav">${ui.setupStep > 0 ? `<button class="btn" data-act="setupBack">${icon('left')} Back</button>` : '<span></span>'}
       ${id === 'welcome' ? `<span class="muted small">Have a backup? <button class="linkbtn" data-act="setupImport">Import it (JSON or CSV)</button></span>` : ''}
@@ -3927,7 +4393,7 @@ ACTIONS.hh = el => { const S = state.setup; S.household = clamp(S.household + pa
 ACTIONS.cookStyle = el => { state.setup.cookStyle = el.dataset.k; state.settings.groceryMode = el.dataset.k === 'batch' ? 'batch' : 'exact'; saveSoon(); rerender(); };
 CHANGES.weekStart = el => { state.setup.weekStart = el.value; saveSoon(); };
 ACTIONS.starter = el => { ui.starter = el.dataset.k; rerender(); };
-ACTIONS.skipSetup = () => { state.setup.done = true; saveSoon(); toast('Setup skipped. Run it any time from the top bar.'); go('#/home'); };
+ACTIONS.skipSetup = () => { state.setup.done = true; saveSoon(); toast('Setup skipped. Open Setup any time to run it.'); go('#/home'); };
 ACTIONS.setupImport = () => { state.setup.done = true; saveSoon(); go('#/data'); pickImportFile(); };
 ACTIONS.setupFinish = () => {
   const S = state.setup; S.done = true; state.settings.groceryMode = S.cookStyle === 'batch' ? 'batch' : 'exact';
@@ -3951,7 +4417,11 @@ const todayName = () => DAYS[(new Date().getDay() + 6) % 7];
 const backupDue = () => { const b = backupInfo(); return b.hasData && b.warn; };
 const plannedCount = () => { let n = 0; for (const d of DAYS) for (const s of activeSlots()) if (getSlot(d, s)) n++; return n; };
 
-const CU_BANNER_SVG = `<svg class="cu-art" viewBox="0 0 300 160" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false"><path class="s" transform="translate(270 150) rotate(-108) scale(0.7)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="r" transform="translate(270 150) rotate(-134) scale(0.75)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="s" transform="translate(270 150) rotate(-160) scale(0.7)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="d" transform="translate(270 150) rotate(-96) scale(1.05)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="m" transform="translate(270 150) rotate(-122) scale(1.15)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="n" transform="translate(270 150) rotate(-148) scale(1.05)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="d" transform="translate(270 150) rotate(-172) scale(0.95)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="b" cx="40" cy="44" r="10"/><circle class="r" cx="84" cy="118" r="5"/><circle class="m" cx="150" cy="22" r="6"/></svg>`;
+/* MB Suite v3 nature art (paper cutouts; colors come from the accent through the role classes). NA-04 Harvest: Home banner and share card. */
+const CU_BANNER_SVG = `<svg class="cu-art" viewBox="0 0 300 160" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false"><path class="m" transform="translate(300 160) rotate(-150) scale(1.2)" d="M0 0 C 6 -34 50 -46 72 -4 C 58 34 8 38 0 0Z"/><path class="d" transform="translate(200 156) rotate(-70) scale(0.6)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="m" transform="translate(192 154) rotate(-118) scale(0.5)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="r" cx="290" cy="92" r="26"/><circle class="n" cx="238" cy="118" r="34"/><path class="b" d="M239.9 119.7 L266.1 127.2 A27.2 27.2 0 0 1 250.1 145Z"/><path class="b" d="M237.5 120.5 L244 146.9 A27.2 27.2 0 0 1 220.7 142Z"/><path class="b" d="M235.5 118.8 L216 137.7 A27.2 27.2 0 0 1 208.6 115Z"/><path class="b" d="M236.1 116.3 L209.9 108.8 A27.2 27.2 0 0 1 225.9 91Z"/><path class="b" d="M238.5 115.5 L232 89.1 A27.2 27.2 0 0 1 255.3 94Z"/><path class="b" d="M240.5 117.2 L260 98.3 A27.2 27.2 0 0 1 267.4 121Z"/><circle class="s" cx="238" cy="118" r="4.1"/><circle class="d" cx="286" cy="136" r="20"/><circle class="b" cx="162" cy="142" r="18"/><path class="s" d="M163.3 144.3 L175.2 152.3 A14.4 14.4 0 0 1 164.3 158.6Z"/><path class="s" d="M160.7 144.3 L159.7 158.6 A14.4 14.4 0 0 1 148.8 152.3Z"/><path class="s" d="M159.4 142 L146.5 148.3 A14.4 14.4 0 0 1 146.5 135.7Z"/><path class="s" d="M160.7 139.7 L148.8 131.7 A14.4 14.4 0 0 1 159.7 125.4Z"/><path class="s" d="M163.3 139.7 L164.3 125.4 A14.4 14.4 0 0 1 175.2 131.7Z"/><path class="s" d="M164.6 142 L177.5 135.7 A14.4 14.4 0 0 1 177.5 148.3Z"/><circle class="n" cx="162" cy="142" r="2.2"/><path class="b" transform="translate(140 120) rotate(-30) scale(0.2)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="b" transform="translate(130 108) rotate(-60) scale(0.1)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="b" transform="translate(150 102) rotate(-14) scale(0.1)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="r" cx="120" cy="60" r="5"/><circle class="b" cx="210" cy="50" r="7"/></svg>`;
+/* NA-10 Citrus Wreath: setup welcome. NA-16 Seed Pair: empty states. */
+const NA_WREATH_SVG = `<svg class="cu-art inline cu-p-soft" viewBox="0 0 320 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><circle class="n" cx="272" cy="160" r="22"/><path class="b" d="M274.3 161.3 L291.8 162.5 A17.6 17.6 0 0 1 284.1 175.9Z"/><path class="b" d="M272 162.6 L279.7 178.4 A17.6 17.6 0 0 1 264.3 178.4Z"/><path class="b" d="M269.7 161.3 L259.9 175.9 A17.6 17.6 0 0 1 252.2 162.5Z"/><path class="b" d="M269.7 158.7 L252.2 157.5 A17.6 17.6 0 0 1 259.9 144.1Z"/><path class="b" d="M272 157.4 L264.3 141.6 A17.6 17.6 0 0 1 279.7 141.6Z"/><path class="b" d="M274.3 158.7 L284.1 144.1 A17.6 17.6 0 0 1 291.8 157.5Z"/><circle class="s" cx="272" cy="160" r="2.6"/><path class="s" transform="translate(265.2 198.3) rotate(110) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="r" cx="245.8" cy="232" r="15"/><path class="m" transform="translate(216 257) rotate(150) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="d" cx="179.4" cy="270.3" r="12"/><path class="s" transform="translate(140.6 270.3) rotate(190) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="n" cx="104" cy="257" r="22"/><path class="b" d="M101.7 258.3 L91.9 272.9 A17.6 17.6 0 0 1 84.2 259.5Z"/><path class="b" d="M101.7 255.7 L84.2 254.5 A17.6 17.6 0 0 1 91.9 241.1Z"/><path class="b" d="M104 254.4 L96.3 238.6 A17.6 17.6 0 0 1 111.7 238.6Z"/><path class="b" d="M106.3 255.7 L116.1 241.1 A17.6 17.6 0 0 1 123.8 254.5Z"/><path class="b" d="M106.3 258.3 L123.8 259.5 A17.6 17.6 0 0 1 116.1 272.9Z"/><path class="b" d="M104 259.6 L111.7 275.4 A17.6 17.6 0 0 1 96.3 275.4Z"/><circle class="s" cx="104" cy="257" r="2.6"/><path class="m" transform="translate(74.2 232) rotate(230) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="r" cx="54.8" cy="198.3" r="15"/><path class="s" transform="translate(48 160) rotate(270) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="d" cx="54.8" cy="121.7" r="12"/><path class="m" transform="translate(74.2 88) rotate(310) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="n" cx="104" cy="63" r="22"/><path class="b" d="M104 60.4 L96.3 44.6 A17.6 17.6 0 0 1 111.7 44.6Z"/><path class="b" d="M106.3 61.7 L116.1 47.1 A17.6 17.6 0 0 1 123.8 60.5Z"/><path class="b" d="M106.3 64.3 L123.8 65.5 A17.6 17.6 0 0 1 116.1 78.9Z"/><path class="b" d="M104 65.6 L111.7 81.4 A17.6 17.6 0 0 1 96.3 81.4Z"/><path class="b" d="M101.7 64.3 L91.9 78.9 A17.6 17.6 0 0 1 84.2 65.5Z"/><path class="b" d="M101.7 61.7 L84.2 60.5 A17.6 17.6 0 0 1 91.9 47.1Z"/><circle class="s" cx="104" cy="63" r="2.6"/><path class="s" transform="translate(140.6 49.7) rotate(350) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="r" cx="179.4" cy="49.7" r="15"/><path class="m" transform="translate(216 63) rotate(390) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="d" cx="245.8" cy="88" r="12"/><path class="s" transform="translate(265.2 121.7) rotate(430) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/></svg>`;
+const NA_SEED_SVG = `<svg class="cu-art inline sm" viewBox="0 0 160 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><path class="s" transform="translate(80 98)" d="M-48 2.2 C-48 -15.8 26.4 -16.5 48 -1.5 C49 14.2 -26.4 16.5 -48 2.2Z"/><path class="sd" d="M80 92 C75.6 71.8 83.3 54 80 41.4"/><path class="d" transform="translate(80 41.4) rotate(-38) scale(0.5)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="m" transform="translate(80 52.5) rotate(-150) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="b" cx="122" cy="40" r="7"/><path class="m" transform="translate(40 104)" d="M-13 0.9 C-13 -6.3 7.2 -6.6 13 -0.6 C13.3 5.7 -7.2 6.6 -13 0.9Z"/></svg>`;
 VIEWS.home = {
   render() {
     const S = state.setup, t = getTargets(), h = t && t.health;
@@ -4083,10 +4553,10 @@ function currentRecipeId() {
 VIEWS.recipes = {
   render() {
     const f = ui.recipes, health = featureOn('health');
-    if (!state.recipes.length) return `<div class="page-head"><h1>Recipes</h1></div>${emptyState('No recipes yet', 'Add one, load the demo set, or import your CSV.', `<button class="btn primary" data-act="newRecipe">${icon('plus')} Add a recipe</button><button class="btn" data-act="loadDemo">Load demo recipes</button><button class="btn" data-act="importBackup">Import a backup</button>`)}`;
+    if (!state.recipes.length) return `<div class="page-head"><h1 class="ph-dup">Recipes</h1></div>${emptyState('No recipes yet', 'Add one, load the demo set, or import your CSV.', `<button class="btn primary" data-act="newRecipe">${icon('plus')} Add a recipe</button><button class="btn" data-act="loadDemo">Load demo recipes</button><button class="btn" data-act="importBackup">Import a backup</button>`)}`;
     const sel = currentRecipeId(), r = getRecipe(sel);
     const types = [['all', 'All'], ...MEAL_TYPES.map(t => [t, t])];
-    return `<div class="page-head row between"><div><h1>Recipes</h1><p><span id="rcount">${filteredRecipes().length}</span> of ${state.recipes.length} shown</p></div><button class="btn primary" data-act="newRecipe">${icon('plus')} New recipe</button></div>
+    return `<div class="page-head row between"><div><h1 class="ph-dup">Recipes</h1><p><span id="rcount">${filteredRecipes().length}</span> of ${state.recipes.length} shown</p></div><button class="btn primary" data-act="newRecipe">${icon('plus')} New recipe</button></div>
       <div class="rv${route.arg && r ? ' has-detail' : ''}">
         <aside class="rlist-wrap"><div class="rfilters">
           <label class="search">${icon('search')}<input type="search" placeholder="Search recipes or ingredients  ( / )" value="${esc(f.q)}" data-input="rq" data-search data-fid="f-rq" aria-label="Search recipes"></label>
@@ -4290,7 +4760,7 @@ function weekChart(per, t) {
 VIEWS.planner = {
   render() {
     const t = getTargets(), slots = activeSlots(), mt = mealTargets(t), ws = weekSummary(), eaten = state.settings.nutritionMode === 'eaten';
-    if (!state.recipes.length) return `<div class="page-head"><h1>Planner</h1></div>${emptyState('Add recipes to start planning', 'Your week is built from your recipes. Add one to begin.', `<button class="btn primary" data-act="newRecipe">${icon('plus')} Add a recipe</button><button class="btn" data-act="loadDemo">Load demo recipes</button>`)}`;
+    if (!state.recipes.length) return `<div class="page-head"><h1 class="ph-dup">Planner</h1></div>${emptyState('Add recipes to start planning', 'Your week is built from your recipes. Add one to begin.', `<button class="btn primary" data-act="newRecipe">${icon('plus')} Add a recipe</button><button class="btn" data-act="loadDemo">Load demo recipes</button>`)}`;
     const days = orderedDays();
     const head = `<div class="prow phead"><div>Day</div>${slots.map(s => `<div>${s}${mt && mt[s] && mt[s].kcal ? `<small>target ≈ ${fmtInt(mt[s].kcal)} kcal</small>` : ''}</div>`).join('')}<div>Daily total</div></div>`;
     const rows = days.map((d, di) => {
@@ -4312,7 +4782,7 @@ VIEWS.planner = {
 
     const avg = ws.avg, pc = ws.days ? planCost() : null, bud = state.settings.budget;
     const costKpi = pc && pc.priced ? `<div class="kpi"><small>Est. groceries</small><b>${money(pc.total)}</b><span>${pc.perServing !== null ? money(pc.perServing) + ' per serving' : 'this week'}${bud ? ` · ${pc.total <= bud ? money(bud - pc.total) + ' under' : money(pc.total - bud) + ' over'} budget` : ''}${pc.unpriced ? ` · ${pc.unpriced} unpriced` : ''}</span></div>` : '';
-    const summary = `<section class="card"><div class="card-head"><h2>Week at a glance</h2>${t ? `<span class="chip">${ws.good} of ${ws.days || 0} planned days on target</span>` : ''}</div>
+    const summary = `<section class="card"><div class="card-head"><h2>Week at a glance</h2><div class="row wk-head-r">${t ? `<span class="chip">${ws.good} of ${ws.days || 0} planned days on target</span>` : ''}${ws.days ? `<button type="button" class="btn sm mb-share-btn noprint" data-act="shareWeek">${icon('share', 'sm')} Share</button>` : ''}</div></div>
       ${ws.days ? `<div class="wk-grid"><div class="wk-kpis"><div class="kpi"><small>Average day</small><b>${fmtInt(avg.cal)}</b><span>${t && t.kcal ? deltaText(avg.cal - t.kcal) + ' vs target' : 'kcal'}</span></div>${costKpi}
         <div class="kpi"><small>Average split</small>${macroBar(avg.pct, 'big')}${macroLegend(avg.pct, { c: avg.c, f: avg.f, p: avg.p })}</div>${t ? `<div class="kpi"><small>Target split</small>${macroBar(t.pct, 'big')}${macroLegend(t.pct, t.grams)}</div>` : ''}</div>${weekChart(ws.per, t)}</div>${pc && !pc.priced ? '<p class="muted small noprint">To see what this week costs, <a href="#/grocery">add prices on the Grocery page</a>.</p>' : ''}` : '<p class="muted">Pick a recipe for any meal above and your totals appear here.</p>'}</section>`;
 
@@ -4321,13 +4791,30 @@ VIEWS.planner = {
       <div class="tablewrap"><table class="table"><thead><tr><th>Recipe</th><th class="num">Servings planned</th>${anyCarry ? '<th class="num">From leftovers</th>' : ''}<th class="num">${batchMode ? 'Batches to cook' : 'Recipe multiples'}</th><th class="num">Servings made</th></tr></thead><tbody>${cl.map(x => `<tr><td><a href="#/recipes/${x.r.id}">${esc(x.r.name)}</a></td><td class="num">${fmtQty(round(x.total, 2))}</td>${anyCarry ? `<td class="num">${x.carry > 0.001 ? fmtQty(round(x.carry, 2)) : '–'}</td>` : ''}<td class="num"><b>${fmtQty(round(x.batches, 2))}</b></td><td class="num">${x.batches > 0 ? fmtQty(round(x.made, 2)) : '–'}${x.extra > 0.01 && x.batches > 0 ? ` <span class="muted small">(+${fmtQty(round(x.extra, 2))} extra)</span>` : ''}</td></tr>`).join('')}</tbody></table></div>
       <p class="muted small noprint">${anyCarry ? 'Leftovers on hand already cover part of the week, so the grocery list buys less. ' : ''}<a href="#/prep">Open the Prep page</a> for containers, storage and a step-by-step cooking list.</p></section>` : '';
 
-    return `<div class="page-head row between"><div><h1>Planner</h1><p>Pick a recipe for each meal. Totals update as you go${t ? ' and each day is checked against your target' : ''}.</p></div>
+    return `<div class="page-head row between"><div><h1 class="ph-dup">Planner</h1><p>Pick a recipe for each meal. Totals update as you go${t ? ' and each day is checked against your target' : ''}.</p></div>
       <div class="row noprint">${t ? `<button class="btn primary" data-act="autoPlan">${icon('wand')} Auto-plan</button>` : ''}<button class="btn" data-act="newWeek">${icon('refresh')} New week</button>${state.history.length ? `<button class="btn ghost" data-act="pastWeeks">${icon('clock')} Past weeks</button>` : ''}<button class="btn ghost dg" data-act="clearWeek">Clear week</button><button class="btn icon" data-act="printPage" aria-label="Print planner" data-tip="Print">${icon('printer')}</button></div></div>
       ${t ? `<section class="card target-strip"><div><small>Daily target</small><b>${t.kcal ? fmtInt(t.kcal) + ' kcal' : 'Split only'}</b>${t.kcal ? '' : '<a href="#/goals" class="small"> add your details</a>'}</div>${MK.map(k => `<div><small><i class="dot m-${k}"></i>${MACRO[k].label}</small><b>${t.pct[k]}%${t.grams ? ` · ${fmtInt(t.grams[k])} g` : ''}</b></div>`).join('')}</section>` : ''}
       <div class="row between noprint mode-row"><div class="seg" role="group" aria-label="What servings mean"><button class="${eaten ? 'on' : ''}" data-act="nutMode" data-k="eaten">Servings = portions I eat</button><button class="${!eaten ? 'on' : ''}" data-act="nutMode" data-k="cooked">Servings = portions I cook</button></div>
         <span class="muted small">${eaten ? 'Nutrition is multiplied by servings.' : 'Nutrition counts one portion per meal; servings only drive the grocery list.'}</span></div>
       <div class="pgrid" style="--cols:${slots.length}">${head}${rows}</div>${summary}${cook}`;
   }
+};
+/* Share the week as an image made on this device (MB Suite v3 share card). Only counts go on the card:
+   no recipe names, notes, body details or calorie targets. */
+ACTIONS.shareWeek = () => {
+  const ws = weekSummary(), t = getTargets(), total = activeSlots().length * 7, n = plannedCount();
+  if (!n) return;
+  const rids = new Set(); for (const d of DAYS) for (const sl of activeSlots()) { const e = getSlot(d, sl); if (e) rids.add(e.rid); }
+  const stats = [{ label: 'Meals planned', value: `${n} of ${total}` }, { label: 'Recipes', value: String(rids.size) }];
+  if (t && ws.days) stats.push({ label: 'Days on target', value: `${ws.good} of ${ws.days}` });
+  const art = document.createElement('template'); art.innerHTML = CU_BANNER_SVG;
+  MBShare.open({
+    title: 'Share your week', kicker: n >= total ? 'Week planned' : 'Planning progress',
+    headline: n >= total ? 'My week of meals is planned' : `${n} meals planned this week`,
+    sub: `${rids.size} ${rids.size === 1 ? 'recipe' : 'recipes'}, ${activeSlots().length} meals a day`,
+    stats, art: art.content.firstElementChild, fileName: 'mbmealprep-week.png',
+    date: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+  });
 };
 CHANGES.planPick = el => { const d = el.dataset.day, s = el.dataset.slot, cur = state.plan[d] && state.plan[d][s]; setSlot(d, s, el.value || null, cur ? cur.servings : 1); saveSoon(); rerender(); };
 CHANGES.planServ = el => { const e = getSlot(el.dataset.day, el.dataset.slot); if (e) { e.servings = clamp(num(el.value) || 1, 0.25, 99); saveSoon(); rerender(); } };
@@ -4649,7 +5136,7 @@ VIEWS.ingredients = {
   render() {
     const all = allIngredients(), custom = all.filter(i => i.custom).length, R = ingredientRowsHTML();
     const secs = state.settings.sectionOrder;
-    return `<div class="page-head"><h1>Ingredients</h1><p><b>${fmtInt(SEED.length)}</b> built-in ingredients${custom ? ` plus <b>${custom}</b> of your own` : ''}. Anything new you type into a recipe is added for you.</p></div>
+    return `<div class="page-head"><h1 class="ph-dup">Ingredients</h1><p><b>${fmtInt(SEED.length)}</b> built-in ingredients${custom ? ` plus <b>${custom}</b> of your own` : ''}. Anything new you type into a recipe is added for you.</p></div>
       <div class="two-col">
         <section class="card col-main"><div class="ing-tools"><label class="search">${icon('search')}<input type="search" placeholder="Search ingredients" value="${esc(ui.ingQ)}" data-input="iq" data-fid="f-iq" aria-label="Search ingredients"></label>
           <div class="chips"><button class="chipbtn${ui.ingSec === 'all' ? ' on' : ''}" data-act="ingSecFilter" data-k="all">All</button>${secs.map(s => `<button class="chipbtn${ui.ingSec === s ? ' on' : ''}" data-act="ingSecFilter" data-k="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>
@@ -4684,6 +5171,7 @@ document.addEventListener('submit', e => {
    Release notes + license text
    ========================================================================== */
 const RELEASES = [
+  { v: 'v5.2 · Web app', date: 'October 13, 2026', tag: 'Sidebar and sharing', notes: ["When you install it, the app is now named Meal Prep on your computer and phone.", "Navigation moves to a left sidebar on computers (an icon rail on tablets), with Data, About and Setup at the bottom. Phones keep the bottom bar. The logo and name always take you back to Home.", "Share your week: in the Planner, Week at a glance has a Share button that makes an image of your week (meals planned, recipes used and days on target) right on your device. Save it or share it. Recipe names and body details are never on the image.", "New produce and citrus art on the Home banner, the setup welcome and empty pages, and a refreshed logo and app icons.", "The Install card on the Data page now says \"Installed on this device\" when you are using the installed app.", "Fixed: on small phones the Skip setup button no longer runs off the screen.", "Privacy Policy updated to describe the share image. It is made on your device and nothing is uploaded.", "The version label now reads \"v5.2 · Web app\". Your saved data, backups and CSV files are unchanged."] },
   { v: 'v5.1 · Web app', date: 'October 9, 2026', tag: 'Paper Cutouts look', notes: ["Lighter, fresher look (Paper Cutouts): a soft tomato tint across the top of each page, a gradient accent line and tab underline, gradient buttons and progress bars, and a leaf-art banner on Home. Layout, features and numbers are unchanged.", "New logo and app icons: the same meal-prep container on a softer gradient badge, with a matching share image.", "The version label now reads \"v5.1 · Web app\". Your saved data, backups and CSV files are unchanged."] },
   { v: 'v5 · Web app', date: 'October 9, 2026', tag: 'New look', notes: [
     'New design that matches the other mb apps: a left sidebar on computers, a bottom bar on phones, clean neutral surfaces, square-cornered cards and solid tomato-red buttons, with a matching dark mode.',
@@ -4778,7 +5266,7 @@ const LICENSE = {
    Content-Security-Policy that blocks all network connections). If the app's
    behavior changes, change this text in the same commit.
    ========================================================================== */
-const LEGAL_UPDATED = 'October 9, 2026';
+const LEGAL_UPDATED = 'October 13, 2026';
 const PRIVACY = {
   short: [
     'No accounts, no sign-in, no ads and no analytics.',
@@ -4797,6 +5285,7 @@ const PRIVACY = {
       'It does not collect your location, contacts or identity.']],
     ['When information leaves the page', [
       'Only when you choose it: Save backup now, Export All (JSON) and Export All (CSV) write a file to your device, in the folder you pick (or your Downloads folder in browsers that cannot pick one). Copy to clipboard puts the CSV in your clipboard. Print or Save as PDF hands the page to your browser’s print system.',
+      'Share on the Planner makes a picture of your week on this device (meals planned, recipes used and days on target, with no recipe names or body details). Nothing is uploaded. Save image puts it in your Downloads, and Share opens your device’s own share sheet, so you choose where it goes.',
       'If you open a recipe source link you added, that other website opens in a new tab and has its own privacy practices. The app asks your browser not to tell that site where you came from.']],
     ['The website host', [
       'This app is delivered by a website. Whoever hosts a website can usually see standard server records such as your IP address, the time, and which files were requested. That is outside the app’s code and is not something the app can see or turn off. Nothing you type into the app is part of those requests.']],
@@ -5038,13 +5527,13 @@ VIEWS.data = {
       ['price', 'What you pay for an ingredient', 'item, qty (the price), unit (what the price is per, such as pound)'], ['stock', 'Leftovers and freezer servings', 'name (recipe name), qty (servings), unit (fridge or freezer), updated (date cooked), text ("counted" if already used in this week’s shopping)'],
       ['history', 'Past weeks, one row per meal', 'name (week start date, YYYY-MM-DD), meal_type, item (recipe name), qty (servings), text (day)'],
       ['profile / setting', 'Your body details, goals, and app choices', 'name (field), text (value)'], ['checked / have', 'Grocery list check marks and pantry items', 'item (list key)']];
-    return `<div class="page-head"><h1>Data</h1><p>Your data lives in this browser. Save a backup file to keep it safe or move it to another device.</p></div>
+    return `<div class="page-head"><h1 class="ph-dup">Data</h1><p>Your data lives in this browser. Save a backup file to keep it safe or move it to another device.</p></div>
       <section class="card bk-card"><div class="card-head"><h2>${icon('save')} Back up &amp; restore</h2><span class="bk-status${b.warn ? ' warn' : ''}">${icon(b.warn ? 'alert' : 'shield', 'sm')}${esc(b.label)}${b.t ? `<span class="muted"> · ${esc(b.exact)}</span>` : ''}</span></div>
         <div class="bk-actions"><button class="btn primary" data-act="backupNow">${icon('save')} Save backup now <kbd>${SAVE_KEYS}</kbd></button><button class="btn" data-act="exportJson">Export All (JSON)…</button><button class="btn" data-act="importBackup">${icon('upload')} Import Backup (JSON or CSV)…</button><button class="btn" data-act="exportCsv">Export All (CSV)…</button></div>
         <p class="bk-where">${icon('folder', 'sm')}<span>${backupWhereHTML()}</span></p>
         <p class="muted small">JSON is the recommended backup: it restores everything exactly. The CSV holds the same data in a spreadsheet-friendly form and can be imported too. Both include any health details you entered, so keep them somewhere private. <a href="#/privacy">Privacy Policy</a></p>
         <div class="row bk-extra"><button class="btn ghost sm" data-act="copyCsv">${icon('copy')} Copy CSV to clipboard</button><button class="btn ghost sm" data-act="templateCsv">Blank CSV template</button></div></section>
-      ${installCardHTML()}
+      <div data-mb-install data-app-name="Meal Prep" data-note="Opens in its own window with its own icon. Works offline after the first visit." data-ios-note="The installed app keeps its own saved data, separate from Safari. Save a backup here first, then import it in the installed app." hidden></div>
       <div class="grid-2 data-grid">
         <section class="card" id="impCard"><h2>${icon('upload')} Import</h2>
           <label class="drop" id="drop" for="impFile">${icon('upload', 'lg')}<b>Drop a backup file here</b><span>JSON or CSV · or click to choose a file</span></label><input type="file" id="impFile" accept=".json,.csv,.tsv,.txt,application/json,text/csv" hidden data-change="impFile">
@@ -5109,7 +5598,7 @@ ACTIONS.resetAll = async () => {
 /* ---- About ---- */
 VIEWS.about = {
   render() {
-    return `<div class="page-head"><h1 class="about-h">${logo(40)} ${APP.name}</h1><p><span class="beta">Official Web App · v1.1</span> · © ${APP.year} Matthew Broyer</p></div>
+    return `<div class="page-head"><h1 class="about-h">${logo(40)} ${APP.name}</h1><p><span class="beta">Official Web App · v1.2</span> · © ${APP.year} Matthew Broyer</p></div>
       <div class="chips noprint"><button class="chipbtn" data-act="scrollTo" data-t="ab-about">About</button><button class="chipbtn" data-act="scrollTo" data-t="ab-notes">Release notes</button><button class="chipbtn" data-act="scrollTo" data-t="ab-license">License</button></div>
       <section class="card prose" id="ab-about"><h2>About</h2>
         <p>${esc(APP.name)} plans your week of meals, hits your macro targets and builds a grocery list you can shop from. It started in 2024 as a spreadsheet called The Pantry Partner and was used for years before becoming this web app.</p>
@@ -5131,7 +5620,7 @@ const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').match
 
 /* ---------- mobile menu ---------- */
 /* ---------- mobile bottom nav: the "More" sheet ---------- */
-const MOBILE_MQ = '(max-width: 720px)';
+const MOBILE_MQ = '(max-width: 767px)';
 function setMenu(open) {
   open = !!open && matchMedia(MOBILE_MQ).matches;
   document.body.classList.toggle('menu-open', open);
@@ -5156,7 +5645,7 @@ function updateScrollUI() {
   const max = document.documentElement.scrollHeight - innerHeight, y = window.scrollY, p = max > 4 ? Math.min(1, Math.max(0, y / max)) : 0;
   const bar = $('#progress'); if (bar) { bar.firstElementChild.style.transform = `scaleX(${p})`; bar.setAttribute('aria-valuenow', String(Math.round(p * 100))); bar.classList.toggle('on', max > 4 && y > 2); }
   const top = $('#toTop'); if (top) top.hidden = y < 480;
-  const ab = $('#appbar'); if (ab) ab.classList.toggle('stuck', y > 4);
+  const ab = $('#pagebar'); if (ab) ab.classList.toggle('stuck', y > 4);
 }
 const queueScrollUI = () => { if (!scrollTick) { scrollTick = true; requestAnimationFrame(updateScrollUI); } };
 window.addEventListener('scroll', queueScrollUI, { passive: true });
@@ -5422,7 +5911,6 @@ function boot() {
   const sb = $('#setupBtn'); if (sb) sb.innerHTML = icon('sliders') + ' Setup';
   const sr = $('#searchBtn'); if (sr) sr.innerHTML = icon('search') + '<span>Search</span><kbd>/</kbd>';
   const tt = $('#toTop'); if (tt) tt.innerHTML = icon('up');
-  const bl = $('.brand .logo'); if (bl) bl.outerHTML = logo(28);
   const di = $('#dataMenu .dm-ic'); if (di) di.outerHTML = icon('db');
   const fu = $('#ftUpdated'); if (fu) { fu.textContent = new Date(APP.released + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }); fu.dateTime = APP.released; }
   loadBackupHandles();
@@ -5439,29 +5927,8 @@ function showFatal() {
   v.innerHTML = '<div class="empty"><h2>Something went wrong</h2><p>The app could not load your saved data. Your data is still in this browser. You can download a raw copy first, then reset the app to start fresh.</p>' +
     '<div class="row center"><button class="btn" data-act="fatalDownload">Download my saved data</button><button class="btn danger" data-act="fatalReset">Reset the app</button></div></div>';
 }
-/* ---- Install as app (PWA) ---- */
-let deferredInstall = null;
-const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-const isStandalone = () => { try { return matchMedia('(display-mode: standalone)').matches || navigator.standalone === true; } catch (e) { return false; } };
-const rerenderDataIfOpen = () => { if (route.name === 'data') rerender(); };
-window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstall = e; rerenderDataIfOpen(); });
-window.addEventListener('appinstalled', () => { deferredInstall = null; rerenderDataIfOpen(); });
-function installCardHTML() {
-  if (deferredInstall) return `<section class="card" id="installCard"><div class="card-head"><h2>${icon('download')} Install as an app</h2></div>
-    <div class="row"><button class="btn primary" data-act="installApp">Install ${esc(APP.name)}</button></div>
-    <p class="muted small">Opens full screen, like an app. Works with no signal once it has loaded.</p></section>`;
-  if (isIOS && !isStandalone()) return `<section class="card" id="installCard"><div class="card-head"><h2>${icon('download')} Install as an app</h2></div>
-    <p>On iPhone or iPad: tap <b>Share</b>, then <b>Add to Home Screen</b>.</p>
-    <p class="muted small">The installed app keeps its own saved data, separate from Safari. Export a backup first, then import it in the installed app.</p></section>`;
-  return '';
-}
-ACTIONS.installApp = async () => {
-  if (!deferredInstall) return;
-  const d = deferredInstall; deferredInstall = null;
-  try { d.prompt(); await d.userChoice; } catch (e) { }
-  rerenderDataIfOpen();
-};
-if ('serviceWorker' in navigator && /^https?:/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(() => { });
+/* ---- Install as app (PWA): MB Suite v3 install card (MBInstall, inlined above) fills [data-mb-install] on the Data page ---- */
+MBInstall.registerSW('sw.js');
 
 ACTIONS.fatalDownload = () => { let raw = ''; try { raw = localStorage.getItem(LS_KEY) || ''; } catch (e) { } downloadText('mbmealprep-saved-data.json', raw, 'application/json'); };
 ACTIONS.fatalReset = () => { try { state = defaultState(); saveNow(); } catch (e) { } location.reload(); };

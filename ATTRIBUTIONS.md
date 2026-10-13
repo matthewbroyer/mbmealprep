@@ -1,13 +1,14 @@
-# Attributions and third-party notices: mbmealprep.online v5 · Web app
+# Attributions and third-party notices: mbmealprep.online v5.2 · Web app
 
-Last updated October 9, 2026.
+Last updated October 13, 2026.
 
 ## Summary
 
 | Item | Source | License | Where it appears |
 |---|---|---|---|
 | Interface icons (24-pixel stroke icons: plus, check, trash, copy, download, printer, sun, moon, search, thumbs-up, thumbs-down, dollar and similar) | Drawn in the style of, and in some cases matching the geometry of, Feather Icons by Cole Bemis (https://feathericons.com) | MIT | Inline SVG in the app. Notice is included in the app (About, License) and in an HTML comment. |
-| Logo (divided meal-prep container), favicon.svg, favicon.ico, install icons (icon-192.png, icon-512.png, icon-maskable-512.png, apple-touch-icon.png) and the share image (og-image.png) | Original artwork created for this project (v5). The PNG icons and favicon.ico are the same logo rendered at other sizes. The share image is rendered with the Inter typeface (SIL Open Font License 1.1) baked into the picture; no font file is shipped. | Part of the Work, covered by the app's own license | Header, About, favicon, home-screen icon |
+| Logo (divided meal-prep container), favicon.svg, favicon.ico, install icons (icon-192.png, icon-512.png, icon-maskable-512.png, apple-touch-icon.png) and the share image (og-image.png) | Original artwork created for this project (refreshed in v5.2). The PNG icons and favicon.ico are the same logo rendered at other sizes. The share image is rendered with the Inter typeface (SIL Open Font License 1.1) baked into the picture; no font file is shipped. | Part of the Work, covered by the app's own license | Header, About, favicon, home-screen icon |
+| Nature art (paper-cutout citrus, produce, leaves and seeds on the Home banner, setup welcome, empty pages and the share image) and the sidebar, install card, share card and tab-title scripts | MB Suite v3 design kit, made for Matthew Broyer's mb apps (templates NA-04, NA-10, NA-16; `mb-suite-sidebar.css`, `mb-suite-v3.css`, `mb-title.js`, `mb-install.js`, `mb-share.js`, inlined in index.html) | Part of the Work | Whole app |
 | Body-type silhouettes (ectomorph, mesomorph, endomorph) | Original artwork created for this project | Part of the Work | Goals and setup |
 | Ingredient library (711 items) and demo recipes | Written for this project. Ingredient names are common food terms. Demo nutrition values are approximate estimates, not lab data. | Part of the Work | Ingredients, Recipes |
 | Fonts | None loaded. The app uses the fonts already on the visitor's device (system font stack). | n/a | n/a |

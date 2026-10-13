@@ -1,5 +1,6 @@
 {
-  "name": "mbmealprep.online",
+  "id": "./",
+  "name": "Meal Prep",
   "short_name": "Meal Prep",
   "description": "Plan your week of meals, hit your macro targets and shop from an automatic grocery list. No account needed.",
   "start_url": "./",
@@ -27,5 +28,11 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+  ],
+  "lang": "en",
+  "categories": [
+    "food",
+    "lifestyle",
+    "productivity"
   ]
 }

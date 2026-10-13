@@ -1,4 +1,6 @@
 # Cloudflare Pages / Netlify. Upload only if your host reads _headers.
+# The page's own CSP (meta tag in index.html) covers scripts, images (data: and blob: for the share image),
+# the manifest and the service worker. This header adds only frame-ancestors, which a meta tag cannot set.
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
@@ -16,3 +18,5 @@
 /manifest.json
   Cache-Control: no-cache
   Content-Type: application/manifest+json
+/sitemap.xml
+  Content-Type: application/xml

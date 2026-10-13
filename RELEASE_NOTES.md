@@ -2,6 +2,16 @@
 
 Newest first. The same notes appear in the app under About > Release notes.
 
+## v5.2 · Web app · October 13, 2026 · Sidebar and sharing
+- When you install it, the app is now named **Meal Prep** on your computer and phone.
+- Navigation moves to a left sidebar on computers (an icon rail on tablets), with Data, About and Setup at the bottom. Phones keep the bottom bar. The logo and name always take you back to Home.
+- Share your week: in the Planner, Week at a glance has a Share button that makes an image of your week (meals planned, recipes used and days on target) right on your device. Save it or share it. Recipe names and body details are never on the image.
+- New produce and citrus art on the Home banner, the setup welcome and empty pages, and a refreshed logo and app icons.
+- The Install card on the Data page now says "Installed on this device" when you are using the installed app.
+- Fixed: on small phones the Skip setup button no longer runs off the screen.
+- Privacy Policy updated to describe the share image. It is made on your device and nothing is uploaded.
+- The version label now reads "v5.2 · Web app". Your saved data, backups and CSV files are unchanged.
+
 ## v5.1 · Web app · October 9, 2026 · Paper Cutouts look
 - Lighter, fresher look (Paper Cutouts): a soft tomato tint across the top of each page, a gradient accent line and tab underline, gradient buttons and progress bars, and a leaf-art banner on Home. Layout, features and numbers are unchanged.
 - New logo and app icons: the same meal-prep container on a softer gradient badge, with a matching share image.
