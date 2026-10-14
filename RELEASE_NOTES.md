@@ -2,6 +2,13 @@
 
 Newest first. The same notes appear in the app under About > Release notes.
 
+## 1.4 · 2026-10-14
+- On computers, the search box, backup status and logo spacing now look exactly like the other mb apps: same size, same "Search…" text and the same "/" shortcut.
+- The top bar matches the other mb apps: logo and name on the left; Search, Data and the light/dark switch as same-size square buttons on phones, with labels on computers.
+- Planner, Grocery, Prep and Recipes: the page buttons now sit in one tidy row under the heading. The main action comes first, Print is a labelled button, and Clear week is a clearly marked red button at the end. On phones the buttons line up in an even two-column grid.
+- Prep: the prep-day picker and Print sit side by side.
+- Your saved data, backups and CSV files are unchanged.
+
 ## 1.3 · 2026-10-14
 - About card at the bottom of the Data page: version, release date, links and copyright in one place. It replaces the small-print line that ran along the bottom of every page.
 - Installing from matthewbroyer.com: the hub's Install button opens the app with a short install prompt.

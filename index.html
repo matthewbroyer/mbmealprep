@@ -1,9 +1,9 @@
 <!doctype html>
-<!-- mbmealprep.online v1.3 · Web app. Copyright 2024–2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
+<!-- mbmealprep.online v1.4 · Web app. Copyright 2024–2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
 <html lang="en" data-app-short="Meal Prep" data-app-domain="mbmealprep.online">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-tf3/doMzgLvL6k/CPslfe/zI93iQ2smt+/bitQDVcd4='; style-src 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-Qr1ySdBRca8tkEun30uhhoCbrRo5igFGxy2+WSA96gE='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#E0523D">
@@ -383,7 +383,6 @@ dialog { border: 0; padding: 0; border-radius: 20px; width: min(520px, 94vw); ba
 .searchbtn { gap: 8px; }
 .searchbtn kbd { display: none; }
 #appbar .btn:hover, #appbar .tab:hover { transform: none; }
-#searchBtn { min-width: 40px; }
 .tab:active { transform: translateY(1px); }
 html { scroll-padding-top: 76px; }
 
@@ -529,7 +528,7 @@ summary { cursor: pointer; } summary:hover { color: var(--accent); }
   .gcheck { min-height: 44px; } .table select { min-height: 44px; }
   summary { display: flex; align-items: center; } .brand { min-height: 44px; align-items: center; }
   .linkbtn { padding: 12px 4px; }
-  #searchBtn { min-width: 44px; } .pslot .pick { min-height: 44px; } footer a { display: inline-block; padding: 12px 4px; }
+  .pslot .pick { min-height: 44px; } footer a { display: inline-block; padding: 12px 4px; }
 }
 /* wizard: visible progress + action always in reach */
 .wiz-meta { display: flex; justify-content: space-between; gap: 12px; font-size: .88rem; color: var(--ink2); margin-bottom: 8px; } .wiz-meta b { color: var(--ink); }
@@ -793,7 +792,6 @@ mark { border-radius: 2px; }
 .card.step { padding-left: 64px; } .stepno { left: 16px; top: 16px; }
 @media (max-width: 960px) { .card.step { padding-left: 16px; padding-top: 58px; } }
 :where(svg).ic { color: inherit; } /* small icons were picking up the search panel's .sm text colour */
-.btn.searchbtn, .btn.sm.searchbtn { font-size: 0; gap: 0; padding-inline: 10px; }
 
 /* --- touch & small screens: keep 44px targets, avoid iOS input zoom --- */
 @media (pointer: coarse), (max-width: 700px) {
@@ -816,13 +814,6 @@ mark { border-radius: 2px; }
 .hero-logo .logo { border-radius: 8px; }
 
 /* light/dark switch */
-.themesw { display: inline-flex; align-items: center; flex: none; padding: 0; border: 0; background: none; cursor: pointer; border-radius: var(--r-sm); color: var(--ink2); }
-.themesw .tk { position: relative; display: block; width: 52px; height: 26px; border-radius: var(--r-sm); background: var(--bg3); border: 1px solid var(--line2); transition: background-color var(--ease), border-color var(--ease); }
-.themesw .th { position: absolute; left: 2px; top: 2px; width: 22px; height: 20px; border-radius: 3px; background: var(--accent); color: var(--btn-ink); display: grid; place-items: center; transition: transform var(--ease); }
-.themesw .th .ic { width: 12px; height: 12px; }
-.themesw[aria-checked="true"] .th { transform: translateX(24px); }
-.themesw:hover .tk { border-color: color-mix(in srgb, var(--ink) 35%, var(--line2)); }
-.themesw:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* header actions share one compact height */
 .bar-actions > .btn, .bar-actions > .bk-chip, .datamenu > summary { min-height: var(--ctl-sm); }
@@ -837,9 +828,8 @@ mark { border-radius: 2px; }
 
 /* Data menu (details dropdown) */
 .datamenu > summary { gap: 6px; position: relative; }
-.datamenu > summary::after { content: ''; width: 7px; height: 7px; margin: -3px 0 0 1px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); opacity: .6; }
 .datamenu[open] > summary, .datamenu.on > summary { background: var(--accent-soft); border-color: var(--accent-line); color: var(--accent-soft-ink); }
-.bk-dot { display: none; position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; border-radius: 2px; background: var(--warn-dot); box-shadow: 0 0 0 2px var(--surface); }
+.bk-dot { position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; border-radius: 2px; background: var(--warn-dot); box-shadow: 0 0 0 2px var(--surface); }
 .moremenu .dm-menu { min-width: 290px; padding: 6px; gap: 2px; }
 .dm-menu .btn { justify-content: flex-start; width: 100%; min-height: var(--ctl); }
 .dm-menu .btn.primary { margin-bottom: 4px; }
@@ -907,10 +897,6 @@ mark { border-radius: 2px; }
 @media (pointer: coarse) { .dm-menu kbd, .bk-actions kbd { display: none; } }
 @media (max-width: 520px) {
   .bk-chip { display: none !important; }
-  .datamenu.warn .bk-dot { display: block; }
-  .datamenu .dm-t { display: none; }
-  .datamenu > summary { width: var(--ctl-sm); padding: 0; justify-content: center; }
-  .datamenu > summary::after { display: none; }
   .bk-actions .btn { flex: 1 1 100%; }
 }
 /* desktop: keep the tab row on one line with the app bar until it no longer fits */
@@ -1074,9 +1060,6 @@ dialog::backdrop { background: rgba(30, 12, 6, .55); backdrop-filter: blur(5px);
 .notice { background: var(--glass); backdrop-filter: blur(14px) saturate(1.4); border-top-color: var(--line); }
 
 /* ---------- light/dark switch ---------- */
-.themesw .tk { width: 54px; height: 28px; border-radius: 99px; background: var(--bg3); border-color: var(--line2); }
-.themesw .th { left: 3px; top: 3px; width: 22px; height: 20px; border-radius: 99px; background: var(--grad-btn); box-shadow: 0 1px 4px rgba(0, 0, 0, .25); }
-.themesw[aria-checked="true"] .th { transform: translateX(26px); }
 
 /* ---------- app bar: top bar (tablet and phone) ---------- */
 #appbar { background: var(--glass); backdrop-filter: blur(16px) saturate(1.5); -webkit-backdrop-filter: blur(16px) saturate(1.5); border-bottom: 1px solid var(--line); box-shadow: none; }
@@ -1296,9 +1279,6 @@ dialog::backdrop{background:var(--scrim);backdrop-filter:none;-webkit-backdrop-f
 .notice{background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none;border-top:1px solid var(--border-strong)}
 
 /* shared light/dark switch */
-.themesw .tk{width:52px;height:26px;border-radius:var(--r-sm);background:var(--surface-2);border:1px solid var(--border-strong)}
-.themesw .th{left:2px;top:2px;width:22px;height:20px;border-radius:3px;background:var(--accent);box-shadow:none}
-.themesw[aria-checked="true"] .th{transform:translateX(24px)}
 
 /* app bar (tablet + phone) with the family accent line */
 #appbar{background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid var(--border);box-shadow:inset 0 3px 0 var(--accent),var(--shadow)}
@@ -1682,7 +1662,34 @@ body[data-view="setup"] .notice{left:0}
 @media (max-width:440px){.wiz-top .brandmini .beta{display:none}}
 .empty-art .cu-art{width:100%}
 @media print{.page-bar,.mb-shell::before{display:none!important}body.mb-shell{padding:0!important}}
+/* v1.4 page toolbar: heading + intro, then one row of actions under it.
+   Primary first (accent), the rest equal-height outline buttons with icon + label, destructive (red text) at the right end.
+   Phones: an even 2-column grid; with an odd count the first button (the primary) spans the full row. */
+.page-head.has-tools{display:block}
+.page-head.has-tools > p{max-width:70ch}
+.page-tools{--pt-h:36px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0 0}
+.page-tools > .btn{box-sizing:border-box;height:var(--pt-h);min-height:var(--pt-h);width:auto;padding:0 14px;gap:7px;margin:0;font:550 13.5px var(--font);border-radius:var(--r-sm)}
+.page-tools > .btn:not(.primary){background:var(--surface);border:1px solid var(--border-strong,var(--line2));color:var(--ink)}
+.page-tools > .btn:not(.primary):hover{background:var(--surface-2,var(--bg2))}
+.page-tools > .btn .ic{width:18px;height:18px;flex:none}
+.page-tools > .btn.dg{margin-left:auto;color:var(--bad)}
+.page-tools > .btn.dg:hover{background:var(--bad-bg);border-color:color-mix(in srgb,var(--bad) 45%,var(--border-strong,var(--line2)))}
+.page-tools > .tool-sel{box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;height:var(--pt-h);margin:0;padding:0 0 0 12px;border:1px solid var(--border-strong,var(--line2));border-radius:var(--r-sm);background:var(--surface);cursor:pointer}
+.page-tools > .tool-sel:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.page-tools > .tool-sel > span{font-size:12.5px;font-weight:600;color:var(--ink2);white-space:nowrap}
+.page-tools > .tool-sel > select{height:calc(var(--pt-h) - 2px);min-height:0;margin:0;padding:0 28px 0 4px;border:0;background-color:transparent;font:600 13.5px var(--font);color:var(--ink);box-shadow:none;outline:none}
+@media (max-width:767px){
+  .page-tools{--pt-h:42px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .page-tools > .btn,.page-tools > .tool-sel{width:100%;min-width:0}
+  .page-tools > .btn.dg{margin-left:0}
+  .page-tools > :first-child:nth-last-child(odd){grid-column:1 / -1}
+  .page-tools > .tool-sel > select{flex:1;min-width:0}
+}
+/* v1.4 standard top bar (mb-suite-topbar.css): the Data dot shows only when a backup is due */
+.page-bar .actions .datamenu:not(.warn) .tb .tb-dot{display:none}
+.page-bar .actions .bk-chip{box-sizing:border-box;height:var(--tb-h,36px);min-height:var(--tb-h,36px);border-radius:var(--r-sm)}
 </style>
+<link rel="stylesheet" href="mb-suite-topbar.css">
 
 <!-- release tags added by mb-release 2026-10-14 -->
 <meta name="application-name" content="Meal Prep">
@@ -1690,20 +1697,20 @@ body[data-view="setup"] .notice{left:0}
 <body class="mb-shell">
 <a class="skip" href="#view">Skip to content</a>
 <aside class="mb-side" id="side" aria-label="App">
-  <a class="brand" href="#/home" aria-label="mbmealprep.online: go to Home"><span class="logo"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="sb-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#e46a58"/><stop offset=".55" stop-color="#E0523D"/><stop offset="1" stop-color="#b34231"/></linearGradient><clipPath id="sb-c"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#sb-c)"><rect width="64" height="64" fill="url(#sb-g)"/><rect x="14.5" y="18.5" width="35" height="27" rx="4" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M 33,19 V 45 M 33,32 H 49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="16.151796" y="19.755266" width="15.855019" height="24.410162" rx="1.8294252" fill="#ffffff" fill-opacity="0.55" style="stroke-width:1.19065"/></g></svg></span><span class="bt"><b>mbmealprep<i class="tld">.online</i></b><span>Official Web App · v1.3</span></span></a>
+  <a class="brand" href="#/home" aria-label="mbmealprep.online: go to Home"><span class="logo"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="sb-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#e46a58"/><stop offset=".55" stop-color="#E0523D"/><stop offset="1" stop-color="#b34231"/></linearGradient><clipPath id="sb-c"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#sb-c)"><rect width="64" height="64" fill="url(#sb-g)"/><rect x="14.5" y="18.5" width="35" height="27" rx="4" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M 33,19 V 45 M 33,32 H 49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="16.151796" y="19.755266" width="15.855019" height="24.410162" rx="1.8294252" fill="#ffffff" fill-opacity="0.55" style="stroke-width:1.19065"/></g></svg></span><span class="bt"><b>mbmealprep<i class="tld">.online</i></b><span>Official Web App · v1.4</span></span></a>
   <nav class="side-nav" id="sideNav" aria-label="Sections"></nav>
   <nav class="side-nav side-end" id="sideEnd" aria-label="More"></nav>
 </aside>
 <div class="mb-main">
 <header class="page-bar" id="pagebar">
-  <a class="brand phone-brand" href="#/home" aria-label="mbmealprep.online: go to Home"><span class="logo"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="pb-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#e46a58"/><stop offset=".55" stop-color="#E0523D"/><stop offset="1" stop-color="#b34231"/></linearGradient><clipPath id="pb-c"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#pb-c)"><rect width="64" height="64" fill="url(#pb-g)"/><rect x="14.5" y="18.5" width="35" height="27" rx="4" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M 33,19 V 45 M 33,32 H 49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="16.151796" y="19.755266" width="15.855019" height="24.410162" rx="1.8294252" fill="#ffffff" fill-opacity="0.55" style="stroke-width:1.19065"/></g></svg></span><span class="bt"><b>mbmealprep<i class="tld">.online</i></b><span>Official Web App · v1.3</span></span></a>
+  <a class="brand phone-brand" href="#/home" aria-label="mbmealprep.online: go to Home"><span class="logo"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="pb-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#e46a58"/><stop offset=".55" stop-color="#E0523D"/><stop offset="1" stop-color="#b34231"/></linearGradient><clipPath id="pb-c"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#pb-c)"><rect width="64" height="64" fill="url(#pb-g)"/><rect x="14.5" y="18.5" width="35" height="27" rx="4" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M 33,19 V 45 M 33,32 H 49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="16.151796" y="19.755266" width="15.855019" height="24.410162" rx="1.8294252" fill="#ffffff" fill-opacity="0.55" style="stroke-width:1.19065"/></g></svg></span><span class="bt"><b>mbmealprep<i class="tld">.online</i></b><span>Official Web App · v1.4</span></span></a>
   <p class="page-title" id="pageTitle" aria-hidden="true">Home</p>
   <div class="actions bar-actions">
-    <button id="searchBtn" class="btn ghost sm searchbtn" data-act="openSearch" aria-label="Search the site" aria-keyshortcuts="Control+K Meta+K /"></button>
+    <button id="searchBtn" type="button" class="tb tb-search" data-act="openSearch" aria-label="Search the site" aria-keyshortcuts="Control+K Meta+K /"></button>
     <span id="storageBadge" class="chip warn" hidden title="Your browser is blocking storage. Save a backup to keep your work.">Storage off</span>
-    <button id="bkChip" type="button" class="bk-chip" data-act="backupNow" hidden></button>
+    <button id="bkChip" type="button" class="bk-chip tb-chip" data-act="backupNow" hidden></button>
     <details class="moremenu datamenu" id="dataMenu">
-      <summary class="btn sm" aria-label="Data: back up, export or import"><span class="dm-ic"></span><span class="dm-t">Data</span><i class="bk-dot" aria-hidden="true"></i></summary>
+      <summary class="tb" aria-label="Data: back up, export or import"><span class="dm-ic"></span><span class="dm-t tb-lbl">Data</span><svg class="tb-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg><i class="bk-dot tb-dot" aria-hidden="true"></i></summary>
       <div class="menu dm-menu" id="dataMenuBody"></div>
     </details>
     <button id="themeBtn" type="button" class="themesw" data-act="theme" role="switch" aria-checked="false" aria-label="Dark mode"></button>
@@ -2151,7 +2158,7 @@ const ICONS = {
   sliders: '<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>',
   sun: '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>',
   moon: '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
-  search: '<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>',
+  search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
   shuffle: '<path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>',
   left: '<path d="M15 18l-6-6 6-6"/>', right: '<path d="M9 18l6-6-6-6"/>',
   up: '<path d="M12 19V5M5 12l7-7 7 7"/>', down: '<path d="M12 5v14M19 12l-7 7-7-7"/>',
@@ -2930,7 +2937,7 @@ zip-top bags|box`;
    Reference data: units, sections, days, ingredient library helpers
    ========================================================================== */
 const DEMO_UPDATED = '2026-09-20T12:00:00.000Z';
-const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'v1.3 · Web app', year: 2026, released: '2026-10-14' };
+const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'v1.4 · Web app', year: 2026, released: '2026-10-14' };
 
 /* Optional support links (leave blank to hide the buttons) */
 const CONFIG = { issueUrl: '', supportUrl: '', siteUrl: '' };
@@ -4112,7 +4119,7 @@ function applyTheme() {
   const dark = state.settings.theme === 'dark';
   document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
   const b = $('#themeBtn');
-  if (b) { b.setAttribute('aria-checked', String(dark)); b.title = dark ? 'Dark mode is on' : 'Dark mode is off'; b.innerHTML = `<span class="tk"><span class="th">${icon(dark ? 'moon' : 'sun', 'sm')}</span></span>`; }
+  if (b) { b.setAttribute('aria-checked', String(dark)); b.title = dark ? 'Dark mode is on' : 'Dark mode is off'; if (!b.querySelector('.i-sun')) b.innerHTML = '<span class="tk"><svg class="i-sun" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10" cy="10" r="3.2"/><path d="M10 2.5v1.8M10 15.7v1.8M2.5 10h1.8M15.7 10h1.8M4.7 4.7l1.3 1.3M14 14l1.3 1.3M4.7 15.3 6 14M14 6l1.3-1.3"/></svg><svg class="i-moon" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M16.5 12.2A6.6 6.6 0 0 1 7.8 3.5a6.6 6.6 0 1 0 8.7 8.7Z"/></svg><i class="th"></i></span>'; }
 }
 ACTIONS.theme = () => { state.settings.theme = state.settings.theme === 'dark' ? 'light' : 'dark'; saveNow(); applyTheme(); };
 ACTIONS.setTheme = el => { state.settings.theme = el.dataset.k === 'dark' ? 'dark' : 'light'; saveNow(); applyTheme(); rerender(); };
@@ -4451,7 +4458,7 @@ VIEWS.setup = {
         ${state.recipes.length ? '' : `<h3>Starter recipes</h3><div class="two-cards"><button type="button" class="gcard${ui.starter !== 'demo' ? ' on' : ''}" data-act="starter" data-k="empty" aria-pressed="${ui.starter !== 'demo'}"><b>Start with a blank library</b><small>Add your own recipes, or import a backup.</small></button>
           <button type="button" class="gcard${ui.starter === 'demo' ? ' on' : ''}" data-act="starter" data-k="demo" aria-pressed="${ui.starter === 'demo'}"><b>Add ${DEMO_RECIPES.length} demo recipes</b><small>Try the whole app with demo recipes. Remove them in one click.</small></button></div>`}`;
     }
-    return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">Official Web App · v1.3</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
+    return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">Official Web App · v1.4</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
       <section class="wiz-card">${body}</section>
       <div class="wiz-nav">${ui.setupStep > 0 ? `<button class="btn" data-act="setupBack">${icon('left')} Back</button>` : '<span></span>'}
       ${id === 'welcome' ? `<span class="muted small">Have a backup? <button class="linkbtn" data-act="setupImport">Import it (JSON or CSV)</button></span>` : ''}
@@ -4630,7 +4637,8 @@ VIEWS.recipes = {
     if (!state.recipes.length) return `<div class="page-head"><h1 class="ph-dup">Recipes</h1></div>${emptyState('No recipes yet', 'Add one, load the demo set, or import your CSV.', `<button class="btn primary" data-act="newRecipe">${icon('plus')} Add a recipe</button><button class="btn" data-act="loadDemo">Load demo recipes</button><button class="btn" data-act="importBackup">Import a backup</button>`)}`;
     const sel = currentRecipeId(), r = getRecipe(sel);
     const types = [['all', 'All'], ...MEAL_TYPES.map(t => [t, t])];
-    return `<div class="page-head row between"><div><h1 class="ph-dup">Recipes</h1><p><span id="rcount">${filteredRecipes().length}</span> of ${state.recipes.length} shown</p></div><button class="btn primary" data-act="newRecipe">${icon('plus')} New recipe</button></div>
+    return `<div class="page-head has-tools"><h1 class="ph-dup">Recipes</h1><p><span id="rcount">${filteredRecipes().length}</span> of ${state.recipes.length} shown</p>
+      <div class="page-tools noprint" role="toolbar" aria-label="Recipe actions"><button class="btn primary" data-act="newRecipe">${icon('plus')}<span>New recipe</span></button></div></div>
       <div class="rv${route.arg && r ? ' has-detail' : ''}">
         <aside class="rlist-wrap"><div class="rfilters">
           <label class="search">${icon('search')}<input type="search" placeholder="Search recipes or ingredients  ( / )" value="${esc(f.q)}" data-input="rq" data-search data-fid="f-rq" aria-label="Search recipes"></label>
@@ -4865,8 +4873,8 @@ VIEWS.planner = {
       <div class="tablewrap"><table class="table"><thead><tr><th>Recipe</th><th class="num">Servings planned</th>${anyCarry ? '<th class="num">From leftovers</th>' : ''}<th class="num">${batchMode ? 'Batches to cook' : 'Recipe multiples'}</th><th class="num">Servings made</th></tr></thead><tbody>${cl.map(x => `<tr><td><a href="#/recipes/${x.r.id}">${esc(x.r.name)}</a></td><td class="num">${fmtQty(round(x.total, 2))}</td>${anyCarry ? `<td class="num">${x.carry > 0.001 ? fmtQty(round(x.carry, 2)) : '–'}</td>` : ''}<td class="num"><b>${fmtQty(round(x.batches, 2))}</b></td><td class="num">${x.batches > 0 ? fmtQty(round(x.made, 2)) : '–'}${x.extra > 0.01 && x.batches > 0 ? ` <span class="muted small">(+${fmtQty(round(x.extra, 2))} extra)</span>` : ''}</td></tr>`).join('')}</tbody></table></div>
       <p class="muted small noprint">${anyCarry ? 'Leftovers on hand already cover part of the week, so the grocery list buys less. ' : ''}<a href="#/prep">Open the Prep page</a> for containers, storage and a step-by-step cooking list.</p></section>` : '';
 
-    return `<div class="page-head row between"><div><h1 class="ph-dup">Planner</h1><p>Pick a recipe for each meal. Totals update as you go${t ? ' and each day is checked against your target' : ''}.</p></div>
-      <div class="row noprint">${t ? `<button class="btn primary" data-act="autoPlan">${icon('wand')} Auto-plan</button>` : ''}<button class="btn" data-act="newWeek">${icon('refresh')} New week</button>${state.history.length ? `<button class="btn ghost" data-act="pastWeeks">${icon('clock')} Past weeks</button>` : ''}<button class="btn ghost dg" data-act="clearWeek">Clear week</button><button class="btn icon" data-act="printPage" aria-label="Print planner" data-tip="Print">${icon('printer')}</button></div></div>
+    return `<div class="page-head has-tools"><h1 class="ph-dup">Planner</h1><p>Pick a recipe for each meal. Totals update as you go${t ? ' and each day is checked against your target' : ''}.</p>
+      <div class="page-tools noprint" role="toolbar" aria-label="Planner actions">${t ? `<button class="btn primary" data-act="autoPlan">${icon('wand')}<span>Auto-plan</span></button>` : ''}<button class="btn" data-act="newWeek">${icon('refresh')}<span>New week</span></button>${state.history.length ? `<button class="btn" data-act="pastWeeks">${icon('clock')}<span>Past weeks</span></button>` : ''}<button class="btn" data-act="printPage" aria-label="Print planner">${icon('printer')}<span>Print</span></button><button class="btn dg" data-act="clearWeek">${icon('trash')}<span>Clear week</span></button></div></div>
       ${t ? `<section class="card target-strip"><div><small>Daily target</small><b>${t.kcal ? fmtInt(t.kcal) + ' kcal' : 'Split only'}</b>${t.kcal ? '' : '<a href="#/goals" class="small"> add your details</a>'}</div>${MK.map(k => `<div><small><i class="dot m-${k}"></i>${MACRO[k].label}</small><b>${t.pct[k]}%${t.grams ? ` · ${fmtInt(t.grams[k])} g` : ''}</b></div>`).join('')}</section>` : ''}
       <div class="row between noprint mode-row"><div class="seg" role="group" aria-label="What servings mean"><button class="${eaten ? 'on' : ''}" data-act="nutMode" data-k="eaten">Servings = portions I eat</button><button class="${!eaten ? 'on' : ''}" data-act="nutMode" data-k="cooked">Servings = portions I cook</button></div>
         <span class="muted small">${eaten ? 'Nutrition is multiplied by servings.' : 'Nutrition counts one portion per meal; servings only drive the grocery list.'}</span></div>
@@ -5036,8 +5044,8 @@ function leftoversCardHTML() {
 }
 VIEWS.prep = {
   render() {
-    const head = `<div class="page-head row between"><div><h1>Prep day</h1><p>Your week as one cooking session: what to cook, how many containers, and what goes in the fridge or freezer.</p></div>
-      <div class="row noprint"><label class="fld inline"><span>Prep day</span><select data-change="prepDay" data-fid="prepDay" aria-label="Prep day">${optionsHTML(DAYS.map(d => [d, d]), state.setup.prepDay)}</select></label><button class="btn icon" data-act="printPage" aria-label="Print prep page" data-tip="Print">${icon('printer')}</button></div></div>`;
+    const head = `<div class="page-head has-tools"><h1>Prep day</h1><p>Your week as one cooking session: what to cook, how many containers, and what goes in the fridge or freezer.</p>
+      <div class="page-tools noprint" role="toolbar" aria-label="Prep actions"><label class="tool-sel"><span>Prep day</span><select data-change="prepDay" data-fid="prepDay" aria-label="Prep day">${optionsHTML(DAYS.map(d => [d, d]), state.setup.prepDay)}</select></label><button class="btn" data-act="printPage" aria-label="Print prep page">${icon('printer')}<span>Print</span></button></div></div>`;
     if (!state.recipes.length) return `<div class="page-head"><h1>Prep day</h1></div>${emptyState('Add recipes to start', 'The Prep page turns your meal plan into one cooking session.', `<button class="btn primary" data-act="newRecipe">${icon('plus')} Add a recipe</button><button class="btn" data-act="loadDemo">Load demo recipes</button>`)}`;
     if (!plannedCount()) return `${head}${emptyState('Plan your week first', 'Once meals are in the planner, this page shows what to cook, how many containers you need and where each portion goes.', '<a class="btn primary" href="#/planner">Open planner</a>')}${leftoversCardHTML()}`;
     const rows = prepModel(), cooking = rows.filter(x => x.batches > 0);
@@ -5109,8 +5117,8 @@ VIEWS.grocery = {
     const gc = groceryCost(list), bud = S.budget, carry = cookList().reduce((a, x) => a + x.carry, 0);
     const costLine = gc.priced ? `<div class="gcost"><span><b>${money(gc.total)}</b> estimated</span>${gc.left < gc.total - 0.005 ? `<span>${money(gc.left)} left to buy</span>` : ''}${bud ? `<span class="${gc.total > bud ? 'over' : 'under'}">${gc.total > bud ? money(gc.total - bud) + ' over' : money(bud - gc.total) + ' under'} your ${money(bud)} budget</span>` : ''}${gc.unpriced ? `<span class="muted">${gc.unpriced} item${gc.unpriced === 1 ? '' : 's'} unpriced</span>` : ''}</div>`
       : (active.length ? `<div class="gcost noprint"><span class="muted">No prices yet. <button type="button" class="linkbtn" data-act="setPrices">Add prices</button> to see what this trip costs and plan to a budget.</span></div>` : '');
-    return `<div class="page-head row between"><div><h1>Grocery list</h1><p>${planned ? 'Built from your meal plan, merged and sorted by store section.' : 'Plan some meals and they show up here automatically.'}</p></div>
-      <div class="row noprint"><button class="btn" data-act="pantryCheck">${icon('home')} Pantry check</button><button class="btn" data-act="setPrices">${icon('dollar')} Prices</button><button class="btn" data-act="gCopy">${icon('copy')} Copy</button><button class="btn" data-act="printPage">${icon('printer')} Print</button></div></div>
+    return `<div class="page-head has-tools"><h1>Grocery list</h1><p>${planned ? 'Built from your meal plan, merged and sorted by store section.' : 'Plan some meals and they show up here automatically.'}</p>
+      <div class="page-tools noprint" role="toolbar" aria-label="Grocery list actions"><button class="btn" data-act="pantryCheck">${icon('home')}<span>Pantry check</span></button><button class="btn" data-act="setPrices">${icon('dollar')}<span>Prices</span></button><button class="btn" data-act="gCopy">${icon('copy')}<span>Copy</span></button><button class="btn" data-act="printPage">${icon('printer')}<span>Print</span></button></div></div>
       ${carry > 0.001 ? `<div class="note noprint">${icon('home')}<span>Leftovers on hand cover ${fmtQty(round(carry, 2))} serving${round(carry, 2) === 1 ? '' : 's'} this week, so this list buys less. <a href="#/prep">See my leftovers</a></span></div>` : ''}
       <div class="gtools card noprint">
         <form id="gform" class="gadd" novalidate><label class="fld"><span>Add an item</span><input id="g-item" list="ingList" placeholder="Anything else you need" autocomplete="off"></label><label class="fld sm"><span>Qty</span><input id="g-qty" inputmode="decimal" placeholder="1"></label><label class="fld sm"><span>Unit</span><input id="g-unit" list="unitList" placeholder="each"></label><button class="btn primary" type="submit">${icon('plus')} Add</button></form>
@@ -5245,6 +5253,7 @@ document.addEventListener('submit', e => {
    Release notes + license text
    ========================================================================== */
 const RELEASES = [
+  { v: 'v1.4', date: 'October 14, 2026', tag: 'Tidier toolbars', notes: ["The top bar matches the other mb apps: logo and name on the left; Search, Data and the light/dark switch as same-size square buttons on phones, with labels on computers.", "Planner, Grocery, Prep and Recipes: the page buttons now sit in one tidy row under the heading. The main action comes first, Print is a labelled button, and Clear week is a clearly marked red button at the end. On phones the buttons line up in an even two-column grid.", "Prep: the prep-day picker and Print sit side by side.", "Your saved data, backups and CSV files are unchanged."] },
   { v: 'v1.3', date: 'October 14, 2026', tag: 'About card', notes: ["New About card at the bottom of the Data page: version, release date, links and copyright in one place. It replaces the line of small print at the bottom of every page.", "Installing from matthewbroyer.com: the hub's Install button opens the app with a short install prompt.", "New \"page not found\" page that matches the app and links back to it.", "Version numbers restart at 1.x with the suite's \"Official Web App\" label; earlier web-app releases were numbered v5.x. Your saved data, backups and CSV files are unchanged."] },
   { v: 'v5.2 · Web app', date: 'October 13, 2026', tag: 'Sidebar and sharing', notes: ["When you install it, the app is now named Meal Prep on your computer and phone.", "Navigation moves to a left sidebar on computers (an icon rail on tablets), with Data, About and Setup at the bottom. Phones keep the bottom bar. The logo and name always take you back to Home.", "Share your week: in the Planner, Week at a glance has a Share button that makes an image of your week (meals planned, recipes used and days on target) right on your device. Save it or share it. Recipe names and body details are never on the image.", "New produce and citrus art on the Home banner, the setup welcome and empty pages, and a refreshed logo and app icons.", "The Install card on the Data page now says \"Installed on this device\" when you are using the installed app.", "Fixed: on small phones the Skip setup button no longer runs off the screen.", "Privacy Policy updated to describe the share image. It is made on your device and nothing is uploaded.", "The version label now reads \"v5.2 · Web app\". Your saved data, backups and CSV files are unchanged."] },
   { v: 'v5.1 · Web app', date: 'October 9, 2026', tag: 'Paper Cutouts look', notes: ["Lighter, fresher look (Paper Cutouts): a soft tomato tint across the top of each page, a gradient accent line and tab underline, gradient buttons and progress bars, and a leaf-art banner on Home. Layout, features and numbers are unchanged.", "New logo and app icons: the same meal-prep container on a softer gradient badge, with a matching share image.", "The version label now reads \"v5.1 · Web app\". Your saved data, backups and CSV files are unchanged."] },
@@ -5629,7 +5638,7 @@ VIEWS.data = {
         <svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg>
         <div>
           <b>mbmealprep.online™</b>
-          <p>Version 1.3 · Oct 14, 2026</p>
+          <p>Version 1.4 · Oct 14, 2026</p>
           <p class="mb-about-links"><button type="button" data-act="whatsNew">What's new</button><a href="#/privacy">Privacy</a><a href="#/terms">Terms</a><a href="https://matthewbroyer.com/">More free apps at matthewbroyer.com</a></p>
           <p class="mb-about-copy">© 2024–2026 Matthew Broyer. All rights reserved.</p>
         </div>
@@ -5994,7 +6003,7 @@ function boot() {
   invalidatePantry(); applyTheme(); refreshIngLists();
   matchMedia('(prefers-color-scheme: dark)').addEventListener && matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
   const sb = $('#setupBtn'); if (sb) sb.innerHTML = icon('sliders') + ' Setup';
-  const sr = $('#searchBtn'); if (sr) sr.innerHTML = icon('search') + '<span>Search</span><kbd>/</kbd>';
+  const sr = $('#searchBtn'); if (sr) sr.innerHTML = icon('search') + '<span class="tb-lbl">Search…</span><kbd>/</kbd>';
   const tt = $('#toTop'); if (tt) tt.innerHTML = icon('up');
   const di = $('#dataMenu .dm-ic'); if (di) di.outerHTML = icon('db');
   const fu = $('#ftUpdated'); if (fu) { fu.textContent = new Date(APP.released + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }); fu.dateTime = APP.released; }
