@@ -2,6 +2,12 @@
 
 Newest first. The same notes appear in the app under About > Release notes.
 
+## 1.3 · 2026-10-14
+- About card at the bottom of the Data page: version, release date, links and copyright in one place. It replaces the small-print line that ran along the bottom of every page.
+- Installing from matthewbroyer.com: the hub's Install button opens the app with a short install prompt.
+- New "page not found" page that matches the app and links back to it.
+- Version numbers restart at 1.x with the suite's "Official Web App" label; earlier web-app releases were numbered v5.x. Your saved data, backups and CSV files are unchanged.
+
 ## v5.2 · Web app · October 13, 2026 · Sidebar and sharing
 - When you install it, the app is now named **Meal Prep** on your computer and phone.
 - Navigation moves to a left sidebar on computers (an icon rail on tablets), with Data, About and Setup at the bottom. Phones keep the bottom bar. The logo and name always take you back to Home.

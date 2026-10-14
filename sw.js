@@ -3,9 +3,8 @@
    It never touches user data (that lives in localStorage/IndexedDB, which this code never reads)
    and ignores every non-GET and cross-origin request. Only deletes its own "mbmealprep-" caches.
    BUMP VERSION ON EVERY RELEASE so old cached files are dropped. */
-const VERSION = 'mbmealprep-5.2.1';
-const SHELL = ['./', 'index.html', 'manifest.json', 'favicon.svg', 'favicon.ico', 'icon-192.png', 'icon-512.png',
-  'icon-maskable-512.png', 'apple-touch-icon.png'];
+const VERSION = 'mbmealprep-1.3.0-20261014-3aa7375b';
+const SHELL = ['./', 'index.html', 'manifest.json', 'favicon.ico', 'favicon.svg', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));

@@ -1,9 +1,9 @@
 <!doctype html>
-<!-- mbmealprep.online v5.2 · Web app. Copyright 2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
+<!-- mbmealprep.online v1.3 · Web app. Copyright 2024–2026 Matthew Broyer. Interface icons follow the Feather Icons style (MIT, Copyright (c) 2013-2017 Cole Bemis). See About > License in the app for the full notice. -->
 <html lang="en" data-app-short="Meal Prep" data-app-domain="mbmealprep.online">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-AuaI0AmD+ddJHs0+L/0peJCmiEwEIRtxsqweiI6OxCY='; style-src 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oWaiOV52mE5HS3Sb6m41skJjrxqm65foGviuG1h1Jq0=' 'sha256-tf3/doMzgLvL6k/CPslfe/zI93iQ2smt+/bitQDVcd4='; style-src 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; manifest-src 'self'; worker-src 'self'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#E0523D">
@@ -1598,6 +1598,18 @@ a.brand:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .mb-install.is-done{border-left-color:var(--good)}
 .mb-install.is-done>.uic{color:var(--good-ink)}
 @media (max-width:520px){.mb-install{flex-wrap:wrap}.mb-install .btn{width:100%}}
+/* ---- about card (bottom of Settings/More, below the Install card · SUITE-STANDARDS §1 · kit v3.1) ---- */
+.mb-about{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;margin-top:12px;border:1px solid var(--border);border-left:3px solid var(--accent);
+  border-radius:var(--r);background:var(--surface)}
+.mb-about>.uic{flex:none;width:22px;height:22px;color:var(--accent)}
+.mb-about>div{flex:1;min-width:0}
+.mb-about b{display:block;font-size:14px;font-weight:600;color:var(--ink)}
+.mb-about p{margin:2px 0 0;font-size:12.5px;color:var(--ink-2)}
+.mb-about .mb-about-links{display:flex;flex-wrap:wrap;gap:0 14px;margin-top:4px}
+.mb-about .mb-about-links a,.mb-about .mb-about-links button{display:inline-flex;align-items:center;min-height:28px;padding:0;border:0;background:none;
+  font:inherit;color:var(--accent);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.mb-about .mb-about-links a:hover,.mb-about .mb-about-links button:hover{color:var(--accent-hover)}
+.mb-about .mb-about-copy{margin-top:4px;color:var(--muted,var(--ink-2))}
 
 /* ---- share button (put it where the milestone is shown) ---- */
 .mb-share-btn .uic{width:16px;height:16px}
@@ -1671,17 +1683,20 @@ body[data-view="setup"] .notice{left:0}
 .empty-art .cu-art{width:100%}
 @media print{.page-bar,.mb-shell::before{display:none!important}body.mb-shell{padding:0!important}}
 </style>
+
+<!-- release tags added by mb-release 2026-10-14 -->
+<meta name="application-name" content="Meal Prep">
 </head>
 <body class="mb-shell">
 <a class="skip" href="#view">Skip to content</a>
 <aside class="mb-side" id="side" aria-label="App">
-  <a class="brand" href="#/home" aria-label="mbmealprep.online: go to Home"><span class="logo"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="sb-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#e46a58"/><stop offset=".55" stop-color="#E0523D"/><stop offset="1" stop-color="#b34231"/></linearGradient><clipPath id="sb-c"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#sb-c)"><rect width="64" height="64" fill="url(#sb-g)"/><rect x="14.5" y="18.5" width="35" height="27" rx="4" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M 33,19 V 45 M 33,32 H 49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="16.151796" y="19.755266" width="15.855019" height="24.410162" rx="1.8294252" fill="#ffffff" fill-opacity="0.55" style="stroke-width:1.19065"/></g></svg></span><span class="bt"><b>mbmealprep<i class="tld">.online</i></b><span>Official Web App · v1.2</span></span></a>
+  <a class="brand" href="#/home" aria-label="mbmealprep.online: go to Home"><span class="logo"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="sb-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#e46a58"/><stop offset=".55" stop-color="#E0523D"/><stop offset="1" stop-color="#b34231"/></linearGradient><clipPath id="sb-c"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#sb-c)"><rect width="64" height="64" fill="url(#sb-g)"/><rect x="14.5" y="18.5" width="35" height="27" rx="4" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M 33,19 V 45 M 33,32 H 49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="16.151796" y="19.755266" width="15.855019" height="24.410162" rx="1.8294252" fill="#ffffff" fill-opacity="0.55" style="stroke-width:1.19065"/></g></svg></span><span class="bt"><b>mbmealprep<i class="tld">.online</i></b><span>Official Web App · v1.3</span></span></a>
   <nav class="side-nav" id="sideNav" aria-label="Sections"></nav>
   <nav class="side-nav side-end" id="sideEnd" aria-label="More"></nav>
 </aside>
 <div class="mb-main">
 <header class="page-bar" id="pagebar">
-  <a class="brand phone-brand" href="#/home" aria-label="mbmealprep.online: go to Home"><span class="logo"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="pb-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#e46a58"/><stop offset=".55" stop-color="#E0523D"/><stop offset="1" stop-color="#b34231"/></linearGradient><clipPath id="pb-c"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#pb-c)"><rect width="64" height="64" fill="url(#pb-g)"/><rect x="14.5" y="18.5" width="35" height="27" rx="4" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M 33,19 V 45 M 33,32 H 49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="16.151796" y="19.755266" width="15.855019" height="24.410162" rx="1.8294252" fill="#ffffff" fill-opacity="0.55" style="stroke-width:1.19065"/></g></svg></span><span class="bt"><b>mbmealprep<i class="tld">.online</i></b><span>Official Web App · v1.2</span></span></a>
+  <a class="brand phone-brand" href="#/home" aria-label="mbmealprep.online: go to Home"><span class="logo"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs><linearGradient id="pb-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#e46a58"/><stop offset=".55" stop-color="#E0523D"/><stop offset="1" stop-color="#b34231"/></linearGradient><clipPath id="pb-c"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#pb-c)"><rect width="64" height="64" fill="url(#pb-g)"/><rect x="14.5" y="18.5" width="35" height="27" rx="4" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M 33,19 V 45 M 33,32 H 49" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="16.151796" y="19.755266" width="15.855019" height="24.410162" rx="1.8294252" fill="#ffffff" fill-opacity="0.55" style="stroke-width:1.19065"/></g></svg></span><span class="bt"><b>mbmealprep<i class="tld">.online</i></b><span>Official Web App · v1.3</span></span></a>
   <p class="page-title" id="pageTitle" aria-hidden="true">Home</p>
   <div class="actions bar-actions">
     <button id="searchBtn" class="btn ghost sm searchbtn" data-act="openSearch" aria-label="Search the site" aria-keyshortcuts="Control+K Meta+K /"></button>
@@ -1696,7 +1711,6 @@ body[data-view="setup"] .notice{left:0}
   <div id="progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
 </header>
 <main id="view" tabindex="-1"><div class="skel" aria-hidden="true"><i class="sk sk-h"></i><i class="sk sk-p"></i><div class="sk-grid"><i class="sk sk-c"></i><i class="sk sk-c"></i><i class="sk sk-c"></i></div></div><noscript><p style="padding:24px">This app needs JavaScript to run.</p></noscript></main>
-<footer>© 2026 Matthew Broyer · mbmealprep.online · Official Web App · v1.2 · Last updated <time id="ftUpdated"></time> · <a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a> · <a href="#/about">Release notes &amp; license</a></footer>
 </div>
 <div id="printSheet" aria-hidden="true"></div>
 <button id="toTop" class="totop" data-act="toTop" aria-label="Back to top" hidden></button>
@@ -1729,7 +1743,7 @@ body[data-view="setup"] .notice{left:0}
 /* =====================================================================
    MB Suite v3 · "Install app" card (mbmealprep addition: optional data-ios-note line on iPhone/iPad) for the Settings / More page. No dependencies.
    1) Put this where the card should appear (Settings or More), once:
-        <div data-mb-install data-app-name="Money"
+        <div data-mb-install data-app-name="Meal Prep"
              data-note="Opens in its own window with its own icon. Works offline after the first visit."></div>
    2) Load this file (or inline it) once. If the Settings view is re-rendered by your app, call MBInstall.render() after it renders.
    3) Register the service worker once, at the end of the app's main script:  MBInstall.registerSW('sw.js');
@@ -1781,6 +1795,66 @@ body[data-view="setup"] .notice{left:0}
   window.addEventListener('appinstalled', function () { deferred = null; render(); });
   document.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('[data-mb-install-btn]'); if (b) install(); });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
+  /* ---- v3.1 · install link ------------------------------------------------------------
+     Opening the app as <domain>/?install (the hub's Install buttons do this) shows a small
+     install sheet once, then removes ?install from the address bar. It uses the same rules as
+     the card: a real Install button only when the browser offers install, iPhone steps on iOS,
+     plain guidance otherwise, nothing when already running as the installed app. */
+  var sheet = null, sheetUsed = false, sheetDone = false;
+  var SHEET_CSS = '.mb-isheet{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:2147483000;width:min(460px,calc(100% - 24px));border-radius:var(--r,6px);box-shadow:0 12px 32px -8px rgba(20,24,31,.35),0 2px 6px rgba(20,24,31,.12);animation:mbis .16s ease-out}' +
+    '.mb-isheet .mb-install{align-items:flex-start;padding:14px 44px 14px 14px;position:relative;flex-wrap:nowrap}' +
+    '.mb-isheet-a{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.mb-isheet-a .btn{width:auto!important}' +
+    '.mb-isheet-x{position:absolute;top:6px;right:6px;width:32px;height:32px;display:grid;place-items:center;border:0;border-radius:4px;background:none;color:var(--ink-2,#48505c);font-size:22px;line-height:1;cursor:pointer}' +
+    '.mb-isheet-x:hover{background:var(--hover-band,rgba(20,24,31,.06))}' +
+    '@media (max-width:767px){.mb-isheet{bottom:calc(84px + env(safe-area-inset-bottom,0px))}.mb-isheet-x{width:44px;height:44px;top:2px;right:2px}}' +
+    '@keyframes mbis{from{opacity:0;transform:translate(-50%,8px)}}@media (prefers-reduced-motion:reduce){.mb-isheet{animation:none}}';
+  function appName() {
+    var box = document.querySelector('[data-mb-install][data-app-name]'), m = document.querySelector('meta[name="application-name"]');
+    return (box && box.getAttribute('data-app-name')) || document.documentElement.getAttribute('data-app-short') || (m && m.content) || (document.title.split('|')[0] || '').trim() || 'this app';
+  }
+  function wantSheet() {
+    try {
+      var u = new URL(location.href), hit = u.searchParams.has('install') || u.hash === '#install';
+      if (!hit) return false;
+      u.searchParams.delete('install'); if (u.hash === '#install') u.hash = '';
+      history.replaceState(history.state, '', u.pathname + u.search + u.hash);
+      return true;
+    } catch (e) { return false; }
+  }
+  function sheetBody(name) {
+    var n = esc(name), close = '<button type="button" class="btn" data-mb-isheet-close>Not now</button>';
+    if (sheetDone) return '<div><b id="mb-isheet-t">' + n + ' is installed</b><p>Open it from your home screen or app list.</p><div class="mb-isheet-a"><button type="button" class="btn primary" data-mb-isheet-close>Done</button></div></div>';
+    if (standalone()) return '';
+    if (deferred) return '<div><b id="mb-isheet-t">Install ' + n + '</b><p>Opens in its own window with its own icon. Remove it any time like any other app.</p><div class="mb-isheet-a"><button type="button" class="btn primary" data-mb-install-btn>Install</button>' + close + '</div></div>';
+    if (sheetUsed) return '';                       // the prompt was answered; nothing more to say
+    if (ios()) return '<div><b id="mb-isheet-t">Add ' + n + ' to your Home Screen</b><p>Tap <b>Share</b>, then <b>Add to Home Screen</b>. It opens full screen with its own icon.</p><div class="mb-isheet-a"><button type="button" class="btn primary" data-mb-isheet-close>Got it</button></div></div>';
+    return '<div><b id="mb-isheet-t">Install ' + n + '</b><p>This browser hasn’t offered to install the app. In Chrome or Edge, use the install icon in the address bar or the browser menu. Some browsers, like Firefox on a computer, can’t install web apps. Already installed? Open it from your apps.</p><div class="mb-isheet-a"><button type="button" class="btn primary" data-mb-isheet-close>OK</button></div></div>';
+  }
+  function closeSheet() { if (sheet) { sheet.remove(); sheet = null; } }
+  function showSheet() {
+    var body = sheetBody(appName());
+    if (!body) { closeSheet(); return; }
+    var fresh = !sheet;
+    if (fresh) {
+      if (!document.getElementById('mb-isheet-css')) { var st = document.createElement('style'); st.id = 'mb-isheet-css'; st.textContent = SHEET_CSS; document.head.appendChild(st); }
+      sheet = document.createElement('div'); sheet.className = 'mb-isheet';
+      sheet.setAttribute('role', 'dialog'); sheet.setAttribute('aria-labelledby', 'mb-isheet-t');
+      document.body.appendChild(sheet);
+    }
+    sheet.innerHTML = '<div class="mb-install">' + ICON + body + '<button type="button" class="mb-isheet-x" data-mb-isheet-close aria-label="Close">×</button></div>';
+    var first = sheet.querySelector('.btn.primary'); if (first && (fresh || !sheet.contains(document.activeElement))) first.focus();
+  }
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('[data-mb-isheet-close]')) closeSheet();
+    else if (sheet && e.target.closest && e.target.closest('.mb-isheet [data-mb-install-btn]')) { sheetUsed = true; setTimeout(closeSheet, 0); }   // the browser's own dialog takes over
+  });
+  document.addEventListener('keydown', function (e) { if (sheet && e.key === 'Escape') { e.stopImmediatePropagation(); closeSheet(); } }, true);   // Esc closes only the sheet, not the app's own dialog under it
+  window.addEventListener('appinstalled', function () { if (sheet) { sheetDone = true; showSheet(); } });
+  window.addEventListener('beforeinstallprompt', function () { if (sheet) setTimeout(showSheet, 0); });
+  if (wantSheet()) {
+    var go = function () { setTimeout(showSheet, deferred ? 0 : 1200); };   // give the browser a moment to offer install
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+  }
   window.MBInstall = { render: render, install: install, registerSW: registerSW, canInstall: function () { return !!deferred; }, isInstalled: standalone };
 })();
 /* =====================================================================
@@ -2856,7 +2930,7 @@ zip-top bags|box`;
    Reference data: units, sections, days, ingredient library helpers
    ========================================================================== */
 const DEMO_UPDATED = '2026-09-20T12:00:00.000Z';
-const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'v5.2 · Web app', year: 2026, released: '2026-10-13' };
+const APP = { name: 'mbmealprep.online', formerName: 'The Pantry Partner', version: 'v1.3 · Web app', year: 2026, released: '2026-10-14' };
 
 /* Optional support links (leave blank to hide the buttons) */
 const CONFIG = { issueUrl: '', supportUrl: '', siteUrl: '' };
@@ -4377,7 +4451,7 @@ VIEWS.setup = {
         ${state.recipes.length ? '' : `<h3>Starter recipes</h3><div class="two-cards"><button type="button" class="gcard${ui.starter !== 'demo' ? ' on' : ''}" data-act="starter" data-k="empty" aria-pressed="${ui.starter !== 'demo'}"><b>Start with a blank library</b><small>Add your own recipes, or import a backup.</small></button>
           <button type="button" class="gcard${ui.starter === 'demo' ? ' on' : ''}" data-act="starter" data-k="demo" aria-pressed="${ui.starter === 'demo'}"><b>Add ${DEMO_RECIPES.length} demo recipes</b><small>Try the whole app with demo recipes. Remove them in one click.</small></button></div>`}`;
     }
-    return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">Official Web App · v1.2</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
+    return `<div class="wizard"><div class="wiz-top"><span class="brandmini">${logo(22)} ${APP.name} <span class="beta">Official Web App · v1.3</span></span>${state.setup.done ? '<a class="btn" href="#/home">Close</a>' : '<button class="btn ghost" data-act="skipSetup">Skip setup</button>'}</div>${prog}
       <section class="wiz-card">${body}</section>
       <div class="wiz-nav">${ui.setupStep > 0 ? `<button class="btn" data-act="setupBack">${icon('left')} Back</button>` : '<span></span>'}
       ${id === 'welcome' ? `<span class="muted small">Have a backup? <button class="linkbtn" data-act="setupImport">Import it (JSON or CSV)</button></span>` : ''}
@@ -5171,6 +5245,7 @@ document.addEventListener('submit', e => {
    Release notes + license text
    ========================================================================== */
 const RELEASES = [
+  { v: 'v1.3', date: 'October 14, 2026', tag: 'About card', notes: ["New About card at the bottom of the Data page: version, release date, links and copyright in one place. It replaces the line of small print at the bottom of every page.", "Installing from matthewbroyer.com: the hub's Install button opens the app with a short install prompt.", "New \"page not found\" page that matches the app and links back to it.", "Version numbers restart at 1.x with the suite's \"Official Web App\" label; earlier web-app releases were numbered v5.x. Your saved data, backups and CSV files are unchanged."] },
   { v: 'v5.2 · Web app', date: 'October 13, 2026', tag: 'Sidebar and sharing', notes: ["When you install it, the app is now named Meal Prep on your computer and phone.", "Navigation moves to a left sidebar on computers (an icon rail on tablets), with Data, About and Setup at the bottom. Phones keep the bottom bar. The logo and name always take you back to Home.", "Share your week: in the Planner, Week at a glance has a Share button that makes an image of your week (meals planned, recipes used and days on target) right on your device. Save it or share it. Recipe names and body details are never on the image.", "New produce and citrus art on the Home banner, the setup welcome and empty pages, and a refreshed logo and app icons.", "The Install card on the Data page now says \"Installed on this device\" when you are using the installed app.", "Fixed: on small phones the Skip setup button no longer runs off the screen.", "Privacy Policy updated to describe the share image. It is made on your device and nothing is uploaded.", "The version label now reads \"v5.2 · Web app\". Your saved data, backups and CSV files are unchanged."] },
   { v: 'v5.1 · Web app', date: 'October 9, 2026', tag: 'Paper Cutouts look', notes: ["Lighter, fresher look (Paper Cutouts): a soft tomato tint across the top of each page, a gradient accent line and tab underline, gradient buttons and progress bars, and a leaf-art banner on Home. Layout, features and numbers are unchanged.", "New logo and app icons: the same meal-prep container on a softer gradient badge, with a matching share image.", "The version label now reads \"v5.1 · Web app\". Your saved data, backups and CSV files are unchanged."] },
   { v: 'v5 · Web app', date: 'October 9, 2026', tag: 'New look', notes: [
@@ -5533,7 +5608,6 @@ VIEWS.data = {
         <p class="bk-where">${icon('folder', 'sm')}<span>${backupWhereHTML()}</span></p>
         <p class="muted small">JSON is the recommended backup: it restores everything exactly. The CSV holds the same data in a spreadsheet-friendly form and can be imported too. Both include any health details you entered, so keep them somewhere private. <a href="#/privacy">Privacy Policy</a></p>
         <div class="row bk-extra"><button class="btn ghost sm" data-act="copyCsv">${icon('copy')} Copy CSV to clipboard</button><button class="btn ghost sm" data-act="templateCsv">Blank CSV template</button></div></section>
-      <div data-mb-install data-app-name="Meal Prep" data-note="Opens in its own window with its own icon. Works offline after the first visit." data-ios-note="The installed app keeps its own saved data, separate from Safari. Save a backup here first, then import it in the installed app." hidden></div>
       <div class="grid-2 data-grid">
         <section class="card" id="impCard"><h2>${icon('upload')} Import</h2>
           <label class="drop" id="drop" for="impFile">${icon('upload', 'lg')}<b>Drop a backup file here</b><span>JSON or CSV · or click to choose a file</span></label><input type="file" id="impFile" accept=".json,.csv,.tsv,.txt,application/json,text/csv" hidden data-change="impFile">
@@ -5549,7 +5623,17 @@ VIEWS.data = {
           <div class="row"><button class="btn danger-o" data-act="resetRecipes">Erase recipes &amp; plans</button><button class="btn danger-o" data-act="resetAll">Erase everything</button></div></section></div></div>
       <details class="card fmt"><summary>CSV format reference</summary><p class="muted">The first row is a header. The first column, <code>record</code>, says what each row is. Headers are case-insensitive and the columns can be in any order. Only the columns you need must be present.</p>
         <div class="tablewrap"><table class="table"><thead><tr><th>record</th><th>What it holds</th><th>Columns used</th></tr></thead><tbody>${rows.map(r => `<tr><td><code>${esc(r[0])}</code></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div>
-        <p class="muted small">All columns: <code>${CSV_COLS.join(', ')}</code></p></details>`;
+        <p class="muted small">All columns: <code>${CSV_COLS.join(', ')}</code></p></details>
+      <div data-mb-install data-app-name="Meal Prep" data-note="Opens in its own window with its own icon. Works offline after the first visit." data-ios-note="The installed app keeps its own saved data, separate from Safari. Save a backup here first, then import it in the installed app." hidden></div>
+      <div class="mb-about" role="group" aria-label="About this app">
+        <svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg>
+        <div>
+          <b>mbmealprep.online™</b>
+          <p>Version 1.3 · Oct 14, 2026</p>
+          <p class="mb-about-links"><button type="button" data-act="whatsNew">What's new</button><a href="#/privacy">Privacy</a><a href="#/terms">Terms</a><a href="https://matthewbroyer.com/">More free apps at matthewbroyer.com</a></p>
+          <p class="mb-about-copy">© 2024–2026 Matthew Broyer. All rights reserved.</p>
+        </div>
+      </div>`;
   },
   after() {
     const drop = $('#drop'); if (!drop) return;
@@ -5598,7 +5682,7 @@ ACTIONS.resetAll = async () => {
 /* ---- About ---- */
 VIEWS.about = {
   render() {
-    return `<div class="page-head"><h1 class="about-h">${logo(40)} ${APP.name}</h1><p><span class="beta">Official Web App · v1.2</span> · © ${APP.year} Matthew Broyer</p></div>
+    return `<div class="page-head"><h1 class="about-h">${logo(40)} ${APP.name}</h1></div>
       <div class="chips noprint"><button class="chipbtn" data-act="scrollTo" data-t="ab-about">About</button><button class="chipbtn" data-act="scrollTo" data-t="ab-notes">Release notes</button><button class="chipbtn" data-act="scrollTo" data-t="ab-license">License</button></div>
       <section class="card prose" id="ab-about"><h2>About</h2>
         <p>${esc(APP.name)} plans your week of meals, hits your macro targets and builds a grocery list you can shop from. It started in 2024 as a spreadsheet called The Pantry Partner and was used for years before becoming this web app.</p>
@@ -5611,6 +5695,7 @@ VIEWS.about = {
   }
 };
 ACTIONS.scrollTo = el => revealAndScroll(el.dataset.t);
+ACTIONS.whatsNew = () => aboutJump('rel-0');   // About card "What's new": the newest release notes on the About page
 
 /* ==========================================================================
    Site chrome: mobile menu, scroll progress, back-to-top, site search,
